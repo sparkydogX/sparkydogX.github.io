@@ -51,13 +51,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=7.0.1">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
@@ -419,9 +419,19 @@
       
         
           
-            <p>metapost是一个历史悠久的作图工具，生成的是postscript矢量图，在一些领域有比较多的使用。<br>本文讲述如何在Ubuntu下安装使用metapost。<br>metapost的作者是大名鼎鼎的Donald Knuth，也是tex的主要作者。<br>在Ubuntu中想使用metapost首先要安装tex。<br><code>sudo apt-get install texlive</code><br><code>sudo apt-get install texlive-metapost</code><br>安装完成后输入命令：<br><code>mpost myfigure.mp</code><br>即可从描述文件myfigure.mp生成ps矢量图。<br>metapost有个扩展metafun，常常会一起使用。<br><code>sudo apt-get install context</code><br>使用时的指令为：<br><code>mpost --mem=metafun myfigure.mp</code></p>
-
+            <p>
+              metapost是一个历史悠久的作图工具，生成的是postscript矢量图，在一些领域有比较多的使用。本文讲述如何在Ubuntu下安装使用metapost。metapost的作者是大名鼎鼎的Donald Knuth，也是tex的主要作者。在Ubuntu中想使用metapost首先要安装tex。su
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/18/metapost/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -562,10 +572,20 @@
       
         
           
-            <p>Jupyter Notebook是一个非常好用的工具。使用pyplot在Jupyter Notebook中作图可以直接展示在Cell中，有时候我们需要刷新图像的内容，或者希望能产生动图。为了这一效果，我们需要用到display以及一些控件。</p>
-<p><script src="https://gist.github.com/sparkydogX/41b92905e67b8f0214515df92e94c86f.js"></script><br>这段代码产生一个显示区域和一个button，每次点击button就会刷新图像。<br>如果需要播放视频，根据需要的帧率运行sleep命令即可。</p>
-
+            <p>
+              Jupyter Notebook是一个非常好用的工具。使用pyplot在Jupyter Notebook中作图可以直接展示在Cell中，有时候我们需要刷新图像的内容，或者希望能产生动图。为了这一效果，我们需要用到display以及一些控件。
+这段代码产生一个显示区域和一个button，每次点击but
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/14/jupyter-udate-image-in-single-cell/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -706,10 +726,21 @@
       
         
           
-            <p>在一张图上绘制多个直方图的关键在于透明度alpha的设置，代码如下：</p>
-<p><script src="https://gist.github.com/sparkydogX/1cfdc865d84d531b1da9a9524f846cde.js"></script><br>效果如下：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/2018-12-13.png" alt="img"></p>
+            <p>
+              在一张图上绘制多个直方图的关键在于透明度alpha的设置，代码如下：
+效果如下：
 
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/13/multi-hist-pyplot/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -850,68 +881,20 @@
       
         
           
-            <p>SciNote是一个开源的ELN（Electronic Lab Notebook）, Github页面:<a href="https://github.com/biosistemika/scinote-web" target="_blank" rel="noopener">https://github.com/biosistemika/scinote-web</a><br>有一个在线服务<a href="https://www.scinote.net" target="_blank" rel="noopener">SciNote</a>, 但是国内网速很慢, 难以使用.<br>由于scinote开源，因此可以在本地部署。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
-<li><p>获取源代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/biosistemika/scinote-web.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建文件<code>config/application.yml</code><br> <a href="https://github.com/biosistemika/scinote-web/wiki/Environmental-variables" target="_blank" rel="noopener">对应变量说明</a></p>
-</li>
-<li>环境要求:</li>
-</ol>
-<ul>
-<li><code>make</code>,</li>
-<li><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>,</li>
-<li><a href="https://github.com/docker/compose" target="_blank" rel="noopener">docker-compose</a>,</li>
-<li>3000端口</li>
-</ul>
-<ol start="5">
-<li>确认安装权限<br> 如果在Ubuntu下, 运行<code>sudo -i</code>获取sudo权限</li>
-</ol>
-<h1 id="开发者环境"><a href="#开发者环境" class="headerlink" title="开发者环境"></a>开发者环境</h1><ol start="6">
-<li>依次执行以下命令:<br> <code>make docker</code><br> <code>make run</code><br> 等待执行完毕可以看到服务已经运行在3000端口,     然后在命令行中<code>Ctrl + C</code>停止服务.<br> <a href="https://github.com/biosistemika/scinote-web/wiki/Build-&amp;-run" target="_blank" rel="noopener">参考页面</a></li>
-<li><p>执行<code>make cli</code>进入docker container, 依次执行以下语句:  </p>
-<ul>
-<li><code>rails db:drop</code></li>
-<li><code>rails db:create</code></li>
-<li><code>rails db:migrate</code></li>
-<li><code>rails db:seed</code></li>
-<li><code>exit</code></li>
-</ul>
-</li>
-<li><p>到这里已经可以在<a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 看到有服务在运行了, 但是我运行到这一步的时候, 显示的是错误页面. 我检查之后发现container下面的public文件夹几乎是空的. 这个项目使用的是前端webpacker + 后端rails. 我推测是没有编译webpacker导致的问题, 但是我对于这两个工具都相当不熟悉, 没能找到编译的方法. 如果是对于这两个工具比较熟悉的朋友, 应该编译一下就能用了. 尝试编译的朋友请在评论区留个言~<br>我没办法只能转向生产环境</p>
-</li>
-</ol>
-<h1 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h1><ol start="9">
-<li>依次执行以下语句:<br> <code>make config-production</code><br> <code>make docker-production</code><br> <code>make database-production</code></li>
-<li>启动服务:<br><code>docker-compose -f ./docker-compose.production.yml up</code><br>如果想在后台运行, 使用<code>docker-compose -f ./docker-compose.production.yml up -d</code></li>
-<li>此时在<a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 已经可以正常使用了.<br><a href="https://github.com/biosistemika/scinote-web/wiki/Production-mode#updating-scinote-installation-running-in-production-mode" target="_blank" rel="noopener">参考页面</a></li>
-</ol>
-<h1 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h1><p>需要备份的数据有postgres数据库中的数据和系统文件, 以及<code>config/application.yml</code>和<code>production.env</code>文件.</p>
-<h2 id="备份postgresql数据库"><a href="#备份postgresql数据库" class="headerlink" title="备份postgresql数据库"></a>备份postgresql数据库</h2><p><code>docker exec scinote_db_production pg_dump -h localhost -p 5432 -U postgres -d scinote_production -c -b -f /home/db.bak</code><br><code>docker cp scinote_db_production:/home/db.bak  /your/bakup/path/</code></p>
-<h2 id="备份文件系统中的数据"><a href="#备份文件系统中的数据" class="headerlink" title="备份文件系统中的数据"></a>备份文件系统中的数据</h2><p><code>docker cp scinote_web_production:/usr/src/app/public/system /your/bakup/path/</code></p>
-<h2 id="定期执行备份"><a href="#定期执行备份" class="headerlink" title="定期执行备份"></a>定期执行备份</h2><p>将上述命令编写成脚本, 使用crontab定期执行备份.<br>这里也可以结合以前提到过的bypy工具包, 定期备份到百度云.<br>我的备份脚本：</p>
-<script src="https://gist.github.com/sparkydogX/38eb045791bfd9f4697612f21850acd2.js"></script>
-
-<h1 id="恢复数据"><a href="#恢复数据" class="headerlink" title="恢复数据"></a>恢复数据</h1><p>如果是在另外一台主机上恢复数据, 需要将备份的<code>config/application.yml</code>和<code>production.env</code>文件拷贝到对应位置.</p>
-<h2 id="恢复postgresql数据库"><a href="#恢复postgresql数据库" class="headerlink" title="恢复postgresql数据库"></a>恢复postgresql数据库</h2><ul>
-<li>拷贝数据到container:<br><code>docker cp db.bak scinote_db_production:/home/db.bak</code></li>
-<li>进入scinote_db_production的container,执行<br><code>psql -h localhost -p 5432 -U postgres -d scinote_production  -f /home/db.bak</code><br><code>docker cp ~/Documents/sciweb-data-bak/system/. scinote_web_production:/usr/src/app/public/system/</code><br><code>make docker-production</code></li>
-</ul>
-<h2 id="恢复文件系统中的数据"><a href="#恢复文件系统中的数据" class="headerlink" title="恢复文件系统中的数据"></a>恢复文件系统中的数据</h2><ul>
-<li>拷贝数据到container:<br><code>docker cp /your/bakup/path/ scinote_web_production:/usr/src/app/public/system</code></li>
-</ul>
-<h2 id="更新源文件"><a href="#更新源文件" class="headerlink" title="更新源文件"></a>更新源文件</h2><ol>
-<li>重建docker镜像: <code>make docker-production</code></li>
-<li>迁移数据:<ul>
-<li><code>make cli-production</code></li>
-<li><code>rails db:migrate</code></li>
-</ul>
-</li>
-<li>重启docker container<br> <code>docker-compose -f ./docker-compose.production.yml up -d</code></li>
-</ol>
-
+            <p>
+              SciNote是一个开源的ELN（Electronic Lab Notebook）, Github页面:https://github.com/biosistemika/scinote-web有一个在线服务SciNote, 但是国内网速很慢, 难以使用.由于scinote开源，因此可以在本地部署。
+准
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/13/scinote-deploy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1052,39 +1035,20 @@
       
         
           
-            <p>elabfw是一个开源的实验记录工具. 可以自由的部署在个人PC或者服务器上.<br>官方安装文档:<a href="https://doc.elabftw.net/install.html" target="_blank" rel="noopener">https://doc.elabftw.net/install.html</a></p>
-<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>首先要安装docker, 如果网络环境允许, 可以跟随<a href="https://docs.docker.com/compose/install/这个页面上的指示" target="_blank" rel="noopener">https://docs.docker.com/compose/install/这个页面上的指示</a>. 但是我安装的时候网速相当慢, 后来使用国内的镜像代替.<br>我的安装步骤如下:</p>
-<ol>
-<li><p>安装docker的依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载deb文件<br>我下载的是中科大的镜像网站上的文件.链接: <a href="http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb</a>   </p>
-</li>
-<li><p>安装deb文件<br><code>sudo deb -i docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb</code>  </p>
-</li>
-<li><p>安装<code>Docker Compose</code><br>我的安装参考这个页面:<a href="https://docs.docker.com/compose/install/#master-builds" target="_blank" rel="noopener">https://docs.docker.com/compose/install/#master-builds</a><br><code>sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</code><br><code>sudo chmod +x /usr/local/bin/docker-compose</code><br>测试是否安装成功: <code>docker-compose --version</code>  </p>
-</li>
-<li><p>安装dialog<br><code>sudo apt-get install dialog</code></p>
-</li>
-</ol>
-<h1 id="安装eLabFTW"><a href="#安装eLabFTW" class="headerlink" title="安装eLabFTW"></a>安装eLabFTW</h1><ol>
-<li><p>安装elabctl</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the program (a bash script)</span></span><br><span class="line">curl -sL https://get.elabftw.net -o elabctl &amp;&amp; chmod +x elabctl</span><br><span class="line"><span class="comment"># add it to a directory in your $PATH</span></span><br><span class="line">sudo mv elabctl /usr/<span class="built_in">local</span>/bin/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置elabctl<br><code>elabctl install</code></p>
-</li>
-<li><p>(可选)编辑配置文件<br>配置文件位置:<code>/etc/elabftw.yml</code></p>
-</li>
-<li><p>启动eLabFTW<br><code>sudo elabctl start</code></p>
-</li>
-</ol>
-<h1 id="使用eLabFTW"><a href="#使用eLabFTW" class="headerlink" title="使用eLabFTW"></a>使用eLabFTW</h1><p>eLabFTW默认运行在443端口, 因此访问https://&lt;your-elabftw-site.org&gt; (或者 https://<ip address>)<br>注册的第一个账户会成为管理员账户.<br>之后应当在设置界面配置一个SMTP账户, 确保在忘记密码的时候可以发送邮件到注册的邮箱, 否则忘记密码之后是无法找回的, 切记!  </ip></p>
-<h2 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h2><p><code>sudo elabctl backup</code><br>对应script: <a href="https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0" target="_blank" rel="noopener">https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0</a><br>script中的SQL user/password可以在docker container中的/elabftw/config.php找到.<br>相关页面:<a href="https://doc.elabftw.net/backup.html#backup" target="_blank" rel="noopener">https://doc.elabftw.net/backup.html#backup</a></p>
-<h2 id="恢复备份"><a href="#恢复备份" class="headerlink" title="恢复备份"></a>恢复备份</h2><p>恢复页面恢复数据库(elabftw):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unzip uploaded_files-YYYY-MM-DD.zip</span><br><span class="line">mv var/elabftw/web/* /var/elabftw/web</span><br><span class="line">mv etc/elabftw.yml /etc/elabftw.yml</span><br><span class="line"># now fix the permissions</span><br><span class="line">chown -R 100:101 /var/elabftw/web</span><br><span class="line">chmod 600 /etc/elabftw.yml</span><br></pre></td></tr></table></figure></p>
-<p>恢复数据库(在mysql的container中操作):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gunzip mysql_dump-YYYY-MM-DD.sql.gz # uncompress the file</span><br><span class="line">docker cp mysql_dump-YYYY-MM-DD.sql mysql:/ # copy it inside the mysql container</span><br><span class="line">docker exec -it mysql bash # spawn a shell in the mysql container</span><br><span class="line">mysql -uroot -p # login to mysql prompt</span><br><span class="line"># here you type the password you put in MYSQL_ROOT_PASSWORD in the /etc/elabftw.yml file</span><br><span class="line">Mysql&gt; drop database elabftw; # delete the brand new database</span><br><span class="line">Mysql&gt; create database elabftw; # create a new one</span><br><span class="line">Mysql&gt; use elabftw; # select it</span><br><span class="line">Mysql&gt; source mysql_dump-YYYY-MM-DD.sql; # import the backup</span><br><span class="line">Mysql&gt; exit;</span><br></pre></td></tr></table></figure></p>
-<p>目前存在的问题是在目录页面显示中文的时候会乱码, 这是目前对中文的支持不完善导致的. 解决方案是在mysql的docker container中设置lang为UTF-8。使用<code>locale -a</code>可以看到当前可用的语言。</p>
-
+            <p>
+              elabfw是一个开源的实验记录工具. 可以自由的部署在个人PC或者服务器上.官方安装文档:https://doc.elabftw.net/install.html
+安装依赖首先要安装docker, 如果网络环境允许, 可以跟随https://docs.docker.com/compose/inst
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/11/elabfw/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1237,9 +1201,19 @@
       
         
           
-            <p>使用Python可以处理Excel文件。<br>读取数据：<a href="https://github.com/python-excel/xlrd" target="_blank" rel="noopener">https://github.com/python-excel/xlrd</a><br>写数据：<a href="https://github.com/python-excel/xlwt" target="_blank" rel="noopener">https://github.com/python-excel/xlwt</a><br>写数据使用示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">style0 = xlwt.easyxf(<span class="string">'font: name Times New Roman, color-index red, bold on'</span>,</span><br><span class="line">    num_format_str=<span class="string">'#,##0.00'</span>)</span><br><span class="line">style1 = xlwt.easyxf(num_format_str=<span class="string">'D-MMM-YY'</span>)</span><br><span class="line"></span><br><span class="line">wb = xlwt.Workbook()</span><br><span class="line">ws = wb.add_sheet(<span class="string">'A Test Sheet'</span>)</span><br><span class="line"></span><br><span class="line">ws.write(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1234.56</span>, style0)</span><br><span class="line">ws.write(<span class="number">1</span>, <span class="number">0</span>, datetime.now(), style1)</span><br><span class="line">ws.write(<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">ws.write(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ws.write(<span class="number">2</span>, <span class="number">2</span>, xlwt.Formula(<span class="string">"A3+B3"</span>))</span><br><span class="line"></span><br><span class="line">wb.save(<span class="string">'example.xls'</span>)</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              使用Python可以处理Excel文件。读取数据：https://github.com/python-excel/xlrd写数据：https://github.com/python-excel/xlwt写数据使用示例：import xlwtfrom datetime import datetimes
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/09/excel-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1380,19 +1354,19 @@
       
         
           
-            <p>最近登陆服务器的时候，发现有很多未知的ssh登录尝试。CentOS系统中ssh登录的日志文件在<code>/var/log/secure</code>。使用<code>cat /var/log/secure | grep Failed | tail -50</code>可以查看最近的50条记录。我查看这个文件的时候发现有一个ip尝试了7000次登录，并且在我登录期间仍然在不停进行尝试，真是丧心病狂，令人发指。必须要采取措施限制这些奇怪的行为。</p>
-<h1 id="修改SSH默认端口"><a href="#修改SSH默认端口" class="headerlink" title="修改SSH默认端口"></a>修改SSH默认端口</h1><p>ssh的默认端口是22，修改端口会增加被破解的障碍。</p>
-<ol>
-<li>首先选一个你喜欢的端口，只要没被占用就可以。然后在防火墙中打开这一端口。</li>
-<li>sshd的配置文件位于<code>/etc/ssh/sshd_config</code>，修改端口设置之后重启sshd服务。<br>大多数情况下到这一步端口已经修改好了。但是有些主机商（比如linode）会要求使用semanger声明修改。</li>
-<li>(Option) 安装 policycoreutils-python：<code>yum install policycoreutils-python</code>,执行<code>semanage port -a -t ssh_port_t -p tcp $PORT</code>。</li>
-<li>运行<code>ss -tnlp | grep ssh</code>查看端口是否正确。<h1 id="自动封禁多次登录失败的IP"><a href="#自动封禁多次登录失败的IP" class="headerlink" title="自动封禁多次登录失败的IP"></a>自动封禁多次登录失败的IP</h1>将多次登录失败的IP添加到<code>/etc/hosts.deny</code>文件。<br>创建一个脚本：<code>/usr/local/bin/autodeny.sh</code>  <script src="https://gist.github.com/sparkydogX/1837a6e1a2286df9b2d03e9aa798f360.js"></script>
-
-</li>
-</ol>
-<p>在命令行中运行<code>crontab -e</code>，添加一行：<code>*/10 * * * * sh /usr/local/bin/autodeny.sh</code>，每十分钟自动执行一次。当登录失败超过10次之后IP会被加入黑名单。记得同时将你常用的IP添加到<code>/etc/hosts.allow</code>文件中，以免出现乌龙。</p>
-
+            <p>
+              最近登陆服务器的时候，发现有很多未知的ssh登录尝试。CentOS系统中ssh登录的日志文件在/var/log/secure。使用cat /var/log/secure | grep Failed | tail -50可以查看最近的50条记录。我查看这个文件的时候发现有一个ip尝试了7000次登录，
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/09/block-ssh-connection/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1533,9 +1507,20 @@
       
         
           
-            <p>在服务器上开一个jupyter notebook，本地通过浏览器访问，是很方便的一件事。但是过了很久访问的时候，有时会忘记jupyter notebook的token。<br>在服务器上执行<code>jupyter notebool list</code>可以看到正在运行的jupyter以及对应的token。</p>
+            <p>
+              在服务器上开一个jupyter notebook，本地通过浏览器访问，是很方便的一件事。但是过了很久访问的时候，有时会忘记jupyter notebook的token。在服务器上执行jupyter notebool list可以看到正在运行的jupyter以及对应的token。
 
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/07/passwd-of-running-jupyter/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1676,9 +1661,19 @@
       
         
           
-            <p>在Linux命令行中，输入<code>history</code>可以看到历史指令。<br>但是这个指令默认不带时间信息，输入<code>HISTTIMEFORMAT=&quot;%d/%m/%y %T &quot;</code>，然后执行<code>history</code>，可以得到含有时间信息的历史指令。<br>将这一语句加入<code>~/.bashrc</code>文件中可以在bash启动时自动加载这一语句。</p>
-
+            <p>
+              在Linux命令行中，输入history可以看到历史指令。但是这个指令默认不带时间信息，输入HISTTIMEFORMAT=&quot;%d/%m/%y %T &quot;，然后执行history，可以得到含有时间信息的历史指令。将这一语句加入~/.bashrc文件中可以在bash启动时自动加载这一语
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/07/terminal-history-time/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1819,11 +1814,22 @@
       
         
           
-            <script src="https://gist.github.com/sparkydogX/e88b95586c843398f057bc28ce602277.js"></script>
+            <p>
+              
 
-<p>代码中的cmd变量是bash中获得当前git repo的branch名字的命令。<br>测试算法的时候我习惯创建多个branch来探索各个因素的影响，结合返回的变量可以方便的将不同branch的结果保存到统一的并且gitignore的log文件夹下。</p>
+代码中的cmd变量是bash中获得当前git repo的branch名字的命令。测试算法的时候我习惯创建多个branch来探索各个因素的影响，结合返回的变量可以方便的将不同branch的结果保存到统一的并且gitignore的log文件夹下。
 
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/07/python-terminal/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

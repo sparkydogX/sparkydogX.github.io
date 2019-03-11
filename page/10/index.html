@@ -51,13 +51,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=7.0.1">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
@@ -419,14 +419,20 @@
       
         
           
-            <p>前一阵开会，Github也被墙了，我这个挂在Github Pages上的博客墙内也无法访问。正好看到阿里云有学生优惠，就没忍住入了一年的，没想到是个大坑。</p>
-<h2 id="SSH远程登录"><a href="#SSH远程登录" class="headerlink" title="SSH远程登录"></a>SSH远程登录</h2><p>拿到服务器，第一件事就是ssh，阿里云自己提供的网页版本实在体验太差，我看到的控制台最下显示不全，每次都看不到自己输入的指令是啥。从本地ssh连接到服务器时却总是访问被拒绝。<br>经检查需要在控制台的安全组里设置，入网端口22（ssh），允许的地址段写当前ip地址，即可远程ssh。</p>
-<h2 id="服务器备案"><a href="#服务器备案" class="headerlink" title="服务器备案"></a>服务器备案</h2><p>我使用阿里云的初衷是在上面搭建一个ngrok服务器，使我能够从laptop上远程控制lab的计算机。结果发现我的这个云服务器空有一个公网ip，却无法通过公网ip访问。折腾一阵之后得知境内的服务器必须备案，否则不给从公网访问，也就是说只能访问阿里云内部的服务器。备案也挺麻烦，又是填表又是拍照，好在足不出户都可完成。</p>
-<h2 id="域名备案"><a href="#域名备案" class="headerlink" title="域名备案"></a>域名备案</h2><p>服务器的配置光跑ngrok有些浪费，准备动手建一个动态博客玩一玩，当然得要有个响亮的域名啦。花三块大洋买了一年的.top域名。买完告诉我境内域名不备案不给解析。我的心情真是相当的复杂。走完流程备了案，一个工作日之内就审核通过了，效率还算高。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果只是个人用途，建议使用境外的服务器和域名商————当然以后会不会被墙也不知道，是存在一定风险的。<em>但是境内的服务器和域名都要备案实在是麻烦！！！</em></p>
-<p><strong>完</strong></p>
-
+            <p>
+              前一阵开会，Github也被墙了，我这个挂在Github Pages上的博客墙内也无法访问。正好看到阿里云有学生优惠，就没忍住入了一年的，没想到是个大坑。
+SSH远程登录拿到服务器，第一件事就是ssh，阿里云自己提供的网页版本实在体验太差，我看到的控制台最下显示不全，每次都看不到自己输入的指令是啥。
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/31/first-use-aliyun/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -567,10 +573,19 @@
       
         
           
-            <p>有些编程经验的同学都知道，版本控制是一个大问题。有时候一个文件改坏了，想回到当初的起点，却只能呆站在镜子前。<br>而有了git却不一样了。git就像专卖后悔药的。<br>在使用git前，通常要建立一个配置，告诉git用户名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure></p>
-<p>通常在Github中clone下来的项目会自带git。也可以选择在空文件夹里建立git仓库，使用<code>git init</code>即可。<br>常用命令：<br><code>git add .</code> 将文件夹下所有文件加到git commit的目录中。<br><code>git commit -m &quot;Your comment&quot;</code> 将更改commit到git仓库。<br><code>git log</code> 查看git仓库中的所有git版本。<br><code>git reflog</code> 查看对git仓库的历史操作<br><code>git reset --hard xxxxx</code> 其中xxxx为git log中显示的key</p>
-
+            <p>
+              有些编程经验的同学都知道，版本控制是一个大问题。有时候一个文件改坏了，想回到当初的起点，却只能呆站在镜子前。而有了git却不一样了。git就像专卖后悔药的。在使用git前，通常要建立一个配置，告诉git用户名。git config --global user.name &quot;Your Name
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/30/use-git/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -723,11 +738,19 @@
       
         
           
-            <p>有时候需要仿照一个已存在的文件夹创造和它同样结构的空文件夹（子文件夹名相同）。<br>之前使用python的<code>os.system()</code>来实现，先读取，再一层一层地创建。<br>今天发现python的os中提供了方便的makedir方法，可以用来递归的创建目录，即中间文件夹若不存在也会被创建。<br>Example：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">source_path=<span class="string">'xxx'</span></span><br><span class="line">subdir=os.listdir(source_path)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> subdir:</span><br><span class="line">  os.makedirs(os.path.join(<span class="string">'ddd'</span>,d))</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>Update</strong>：<br>使用这种方法的时候，当想要创建的文件夹已经存在时会出现异常，调整代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(directory):</span><br><span class="line">    os.makedirs(directory)</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              有时候需要仿照一个已存在的文件夹创造和它同样结构的空文件夹（子文件夹名相同）。之前使用python的os.system()来实现，先读取，再一层一层地创建。今天发现python的os中提供了方便的makedir方法，可以用来递归的创建目录，即中间文件夹若不存在也会被创建。Example：import
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/25/mkdir-use-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -868,9 +891,19 @@
       
         
           
-            <p>lmdb是caffe钦定的数据库类型，有时候难免需要查看lmdb数据库中的数据，方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import lmdb</span><br><span class="line">import caffe</span><br><span class="line">lmdbpath=&apos;/data2/guoyu/rmppe/Realtime_Multi-Person_Pose_Estimation/training/COCO_kpt/lmdb&apos;</span><br><span class="line">datum = caffe.proto.caffe_pb2.Datum()</span><br><span class="line">env=lmdb.open(lmdbpath)</span><br><span class="line">txn=env.begin()</span><br><span class="line">cursor=txn.cursor()</span><br><span class="line">for key,value in cursor:</span><br><span class="line">    datum.ParseFromString(value)</span><br><span class="line">    data=caffe.io.datum_to_array(datum)</span><br><span class="line">    print data[3,:,:]</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              lmdb是caffe钦定的数据库类型，有时候难免需要查看lmdb数据库中的数据，方法如下：import lmdbimport caffelmdbpath=&apos;/data2/guoyu/rmppe/Realtime_Multi-Person_Pose_Estimation/training/C
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/22/look-up-lmdb/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1011,9 +1044,19 @@
       
         
           
-            <p>在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">imgpath=&apos;/data2/guoyu/subset/&apos;</span><br><span class="line">labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;</span><br><span class="line">f=open(labeljsonpath)</span><br><span class="line">label=json.load(f)</span><br><span class="line">subsetlist=os.listdir(imgpath)</span><br><span class="line">jsonTosave=&apos;/data2/guoyu/subset.json&apos;</span><br><span class="line">jFile=open(jsonTosave,&apos;w&apos;)</span><br><span class="line">ls=[]</span><br><span class="line">for x in range(len(subsetlist)):</span><br><span class="line">    imgid=subsetlist[x][:-4]</span><br><span class="line">    for lab in label:</span><br><span class="line">        if lab[&quot;image_id&quot;]==imgid:</span><br><span class="line">            di=&#123;&#125;</span><br><span class="line">            di=lab</span><br><span class="line">            ls.append(di)</span><br><span class="line">json.dump(ls,jFile)</span><br><span class="line">jFile.close()</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validatio
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/21/extract-subset/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1154,9 +1197,19 @@
       
         
           
-            <p>学校给配置了新电脑，安装完Windows10系统之后发现无法联网。<br>Windows10是自带网卡驱动的，经检查发现是网卡型号比较冷门，Windows10自带的网卡驱动并不适用，而从网上下载的网卡驱动也无法安装。<br><strong>解决方案</strong>:<br>打开‘设备管理器’，‘查看’选项卡中，选择‘显示隐藏的设备’。<br>然后在设备管理器中找到‘网络适配器’，看到适配器的型号名称很奇怪，右击卸载驱动。<br>‘操作’选项卡中，点击‘扫描硬件改动’。<br>然后可以安装正确的网卡驱动。</p>
-
+            <p>
+              学校给配置了新电脑，安装完Windows10系统之后发现无法联网。Windows10是自带网卡驱动的，经检查发现是网卡型号比较冷门，Windows10自带的网卡驱动并不适用，而从网上下载的网卡驱动也无法安装。解决方案:打开‘设备管理器’，‘查看’选项卡中，选择‘显示隐藏的设备’。然后在设备管理器中找
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/19/Lan-driver-win10/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1297,11 +1350,20 @@
       
         
           
-            <h2 id="安装dpkg"><a href="#安装dpkg" class="headerlink" title="安装dpkg"></a>安装dpkg</h2><p><code>dpkg</code>是一个底层的安装软件，可以用于本地安装。<br>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure></p>
-<h2 id="卸载dpkg"><a href="#卸载dpkg" class="headerlink" title="卸载dpkg"></a>卸载dpkg</h2><p>有时候执行第三句命令时会遇到安装包出错的问题，这时候需要卸载原来加载的deb包。<br>使用命令<code>dpkg -l | grep urserver</code>可以查看已加载的deb包，在此命令的第一列有<code>ii</code>表示<code>installed ok installed</code>。<br>如果只移除package本身，而不移除配置文件，执行<code>dpkg -r urserver</code>。<br>如果既要移除package，也要移除配置文件，执行<code>dpkg -P urserver</code>。</p>
-<h2 id="检验是否卸载完成"><a href="#检验是否卸载完成" class="headerlink" title="检验是否卸载完成"></a>检验是否卸载完成</h2><p><code>dpkg -l | grep urserver</code></p>
-
+            <p>
+              安装dpkgdpkg是一个底层的安装软件，可以用于本地安装。Example：$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb$ sudo apt-get update$ sudo apt-get install cuda
+卸载dpkg有时候执行
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/18/uninstall-dpkg/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1442,14 +1504,20 @@
       
         
           
-            <h2 id="安装pathogen"><a href="#安装pathogen" class="headerlink" title="安装pathogen"></a>安装pathogen</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \</span><br><span class="line">curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</span><br></pre></td></tr></table></figure>
-<h2 id="修改vimrc"><a href="#修改vimrc" class="headerlink" title="修改vimrc"></a>修改vimrc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">execute pathogen#infect()</span><br><span class="line">syntax on</span><br><span class="line">filetype plugin indent on</span><br></pre></td></tr></table></figure>
-<h2 id="git-clone-jedi-vim"><a href="#git-clone-jedi-vim" class="headerlink" title="git clone jedi-vim"></a>git clone jedi-vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/davidhalter/jedi-vim.git</span><br></pre></td></tr></table></figure>
-<h2 id="更新vim"><a href="#更新vim" class="headerlink" title="更新vim"></a>更新vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo apt-get install python-software-properties</span><br><span class="line">sudo add-apt-repository ppa:jonathonf/vim</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
-<h2 id="安装jedi"><a href="#安装jedi" class="headerlink" title="安装jedi"></a>安装jedi</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install jedi</span><br><span class="line">cd ~/.vim/bundle/jedi-vim</span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
-<p>安装完成。</p>
-
+            <p>
+              安装pathogenmkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+修改vimrcexecute pathog
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/17/jedi-vim/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1590,22 +1658,23 @@
       
         
           
-            <h2 id="USB网线转接"><a href="#USB网线转接" class="headerlink" title="USB网线转接"></a>USB网线转接</h2><p>工作需要使用到有线网络，但是Mac上没有有线接口，从某宝买的USB网线转接口无法在Mac上直接使用。<br>解决方案如下：</p>
-<ol>
-<li>前往TP-Link的网站<a href="http://service.tp-link.com.cn/detail_download_4868.html" target="_blank" rel="noopener">下载驱动</a>，在Mac上进行安装。</li>
-<li>重新启动Mac</li>
-<li>连接转换器，打开网络偏好设置，可以看到多了一个有线连接的配置，在<code>配置IPv4</code>一栏的下拉列表里选择<code>创建PPOE服务</code>，填入ISP账号密码，即可连接到因特网。</li>
-</ol>
-<h2 id="打开Wi-Fi热点"><a href="#打开Wi-Fi热点" class="headerlink" title="打开Wi-Fi热点"></a>打开Wi-Fi热点</h2><ol>
-<li>打开<code>配置</code>-&gt;<code>共享</code></li>
-<li>选择<code>互联网共享</code></li>
-<li><code>共享以下来源的连接</code>，选择已经连接的有线网络</li>
-<li><code>用以下端口共享给电脑</code>，选择<code>Wi-Fi</code></li>
-<li>在<code>Wi-Fi选项</code>中设置Wi-Fi名称和密码</li>
-<li>在<code>互联网共享</code>选项前打勾<br>设置完成。</li>
-</ol>
+            <p>
+              USB网线转接工作需要使用到有线网络，但是Mac上没有有线接口，从某宝买的USB网线转接口无法在Mac上直接使用。解决方案如下：
 
+前往TP-Link的网站下载驱动，在Mac上进行安装。
+重新启动Mac
+连接转换器，打开网络偏好设置，可以看到多了一个有线连接的配置，在配置IPv4一栏的下拉列表里选择
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/15/LanInMac/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1758,18 +1827,22 @@
       
         
           
-            <p>服务器上的CUDA版本为7.0，而跑程序至少需要7.5。因此重新安装CUDA</p>
-<h2 id="卸载旧版本的CUDA"><a href="#卸载旧版本的CUDA" class="headerlink" title="卸载旧版本的CUDA"></a>卸载旧版本的CUDA</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda-7.0/bin</span><br><span class="line">sudo ./uninstall_cuda_toolkit_7.0.pl</span><br></pre></td></tr></table></figure>
-<p>如果有提示卸载失败的文件或文件夹，可以自己手动删除掉。</p>
-<h2 id="卸载原来的NVIDIA驱动"><a href="#卸载原来的NVIDIA驱动" class="headerlink" title="卸载原来的NVIDIA驱动"></a>卸载原来的NVIDIA驱动</h2><p><code>sudo apt-get remove nvidia*</code></p>
-<h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>安装开发需要的基本包<br><code>sudo apt-get install build-essential</code><br>前往Nvidia<a href="http://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">官网</a>下载CUDA安装包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure></p>
-<p>安装完成，可以重启机器以验证安装。</p>
-<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda-7.5</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;CUDA_HOME&#125;/lib64</span><br><span class="line">PATH=$&#123;CUDA_HOME&#125;/bin:$&#123;PATH&#125;</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
-<h2 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h2><figure class="highlight plain"><figcaption><span>cuda-install-samples-7.5.sh  ~</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/NVIDIA_CUDA-7.5_Samples</span><br><span class="line">$ cd 1_Utilities/deviceQuery</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
-<p>这里使用的是官方提供的sample，如果编译过程不报错，说明安装成功。可通过<code>nvcc --version</code>指令查看CUDA的版本信息。</p>
-<h2 id="安装cudnn"><a href="#安装cudnn" class="headerlink" title="安装cudnn"></a>安装cudnn</h2><p>通常只安装CUDA是不够的，还需要安装对应的cudnn，可以参考<a href="https://sparkydogx.github.io/2017/10/05/fix-problem-tf-libcudnn/#more">这篇教程</a>。</p>
-
+            <p>
+              服务器上的CUDA版本为7.0，而跑程序至少需要7.5。因此重新安装CUDA
+卸载旧版本的CUDAcd /usr/local/cuda-7.0/binsudo ./uninstall_cuda_toolkit_7.0.pl
+如果有提示卸载失败的文件或文件夹，可以自己手动删除掉。
+卸载原来的NVIDI
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/11/install-CUDA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

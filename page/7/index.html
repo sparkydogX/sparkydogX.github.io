@@ -51,13 +51,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=7.0.1">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
@@ -419,10 +419,21 @@
       
         
           
-            <p>在Ubuntu下，有时遇到中文编码的zip文件，会发现解压乱码。这时候可以使用python来解决。</p>
-<script src="https://gist.github.com/sparkydogX/016393f17e30b5a36ad2bb1757a41ccf.js"></script>
+            <p>
+              在Ubuntu下，有时遇到中文编码的zip文件，会发现解压乱码。这时候可以使用python来解决。
 
+
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/04/unzip-with-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -563,11 +574,22 @@
       
         
           
-            <p>仿射变换是一种常用的变换。使用矩阵操作可以很方便的对2D点进行仿射变换，逆变换的时候只需要求解逆矩阵即可。<br>如下图所示：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/affine.jpg" alt="img"></p>
-<p>Python代码示例：<br>仅实现了常用的平移、旋转、翻折变换：</p>
-<script src="https://gist.github.com/sparkydogX/7f4e02a0f8a9114b3f32c2fb044e1af1.js"></script>
+            <p>
+              仿射变换是一种常用的变换。使用矩阵操作可以很方便的对2D点进行仿射变换，逆变换的时候只需要求解逆矩阵即可。如下图所示：
+Python代码示例：仅实现了常用的平移、旋转、翻折变换：
 
+
+              
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/03/affine-with-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -708,12 +730,19 @@
       
         
           
-            <h1 id="Gist"><a href="#Gist" class="headerlink" title="Gist"></a>Gist</h1><p>Gist是github提供的便捷分享代码的工具，效果就是一个网页，网页下面有评论区域。<br>Gist分为secret和public两种，public可以被搜索到，secret也不是私有的，而是指需要通过链接才能访问，并且无法被搜索。官方给出的建议是写ToDoList或者与朋友分享代码的时候选择secret。</p>
-<h1 id="在Pycharm中进行设置"><a href="#在Pycharm中进行设置" class="headerlink" title="在Pycharm中进行设置"></a>在Pycharm中进行设置</h1><p>打开pycharm中的设置，搜索Github，输入账号密码即可。<br>然后选中需要分享的代码，右击‘Create Gist’，之后按照提示输入标题和描述，即可。</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>下面是以一段使用bcrypt在python中进行文本加密的代码，在pycharm中通过gist分享，随后在gist页面获得嵌入地址，可以放入Blog中，十分方便。<br><!-- Get UTF-8 Size (ANSI C) --><br><!-- Begin --></p>
-<p><script src="https://gist.github.com/sparkydogX/7eb4f31ce000492e377c847e025a56ec.js"></script><br><!-- End --></p>
-
+            <p>
+              GistGist是github提供的便捷分享代码的工具，效果就是一个网页，网页下面有评论区域。Gist分为secret和public两种，public可以被搜索到，secret也不是私有的，而是指需要通过链接才能访问，并且无法被搜索。官方给出的建议是写ToDoList或者与朋友分享代码的时候选择se
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/31/pycharm-github/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -854,14 +883,20 @@
       
         
           
-            <h1 id="保存对镜像的修改"><a href="#保存对镜像的修改" class="headerlink" title="保存对镜像的修改"></a>保存对镜像的修改</h1><h2 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h2><p><code>docker commit 8d418a7b6021 postgres:latest</code></p>
-<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><p>这时候用docker images可以看见保存的镜像，可以使用正常镜像加载的命令加载。<br>加载时经常使用的一些参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-p : 指定端口映射</span><br><span class="line">--shm-size= : 指定shm大小，pytorch中设置多个worker的时候会用到</span><br><span class="line">--cap-add=  : Add Linux capabilities</span><br></pre></td></tr></table></figure></p>
-<p>其中<code>cap-add</code>参数的使用可以参考<a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities" target="_blank" rel="noopener">官方文档</a>。<br>例:<code>--cap-add=SYS_NICE</code></p>
-<h1 id="将镜像保存为文件"><a href="#将镜像保存为文件" class="headerlink" title="将镜像保存为文件"></a>将镜像保存为文件</h1><p><code>sudo docker save image &gt; /home/save.tar</code></p>
-<h1 id="从文件恢复镜像"><a href="#从文件恢复镜像" class="headerlink" title="从文件恢复镜像"></a>从文件恢复镜像</h1><p><code>docker load &lt; /home/save.tar</code></p>
-<h1 id="重命名镜像"><a href="#重命名镜像" class="headerlink" title="重命名镜像"></a>重命名镜像</h1><p><code>docker tag IMAGEID REPOSITORY:TAG</code></p>
-
+            <p>
+              保存对镜像的修改docker commitdocker commit 8d418a7b6021 postgres:latest
+deploy这时候用docker images可以看见保存的镜像，可以使用正常镜像加载的命令加载。加载时经常使用的一些参数：-p : 指定端口映射--shm-size= :
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/20/docker-save-and-load/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1002,12 +1037,20 @@
       
         
           
-            <p>在系统中，我们希望有些进程的优先级可以高一些，有些要低一些。这会决定不同进程占用的CPU时间。下面介绍如何调整优先级。</p>
-<h1 id="nice指令"><a href="#nice指令" class="headerlink" title="nice指令"></a>nice指令</h1><p>当运行一个程序的时候，使用<a href="http://manpages.ubuntu.com/manpages/cosmic/man1/nice.1.html" target="_blank" rel="noopener">nice</a>指令可以指定优先级。<br>例如，运行<code>nice -n 5 htop</code>会发现htop的优先级降低了。<br>-n参数可以是 -19～20 之间的整数，越低表示优先级越高。当不使用nice指定是，进程的NI值默认为0。<br>需要注意的是，当使用负值参数的时候，需要sudo才能起作用。</p>
-<h1 id="renice指令"><a href="#renice指令" class="headerlink" title="renice指令"></a>renice指令</h1><p>当程序已经开始运行，可以使用renice指令重新指定进程的NI值，用法与nice类似，可以一次指定多个。</p>
-<h1 id="查看子进程的PID"><a href="#查看子进程的PID" class="headerlink" title="查看子进程的PID"></a>查看子进程的PID</h1><p>父进程fork出来的子进程nice值与父进程相同。父进程renice，子进程nice值不会随之改变。<br>有时候需要提高子进程的优先级，使用<code>ps --ppid &lt;pid of the parent&gt;</code>可以获得子进程的PID。</p>
-
+            <p>
+              在系统中，我们希望有些进程的优先级可以高一些，有些要低一些。这会决定不同进程占用的CPU时间。下面介绍如何调整优先级。
+nice指令当运行一个程序的时候，使用nice指令可以指定优先级。例如，运行nice -n 5 htop会发现htop的优先级降低了。-n参数可以是 -19～20 之间的整数，越低
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/20/priority/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1148,21 +1191,23 @@
       
         
           
-            <p>随着python的流行，matlab逐渐支持python的部分功能。<br>python在字符串处理和文件读写上比matlab方便许多，在这些场景下使用python显然更省事。<br>下面介绍如何在matlab中调用python的接口。</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><blockquote>
-<p>main.m</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">root_dir = <span class="string">'/data3/Human36M/Bbox/S%d/MySegmentsMat/ground_truth_bb'</span>;</span><br><span class="line">save_dir = <span class="string">'/data2/guoyu/workspace/pytorch-3dpose/BBox_par'</span>;</span><br><span class="line">S = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">11</span>];</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> =<span class="number">1</span>:<span class="number">1</span>:<span class="number">7</span></span><br><span class="line">    subject = S(<span class="built_in">i</span>);</span><br><span class="line">    cur_dir = sprintf(root_dir,subject)</span><br><span class="line">    fileList = py.os.listdir(cur_dir);</span><br><span class="line">    fileList = cell(fileList);</span><br><span class="line">    fileList = cellfun(@char, fileList, <span class="string">'UniformOutput'</span>, false);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> =<span class="number">1</span>:<span class="number">1</span>:<span class="built_in">length</span>(fileList)</span><br><span class="line">        filename = fileList(<span class="built_in">j</span>);</span><br><span class="line">        filepath = fullfile(cur_dir,filename);</span><br><span class="line">        F = load(filepath&#123;<span class="number">1</span>&#125;);</span><br><span class="line">        M = F.Masks;</span><br><span class="line">        Bbox = <span class="built_in">zeros</span>(<span class="built_in">length</span>(M),<span class="number">4</span>);</span><br><span class="line">        fork =<span class="number">1</span>:<span class="built_in">length</span>(M)</span><br><span class="line">            Bbox(k,:) = getBbox_par(M&#123;k&#125;);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        save_cur_dir = fullfile(save_dir, [<span class="string">'S'</span>,num2str(S(i))]);</span><br><span class="line">        savepath = fullfile(save_cur_dir,[filename&#123;<span class="number">1</span>&#125;(<span class="number">1</span>:end<span class="number">-4</span>),<span class="string">'.h5'</span>])</span><br><span class="line">        <span class="keyword">if</span> ~py.os.path.exists(save_cur_dir)</span><br><span class="line">            py.os.makedirs(save_cur_dir);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        h5create(savepath,<span class="string">'/bbox'</span>,<span class="built_in">size</span>(Bbox))</span><br><span class="line">        h5write(savepath,<span class="string">'/bbox'</span>,Bbox)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">message = <span class="string">'All Done'</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>getBbox.m</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ start_x , start_y, end_x,end_y ]</span> = <span class="title">getBbox</span><span class="params">( I )</span></span></span><br><span class="line"><span class="comment">%UNTITLED Summary of this function goes here</span></span><br><span class="line"><span class="comment">%   Detailed explanation goes here</span></span><br><span class="line">S = <span class="built_in">find</span>(I);</span><br><span class="line">idx1 = S(<span class="number">1</span>);</span><br><span class="line">idx2 = S(<span class="keyword">end</span>);</span><br><span class="line">start_y = <span class="built_in">mod</span>(idx1, <span class="number">1002</span>);</span><br><span class="line">start_x = <span class="built_in">round</span>(idx1/<span class="number">1002</span>);</span><br><span class="line"></span><br><span class="line">end_y = <span class="built_in">mod</span>(idx2, <span class="number">1002</span>);</span><br><span class="line">end_x = <span class="built_in">round</span>(idx2/<span class="number">1002</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h1 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fileList = py.os.listdir(cur_dir);</span><br><span class="line">fileList = cell(fileList);</span><br><span class="line">fileList = cellfun(@char, fileList, &apos;UniformOutput&apos;, false);</span><br></pre></td></tr></table></figure>
-<p>在matlab中，调用python接口需要统一的<code>py.</code>，在使用listdir之后，matlab中返回值是py.list类型，需要将其转换为cell类型才能在matlab中使用。<br>同样的，返回的字符串是py.str类型，需要用char进行类型转换。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if ~py.os.path.exists(save_cur_dir)</span><br><span class="line">    py.os.makedirs(save_cur_dir);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>这里使用python中的os.path.exists()判断文件是否存在，在matlab中的返回值为0或者1。</p>
+            <p>
+              随着python的流行，matlab逐渐支持python的部分功能。python在字符串处理和文件读写上比matlab方便许多，在这些场景下使用python显然更省事。下面介绍如何在matlab中调用python的接口。
+示例代码
+main.m
 
+root_dir = '/data3/Human36
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/15/matlab-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1303,11 +1348,20 @@
       
         
           
-            <p>很多时候我们要对学习率（learning rate）进行衰减，下面的代码示范了如何每30个epoch按10%的速率衰减：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adjust_learning_rate</span><span class="params">(optimizer, epoch)</span>:</span></span><br><span class="line">    <span class="string">"""Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""</span></span><br><span class="line">    lr = args.lr * (<span class="number">0.1</span> ** (epoch // <span class="number">30</span>))</span><br><span class="line">    <span class="keyword">for</span> param_group <span class="keyword">in</span> optimizer.param_groups:</span><br><span class="line">        param_group[<span class="string">'lr'</span>] = lr</span><br></pre></td></tr></table></figure>
-<p>来源：<a href="https://www.pytorchtutorial.com/pytorch-learning-rate-decay/" target="_blank" rel="noopener">https://www.pytorchtutorial.com/pytorch-learning-rate-decay/</a></p>
-
+            <p>
+              很多时候我们要对学习率（learning rate）进行衰减，下面的代码示范了如何每30个epoch按10%的速率衰减：
+def adjust_learning_rate(optimizer, epoch):    """Sets the learning rate to the initial L
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/10/lr-decay-pytorch/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1448,12 +1502,19 @@
       
         
           
-            <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>tee是linux下的一个命令行工具，通过pipe可以将程序的输出同时输出到屏幕和文件。<br>python下也可以实现这样的效果，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tee</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, mode)</span>:</span></span><br><span class="line">        self.file = open(name, mode)</span><br><span class="line">        self.stdout = sys.stdout</span><br><span class="line">        sys.stdout = self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        sys.stdout = self.stdout</span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.file.write(data)</span><br><span class="line">        self.stdout.write(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flush</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.file.flush()</span><br></pre></td></tr></table></figure></p>
-<p>Tee这个类在初始化方法里接管了标准输出，此后程序中所有的print都会输出到文件。</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tee <span class="keyword">import</span> Tee</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    logger = Tee(<span class="string">'log.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]</span><br><span class="line">    B=A[::<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">print</span> B</span><br><span class="line">    L=range(<span class="number">1</span>,<span class="number">13</span>)</span><br><span class="line">    <span class="keyword">print</span> L,type(L)</span><br></pre></td></tr></table></figure>
-<p>‘log.txt’中的内容为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 3, 5, 7, 9]</span><br><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] &lt;type &apos;list&apos;&gt;</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              代码tee是linux下的一个命令行工具，通过pipe可以将程序的输出同时输出到屏幕和文件。python下也可以实现这样的效果，代码如下：import sysclass Tee(object):    def __init__(self, name, mode):        self.file 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/08/python-tee/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1594,13 +1655,19 @@
       
         
           
-            <p>pytorch中如果使用DataParallel，那么保存的模型key值前面会多处’modules.’，这样如果训练的时候使用的是多GPU，而测试的时候使用的是单GPU，模型载入就会出现问题。<br>一个解决方法是测试的时候强行DataParallel，但是有时候情况较为复杂，可以使用如下的方法：<br>（参考来源：<a href="https://discuss.pytorch.org/t/solved-keyerror-unexpected-key-module-encoder-embedding-weight-in-state-dict/1686/13）" target="_blank" rel="noopener">https://discuss.pytorch.org/t/solved-keyerror-unexpected-key-module-encoder-embedding-weight-in-state-dict/1686/13）</a></p>
-<p><strong>original saved file with DataParallel</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">state_dict = torch.load(‘myfile.pth.tar’)</span><br></pre></td></tr></table></figure></p>
-<p><strong>create new OrderedDict that does not contain module.</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">new_state_dict = OrderedDict()</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> state_dict.items():</span><br><span class="line">name = k[<span class="number">7</span>:] <span class="comment"># remove module.</span></span><br><span class="line">new_state_dict[name] = v</span><br></pre></td></tr></table></figure></p>
-<p><strong>load params</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.load_state_dict(new_state_dict)</span><br></pre></td></tr></table></figure></p>
-<p>简而言之，就是重新创建一个OrderedDict，然后将它载入模型就行了。</p>
-
+            <p>
+              pytorch中如果使用DataParallel，那么保存的模型key值前面会多处’modules.’，这样如果训练的时候使用的是多GPU，而测试的时候使用的是单GPU，模型载入就会出现问题。一个解决方法是测试的时候强行DataParallel，但是有时候情况较为复杂，可以使用如下的方法：（参考来源
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/08/pytorch-dataparallel-problem/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1753,12 +1820,20 @@
       
         
           
-            <p>CDF是NASA提出的一种数据格式，NASA提供了用于操作CDF文件的程序。</p>
-<h1 id="安装CDF工具包"><a href="#安装CDF工具包" class="headerlink" title="安装CDF工具包"></a>安装CDF工具包</h1><p><a href="https://pythonhosted.org/SpacePy/install_linux.html" target="_blank" rel="noopener">安装文档</a><br>先下载<a href="https://cdf.gsfc.nasa.gov/" target="_blank" rel="noopener">CDF Library</a><br>编译<code>make OS=linux ENV=gnu CURSES=yes FORTRAN=no UCOPTIONS=-O2 SHARED=yes all</code><br>安装<code>sudo make INSTALLDIR=/usr/local/cdf install</code></p>
-<p>安装spacepy <code>pip install spacepy</code></p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> spacepy <span class="keyword">import</span> pycdf</span><br><span class="line">os.environ[<span class="string">"CDF_LIB"</span>] = <span class="string">"/usr/local/cdf/lib"</span></span><br><span class="line">anno_Greeting=pycdf.CDF(<span class="string">'/home/maddaff/Documents/TestSpace/Greeting.54138969.cdf'</span>)</span><br><span class="line">data=anno_Greeting.copy()</span><br><span class="line">anno_Greeting.close()</span><br><span class="line"><span class="keyword">print</span> data.keys()</span><br></pre></td></tr></table></figure>
-
+            <p>
+              CDF是NASA提出的一种数据格式，NASA提供了用于操作CDF文件的程序。
+安装CDF工具包安装文档先下载CDF Library编译make OS=linux ENV=gnu CURSES=yes FORTRAN=no UCOPTIONS=-O2 SHARED=yes all安装sudo make
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/18/cdf-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

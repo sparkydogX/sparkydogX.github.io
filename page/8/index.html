@@ -51,13 +51,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=7.0.1">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
@@ -419,14 +419,21 @@
       
         
           
-            <p>有些数据以视频的形式给出，在观察数据集的时候就需要对其进行处理，将对应的标注信息显示在视频中。</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>这段代码依次读取视频文件，对其进行标注之后显示出来。</p>
-<h2 id="Main-py"><a href="#Main-py" class="headerlink" title="Main.py"></a>Main.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> h5py</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> drawJoints <span class="keyword">import</span> DrawJoints</span><br><span class="line"></span><br><span class="line">CONNECTED_PAIRS=[[<span class="number">10</span>,<span class="number">11</span>],[<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>],[<span class="number">14</span>,<span class="number">15</span>],[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">4</span>,<span class="number">5</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showVid</span><span class="params">(cap, pred,title=<span class="string">'frame'</span>)</span>:</span></span><br><span class="line">    idx = <span class="number">0</span></span><br><span class="line">    fps = cap.get(cv2.CAP_PROP_FPS)</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">True</span>):</span><br><span class="line">        <span class="comment"># t1=time.time()</span></span><br><span class="line">        <span class="keyword">if</span> idx &gt;= pred.shape[<span class="number">0</span>]:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        ret, frame = cap.read()</span><br><span class="line">        frame = DrawJoints(frame, pred[idx, ::], CONNECTED_PAIRS)</span><br><span class="line">        cv2.imshow(title, frame)</span><br><span class="line">        idx = idx + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> cv2.waitKey(int(<span class="number">1000</span> / fps)) &amp; <span class="number">0xFF</span> == ord(<span class="string">' '</span>):</span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">if</span> (cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == ord(<span class="string">'q'</span>)):</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">if</span> (cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == ord(<span class="string">' '</span>)):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> ( cap.get(cv2.CAP_PROP_FRAME_COUNT) &lt;= cap.get(cv2.CAP_PROP_POS_FRAMES) ):</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> (cv2.waitKey(<span class="number">2</span>) &amp; <span class="number">0xFF</span> == ord(<span class="string">'q'</span>)) :</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getFileList</span><span class="params">(data_dir,pred_dir,idx)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Assume idx in ['S9','S11']</span></span><br><span class="line"><span class="string">    :param data_dir:</span></span><br><span class="line"><span class="string">    :param pred_dir:</span></span><br><span class="line"><span class="string">    :param idx:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    V=[] <span class="comment">#Video</span></span><br><span class="line">    P=[] <span class="comment">#Predict</span></span><br><span class="line">    video_files=[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(os.path.join(data_dir,idx,<span class="string">'Videos'</span>)) <span class="keyword">if</span> (i.split(<span class="string">'.'</span>)[<span class="number">-1</span>]==<span class="string">'mp4'</span> <span class="keyword">and</span> (<span class="keyword">not</span> i[<span class="number">0</span>]==<span class="string">'_'</span>) )]</span><br><span class="line">    pred_files= [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(os.path.join(pred_dir,idx,<span class="string">'StackedHourglassFineTuned240'</span>)) <span class="keyword">if</span> i.split(<span class="string">'.'</span>)[<span class="number">-1</span>]==<span class="string">'h5'</span>]</span><br><span class="line">    video_files.sort()</span><br><span class="line">    pred_files = [p.replace(<span class="string">'_'</span>,<span class="string">' '</span>) <span class="keyword">for</span> p <span class="keyword">in</span> pred_files]</span><br><span class="line">    pred_files.sort()</span><br><span class="line">    pred_files = [p.replace(<span class="string">' '</span>, <span class="string">'_'</span>) <span class="keyword">for</span> p <span class="keyword">in</span> pred_files]</span><br><span class="line"></span><br><span class="line">    ip=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(video_files)):</span><br><span class="line">        cur_file=video_files[i]</span><br><span class="line">        <span class="keyword">if</span> idx==<span class="string">'S11'</span> <span class="keyword">and</span> cur_file==<span class="string">'Directions.54138969.mp4'</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            V.append(os.path.join(data_dir,idx,<span class="string">'Videos'</span>,cur_file))</span><br><span class="line">            P.append(os.path.join(os.path.join(pred_dir,idx,<span class="string">'StackedHourglassFineTuned240'</span>),pred_files[ip]))</span><br><span class="line">            ip=ip+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> V,P</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    vidDir=<span class="string">'/data3/Human36M/raw_data'</span></span><br><span class="line">    predDir=<span class="string">'/data2/guoyu/workspace/3d-pose-baseline/temporal/data/h36m'</span></span><br><span class="line">    <span class="keyword">for</span> S <span class="keyword">in</span> [<span class="string">'S9'</span>,<span class="string">'S11'</span>]:</span><br><span class="line">        V,P = getFileList(vidDir,predDir,S)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(V)):</span><br><span class="line">            pred_name=P[i]</span><br><span class="line">            filename=V[i]</span><br><span class="line">            pred_data = h5py.File(pred_name)</span><br><span class="line">            pred = np.array(pred_data[<span class="string">'poses'</span>], dtype=np.int)</span><br><span class="line">            cap = cv2.VideoCapture(filename)</span><br><span class="line">            <span class="comment"># print int(cap.get(cv2.CAP_PROP_FRAME_COUNT)),'\t',int(cap.get(cv2.CAP_PROP_FRAME_COUNT)- pred.shape[0]),'\t' ,S,filename.split('/')[-1].split('.')[0]</span></span><br><span class="line">            <span class="comment"># cap.release()</span></span><br><span class="line">            <span class="comment">#</span></span><br><span class="line">            fps = cap.get(cv2.CAP_PROP_FPS)</span><br><span class="line">            showVid(cap, pred,title=filename.split(<span class="string">'/'</span>)[<span class="number">-1</span>])</span><br><span class="line">            cap.release()</span><br><span class="line">            cv2.destroyAllWindows()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<p>使用opencv的VideoCapture函数可以方便地读取视频数据，可以通过cap的get函数来获得对应的视频属性，例如帧率、帧数、长宽等信息。<br><code>cv2.waitKey(2) &amp; 0xFF == ord(&#39;q&#39;)</code>语句可以判断键盘的输入。</p>
-<h2 id="drawJoints-py"><a href="#drawJoints-py" class="headerlink" title="drawJoints.py"></a>drawJoints.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">JoName=<span class="string">'0 - r ankle, 1 - r knee, 2 - r hip, 3 - l hip, 4 - l knee, 5 - l ankle, 6 - pelvis, 7 - thorax, 8 - upper neck,'</span> \</span><br><span class="line">       <span class="string">' 9 - head top, 10 - r wrist, 11 - r elbow, 12 - r shoulder, 13 - l shoulder, 14 - l elbow, 15 - l wrist'</span></span><br><span class="line">JoName=JoName.split(<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DrawJoints</span><span class="params">(I,joints,CONNECTED_PAIRS=None,Jo=JoName)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Assume joints Dim : P x 2</span></span><br><span class="line"><span class="string">    :param I:</span></span><br><span class="line"><span class="string">    :param joints:</span></span><br><span class="line"><span class="string">    :param CONNECTED_PAIRS:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    txt=<span class="string">'Missing Joints:\n'</span></span><br><span class="line">    <span class="comment"># Background rectangle for text</span></span><br><span class="line">    cv2.rectangle(I, (<span class="number">25</span>, <span class="number">25</span>), (<span class="number">300</span>, <span class="number">250</span>), (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">    font = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(joints.shape[<span class="number">0</span>]):</span><br><span class="line">        <span class="keyword">if</span> joints[i,<span class="number">0</span>]&lt;<span class="number">5</span> <span class="keyword">and</span> joints[i,<span class="number">1</span>]&lt;<span class="number">5</span> :</span><br><span class="line">            txt=txt+ str(Jo[i]) +<span class="string">'\n'</span></span><br><span class="line">        cv2.circle(I, (joints[i,<span class="number">0</span>], joints[i,<span class="number">1</span>]), <span class="number">2</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">if</span> CONNECTED_PAIRS:</span><br><span class="line">        I=drawLine(I,joints,CONNECTED_PAIRS)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># show text</span></span><br><span class="line">    y0, dy = <span class="number">50</span>, <span class="number">25</span></span><br><span class="line">    <span class="keyword">for</span> i, txt <span class="keyword">in</span> enumerate(txt.split(<span class="string">'\n'</span>)):</span><br><span class="line">        y = y0 + i * dy</span><br><span class="line">        cv2.putText(I, txt, (<span class="number">50</span>, y), font, <span class="number">.8</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="comment"># print(txt)</span></span><br><span class="line">    <span class="keyword">return</span> I</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawLine</span><span class="params">(I,joints,CONNECTED_PAIRS)</span>:</span></span><br><span class="line">    N=len(CONNECTED_PAIRS)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        p1=joints[CONNECTED_PAIRS[i][<span class="number">0</span>]]</span><br><span class="line">        p2=joints[CONNECTED_PAIRS[i][<span class="number">1</span>]]</span><br><span class="line">        p1=totuple(p1)</span><br><span class="line">        p2 = totuple(p2)</span><br><span class="line">        cv2.line(I,p1,p2,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> I</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">totuple</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> tuple(totuple(i) <span class="keyword">for</span> i <span class="keyword">in</span> a)</span><br><span class="line">    <span class="keyword">except</span> TypeError:</span><br><span class="line">        <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
-<p><code>putText</code> 函数用于在图像上输出文字，需要注意的是对于字符串中的换行符<code>\n</code>，会显示乱码，需要另外处理。</p>
-
+            <p>
+              有些数据以视频的形式给出，在观察数据集的时候就需要对其进行处理，将对应的标注信息显示在视频中。
+示例代码这段代码依次读取视频文件，对其进行标注之后显示出来。
+Main.pyimport numpy as npimport cv2import h5pyimport timeimport osfrom 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/18/anno-Video/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -567,16 +574,21 @@
       
         
           
-            <p>socket是计算机通信中常常使用到的一种通信技术。本文介绍如何在python中使用这一方法在多个进程之间进行通信。</p>
-<h1 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h1><p>作为客户端，只需要知道服务器的地址与端口，发送请求，接收数据即可，并不需要非常复杂的操作。</p>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>以访问新浪微博的主页为例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入socket库:</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="comment"># 创建一个socket:</span></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"><span class="comment"># 建立连接:</span></span><br><span class="line">s.connect((<span class="string">'www.sina.com.cn'</span>, <span class="number">80</span>))</span><br><span class="line"><span class="comment"># 发送数据:</span></span><br><span class="line">s.send(<span class="string">'GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n'</span>)</span><br><span class="line"><span class="comment"># 接收数据:</span></span><br><span class="line">buffer = []</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="comment"># 每次最多接收1k字节:</span></span><br><span class="line">    d = s.recv(<span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">if</span> d:</span><br><span class="line">        buffer.append(d)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">data = <span class="string">''</span>.join(buffer)</span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure></p>
-<p>接收数据时，调用recv(max)方法，一次最多接收指定的字节数，因此，在一个while循环中反复接收，直到recv()返回空数据，表示接收完毕，退出循环。。当我们接收完数据后，调用close()方法关闭Socket，这样，一次完整的网络通信就结束了。</p>
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>接收并解码json数据<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.connect((<span class="string">'127.0.0.1'</span>, <span class="number">9999</span>))</span><br><span class="line"><span class="keyword">print</span> s.recv(<span class="number">1024</span>)</span><br><span class="line">t=time.time()</span><br><span class="line">s.send(<span class="string">'a'</span>)</span><br><span class="line">data_rec=s.recv(<span class="number">400000</span>)</span><br><span class="line">print(time.time()-t)</span><br><span class="line">s.send(<span class="string">'exit'</span>)</span><br><span class="line">s.close()</span><br><span class="line">print(len(data_rec))</span><br><span class="line">J=json.loads(data_rec)</span><br><span class="line">I=J[<span class="number">0</span>][<span class="string">'img'</span>]</span><br><span class="line">I=np.asarray(I)</span><br><span class="line">plt.imshow(I)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
-<p>这里json数据中有3个列表元素，每个元素是一个字典，字典的键是<code>image</code>，对应的值是图片矩阵。<br>注意这里是在本机上进行通讯，为了方便起见返回值最大设置为400000字节。</p>
-<h1 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h1><p>这里给出服务器端的代码实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tcplink</span><span class="params">(sock, addr)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Accept new connection from %s:%s...'</span> % addr</span><br><span class="line">    sock.send(<span class="string">'Welcome!'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        x = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">            d = &#123;&#125;</span><br><span class="line">            I = np.random.rand(<span class="number">64</span>, <span class="number">64</span>)</span><br><span class="line">            d[<span class="string">'img'</span>] = I.tolist()</span><br><span class="line">            x.append(d)</span><br><span class="line">        <span class="comment"># print(x)</span></span><br><span class="line">        J = json.dumps(x)</span><br><span class="line">        data = sock.recv(<span class="number">1024</span>)</span><br><span class="line">        <span class="comment"># time.sleep(1)</span></span><br><span class="line">        <span class="keyword">if</span> data == <span class="string">'exit'</span> <span class="keyword">or</span> <span class="keyword">not</span> data:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        sock.send(J)</span><br><span class="line">    sock.close()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Connection from %s:%s closed.'</span> % addr</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>  __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    s.bind((<span class="string">'0.0.0.0'</span>, <span class="number">9999</span>))</span><br><span class="line">    s.listen(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Waiting for connection...'</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        sock, addr = s.accept()</span><br><span class="line">        t = threading.Thread(target=tcplink, args=(sock, addr))</span><br><span class="line">        t.start()</span><br></pre></td></tr></table></figure></p>
-<p><code>s.bind((&#39;0.0.0.0&#39;, 9999))</code>指定服务器的端口和ip，<code>127.0.0.1</code>表示只在本机内部通信，<code>0.0.0.0</code>表示在所有网卡上设置端口，可以由外部进行访问。<br><code>s.listen(5)</code> 队列中最多允许5个请求，超过五个请求时会拒绝后面的请求。<br><code>sock, addr = s.accept()</code>返回请求的socket和地址，注意accept函数默认是阻塞型的，会一直等待直到接收到请求才返回值，因此这里<code>while True</code>循环中不需要费心考虑太多。<br><code>t = threading.Thread(target=tcplink, args=(sock, addr))</code>另外开启一个线程处理请求。<br><code>sock.send(J)</code>处理好要发送的数据进行发送。</p>
-
+            <p>
+              socket是计算机通信中常常使用到的一种通信技术。本文介绍如何在python中使用这一方法在多个进程之间进行通信。
+Client作为客户端，只需要知道服务器的地址与端口，发送请求，接收数据即可，并不需要非常复杂的操作。
+示例1以访问新浪微博的主页为例：# 导入socket库:import sock
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/15/scoket-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -717,12 +729,20 @@
       
         
           
-            <p>用matplotlib可以很方便地绘制图像，下面给出一个绘制含有13个子图的统计直方图示例:</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pylab</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">Limb_List=[<span class="string">'Rhip-Rknee'</span>,<span class="string">'Rknee-RFoot'</span>,<span class="string">'Lhip-LKnee'</span>,<span class="string">'Lknee-Lfoot'</span>,<span class="string">'Neck-Head'</span>,<span class="string">'Lshoulder-Lelbow'</span>,<span class="string">'Lelbow-LWrist'</span>,<span class="string">'Rshoulder-RElbow'</span>,<span class="string">'Relbow-Rwrist'</span>,<span class="string">'Lshoulder-Rshoulder'</span>,<span class="string">'Lhip-Rhip'</span>,<span class="string">'Neck-Throax'</span>,<span class="string">'Throax-Spine'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># fig = plt.figure()</span></span><br><span class="line">f, axs = plt.subplots(<span class="number">7</span>,<span class="number">2</span>,figsize=(<span class="number">15</span>,<span class="number">36</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">13</span>):</span><br><span class="line">    pylab.subplot(<span class="number">7</span>,<span class="number">2</span>,i+<span class="number">1</span>)</span><br><span class="line">    n, bins, patches =plt.hist(Err[:,i], <span class="number">200</span>, density=<span class="keyword">True</span>, alpha=<span class="number">0.75</span>,range=(<span class="number">-150</span>,<span class="number">100</span>))</span><br><span class="line">    plt.grid(<span class="keyword">True</span>)</span><br><span class="line">    title=<span class="string">'Err of '</span>+Limb_List[i]</span><br><span class="line">    plt.title(title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.tight_layout()</span></span><br><span class="line"><span class="comment"># plt.suptitle("Error of Limb Length")</span></span><br><span class="line">plt.subplots_adjust(left=<span class="number">0.2</span>, wspace=<span class="number">0.5</span>, top=<span class="number">0.88</span>)</span><br><span class="line">plt.show()</span><br><span class="line">f.savefig(<span class="string">'S11_err.png'</span>,bbox_inches=<span class="string">"tight"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="代码说明："><a href="#代码说明：" class="headerlink" title="代码说明："></a>代码说明：</h1><p><code>f, axs = plt.subplots(7,2,figsize=(15,36))</code> 这一行设置子图的大小，否则会使用默认的子图大小，在7x2的布局下会显得相当诡异。<br><code>pylab.subplot(7,2,i+1)</code> 表明当前子图的序号<br><code>plt.subplots_adjust(left=0.2, wspace=0.5, top=0.88)</code> 设置子图之间的间距，如果不设置，在每个子图都有title的情况下会导致子图的title与其他子图的坐标轴交叠<br><code>f.savefig(&#39;S11_err.png&#39;,bbox_inches=&quot;tight&quot;)</code> 这里设置<code>bbox_inches=&quot;tight&quot;</code>可以避免存储的图像中标题栏被截去。</p>
-<h1 id="示例图像"><a href="#示例图像" class="headerlink" title="示例图像"></a>示例图像</h1><p><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/S9_err.png" alt="img"></p>
-
+            <p>
+              用matplotlib可以很方便地绘制图像，下面给出一个绘制含有13个子图的统计直方图示例:
+示例代码import matplotlibfrom matplotlib import pylabimport matplotlib.pyplot as pltLimb_List=['Rhip-Rknee'
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/11/draw-with-matplotlib/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -863,13 +883,20 @@
       
         
           
-            <p>Graphviz使用代码来绘制图形。</p>
-<h1 id="绘图代码"><a href="#绘图代码" class="headerlink" title="绘图代码"></a>绘图代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">digraph G&#123;</span><br><span class="line">    graph[dpi=300];</span><br><span class="line">    Add1[label=&quot;Add&quot;,shape=box];</span><br><span class="line">    Add2[label=&quot;Add&quot;,shape=box];</span><br><span class="line">    input[label=&quot;Input\n16x2&quot;,shape=box];</span><br><span class="line">    AT1[label=&quot;ATBlock&quot;];</span><br><span class="line">    AT2[label=&quot;ATBlock&quot;];</span><br><span class="line">    AT3[label=&quot;ATBlock&quot;];</span><br><span class="line">    AT4[label=&quot;ATBlock&quot;];</span><br><span class="line">    AT5[label=&quot;ATBlock&quot;];</span><br><span class="line">    AT6[label=&quot;ATBlock&quot;];</span><br><span class="line">    easyjoints[label=&quot;Easy Joints\n8x3&quot;];</span><br><span class="line">    normaljoints[label=&quot;Easy + Normal Joints\n12x3&quot;];</span><br><span class="line">    hardjoints[label=&quot;Easy + Normal + Hard Joints\n16x3&quot;];</span><br><span class="line">    EasyLabel[label=&quot;Easy Joints Loss&quot;,shape=none];</span><br><span class="line">    NormalLabel[label=&quot;Easy + Normal Joints Loss&quot;,shape=none];</span><br><span class="line">    HardLabel[label=&quot;All Joints Loss&quot;,shape=none];</span><br><span class="line"></span><br><span class="line">    input -&gt; AT1;</span><br><span class="line">    AT1 -&gt; easyjoints ;</span><br><span class="line">    easyjoints -&gt; AT2 -&gt; Add1;</span><br><span class="line">    easyjoints -&gt; EasyLabel[dir=back];</span><br><span class="line">    input -&gt; AT3 -&gt; Add1;</span><br><span class="line">    Add1 -&gt; normaljoints -&gt;AT4 -&gt; Add2;</span><br><span class="line">    normaljoints -&gt; NormalLabel[dir=back];</span><br><span class="line">    input -&gt; AT5 -&gt; Add2;</span><br><span class="line">    Add2 -&gt; AT6 -&gt; hardjoints;</span><br><span class="line">    hardjoints -&gt; HardLabel[dir=back];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h1><p><code>graph[dpi=300];</code>设定编译时的分辨率<br><code>Add1[label=&quot;Add&quot;,shape=box];</code>声明一个变量名为Add1的节点，节点处在图中显示“Add”，节点形状为方框。<br>节点有多种形状可以挑选，可以参考<a href="http://www.graphviz.org/doc/info/shapes.html" target="_blank" rel="noopener">官方文档</a><br><code>-&gt;</code>表示此处的连接是有方向的，dir可以是both，back，none</p>
-<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>编译命令如下：<br><code>dot CascadeNetStructure.dot -T png -o cascade.png</code><br>其中<code>-T</code>用于指示图片类型</p>
-<p>对应代码生成的图片如下：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/20180623/cascade.png" alt="img"></p>
-
+            <p>
+              Graphviz使用代码来绘制图形。
+绘图代码digraph G&#123;    graph[dpi=300];    Add1[label=&quot;Add&quot;,shape=box];    Add2[label=&quot;Add&quot;,shape=box];    input
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/23/graphviz-start/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1022,11 +1049,20 @@
       
         
           
-            <h1 id="Install-opencv-from-source"><a href="#Install-opencv-from-source" class="headerlink" title="Install opencv from source"></a>Install opencv from source</h1><h2 id="Getting-the-Opencv-from-the-Git-Repository"><a href="#Getting-the-Opencv-from-the-Git-Repository" class="headerlink" title="Getting the Opencv from the Git Repository"></a>Getting the Opencv from the Git Repository</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd workspace</span><br><span class="line">git clone https://github.com/opencv/opencv.git</span><br></pre></td></tr></table></figure>
-<h2 id="Building-OpenCV-using-CMake"><a href="#Building-OpenCV-using-CMake" class="headerlink" title="Building OpenCV using CMake"></a>Building OpenCV using CMake</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd opencv</span><br><span class="line">mkdir release</span><br><span class="line">cd release</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
+            <p>
+              Install opencv from sourceGetting the Opencv from the Git Repositorycd workspacegit clone https://github.com/opencv/opencv.git
+Building OpenCV using C
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/21/install-opencv-from-source/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1167,9 +1203,19 @@
       
         
           
-            <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    f=open(<span class="string">'/home/maddaff/Documents/TestSpace/generatecode/joints.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">    f_w=open(<span class="string">'/home/maddaff/Documents/TestSpace/generatecode/joints_write.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">    line=f.readline()</span><br><span class="line">    <span class="keyword">while</span> line:</span><br><span class="line">        line=line.strip(<span class="string">'\n'</span>)</span><br><span class="line">        f_w.write(<span class="string">"\""</span>+line+<span class="string">"\""</span>+<span class="string">', '</span>)</span><br><span class="line">        line=f.readline()</span><br><span class="line">    f.close()</span><br><span class="line">    f_w.close()</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              代码如下：import osif __name__ == '__main__':    f=open('/home/maddaff/Documents/TestSpace/generatecode/joints.txt','r')    f_w=open('/home/maddaff/Documen
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/21/python-edit-text-line/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1310,14 +1356,20 @@
       
         
           
-            <p>希望在局域网内的Mac和Ubuntu共享文件，不知道什么原因通过smb不能正常访问，从Ubunutu反过来访问Mac的共享文件夹也失败了。而在Windows上就完全没有问题，相当奇怪。<br>幸好Apple还提供了一个afp协议可以用于共享文件夹。以下操作可以让Mac访问Ubuntu中的文件。</p>
-<h1 id="在Ubuntu上安装netatalk"><a href="#在Ubuntu上安装netatalk" class="headerlink" title="在Ubuntu上安装netatalk"></a>在Ubuntu上安装netatalk</h1><p><code>sudo apt-get install netatalk</code></p>
-<h1 id="进行netatalk的配置"><a href="#进行netatalk的配置" class="headerlink" title="进行netatalk的配置"></a>进行netatalk的配置</h1><p><code>sudo vim /etc/default/netatalk</code><br>找到以下配置语句，去除注释。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ATALKD_RUN=no</span><br><span class="line">PAPD_RUN=no</span><br><span class="line">CNID_METAD_RUN=yes</span><br><span class="line">AFPD_RUN=yes</span><br><span class="line">TIMELORD_RUN=no</span><br><span class="line">A2BOOT_RUN=no</span><br></pre></td></tr></table></figure></p>
-<h1 id="配置分享文件夹"><a href="#配置分享文件夹" class="headerlink" title="配置分享文件夹"></a>配置分享文件夹</h1><p><code>sudo vim /etc/netatalk/AppleVolumes.default</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/                              &quot;Home Directory&quot;</span><br><span class="line">~/Drive/                        &quot;Drive&quot; allow:arthur</span><br></pre></td></tr></table></figure></p>
-<h1 id="重启nettalk服务"><a href="#重启nettalk服务" class="headerlink" title="重启nettalk服务"></a>重启nettalk服务</h1><p><code>sudo /etc/init.d/netatalk restart</code></p>
-<h1 id="在Mac上进行连接"><a href="#在Mac上进行连接" class="headerlink" title="在Mac上进行连接"></a>在Mac上进行连接</h1><p><code>atp://192.168.yourip</code></p>
-<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1>
+            <p>
+              希望在局域网内的Mac和Ubuntu共享文件，不知道什么原因通过smb不能正常访问，从Ubunutu反过来访问Mac的共享文件夹也失败了。而在Windows上就完全没有问题，相当奇怪。幸好Apple还提供了一个afp协议可以用于共享文件夹。以下操作可以让Mac访问Ubuntu中的文件。
+在Ubunt
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/21/connect-ubuntu-server-via-afp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1458,14 +1510,20 @@
       
         
           
-            <p>任务需要处理视频数据，数据的标签是cdf格式。cdf格式数据并不常见，选择使用matlab进行读取。</p>
-<h1 id="读取cdf标签数据"><a href="#读取cdf标签数据" class="headerlink" title="读取cdf标签数据"></a>读取cdf标签数据</h1><p><code>data=cdfread(&#39;D:\TestSpace\S1\MyPoseFeatures\D2_Positions\Directions 1.54138969.cdf&#39;);</code></p>
-<h1 id="读取视频"><a href="#读取视频" class="headerlink" title="读取视频"></a>读取视频</h1><h2 id="获得视频信息"><a href="#获得视频信息" class="headerlink" title="获得视频信息"></a>获得视频信息</h2><p><code>v=VideoReader(&#39;D:\TestSpace\Directions 1.54138969.mp4&#39;)</code></p>
-<p>可以看到：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">v = </span><br><span class="line"></span><br><span class="line">  VideoReader (具有属性):</span><br><span class="line"></span><br><span class="line">   常规属性:</span><br><span class="line">            Name: <span class="string">'Directions 1.54138969.mp4'</span></span><br><span class="line">            Path: <span class="string">'D:\TestSpace'</span></span><br><span class="line">        Duration: <span class="number">27.6800</span></span><br><span class="line">     CurrentTime: <span class="number">0</span></span><br><span class="line">             Tag: <span class="string">''</span></span><br><span class="line">        UserData: []</span><br><span class="line"></span><br><span class="line">   视频属性:</span><br><span class="line">           Width: <span class="number">1000</span></span><br><span class="line">          Height: <span class="number">1002</span></span><br><span class="line">       FrameRate: <span class="number">50</span></span><br><span class="line">    BitsPerPixel: <span class="number">24</span></span><br><span class="line">     VideoFormat: <span class="string">'RGB24'</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="获得帧信息"><a href="#获得帧信息" class="headerlink" title="获得帧信息"></a>获得帧信息</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">currAxes = axes;</span><br><span class="line"><span class="keyword">while</span> hasFrame(v)</span><br><span class="line">    vidFrame = readFrame(v);</span><br><span class="line">    image(vidFrame, <span class="string">'Parent'</span>, currAxes);</span><br><span class="line">    currAxes.Visible = <span class="string">'off'</span>;</span><br><span class="line">    pause(<span class="number">1</span>/v.FrameRate);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p><code>hasFrame</code>可以检查当前时间是否存在帧，<code>readFrame</code>可以读取下一帧的图像，<code>hasFrame</code>检查是否存在可用于读取的帧。</p>
-
+            <p>
+              任务需要处理视频数据，数据的标签是cdf格式。cdf格式数据并不常见，选择使用matlab进行读取。
+读取cdf标签数据data=cdfread(&#39;D:\TestSpace\S1\MyPoseFeatures\D2_Positions\Directions 1.54138969.cdf&#3
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/20/handle-video-with-matlab/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1606,9 +1664,19 @@
       
         
           
-            <p>情境：文件夹S中有若干个压缩文件，需要解压文件，并将原压缩文件移动到另一目录。<br>bash代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">mkdir -p zipdir</span><br><span class="line"><span class="built_in">cd</span> S</span><br><span class="line">FILES=./*.tar</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> <span class="variable">$FILES</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Processing <span class="variable">$f</span> file ..."</span></span><br><span class="line">  tar -xvf <span class="variable">$f</span></span><br><span class="line">  mv <span class="variable">$f</span> ../zipdir/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              情境：文件夹S中有若干个压缩文件，需要解压文件，并将原压缩文件移动到另一目录。bash代码如下：#!/bin/bashmkdir -p zipdircd SFILES=./*.tarfor f in $FILESdo  echo "Processing $f file ..."  tar -xvf 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/20/handle-datch-with-bash/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1749,13 +1817,20 @@
       
         
           
-            <h2 id="安装依赖包与SS"><a href="#安装依赖包与SS" class="headerlink" title="安装依赖包与SS"></a>安装依赖包与SS</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install python-pip python-m2crypto</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-<h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>在<code>/etc/shadowsocks/config.json</code>文件里写入配置内容：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>: <span class="string">"YOUR_SERVER_IP"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">  <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">  <span class="attr">"password"</span>: <span class="string">"YOUR_SS_PASSWORD"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="启动SS"><a href="#启动SS" class="headerlink" title="启动SS"></a>启动SS</h2><p><code>sudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json --user nobody -qq -d start</code></p>
-<p>也可以把这个命令加到 <code>/etc/rc.local</code>里面，每次系统启动都会启动SS</p>
-<p><a href="http://meilbn.com/2017/10/25/VPS-build-shadowsocks-and-bbr/" target="_blank" rel="noopener">参考来源</a></p>
-
+            <p>
+              安装依赖包与SSapt-get updateapt-get install python-pip python-m2cryptopip install shadowsocks
+创建配置文件在/etc/shadowsocks/config.json文件里写入配置内容：&#123;  "server":
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/03/ss-server-on-ubuntu14/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

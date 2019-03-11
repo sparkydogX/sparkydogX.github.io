@@ -51,13 +51,13 @@
 <link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=7.0.1">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
@@ -419,14 +419,21 @@
       
         
           
-            <p>这是一个老生常谈的问题了。网上搜索到的很多解决方案都是在不使用EFI模式的情况下安装。其实EFI模式下是可以安装的，问题的关键在于Secure Mode。关于Secure Mode相关的纷争可以参考这一篇<a href="http://www.ruanyifeng.com/blog/2013/01/secure_boot.html" target="_blank" rel="noopener">文章</a></p>
-<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>首先在已经安装好的windows系统中使用磁盘管理工具划分一块磁盘空间。</p>
-<h2 id="关闭Secure-Mode"><a href="#关闭Secure-Mode" class="headerlink" title="关闭Secure Mode"></a>关闭Secure Mode</h2><p>在BIOS中关闭Secure Mode</p>
-<h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><p>安装的时候注意正确的挂载各块空间。<br>我的空间分配参考了这篇<a href="https://blog.csdn.net/DeMonliuhui/article/details/77483523" target="_blank" rel="noopener">文章</a>。<br>注意选择正确的启动引导。</p>
-<h2 id="打开Secure-Mode"><a href="#打开Secure-Mode" class="headerlink" title="打开Secure Mode"></a>打开Secure Mode</h2><p>如果不知道怎么打开Secure Mode，恢复Secure Mode的默认配置后重启即可。</p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>这样就安装完成了。步骤相当简单，之前因为没有抓住问题的要害，走了不少弯路～</p>
-
+            <p>
+              这是一个老生常谈的问题了。网上搜索到的很多解决方案都是在不使用EFI模式的情况下安装。其实EFI模式下是可以安装的，问题的关键在于Secure Mode。关于Secure Mode相关的纷争可以参考这一篇文章
+磁盘分区首先在已经安装好的windows系统中使用磁盘管理工具划分一块磁盘空间。
+关闭Se
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/04/09/install-ubuntu-windows10/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -567,13 +574,22 @@
       
         
           
-            <p>visdom是一个可视化的工具。</p>
-<h1 id="安装visdom"><a href="#安装visdom" class="headerlink" title="安装visdom"></a>安装visdom</h1><p><code>pip install visdom</code></p>
-<h1 id="启动visdom"><a href="#启动visdom" class="headerlink" title="启动visdom"></a>启动visdom</h1><p><code>python -m visdom.server</code><br>可以使用<code>-p</code>参数指定端口</p>
-<p>#使用visdom<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> visdom</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">vis = visdom.Visdom()  //port=<span class="number">2333</span> env=<span class="string">'example'</span></span><br><span class="line">vis.text(<span class="string">'Hello, world!'</span>)</span><br><span class="line">vis.image(np.ones((<span class="number">3</span>, <span class="number">10</span>, <span class="number">10</span>)))</span><br></pre></td></tr></table></figure></p>
-<p>可以在创建visdom对象的时候指定port和env</p>
-
+            <p>
+              visdom是一个可视化的工具。
+安装visdompip install visdom
+启动visdompython -m visdom.server可以使用-p参数指定端口
+#使用visdomimport visdomimport numpy as npvis = visdom.Visdom() 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/04/03/using-visdom/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -714,29 +730,21 @@
       
         
           
-            <p>vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。</p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>vncserver部署在服务器中的docker容器内。</p>
-<h2 id="Docker容器端口映射"><a href="#Docker容器端口映射" class="headerlink" title="Docker容器端口映射"></a>Docker容器端口映射</h2><p>通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：<code>-p 2222:2222</code>，建立容器2222端口与服务器2222端口之间的连接。<br>如果已经有配置好的docker容器，可以使用<code>docker commit</code>指令commit当前的docker容器，然后以commit的镜像为image重新创建一个docker容器，创建时指定端口。<br>如果有需求，还可以在创建时使用<code>--shm-size=128m</code>指令指定 /dev/shm 的大小。如果不手动指定，docker默认分配64M。</p>
-<h2 id="修改镜像源"><a href="#修改镜像源" class="headerlink" title="修改镜像源"></a>修改镜像源</h2><p>工欲善其事必先利其器。这是为下一步安装图形桌面做准备。由于图形桌面的软件包较大，需要使用一个靠谱的国内镜像源。以作者的环境为例，Ubuntu 14.04，使用上海交通大学的镜像源：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/apt/sources.list</span><br><span class="line">$ :%s/archive.ubuntu.com/ftp.sjtu.edu.cn/g</span><br><span class="line">$ sudo rm /var/lib/apt/lists/* -vf</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装x11"><a href="#安装x11" class="headerlink" title="安装x11"></a>安装x11</h2><p>x11是一个用于远程图形界面的程序，若只安装x11，也可以通过ssh -x连接后显示图形程序。<br><code>sudo apt-get install xorg openbox</code></p>
-<h2 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h2><p>可以任意选择一下一种：</p>
-<h3 id="Unity"><a href="#Unity" class="headerlink" title="Unity :"></a>Unity :</h3><p><code>sudo apt-get install ubuntu-desktop</code></p>
-<h3 id="Xfce"><a href="#Xfce" class="headerlink" title="Xfce:"></a>Xfce:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install xfce4</span><br><span class="line">$ sudo apt-get install xubuntu-desktop</span><br><span class="line">$ xfce4-session</span><br></pre></td></tr></table></figure>
-<h2 id="安装vncserver"><a href="#安装vncserver" class="headerlink" title="安装vncserver"></a>安装vncserver</h2><p><code>sudo apt-get install vnc4server</code></p>
-<p>启动vncserver:<code>vncserver</code>，首次启动需要设置密码。</p>
-<h2 id="设置vnc端口"><a href="#设置vnc端口" class="headerlink" title="设置vnc端口"></a>设置vnc端口</h2><p><code>vim /usr/bin/vncserver</code><br>在这个文件中找到vncPort一行，可以看到<code>$vncPort = 5900 + $displayNumber;</code><br>将5900修改为需要的端口号，之后我想把displayNumber设置为1，因此这里改为：<br><code>$vncPort = 2332 + $displayNumber;</code><br>用<code>vncserver :1</code>命令启动vncserver后，查看log文件可以看到启用的是2333端口。</p>
-<h2 id="安装其他包"><a href="#安装其他包" class="headerlink" title="安装其他包"></a>安装其他包</h2><p><code>sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</code></p>
-<h2 id="修改xtartup文件"><a href="#修改xtartup文件" class="headerlink" title="修改xtartup文件"></a>修改xtartup文件</h2><p>文件位置：<code>~/.vnc/xstartup</code></p>
-<h3 id="Unity-1"><a href="#Unity-1" class="headerlink" title="Unity"></a>Unity</h3><p>将其修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span></span><br><span class="line"><span class="comment">#[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="comment">#xsetroot -solid grey</span></span><br><span class="line"><span class="comment">#vncconfig -iconic &amp;</span></span><br><span class="line"><span class="comment">#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;</span></span><br><span class="line"><span class="comment">#x-window-manager &amp;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">gnome-session &amp;</span><br><span class="line">gnome-panel &amp;</span><br><span class="line">gnome-settings-daemon &amp;</span><br><span class="line">metacity &amp;</span><br><span class="line">nautilus &amp;</span><br><span class="line">gnome-terminal &amp;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://gist.github.com/Musinux/8e6c4752ed3c143d49764311a504c1e9" target="_blank" rel="noopener">参考来源</a></p>
-<h3 id="Xfce-1"><a href="#Xfce-1" class="headerlink" title="Xfce"></a>Xfce</h3><p><code>sed -i &#39;s$x-window-manager$xfce4-session$&#39; ~/.vnc/xstartup</code></p>
-<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><ol>
-<li>关闭vncserver：<code>vncserver -kill :1</code></li>
-<li>设置分辨率并重启：<code>vncserver -geometry 1366x768 :1</code></li>
-</ol>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>客户端我使用<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，也可自由选择其他软件。<br>这一步比较简单，只需输入ip，指定端口号，正确填写之前设定的vnc密码，即可连接</p>
-
+            <p>
+              vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。
+服务端vncserver部署在服务器中的docker容器内。
+Docker容器端口映射通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立doc
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/03/02/vncserver/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -889,51 +897,21 @@
       
         
           
-            <p>实际工作中经常遇到以下场景：使用ssh连接远程服务器，当本地机器一段时间不操作，ssh连接会自动断开，ssh下的进程也会自动终止，执行之前命令时的终端输出也丢失了。<br>tmux可以用来解决这一问题。</p>
-<h2 id="安装tmux"><a href="#安装tmux" class="headerlink" title="安装tmux"></a>安装tmux</h2><p><code>apt-get install tmux</code></p>
-<h2 id="常用tmux指令"><a href="#常用tmux指令" class="headerlink" title="常用tmux指令"></a>常用tmux指令</h2><p>tmux中有两个重要的概念，分别是session和window。其中session是window的容器。<br>在终端下输入<code>tmux ls</code>可以查看当前活动的tmux的session。<br>如果没有session运行，输入tmux会新建一个session，名称为默认的数字。如果需要指定名称，可以用以下命令来创建session：<code>tmux new -s session_name</code>.<br>运行<code>tmux a -t session_name</code>可以进入对应的session。<br>一个session中可以有多个window。初次进入session的时候会默认创建一个window。<br>在tmux中按<code>Ctrl + B</code>组合键进入控制状态。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Command</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">n</td>
-<td style="text-align:center">下一个Window</td>
-</tr>
-<tr>
-<td style="text-align:center">p</td>
-<td style="text-align:center">前一个Window</td>
-</tr>
-<tr>
-<td style="text-align:center">c</td>
-<td style="text-align:center">创建新的Tab</td>
-</tr>
-<tr>
-<td style="text-align:center">o</td>
-<td style="text-align:center">指向下一个区域</td>
-</tr>
-<tr>
-<td style="text-align:center">d</td>
-<td style="text-align:center">Detach</td>
-</tr>
-<tr>
-<td style="text-align:center">,</td>
-<td style="text-align:center">重命名Window</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">重命名Session</td>
-</tr>
-</tbody>
-</table>
-<p>更多指令可以查看<a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7" target="_blank" rel="noopener">这个页面</a></p>
-<h2 id="恢复先前状态"><a href="#恢复先前状态" class="headerlink" title="恢复先前状态"></a>恢复先前状态</h2><p><code>tmux attach</code></p>
-
+            <p>
+              实际工作中经常遇到以下场景：使用ssh连接远程服务器，当本地机器一段时间不操作，ssh连接会自动断开，ssh下的进程也会自动终止，执行之前命令时的终端输出也丢失了。tmux可以用来解决这一问题。
+安装tmuxapt-get install tmux
+常用tmux指令tmux中有两个重要的概念，分别是
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/02/01/tmux/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1074,14 +1052,21 @@
       
         
           
-            <p>使用ftp下载与上传文件是常用需求，除了使用可视化界面的软件之外，也可以使用命令行完成这一操作。<br>首先需要确保已经安装有ftp，如果没有，使用<code>sudo apt-get install ftp</code>进行安装。</p>
-<h2 id="连接fpt服务器"><a href="#连接fpt服务器" class="headerlink" title="连接fpt服务器"></a>连接fpt服务器</h2><p>输入如下命令：<br><code>ftp YourIp</code><br>其中YourIp是ftp服务器的IP地址</p>
-<h2 id="使用被动模式"><a href="#使用被动模式" class="headerlink" title="使用被动模式"></a>使用被动模式</h2><p>登入ftp服务器之后默认使用的是主动模式，而有时候需要使用被动模式，输入<code>passive</code>命令即可进入被动模式。</p>
-<h2 id="ftp命令"><a href="#ftp命令" class="headerlink" title="ftp命令"></a>ftp命令</h2><p>键入<code>?</code>可以查看所有可用的ftp命令，<code>help command</code>可以查看命令的具体用法。</p>
-<h2 id="本地文件夹位置"><a href="#本地文件夹位置" class="headerlink" title="本地文件夹位置"></a>本地文件夹位置</h2><p>使用<code>lcd</code>命令可以查看与改变本地文件夹位置</p>
-<h2 id="上传与下载文件"><a href="#上传与下载文件" class="headerlink" title="上传与下载文件"></a>上传与下载文件</h2><p><code>put a.txt</code>可以将本地文件夹中的文件上传至服务器当前文件夹<br><code>get a.txt</code>可以将服务器上的文件下载至本地<br><code>mput *</code>可以上传多个文件<br><code>mget *</code>可以下载多个文件</p>
-
+            <p>
+              使用ftp下载与上传文件是常用需求，除了使用可视化界面的软件之外，也可以使用命令行完成这一操作。首先需要确保已经安装有ftp，如果没有，使用sudo apt-get install ftp进行安装。
+连接fpt服务器输入如下命令：ftp YourIp其中YourIp是ftp服务器的IP地址
+使用被动
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/01/30/linux-ftp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1234,48 +1219,20 @@
       
         
           
-            <p>日常工作中时常会遇到远程操作的问题，两台机器都不具有公网ip，这时候通过ssh连接就会产生一些麻烦，下面是我解决这个问题的方法。</p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>由于两台机器都不具有公网ip，因此使用ngrok，ngrok需要用到一个具有公网ip的服务器。ngrok自己也提供服务，但是从境内访问官方提供的服务器具有令人难以忍受的延迟。本文中在自己的服务器上搭建了ngrok服务。<br>先把域名解析到服务器。<br>这里我的域名是<code>wangjiebao.com</code>，做了泛解析，把<code>ngrok.wangjiebao.com</code>和<code>*.ngrok.wangjiebao.com</code>解析到ngrok服务器。</p>
-<h2 id="编译ngrok"><a href="#编译ngrok" class="headerlink" title="编译ngrok"></a>编译ngrok</h2><p>我的vps系统是Ubuntu 14.04。</p>
-<h3 id="安装必要的工具。"><a href="#安装必要的工具。" class="headerlink" title="安装必要的工具。"></a>安装必要的工具。</h3><p><code>sudo apt-get install build-essential golang mercurial git</code><br>其次需要安装golang，注意golang的版本必须为1.3以上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:gophers/archive</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install golang-1.9-go</span><br></pre></td></tr></table></figure></p>
-<p>注意默认的安装位置是<code>/usr/lib/go-1.9/bin</code><br>需要将它添加到系统路径里。<br><code>cd /usr/bin/</code><br><code>unlink go</code><br><code>ln -s /usr/lib/go-1.9/bin/go go</code></p>
-<h3 id="获取ngrok源码"><a href="#获取ngrok源码" class="headerlink" title="获取ngrok源码"></a>获取ngrok源码</h3><p><code>git clone https://github.com/inconshreveable/ngrok.git ngrok</code></p>
-<h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NGROK_DOMAIN=&quot;wangjiebao.com&quot;</span><br><span class="line"></span><br><span class="line">openssl genrsa -out base.key 2048</span><br><span class="line">openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pem</span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csr</span><br><span class="line">openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</span><br><span class="line"></span><br><span class="line">cp base.pem assets/client/tls/ngrokroot.crt</span><br></pre></td></tr></table></figure>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p><code>sudo make release-server release-client</code><br>这里默认的release client编译的是linux amd64对应的客户端。当客户端的环境变换时，需要分别编译,方法如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ GOOS=linux GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=windows GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=linux GOARCH=arm make release-client</span><br><span class="line"></span><br><span class="line">Linux 平台 32 位系统：GOOS=linux GOARCH=386</span><br><span class="line">Linux 平台 64 位系统：GOOS=linux GOARCH=amd64</span><br><span class="line"></span><br><span class="line">Windows 平台 32 位系统：GOOS=windows GOARCH=386</span><br><span class="line">Windows 平台 64 位系统：GOOS=windows GOARCH=amd64</span><br><span class="line"></span><br><span class="line">MAC 平台 32 位系统：GOOS=darwin GOARCH=386</span><br><span class="line">MAC 平台 64 位系统：GOOS=darwin GOARCH=amd64</span><br><span class="line"></span><br><span class="line">ARM 平台：GOOS=linux GOARCH=arm</span><br></pre></td></tr></table></figure></p>
-<p>编译后ngrok/bin文件夹下有ngrok、ngrokd 两个可执行文件。其中ngrokd是服务器端的程序，ngrok是linux客户端的程序。其余平台下的客户端程序在对应的文件夹下。</p>
-<h2 id="运行服务"><a href="#运行服务" class="headerlink" title="运行服务"></a>运行服务</h2><p><code>sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;wangjiebao.com&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot;</code></p>
-<blockquote>
-<p>到这一步，ngrok 服务已经跑起来了，可以通过屏幕上显示的日志查看更多信息。httpAddr、httpsAddr 分别是 ngrok 用来转发 http、https 服务的端口，可以随意指定。ngrokd 还会开一个 4443 端口用来跟客户端通讯（可通过 -tunnelAddr=”:xxx” 指定），如果你配置了 iptables 规则，需要放行这三个端口上的 TCP 协议。</p>
-</blockquote>
-<p>现在访问<a href="http://pub.ngrok.wangjiebao.com:8081" target="_blank" rel="noopener">http://pub.ngrok.wangjiebao.com:8081</a> ， 可以看到这样一行提示：<br><code>Tunnel pub.ngrok.wangjiebao.com:8081 not found</code></p>
-<blockquote>
-<p>由于设置了泛解析，因此pub可以换成其他任意的单词。</p>
-</blockquote>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>现在服务端已经配置完成，还需要在内网上的机器运行客户端，以便将内网的机器连接上服务器。<br>将之前在服务器上编译好的文件拷贝到客户机上。</p>
-<h2 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h2><p>编写一个配置文件，起名为ngrok.cfg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: wangjiebao.com:4443</span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure></p>
-<h2 id="运行客户端"><a href="#运行客户端" class="headerlink" title="运行客户端"></a>运行客户端</h2><p>指定子域、要转发的协议和端口，以及配置文件，运行客户端：<br><code>./ngrok -subdomain pub -proto=tcp -config=ngrok.cfg 22</code></p>
-<blockquote>
-<p>如果需要转发的是HTTP，改为 <code>./ngrok -subdomain pub -proto=http -config=ngrok.cfg 80</code></p>
-</blockquote>
-<p>当tunnel status显示online，说明已经连接上服务器</p>
-<h1 id="配置Docker"><a href="#配置Docker" class="headerlink" title="配置Docker"></a>配置Docker</h1><p>正常的机器这个时候应该已经可以通过任意一台机器使用<code>ssh root@ngrok.wangjiebao.com -p 123456</code>来访问内网机器的端口。</p>
-<blockquote>
-<p>其中端口号会在客户端的运行界面给出</p>
-</blockquote>
-<p>但是我在配置docker container的时候发现访问总是被拒绝。</p>
-<blockquote>
-<p>由于不知道docker container的密码，密码使用<code>passwd</code>指令修改过。</p>
-</blockquote>
-<p>最后发现问题的根源在于Docker container上没有安装sshd服务。</p>
-<h2 id="安装ssh-server"><a href="#安装ssh-server" class="headerlink" title="安装ssh server"></a>安装ssh server</h2><p><code>apt-get install openssh-server</code></p>
-<h2 id="启动与重启ssh-server"><a href="#启动与重启ssh-server" class="headerlink" title="启动与重启ssh server"></a>启动与重启ssh server</h2><p>启动ssh server：<br><code>sudo /etc/init.d/ssh start</code><br>重启ssh server：<br><code>sudo service ssh restart</code><br>查看服务是否运行：<br><code>netstat -aunpt</code></p>
-<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>配置文件位于<code>/etc/ssh/sshd_config</code><br>将配置文件中的<code>PermitRootLogin without-password</code>改为<code>PermitRootLogin yes</code></p>
-<h1 id="通过ssh访问客户机"><a href="#通过ssh访问客户机" class="headerlink" title="通过ssh访问客户机"></a>通过ssh访问客户机</h1><p>现在已经全部配置完成，可以愉快地玩耍了。在任意一台联网的机器上，都可以使用<code>ssh root@ngrok.wangjiebao.com -p 123456</code>来访问内网机器的端口。</p>
-<blockquote>
-<p>其中端口号会在客户端的运行界面给出</p>
-</blockquote>
-
+            <p>
+              日常工作中时常会遇到远程操作的问题，两台机器都不具有公网ip，这时候通过ssh连接就会产生一些麻烦，下面是我解决这个问题的方法。
+服务端由于两台机器都不具有公网ip，因此使用ngrok，ngrok需要用到一个具有公网ip的服务器。ngrok自己也提供服务，但是从境内访问官方提供的服务器具有令人难以忍
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/01/25/ssh2dockercontainer/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1416,12 +1373,20 @@
       
         
           
-            <p>使用python的同学都知道，python各种版本以及对应的包管理是很让人头疼的事情。Anaconda很好的解决了这个问题。<br>在Anaconda中，用户可以创建指定python版本的环境，并且方便的在哥哥环境中切换。</p>
-<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>安装完Anaconda后，将anaconda路径添加到PATH变量中。<br>使用如下命令：<br><code>conda create -n a python=3.3</code><br>可以创建一个名称为a的python3.3环境。</p>
-<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><p><code>source activate a</code><br>可以默认将环境指定为a，通过<code>conda info</code>指令可以查看当前默认环境。</p>
-<h2 id="查看已安装环境"><a href="#查看已安装环境" class="headerlink" title="查看已安装环境"></a>查看已安装环境</h2><p><code>conda info --env</code></p>
-
+            <p>
+              使用python的同学都知道，python各种版本以及对应的包管理是很让人头疼的事情。Anaconda很好的解决了这个问题。在Anaconda中，用户可以创建指定python版本的环境，并且方便的在哥哥环境中切换。
+创建环境安装完Anaconda后，将anaconda路径添加到PATH变量中。使用如
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/12/11/create-conda-env/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1562,10 +1527,19 @@
       
         
           
-            <p>tkinter是python自带的gui库，支持跨平台。课程作业需要写一个聊天交互界面。<br>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> messagebox</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用chatbot核心交互模块，获得输出</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_text</span><span class="params">(mw,st,imsg)</span>:</span></span><br><span class="line">    message_send_by_bot=<span class="string">''</span></span><br><span class="line">    message_send_by_human=<span class="string">''</span></span><br><span class="line">    <span class="keyword">if</span>(imsg.get().strip()==<span class="string">''</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        message_send_by_human=<span class="string">'Human:\n\t'</span>+imsg.get()+<span class="string">'\n'</span></span><br><span class="line">        message_send_by_bot=<span class="string">'ChatBot:\n\t'</span>+<span class="string">'stupid\n'</span></span><br><span class="line">        mw.config(state=<span class="string">'normal'</span>)</span><br><span class="line">        mw.insert(<span class="string">'end'</span>,message_send_by_human)</span><br><span class="line">        mw.insert(<span class="string">'end'</span>,message_send_by_bot)</span><br><span class="line">        imsg.set(<span class="string">""</span>)</span><br><span class="line">        mw.see(<span class="string">'end'</span>)</span><br><span class="line">        mw.config(state=<span class="string">'disabled'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示作者信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_author</span><span class="params">()</span>:</span></span><br><span class="line">    messagebox.showinfo(<span class="string">"作者信息"</span>,<span class="string">"xxx"</span>)</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line"><span class="comment">#input_message为消息框中的文字</span></span><br><span class="line">input_message=tk.StringVar(window)</span><br><span class="line">input_message.set(<span class="string">""</span>)</span><br><span class="line"><span class="comment">#输入回车键发送消息</span></span><br><span class="line">window.bind(<span class="string">'&lt;Return&gt;'</span>,<span class="keyword">lambda</span> x:add_text(message_window,input_entry,input_message))</span><br><span class="line">window.title(<span class="string">'AI Chatbot'</span>)</span><br><span class="line">window.geometry(<span class="string">'600x600'</span>)</span><br><span class="line">window[<span class="string">'bg'</span>] = <span class="string">'white'</span></span><br><span class="line">fram1 = tk.Frame(height=<span class="number">60</span>, width=<span class="number">100</span>, bg=<span class="string">'white'</span>)</span><br><span class="line">fram2 = tk.Frame(height=<span class="number">400</span>, width=<span class="number">100</span>, bg=<span class="string">'blue'</span>)</span><br><span class="line">fram3 = tk.Frame(height=<span class="number">80</span>, width=<span class="number">100</span>, bg=<span class="string">'red'</span>)</span><br><span class="line"><span class="comment">#聊天机器人名字</span></span><br><span class="line">bot_name = tk.Label(fram1,</span><br><span class="line">                    text=<span class="string">'ChatBot'</span>,</span><br><span class="line"></span><br><span class="line">                    bg=<span class="string">'white'</span>,</span><br><span class="line">                    font=(<span class="string">'Arial'</span>, <span class="number">12</span>),</span><br><span class="line">                    width=<span class="number">15</span>, height=<span class="number">2</span></span><br><span class="line">                    )</span><br><span class="line">bot_name.pack(side=<span class="string">'left'</span>)</span><br><span class="line"><span class="comment">#作者信息button</span></span><br><span class="line">about_button = tk.Button(fram1,</span><br><span class="line">                         text=<span class="string">'作者信息'</span>,</span><br><span class="line">                         width=<span class="number">10</span>, height=<span class="number">2</span>,</span><br><span class="line">                         relief=<span class="string">'groove'</span>,</span><br><span class="line">                         bg=<span class="string">'white'</span>,</span><br><span class="line">                         command=show_author)</span><br><span class="line">about_button.pack(side=<span class="string">'right'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输入栏</span></span><br><span class="line">input_entry=tk.Entry(fram3,width=<span class="number">10</span>,</span><br><span class="line">                     bg=<span class="string">'white'</span>,textvariable=input_message)</span><br><span class="line">input_entry.pack(side=<span class="string">'left'</span>,expand=<span class="string">'YES'</span>,fill=<span class="string">'both'</span>)</span><br><span class="line"><span class="comment">#初始化消息框</span></span><br><span class="line">message_window=tk.Text(fram2,bg=<span class="string">'white'</span>,yscrollcommand=<span class="string">'YES'</span>)</span><br><span class="line">message_window.insert(<span class="string">'end'</span>,<span class="string">'ChatBot:\n\t'</span>+<span class="string">'hello\n'</span>)</span><br><span class="line">message_window.config(state=<span class="string">'disabled'</span>)</span><br><span class="line">message_window.pack(side=<span class="string">'top'</span>,expand=<span class="string">'YES'</span>,fill=<span class="string">'both'</span>)</span><br><span class="line"><span class="comment">#发送按钮</span></span><br><span class="line">send_button = tk.Button(fram3,text=<span class="string">'发送(Enter)'</span>,</span><br><span class="line">                        width=<span class="number">10</span>,</span><br><span class="line">                        height=<span class="number">2</span>,</span><br><span class="line">                        relief=<span class="string">'groove'</span>,</span><br><span class="line">                        bg=<span class="string">'white'</span>,</span><br><span class="line">                        state=<span class="string">'active'</span>,</span><br><span class="line">                        command=<span class="keyword">lambda</span> :add_text(message_window,input_entry,input_message)</span><br><span class="line">                        )</span><br><span class="line">send_button.pack(side=<span class="string">'right'</span>)</span><br><span class="line"></span><br><span class="line">fram1.pack(fill=<span class="string">'x'</span>, side=<span class="string">'top'</span>)</span><br><span class="line">fram2.pack(fill=<span class="string">'both'</span>, expand=<span class="string">'YES'</span>)</span><br><span class="line">fram3.pack(fill=<span class="string">'x'</span>, side=<span class="string">'bottom'</span>)</span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure></p>
-<p>效果如下：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/1127/tkinter-gui.png" alt="img"></p>
-
+            <p>
+              tkinter是python自带的gui库，支持跨平台。课程作业需要写一个聊天交互界面。代码如下：import tkinter as tkfrom tkinter import messagebox#调用chatbot核心交互模块，获得输出def add_text(mw,st,imsg):    m
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/27/python-gui-tkinter/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1706,14 +1680,20 @@
       
         
           
-            <p>之前折腾的阿里云主机能够正常访问了，就想着在服务器上部署多个网站。比如将 <a href="http://www.sparkydogx.top" target="_blank" rel="noopener">www.sparkydogx.top</a> 解析到我的主站点，将 blog.sparkydogx.top 解析到我的博客站点。我的服务器是ubuntu14.04系统，web服务使用的是apache，具体操作如下：</p>
-<h2 id="设置域名解析"><a href="#设置域名解析" class="headerlink" title="设置域名解析"></a>设置域名解析</h2><p>购买域名后，虽然理论上子域名个数是无限的，但是一般域名商都会给出五个左右的限制，这对个人来说已经足够使用了。这里只需要将需要的子域名解析到服务器的ip即可。</p>
-<h2 id="设置apache2的配置文件"><a href="#设置apache2的配置文件" class="headerlink" title="设置apache2的配置文件"></a>设置apache2的配置文件</h2><p>子域名被解析到了同一个ip地址，判断访问哪个目录到决策只能是由服务器做出的。Appache2提供Virtual Host功能，只需要在<code>/etc/apache2/site-avaliable</code>文件夹下新建一个配置文件，配置文件内容可以参考默认配置，更改<strong>端口</strong>和<strong>目录</strong>即可。</p>
-<h2 id="建立软连接"><a href="#建立软连接" class="headerlink" title="建立软连接"></a>建立软连接</h2><p>在运行时，apache并不是在<code>/etc/apache2/site-avaliable</code>文件夹读取配置，而是在<code>/etc/apache2/site-enable</code>读取文件，因此需要在这个文件夹内建立软链接。</p>
-<h2 id="重启apache2"><a href="#重启apache2" class="headerlink" title="重启apache2"></a>重启apache2</h2><p><code>sudo /etc/init.d/apache2  restart</code></p>
-<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>这时候在浏览器输入子域名，发现可以实现所需功能。</p>
-
+            <p>
+              之前折腾的阿里云主机能够正常访问了，就想着在服务器上部署多个网站。比如将 www.sparkydogx.top 解析到我的主站点，将 blog.sparkydogx.top 解析到我的博客站点。我的服务器是ubuntu14.04系统，web服务使用的是apache，具体操作如下：
+设置域名解析购买域
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/24/virtual-hosts/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1854,9 +1834,19 @@
       
         
           
-            <p>之前见过有人使用shell画loss图像，我是在是学不来，于是自己动手写了一段matlab代码，把数据读到matlab里面。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">fid=fopen(<span class="string">'/data2/xxx/workspace/output.txt'</span>);</span><br><span class="line">tline = fgetl(fid);</span><br><span class="line"><span class="keyword">while</span> ischar(tline)</span><br><span class="line">    sub_idx_iteration=strfind(tline,<span class="string">'Iteration'</span>);</span><br><span class="line">    <span class="keyword">if</span>(sub_idx_iteration)</span><br><span class="line">        sub_loss = strfind(tline,<span class="string">'loss'</span>);</span><br><span class="line">        <span class="keyword">if</span>(sub_loss)</span><br><span class="line">        idx_end=strfind(tline,<span class="string">','</span>);</span><br><span class="line">        iteration = str2num(tline(sub_idx_iteration+<span class="number">10</span>:idx_end<span class="number">-1</span>));</span><br><span class="line">        total_loss=str2num(tline(sub_loss+<span class="number">7</span>:<span class="keyword">end</span>));</span><br><span class="line">        idx=iteration/<span class="number">5</span>+<span class="number">1</span>;</span><br><span class="line">        matrix_for_plot(idx,<span class="number">1</span>)=iteration;</span><br><span class="line">        matrix_for_plot(idx,<span class="number">14</span>)=total_loss;</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">            tline=fgetl(fid);</span><br><span class="line">            stage_loss_start=strfind(tline,<span class="string">'* 1 ='</span>)+<span class="number">6</span>;</span><br><span class="line">            stage_loss=str2num(tline(stage_loss_start:<span class="keyword">end</span><span class="number">-5</span>));</span><br><span class="line">            matrix_for_plot(idx,<span class="built_in">i</span>+<span class="number">1</span>)=stage_loss;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    tline = fgetl(fid);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">plot(matrix_for_plot(:,<span class="number">1</span>),matrix_for_plot(:,<span class="number">13</span>));</span><br><span class="line">ylim([<span class="number">0</span>,<span class="number">200</span>])</span><br><span class="line">xlabel(<span class="string">'Iteration'</span>)</span><br><span class="line">ylabel(<span class="string">'L2 (Joints)'</span>)</span><br><span class="line">saveas(<span class="number">1</span>,<span class="string">'L2.jpg'</span>);</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">plot(matrix_for_plot(:,<span class="number">1</span>),matrix_for_plot(:,<span class="number">12</span>));</span><br><span class="line">xlabel(<span class="string">'Iteration'</span>)</span><br><span class="line">ylabel(<span class="string">'L1 (PAF)'</span>)</span><br><span class="line">saveas(<span class="number">2</span>,<span class="string">'L1.jpg'</span>);</span><br><span class="line">figure(<span class="number">3</span>)</span><br><span class="line">plot(matrix_for_plot(:,<span class="number">1</span>),matrix_for_plot(:,<span class="number">14</span>));</span><br><span class="line">ylim([<span class="number">0</span>,<span class="number">3000</span>])</span><br><span class="line">xlabel(<span class="string">'Iteration'</span>)</span><br><span class="line">ylabel(<span class="string">'total loss'</span>)</span><br><span class="line">saveas(<span class="number">3</span>,<span class="string">'total_loss.jpg'</span>);</span><br></pre></td></tr></table></figure></p>
-
+            <p>
+              之前见过有人使用shell画loss图像，我是在是学不来，于是自己动手写了一段matlab代码，把数据读到matlab里面。fid=fopen('/data2/xxx/workspace/output.txt');tline = fgetl(fid);while ischar(tline)    s
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/05/draw-caffe-loss/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
