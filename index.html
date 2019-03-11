@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
 
   <link rel="canonical" href="http://sparkydogX.github.io/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home menu-item-active">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -269,12 +297,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -285,6 +324,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,11 +352,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/04/python-matlab/" itemprop="url">在python中调用matlab</a></h1>
+                
+                <a href="/2019/03/04/python-matlab/" class="post-title-link" itemprop="url">在python中调用matlab</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +373,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T17:10:08+08:00">
-                2019-03-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-04 17:10:08 / 修改时间：17:32:29" itemprop="dateCreated datePublished" datetime="2019-03-04T17:10:08+08:00">2019-03-04</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,27 +419,36 @@
       
         
           
-          本文介绍如何在python中调用matlab的函数。
-安装matlab首先需要安装matlab，如果已经安装可以跳过这一节。本文使用的matlab版本是R2016b，安装在远程的服务器上。由于是远程安装，所以需要在安装matlab的时候使用静默模式。
+            <p>本文介绍如何在python中调用matlab的函数。</p>
+<h1 id="安装matlab"><a href="#安装matlab" class="headerlink" title="安装matlab"></a>安装matlab</h1><p>首先需要安装matlab，如果已经安装可以跳过这一节。<br>本文使用的matlab版本是R2016b，安装在远程的服务器上。<br>由于是远程安装，所以需要在安装matlab的时候使用静默模式。</p>
+<ul>
+<li><p>首先修改安装目录下的installer_input.txt文件，选择需要安装的组件，修改文件中的相应状态。<br>cd到matlab安装文件所在目录，执行<br><code>./install -inputFile /xxx/xxx/xxx/installer_input.txt</code><br>这里建议写全文件所在的绝对路径。</p>
+</li>
+<li><p>激活matlab。matlab安装后需要激活，cd到matlab安装路径下，这个路径在installer_input.txt文件中进行过设置。<br>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd bin</span><br><span class="line">./activate_matlab.sh -propertiesFile /xxx/xxx/xxx/activate.ini</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装成功后可以执行<code>bin/matlab</code>来启动matlab<br>为了便于使用，可以将matlab的启动路径作为别名添加到bashrc文件中。</p>
+<h1 id="python安装matlab-engine"><a href="#python安装matlab-engine" class="headerlink" title="python安装matlab engine"></a>python安装matlab engine</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $matlab_root/extern/python</span><br><span class="line">python set.py install</span><br></pre></td></tr></table></figure>
+<p>注意不同版本的matlab支持的python版本也不尽相同。<br>这样就安装成功了，可以运行一段代码测试一下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matlab.engine</span><br><span class="line">eng = matlab.engine.start_matlab()</span><br><span class="line">tf = eng.isprime(<span class="number">37</span>)</span><br><span class="line">print(tf)</span><br></pre></td></tr></table></figure></p>
+<p>更多用法可以参考<a href="https://www.mathworks.com/help/matlab/matlab_external/call-matlab-functions-from-python.html" target="_blank" rel="noopener">这个页面</a></p>
 
-首先修改安装目录下的installer_inp
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/04/python-matlab/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -414,6 +479,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -440,11 +507,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/01/latex-add-notes/" itemprop="url">在latex中添加notes</a></h1>
+                
+                <a href="/2019/03/01/latex-add-notes/" class="post-title-link" itemprop="url">在latex中添加notes</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -452,19 +528,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T23:11:41+08:00">
-                2019-03-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-01 23:11:41" itemprop="dateCreated datePublished" datetime="2019-03-01T23:11:41+08:00">2019-03-01</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-02 11:21:17" itemprop="dateModified" datetime="2019-03-02T11:21:17+08:00">2019-03-02</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -492,25 +586,35 @@
       
         
           
-          有时候对于一个未完成的tex文件，为了方便与他人交流，或者为了给自己提个醒，我们希望能够在生成的pdf文件中加入醒目的注释。使用todonotes和marginnote都可以实现这样的功能。
-在页面两侧空白处添加notes定义其中最后四行是为了保持原来排版不变的情况下增加边距。因为默认的边距往往较小
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/01/latex-add-notes/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>有时候对于一个未完成的tex文件，为了方便与他人交流，或者为了给自己提个醒，我们希望能够在生成的pdf文件中加入醒目的注释。<br>使用<code>todonotes</code>和<code>marginnote</code>都可以实现这样的功能。</p>
+<h1 id="在页面两侧空白处添加notes"><a href="#在页面两侧空白处添加notes" class="headerlink" title="在页面两侧空白处添加notes"></a>在页面两侧空白处添加notes</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><script src="https://gist.github.com/sparkydogX/b065fea8c48bf65293450b53f4876c65.js"></script><br>其中最后四行是为了保持原来排版不变的情况下增加边距。<br>因为默认的边距往往较小，显示出来的效果比较糟糕，所以往往需要增加边距，以容纳注释文本。<br>在最终版本中应该将这四行删除。</p>
+<h2 id="在文章中使用"><a href="#在文章中使用" class="headerlink" title="在文章中使用"></a>在文章中使用</h2><ul>
+<li><p>使用todonotes</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\todo&#123;Don&apos;t forget to put an introduction here.&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用marginnote</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\marginnote&#123;This is a margin note&#125;[3cm]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里的3cm定义了这个注释显示在页面中的高度。<br>关于使用marginnote的更详细用法可以参考<a href="https://www.overleaf.com/learn/latex/Margin_notes" target="_blank" rel="noopener">https://www.overleaf.com/learn/latex/Margin_notes</a></p>
+<h1 id="使用todonotes实现inline-notes"><a href="#使用todonotes实现inline-notes" class="headerlink" title="使用todonotes实现inline notes"></a>使用todonotes实现inline notes</h1><p>行内的notes会占据正文的空间，这种方法的好处是不用考虑额外的边距问题，也更加方便阅读。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[textsize=small]&#123;todonotes&#125;</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">\todo[inline,caption=&#123;&#125;]&#123;</span><br><span class="line">  \begin&#123;itemize&#125;</span><br><span class="line">    \item Bla bla bla</span><br><span class="line">  \end&#123;itemize&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -541,6 +645,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -567,11 +673,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/get-current-commit-version/" itemprop="url">获得当前git提交版本的hash</a></h1>
+                
+                <a href="/2019/02/27/get-current-commit-version/" class="post-title-link" itemprop="url">获得当前git提交版本的hash</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -579,19 +694,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T15:17:30+08:00">
-                2019-02-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-27 15:17:30 / 修改时间：15:22:03" itemprop="dateCreated datePublished" datetime="2019-02-27T15:17:30+08:00">2019-02-27</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -619,26 +740,25 @@
       
         
           
-          想知道当前代码在git仓库中的版本，最直接的方法是使用git log直接进行查看。此外也可以通过在terminal中执行以下指令直接获得：1git log --pretty=format:"%h" -n 1
-将”%h”换成”%H”可以获得long形式的Hash
+            <p>想知道当前代码在git仓库中的版本，最直接的方法是使用<code>git log</code>直接进行查看。<br>此外也可以通过在terminal中执行以下指令直接获得：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">"%h"</span> -n 1</span><br></pre></td></tr></table></figure></p>
+<p>将”%h”换成”%H”可以获得long形式的Hash</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/get-current-commit-version/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -669,6 +789,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -695,11 +817,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/18/tqdm-with-description/" itemprop="url">在python的tqdm中加入前缀和后缀</a></h1>
+                
+                <a href="/2019/02/18/tqdm-with-description/" class="post-title-link" itemprop="url">在python的tqdm中加入前缀和后缀</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -707,19 +838,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T21:56:39+08:00">
-                2019-02-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-18 21:56:39 / 修改时间：22:08:37" itemprop="dateCreated datePublished" datetime="2019-02-18T21:56:39+08:00">2019-02-18</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -747,27 +884,27 @@
       
         
           
-          tqdm是python中非常好用的模块，可以用来指示循环的运行情况，最简单的方法是在for循环中直接加入tqdm，如for i in tqdm(range(100))。但是如果想要在循环中指示更多信息，则需要修改一些代码：
+            <p>tqdm是python中非常好用的模块，可以用来指示循环的运行情况，最简单的方法是在for循环中直接加入tqdm，如<code>for i in tqdm(range(100))</code>。<br>但是如果想要在循环中指示更多信息，则需要修改一些代码：</p>
+<script src="https://gist.github.com/sparkydogX/f9acb7c76aeefffdcebfa782bfb1e4c9.js"></script>
 
+<p>这样可以在tqdm读条的前后显示需要的信息，<code>set_description()</code>设定的是前缀，<code>set_postfix()</code>设定的是后缀。<br>如果需要更加细致全面美观的功能，可以使用<a href="https://github.com/verigak/progress/" target="_blank" rel="noopener">progress</a>模块。使用tqdm主要就是图个方便省事。</p>
 
-这样可以在tqdm读条的前后显示需要的信息，set_descriptio
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/18/tqdm-with-description/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -798,6 +935,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -824,11 +963,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/03/sync-code-via-github/" itemprop="url">通过Github私有仓库同步代码</a></h1>
+                
+                <a href="/2019/02/03/sync-code-via-github/" class="post-title-link" itemprop="url">通过Github私有仓库同步代码</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -836,19 +984,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T15:28:01+08:00">
-                2019-02-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-03 15:28:01 / 修改时间：15:40:33" itemprop="dateCreated datePublished" datetime="2019-02-03T15:28:01+08:00">2019-02-03</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -876,27 +1030,33 @@
       
         
           
-          前一阵Github向个人用户免费开放了私有仓库的功能。通过私有仓库同步代码相当方便。本文不考虑对master分支进行合并操作，仅介绍dev分支的同步。
-本地dev分支
-若dev分支不存在，创建dev分支： git checkout -b dev master
-修改代码后提交： git add,   
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/03/sync-code-via-github/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>前一阵Github向个人用户免费开放了私有仓库的功能。通过私有仓库同步代码相当方便。<br>本文不考虑对master分支进行合并操作，仅介绍dev分支的同步。</p>
+<h1 id="本地dev分支"><a href="#本地dev分支" class="headerlink" title="本地dev分支"></a>本地dev分支</h1><ul>
+<li>若dev分支不存在，创建dev分支： <code>git checkout -b dev master</code></li>
+<li>修改代码后提交： <code>git add</code>,   <code>git commit</code></li>
+<li>上传代码到Github： <code>git push origin dev</code></li>
+</ul>
+<h1 id="远程机器"><a href="#远程机器" class="headerlink" title="远程机器"></a>远程机器</h1><ul>
+<li>若dev分支不存在，创建并切换到dev分支：<code>git checkout -b origin/dev</code></li>
+<li>同步Github仓库中的代码：<code>git pull</code></li>
+</ul>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -927,6 +1087,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -953,11 +1115,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/03/python-simplehttpserverwithupload/" itemprop="url">在SimpleHTTPServer中加入上传功能</a></h1>
+                
+                <a href="/2019/02/03/python-simplehttpserverwithupload/" class="post-title-link" itemprop="url">在SimpleHTTPServer中加入上传功能</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -965,19 +1136,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T15:16:34+08:00">
-                2019-02-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-03 15:16:34 / 修改时间：15:25:57" itemprop="dateCreated datePublished" datetime="2019-02-03T15:16:34+08:00">2019-02-03</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1005,27 +1182,30 @@
       
         
           
-          感谢以下两篇博客给出的详细实现思路：
+            <p>感谢以下两篇博客给出的详细实现思路：</p>
+<ul>
+<li><a href="http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/" target="_blank" rel="noopener">http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/</a></li>
+<li><a href="https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerWithUpload_with_python3.html" target="_blank" rel="noopener">https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerWithUpload_with_python3.html</a></li>
+</ul>
+<p>分别实现了python2和python3的版本。<br>在中文环境下建议使用python3的版本，在测试中我使用python2版本上传中文文件时会出现乱码。（亘古不变的编码大坑=_=!）<br>代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/0e4ce448bc22d86bdef8c2ff9da24c7e.js"></script>
 
-http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/
-https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/03/python-simplehttpserverwithupload/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1056,6 +1236,8 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1082,11 +1264,20 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/22/create-ssh-terminial/" itemprop="url">通过脚本在终端中打开多个ssh session</a></h1>
+                
+                <a href="/2019/01/22/create-ssh-terminial/" class="post-title-link" itemprop="url">通过脚本在终端中打开多个ssh session</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1094,19 +1285,25 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T15:24:36+08:00">
-                2019-01-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-22 15:24:36 / 修改时间：15:36:42" itemprop="dateCreated datePublished" datetime="2019-01-22T15:24:36+08:00">2019-01-22</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1134,25 +1331,27 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
       
         
           
-          在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。
-免密登录服务器ssh-keygen创建一个新的密钥对将公钥复制到服务器ssh-copy-id user@my.server.com从现在起，服务器应
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/22/create-ssh-terminial/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。</p>
+<h1 id="免密登录服务器"><a href="#免密登录服务器" class="headerlink" title="免密登录服务器"></a>免密登录服务器</h1><p><code>ssh-keygen</code>创建一个新的密钥对<br>将公钥复制到服务器<br><code>ssh-copy-id user@my.server.com</code><br>从现在起，服务器应该识别你的密钥，而不再要求输入密码。</p>
+<h1 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h1><p>我的脚本如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">cmd=<span class="string">'watch -n 1 nvidia-smi'</span></span><br><span class="line"> gnome-terminal \</span><br><span class="line"> --window  -e <span class="string">"ssh  node0 "</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node0 <span class="variable">$cmd</span>"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1 <span class="variable">$cmd</span>"</span> \</span><br></pre></td></tr></table></figure></p>
+<p>这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用<a href="mailto:`user@my.server.com" target="_blank" rel="noopener">`user@my.server.com</a>`替代即可。<br>这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。  </p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1183,6 +1382,8 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1209,11 +1410,20 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/17/mtproxy-telegram/" itemprop="url">部署供Telegram使用的MTProxy服务</a></h1>
+                
+                <a href="/2019/01/17/mtproxy-telegram/" class="post-title-link" itemprop="url">部署供Telegram使用的MTProxy服务</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1221,19 +1431,37 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T14:08:44+08:00">
-                2019-01-17
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-17 14:08:44" itemprop="dateCreated datePublished" datetime="2019-01-17T14:08:44+08:00">2019-01-17</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-07 11:10:11" itemprop="dateModified" datetime="2019-03-07T11:10:11+08:00">2019-03-07</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1261,24 +1489,41 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
       
         
           
-          更新后的telegram在iOS上使用系统代理无效，可以选择使用telegram内置的socks5和mtproxy来进行代理。socks5代理搞得我一头雾水，到最后也没找到iOS上我vpn程序的本地端口在哪。只能使用mtproxy。好在mtproxy服务器的配置也很简单。以我的服务器为例，操作系统是
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/17/mtproxy-telegram/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>更新后的telegram在iOS上使用系统代理无效，可以选择使用telegram内置的socks5和mtproxy来进行代理。socks5代理搞得我一头雾水，到最后也没找到iOS上我vpn程序的本地端口在哪。只能使用mtproxy。<br>好在mtproxy服务器的配置也很简单。<br>以我的服务器为例，操作系统是centos6。</p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line">yum install openssl-devel zlib-devel git wget vim</span><br><span class="line">yum groupinstall <span class="string">"Development Tools"</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装C-11"><a href="#安装C-11" class="headerlink" title="安装C++11"></a>安装C++11</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d</span><br><span class="line">wget http://linuxsoft.cern.ch/cern/scl/slc6-scl.repo</span><br><span class="line">yum -y --nogpgcheck install devtoolset-3-gcc devtoolset-3-gcc-c++</span><br><span class="line">scl <span class="built_in">enable</span> devtoolset-3 bash</span><br></pre></td></tr></table></figure>
+<h1 id="编译源代码"><a href="#编译源代码" class="headerlink" title="编译源代码"></a>编译源代码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/TelegramMessenger/MTProxy</span><br><span class="line"><span class="built_in">cd</span> MTProxy</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> objs/bin</span><br><span class="line"><span class="comment"># 获取 AES 密钥用于连接 Telegram 服务器</span></span><br><span class="line">curl -s https://core.telegram.org/getProxySecret -o proxy-secret</span><br><span class="line"><span class="comment"># 获取 Telegram 服务器列表及配置，建议定时更新</span></span><br><span class="line">curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf</span><br><span class="line">head -c 16 /dev/urandom | xxd -ps</span><br></pre></td></tr></table></figure>
+<p>添加用户：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser mtproxy</span><br><span class="line">passwd mtproxy</span><br></pre></td></tr></table></figure></p>
+<p>记住到这一步生成的密钥。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x mtproto-proxy</span><br><span class="line">./mtproto-proxy -u mtproxy -p 8888 -H 445 -S &lt;secret&gt; --aes-pwd proxy-secret proxy-multi.conf -M 0 &amp;</span><br></pre></td></tr></table></figure></p>
+<p>更改防火墙设置，允许对应的 TCP 端口通过：<br><code>sudo iptables -A INPUT -p tcp --dport 445 -j ACCEPT</code></p>
+<h1 id="添加开机启动"><a href="#添加开机启动" class="headerlink" title="添加开机启动"></a>添加开机启动</h1><p><code>cd /home/MTProxy/objs/bin &amp;&amp; ./mtproto-proxy -u mtproxy -p 8888 -H 445 -S &lt;secret&gt; --aes-pwd proxy-secret proxy-multi.conf -M 0 &amp;</code></p>
+<h1 id="停止MTProxy"><a href="#停止MTProxy" class="headerlink" title="停止MTProxy"></a>停止MTProxy</h1><p><code>pkill -u mtproxy</code></p>
+<blockquote>
+<p>参考来源：</p>
+<ul>
+<li><a href="https://github.com/iimarks/MTProxy" target="_blank" rel="noopener">https://github.com/iimarks/MTProxy</a></li>
+<li><a href="https://blog.lancitou.net/mtproxy-setup/" target="_blank" rel="noopener">Telegram 专用代理服务器 MTProxy 搭建</a></li>
+<li><a href="https://segmentfault.com/a/1190000015837579" target="_blank" rel="noopener">Telegram MTproxy代理搭建完全指南</a></li>
+</ul>
+</blockquote>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1309,6 +1554,8 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1335,11 +1582,20 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/16/ubuntu-wake-on-lan/" itemprop="url">在Ubuntu中设置网络唤醒</a></h1>
+                
+                <a href="/2019/01/16/ubuntu-wake-on-lan/" class="post-title-link" itemprop="url">在Ubuntu中设置网络唤醒</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1347,19 +1603,25 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-16T13:18:10+08:00">
-                2019-01-16
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-16 13:18:10 / 修改时间：13:34:28" itemprop="dateCreated datePublished" datetime="2019-01-16T13:18:10+08:00">2019-01-16</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1387,25 +1649,41 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
       
         
           
-          网络唤醒，实际上就是远程开机了，首先需要主板支持wake on lan（大部分2000年后生产的主板都支持wol），此外机器需要连接到电源。
-设置BIOS在BIOS设置中打开wol功能，通常到制造商的网站上可以找到具体操作步骤，我用的是华硕主板，设置步骤在这里:BIOS中如何开启&amp;关闭网络唤
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/16/ubuntu-wake-on-lan/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>网络唤醒，实际上就是远程开机了，首先需要主板支持wake on lan（大部分2000年后生产的主板都支持wol），此外机器需要连接到电源。</p>
+<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><p>在BIOS设置中打开wol功能，通常到制造商的网站上可以找到具体操作步骤，我用的是华硕主板，设置步骤在这里:<a href="https://www.asus.com.cn/support/FAQ/1001663/" target="_blank" rel="noopener">BIOS中如何开启&amp;关闭网络唤醒</a></p>
+<h1 id="在Ubuntu系统中进行设置"><a href="#在Ubuntu系统中进行设置" class="headerlink" title="在Ubuntu系统中进行设置"></a>在Ubuntu系统中进行设置</h1><ol>
+<li>安装 ethtool<br><code>sudo apt-get install ethtool</code></li>
+<li>启动ethtool<br><code>sudo ethtool -s eth0 wol g</code><br>这里的eth0应该根据具体的网卡名称修改。可以使用<code>ifconfig</code>查看当前机器的网卡。</li>
+<li><p>设置开机启动ethtool<br><code>vim /etc/rc.local</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sleep 5</span><br><span class="line">ethtool -s eth0 wol g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>sudo vim/etc/init.d/halt</code><br>设置<code>NETDOWN = no</code></p>
+</li>
+<li><p>记录Ubuntu机器的Mac地址</p>
+</li>
+</ol>
+<h1 id="远程启动"><a href="#远程启动" class="headerlink" title="远程启动"></a>远程启动</h1><ul>
+<li>For Ubuntu:<code>sudo apt-get install wakeonlan</code></li>
+<li>For Mac: <code>brew install wakeonlan</code></li>
+<li>For Windows: <a href="https://www.solarwinds.com/free-tools/wake-on-lan" target="_blank" rel="noopener">Wake on Lan</a><br>以Ubuntu和Mac为例，在命令行中执行<code>wakeonlan xx:xx:xx:xx:xx:xx</code> （输入Ubuntu机器对应的mac地址）就可以唤醒机器了。</li>
+</ul>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1438,6 +1716,8 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1462,11 +1742,20 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/09/apply-gitignore/" itemprop="url">将gitignore中的更新同步到git仓库</a></h1>
+                
+                <a href="/2019/01/09/apply-gitignore/" class="post-title-link" itemprop="url">将gitignore中的更新同步到git仓库</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1474,19 +1763,25 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T21:08:57+08:00">
-                2019-01-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-09 21:08:57 / 修改时间：22:18:29" itemprop="dateCreated datePublished" datetime="2019-01-09T21:08:57+08:00">2019-01-09</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1514,24 +1809,24 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
       
         
           
-          有时候我们gitignore文件中写错了一些条目，知道commit的时候才发现。有时修改gitignore发现没有作用。需要运行以下代码：123456# rm all filesgit rm -r --cached .# add all files as per new .gitignoregit 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/apply-gitignore/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>有时候我们gitignore文件中写错了一些条目，知道commit的时候才发现。有时修改gitignore发现没有作用。<br>需要运行以下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rm all files</span></span><br><span class="line">git rm -r --cached .</span><br><span class="line"><span class="comment"># add all files as per new .gitignore</span></span><br><span class="line">git add .</span><br><span class="line"><span class="comment"># now, commit for new .gitignore to apply</span></span><br><span class="line">git commit -m <span class="string">".gitignore is now working"</span></span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1560,15 +1855,12 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1584,63 +1876,347 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1648,6 +2224,7 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
     </div>
   </aside>
+  
 
 
         
@@ -1656,30 +2233,39 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1692,11 +2278,16 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1710,7 +2301,6 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
 
 
-  
 
 
 
@@ -1721,80 +2311,6 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1803,8 +2319,55 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1853,6 +2416,8 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1886,8 +2451,9 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2056,9 +2622,9 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2124,6 +2690,47 @@ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerW
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 

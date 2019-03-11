@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/page/5/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
-
-  <link rel="canonical" href="http://sparkydogX.github.io/page/5/">
-
+  
 
 
 
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/page/5/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
+
+  <link rel="canonical" href="http://sparkydogX.github.io/page/5/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -255,7 +283,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -269,12 +299,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -287,21 +328,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/20/tinyproxy/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/20/tinyproxy/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -311,11 +354,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/20/tinyproxy/" itemprop="url">使用Tinyproxy搭建透明代理</a></h1>
+                
+                <a href="/2018/11/20/tinyproxy/" class="post-title-link" itemprop="url">使用Tinyproxy搭建透明代理</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +375,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T16:06:11+08:00">
-                2018-11-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-20 16:06:11 / 修改时间：16:49:02" itemprop="dateCreated datePublished" datetime="2018-11-20T16:06:11+08:00">2018-11-20</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,26 +421,30 @@
       
         
           
-          Tinyproxy是一款轻量级的http(s)代理工具。Github页面注意：这只是一个透明代理，本身不具备任何传输安全性。
-安装Tinyproxy以Ubuntu为例，在服务器上执行sudo apt-get install tinyproxy
-配置Tinyproxysudo vim /etc/tin
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/20/tinyproxy/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><a href="https://tinyproxy.github.io/" target="_blank" rel="noopener">Tinyproxy</a>是一款轻量级的http(s)代理工具。<a href="https://github.com/tinyproxy/tinyproxy" target="_blank" rel="noopener">Github页面</a><br><strong>注意：这只是一个透明代理，本身不具备任何传输安全性。</strong></p>
+<h1 id="安装Tinyproxy"><a href="#安装Tinyproxy" class="headerlink" title="安装Tinyproxy"></a>安装Tinyproxy</h1><p>以Ubuntu为例，在服务器上执行<code>sudo apt-get install tinyproxy</code></p>
+<h1 id="配置Tinyproxy"><a href="#配置Tinyproxy" class="headerlink" title="配置Tinyproxy"></a>配置Tinyproxy</h1><p><code>sudo vim /etc/tinyproxy.conf</code><br>修改下面两个部分：<br><code>Port 8888</code>。 8888是默认的端口，将其更改为其他端口。<br><code>Allow 127.0.0.1</code>。设置允许连接的ip和网段，默认全都禁止，如果全注释掉，则表示允许所有连接。<br>需要根据端口相应地修改服务器防火墙的配置</p>
+<h1 id="重启tinyproxy-service"><a href="#重启tinyproxy-service" class="headerlink" title="重启tinyproxy service"></a>重启tinyproxy service</h1><p><code>sudo service tinyproxy restart</code></p>
+<h1 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h1><p>此时http代理服务器就搭建好了，在客户端设置HTTP代理即可。</p>
+<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p>在无线网络配置中，选择HTTP代理-&gt;配置代理-&gt;手动，输入<code>http://代理服务器ip:port</code>。<br>配置完成，打开百度或者谷歌，输入ip，返回代理服务器的ip说明配置成功。</p>
+<h2 id="Linux-Terminal"><a href="#Linux-Terminal" class="headerlink" title="Linux Terminal"></a>Linux Terminal</h2><p>在终端中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://代理服务器ip:port</span><br><span class="line">export httpa_proxy=http://代理服务器ip:port</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -415,21 +477,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/19/android-x86/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/19/android-x86/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -439,11 +503,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/19/android-x86/" itemprop="url">在Ubuntu中使用安卓模拟器</a></h1>
+                
+                <a href="/2018/11/19/android-x86/" class="post-title-link" itemprop="url">在Ubuntu中使用安卓模拟器</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -451,19 +524,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T10:04:02+08:00">
-                2018-11-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-19 10:04:02 / 修改时间：10:39:24" itemprop="dateCreated datePublished" datetime="2018-11-19T10:04:02+08:00">2018-11-19</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -491,24 +570,28 @@
       
         
           
-          这篇文章介绍如何在Ubuntu中使用安卓模拟器。在Ubuntu中运行android程序并非易事，因为大部分移动设备上运行的android程序都是基于Arm架构的芯片开发的，而在家用的台式机上我们通常使用的是x86的芯片。为了解决这一个问题，两种方案，一个是使用Android Studio提供的And
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/19/android-x86/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>这篇文章介绍如何在Ubuntu中使用安卓模拟器。<br>在Ubuntu中运行android程序并非易事，因为大部分移动设备上运行的android程序都是基于Arm架构的芯片开发的，而在家用的台式机上我们通常使用的是x86的芯片。为了解决这一个问题，两种方案，一个是使用Android Studio提供的Android模拟器，选择arm架构，模拟器就能够运行arm架构下的app。但是这种方法运行的模拟器速度非常缓慢，Android Studio会提示x86架构模拟器速度会是arm的10x以上。为了解决应用兼容性的问题，Intel公司开发了houdini技术。Houdini是intel 研发的ARM binary translator，用于解决当前android部分native应用库兼容跑在x86架构上的技术，它的原理在于把ARM的二进制代码转译为X86指令集，使得可以在X86的CPU上执行。</p>
+<h1 id="安装Genymotion"><a href="#安装Genymotion" class="headerlink" title="安装Genymotion"></a>安装Genymotion</h1><p>由于Android Studio以及那一套SDK工具用起来十分繁琐，而我没有Android开发的需求，只是想单纯的运行android程序，因此我在这里选择了<a href="https://www.genymotion.com/" target="_blank" rel="noopener">Genymotion</a>。Genymotion是一个x86的安卓模拟器软件，个人版可以注册账号免费试用。<br>安装Genymotion需要机器安装有Virtualbox，安装好之后运行Genymotion，在Genymotion中创建一个虚拟的设备，期间会下载所用到的系统镜像，等候片刻。<br>运行虚拟设备，如之前所说，此时只能安装很少量的x86 app。</p>
+<h1 id="解决兼容性问题"><a href="#解决兼容性问题" class="headerlink" title="解决兼容性问题"></a>解决兼容性问题</h1><p>下载对应操作系统版本的Arm Translation文件，<a href="https://drive.google.com/open?id=1-8mFalkCScszpH6zAk8ZsDjdyYNYf5jU" target="_blank" rel="noopener">Android 5.1点这里</a> , <a href="https://drive.google.com/open?id=1_FkMRmo8DKaSNEXD0KtYOGpNzCwF_1Yw" target="_blank" rel="noopener">Android 6.0点这里</a>。<br>将文件直接拖进模拟器，在模拟器中会弹出对话框，点击<code>Yes</code>,<code>OK</code>之后重启虚拟机即可。</p>
+<h1 id="安装app"><a href="#安装app" class="headerlink" title="安装app"></a>安装app</h1><p>在Genymotion的安装路径下找到tools文件夹，运行<code>tools/adb install &quot;your_apk_file_path&quot;</code>，即可完成程序的安装。</p>
+<h1 id="模拟触屏操作"><a href="#模拟触屏操作" class="headerlink" title="模拟触屏操作"></a>模拟触屏操作</h1><p>很多软件中会用到多点触屏、滑动、甚至摇杆操作。只使用鼠标单机显然是无法完成这些操作的。<a href="https://drive.google.com/open?id=1Ezytne_Z7s8j32NuIpyiZwM4t62icki9" target="_blank" rel="noopener">Game Controller 2 Touch Pro</a>这款软件可以用于解决这样的问题。<br><a href="https://drive.google.com/file/d/0B84T8fwIQnJjME5qdmdsemk4VEk/edit" target="_blank" rel="noopener">Game Controller 2 Touch Pro操作手册</a></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -541,21 +624,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/14/Find-Max-in-Tensorboard-Json/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/14/Find-Max-in-Tensorboard-Json/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -565,11 +650,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/14/Find-Max-in-Tensorboard-Json/" itemprop="url">Find Max/Min Value in Tensorboard Json</a></h1>
+                
+                <a href="/2018/11/14/Find-Max-in-Tensorboard-Json/" class="post-title-link" itemprop="url">Find Max/Min Value in Tensorboard Json</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -577,19 +671,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T13:26:58+08:00">
-                2018-11-14
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-14 13:26:58 / 修改时间：13:30:09" itemprop="dateCreated datePublished" datetime="2018-11-14T13:26:58+08:00">2018-11-14</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -617,42 +717,187 @@
       
         
           
-          
+            <!doctype html>
+
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    <title>Find Min/Max Value</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="sparkydog">
+    <!-- Reference Page: https://www.html5rocks.com/en/tutorials/file/dndfiles/#disqus_thread -->
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
 
 
 
-
-    
-
-    Find Min/Max Value
-    
-    
-    
-    
-
-
-
-    
+    <style type="text/css" media="screen">
         /* Add style rules here */
         .dropzxoneborder {
             padding: 10px;
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/14/Find-Max-in-Tensorboard-Json/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            border: 1px solid #ccc;
+            font-size: 25px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 2;
+            word-wrap: break-word;
+            width: 70%;
+        }
+
+        #drop_zone {
+            border: 2px dashed #bbb;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            font: 20pt bold 'Vollkorn';
+            color: #bbb;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/scripts.js"></script>
+    <script>
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            // Great success! All the File APIs are supported.
+        } else {
+            alert('The File APIs are not fully supported in this browser.');
+        }
+    </script>
+
+
+    <h1>
+        <center>Find Max in Tensorboard Json</center>
+    </h1>
+
+
+    <center>
+        <div class="dropzxoneborder">
+            <div id="drop_zone">Drop files here</div>
+            <output id="list" style="text-align:left;font-size: 14px;line-height:1;"></output>
+        </div>
+        <div id="result_zone" style="width:70%;text-align:left;padding: 10px;font-family:Monospace,Helvetica, Arial, sans-serif;">
+            <hr>
+        </div>
+
+    </center>
+
+    <script>
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; // FileList object.
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+                if (!f.type.match('json.*')) {
+                    alert('File type is not supported.');
+                    continue;
+                }
+
+                var reader = new FileReader();
+
+                // Closure to capture the file information.
+                reader.onload = (function (theFile) {
+                    return function (e) {
+                        var jsonText = e.target.result;
+                        var myarray = JSON.parse(jsonText)
+                        var minIdx = 0;
+                        var maxIdx = 0;
+                        var maxVal = myarray[0][2];
+                        var minVal = myarray[0][2];
+                        myarray.forEach(function (v) {
+                            if (maxVal < v[2]) {
+                                maxVal = v[2];
+                                maxIdx = v[1];
+                            };
+                            if (minVal < v[2]) {
+                                minIdx = v[2];
+                                minIdx = v[1];
+                            };
+
+                        });
+
+                        var para = document.createElement("span");                       // Create a <p> element
+
+                        // para.innerHTML = [
+                        //     '<b>Min</b>:' + '\xa0\xa0\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0'
+                        //     + '<b>Step</b>:' + '\xa0\xa0\xa0\xa0'
+                        //     + minIdx.toString() + '<br>'
+                        //     + '<b>Max</b>:' + '\xa0\xa0\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0'
+                        //     + '<b>Step</b>:' + '\xa0\xa0\xa0\xa0'
+                        //     + maxIdx.toString() + '<br>'
+                        //     + '<hr>'
+                        //     ]
+                        para.innerHTML = [
+                            '<table><tr><td>'
+                            + '<b>Min</b>:' + '\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0' + '</td><td>'
+                            + '<b>Step</b>:' + '\xa0\xa0'
+                            + minIdx.toString() + '</td></tr><tr><td>'
+                            + '<b>Max</b>:' + '\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0' + '</td><td>'
+                            + '<b>Step</b>:' + '\xa0\xa0'
+                            + maxIdx.toString() + '</td></tr></table>'
+                            + '<hr>'
+                        ]
+                        document.getElementById("result_zone").appendChild(para);                              // Append <p> to <body> 
+                    };
+                })(f);
+                reader.readAsText(f);
+
+
+            }
+
+
+
+            document.getElementById('list').innerHTML = document.getElementById('list').innerHTML + '<ul>' + output.join('') + '</ul>';
+        }
+
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        }
+
+
+
+
+        // Setup the dnd listeners.
+        var dropZone = document.getElementById('drop_zone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    </script>
+    <!-- End ============== -->
+
+</body>
+
+</html>
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -685,21 +930,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/10/rocket-chat-deploy/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/10/rocket-chat-deploy/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -709,11 +956,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/10/rocket-chat-deploy/" itemprop="url">在个人服务器上部署Rocket-chat</a></h1>
+                
+                <a href="/2018/11/10/rocket-chat-deploy/" class="post-title-link" itemprop="url">在个人服务器上部署Rocket-chat</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -721,19 +977,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T22:00:20+08:00">
-                2018-11-10
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-10 22:00:20" itemprop="dateCreated datePublished" datetime="2018-11-10T22:00:20+08:00">2018-11-10</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-11 17:06:44" itemprop="dateModified" datetime="2018-11-11T17:06:44+08:00">2018-11-11</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -761,29 +1035,57 @@
       
         
           
-          RocketChat是一个开源的即时通讯项目。
-准备工作
-系统环境linode服务器, CentOS 7.没有在CentOS 6上面进行过测试.
+            <p>RocketChat是一个开源的即时通讯项目。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li><p>系统环境<br>linode服务器, CentOS 7.<br>没有在CentOS 6上面进行过测试.</p>
+</li>
+<li><p>配置服务器防火墙端口<br>在linode中,可以使用如下命令配置端口:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">sudo firewall-cmd --zone=public --add-service=https --permanent</span><br><span class="line"><span class="comment"># sudo firewall-cmd --zone=public --add-service=http</span></span><br><span class="line">sudo firewall-cmd --zone=public --add-port=12345/tcp --permanent</span><br><span class="line"><span class="comment"># sudo firewall-cmd --zone=public --remove-port=12345/tcp --permanent # 移除端口</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>配置完成后使用<code>sudo firewall-cmd --reload</code>使配置生效.<br>使用<code>sudo firewall-cmd --list-all-zones</code>可以查看当前的端口配置情况.</p>
+<p>在设置防火请的时候我遇到过<code>permission to firewalld&#39;s &quot;ifcfg-eth0&quot;</code>的问题, 参照<a href="https://www.linode.com/community/questions/407/how-do-i-give-permission-to-firewallds-ifcfg-eth0-solved" target="_blank" rel="noopener">这个页面</a>解决了问题.</p>
+<blockquote>
+<p>参考页面: <a href="https://linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos/#configuring-firewalld" target="_blank" rel="noopener">https://linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos/#configuring-firewalld</a></p>
+</blockquote>
+<ol start="3">
+<li>使用<code>Let&#39;s Encrypt</code>生成SSL证书<br><a href="https://link.jianshu.com/?t=https://letsencrypt.org" target="_blank" rel="noopener">Let’s Encrypt</a>是一个用于免费获取SSL证书的在线服务.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum install git</span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/letsencrypt/letsencrypt /opt/letsencrypt</span><br><span class="line"><span class="built_in">cd</span> /opt/letsencrypt</span><br><span class="line">sudo -H ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com <span class="comment"># Relpace example.com to your own site</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行成功后在<code>/etc/letsencrypt/live</code>可以看到当前证书<br>注意这个证书有效期为90天,所以最好定期更新证书,使用<code>sudo crontab -e</code>添加<code>0 0 1 * * /opt/letsencrypt/letsencrypt-auto renew</code>,以定期执行.</p>
+<h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><ol>
+<li>将nginx放到yum repro库中<br><code>[root@localhost ~]# rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></li>
+<li>查看nginx信息<br><code>[root@localhost ~]# yum info nginx</code></li>
+<li>使用yum安装ngnix<br><code>[root@localhost ~]# yum install nginx</code></li>
+<li>启动nginx<br><code>[root@localhost ~]# systemctl start nginx</code></li>
+<li>查看nginx版本<br><code>[root@localhost ~]# nginx -v</code></li>
+<li>访问nginx，现在你可以通过公网ip (本地可以通过 localhost /或 127.0.0.1 ) 查看nginx 服务返回的信息。<br><code>[root@localhost ~]# curl -i localhost</code></li>
+<li>nginx配置文件位置在/etc/nginx/<br><code>[root@localhost /]# ll /etc/nginx/</code></li>
+<li>测试配置文件是否正常<br><code>nginx -t</code></li>
+</ol>
+<blockquote>
+<p>参考页面: <a href="https://www.jianshu.com/p/96691511295f" target="_blank" rel="noopener">https://www.jianshu.com/p/96691511295f</a></p>
+</blockquote>
+<h1 id="安装Rocket-Chat"><a href="#安装Rocket-Chat" class="headerlink" title="安装Rocket-Chat"></a>安装Rocket-Chat</h1><p>nginx配置参考这个<a href="https://linuxize.com/post/secure-nginx-with-let-s-encrypt-on-centos-7/#disqus_thread" target="_blank" rel="noopener">页面</a><br>参考<a href="https://linuxize.com/post/how-to-deploy-rocket-chat-on-centos-7/" target="_blank" rel="noopener">这个页面</a></p>
+<h1 id="解决502错误"><a href="#解决502错误" class="headerlink" title="解决502错误"></a>解决502错误</h1><p>查看log文件<code>logs/xxx</code><br>发现是权限问题,<code>setsebool httpd_can_network_connect on -P</code>解决</p>
+<p>完成以上步骤之后，在Rocket-chat的客户端使用 <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a> 就可以连接到配置好的服务器了。</p>
 
-配置服务器防火墙端口在linode中,可以使用如下命令配置端口:
-12345sudo firewall-cmd --zone=public --add-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/10/rocket-chat-deploy/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -816,21 +1118,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/03/fix-boot-in-ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/11/03/fix-boot-in-ubuntu/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -840,11 +1144,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/03/fix-boot-in-ubuntu/" itemprop="url">修复Ubuntu中的启动项</a></h1>
+                
+                <a href="/2018/11/03/fix-boot-in-ubuntu/" class="post-title-link" itemprop="url">修复Ubuntu中的启动项</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -852,19 +1165,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T15:05:43+08:00">
-                2018-11-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-03 15:05:43 / 修改时间：15:07:29" itemprop="dateCreated datePublished" datetime="2018-11-03T15:05:43+08:00">2018-11-03</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -892,24 +1211,58 @@
       
         
           
-          问题描述之前是Ubuntu和Windows双系统,Ubuntu系统装在硬盘A,Windows系统装在硬盘B,由Ubuntu的grub进行启动引导.后来硬盘A出了问题,送去维修.在此期间想要使用Windows系统,于是通过lilo修改了引导记录,成功启动了Windows.麻烦的是后来Ubuntu系统所
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/03/fix-boot-in-ubuntu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>之前是Ubuntu和Windows双系统,Ubuntu系统装在硬盘A,Windows系统装在硬盘B,由Ubuntu的grub进行启动引导.<br>后来硬盘A出了问题,送去维修.在此期间想要使用Windows系统,于是通过lilo修改了引导记录,成功启动了Windows.麻烦的是后来Ubuntu系统所在的硬盘A回来了,硬盘A可以正常进行读写,但是读写的时候会发出非常大的噪音,于是买了一块全新的硬盘C,希望将硬盘A上的内容全部迁移到硬盘C上,因为Ubuntu上重装系统重新配置环境实在是太麻烦了,最终我找到一个解决方案,能够直接不用重新安装系统,就可以使用迁移过后的Ubuntu系统.<br>值得注意的是,此时由于使用lilo修改过引导记录的缘故,硬盘A再次安装到主机,也无法直接从硬盘A启动.</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li>Ubuntu的U盘启动盘</li>
+<li>确保已经插好网线,网络环境正常</li>
+<li>硬盘A和硬盘C被连接到主板</li>
+</ul>
+<h1 id="使用Gparted进行分区"><a href="#使用Gparted进行分区" class="headerlink" title="使用Gparted进行分区"></a>使用Gparted进行分区</h1><ol>
+<li>进入U盘启动中的live CD</li>
+<li>使用<code>sudo fdisk -l</code>可以查看各个磁盘中的分区情况.记住磁盘A中的每个分区的名称以及在原Ubuntu系统中对应的目录,以及分区类型,例如我的根目录是在<code>/dev/sda9</code>,boot是在<code>/dev/sda8</code>.如果不能确认,可以使用<code>sudo mount /dev/sda9 /mnt</code>这样的命令挂载对应分区,然后查看其中内容来确认.<br>之后在Gparted中对硬盘C进行分区,要确保分区与硬盘A中Ubuntu系统的分区数量一致,并且每个分区的大小都不小于原来分区的大小.</li>
+</ol>
+<h1 id="拷贝分区"><a href="#拷贝分区" class="headerlink" title="拷贝分区"></a>拷贝分区</h1><ol>
+<li>使用<code>dd</code>命令从硬盘A将对应的分区拷贝到硬盘C,例如<code>sudo dd if=/dev/sda1 of=/dev/sdb1</code>. 这个过程不会有输出,为了查看复制的进程,可以在另外的terminal中执行<code>watch -n 5 killall -USR1 dd</code>,这样在dd的窗口中可以看到输出. 重复这一指令直到所有的分区都拷贝完成.</li>
+</ol>
+<ul>
+<li>注意:使用dd命令拷贝之后所有的新分区与原来分区具有相同的uuid.如果不希望uuid相同,可以在gparted中修改uuid,并且在文件系统对应分区的/etc/fstab中完成对应修改</li>
+</ul>
+<ol start="2">
+<li>使用gparted在硬盘C中boot对应分区添加boot标记</li>
+<li>使用gparted新建分区,大小大于1M, file system选择unformatted.标记为<code>boot_grub</code>.</li>
+<li>解除挂载硬盘A</li>
+</ol>
+<h1 id="修复grub"><a href="#修复grub" class="headerlink" title="修复grub"></a>修复grub</h1><ol>
+<li><p>挂载系统.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sdX /mnt</span><br><span class="line">sudo mount /dev/sdY /mnt/boot</span><br><span class="line">sudo mount /dev /mnt/dev</span><br><span class="line">sudo mount /sys /mnt/sys</span><br><span class="line">sudo mount /proc /mnt/proc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用chroot进入虚拟系统<br><code>sudo chroot /mnt</code></p>
+</li>
+<li><p>修复grub<br><code>sudo grub-install --force</code></p>
+</li>
+</ol>
+<h1 id="使用boot-repair"><a href="#使用boot-repair" class="headerlink" title="使用boot-repair"></a>使用boot-repair</h1><ol>
+<li>安装boot-repair<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair &amp;&amp; boot-repair</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>进行正确的设置之后,等待完成,重启即可.</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -942,21 +1295,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/31/repair-windows-grub-in-ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/31/repair-windows-grub-in-ubuntu/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -966,11 +1321,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/31/repair-windows-grub-in-ubuntu/" itemprop="url">修复启动Windows时的‘Error：no such device’错误</a></h1>
+                
+                <a href="/2018/10/31/repair-windows-grub-in-ubuntu/" class="post-title-link" itemprop="url">修复启动Windows时的‘Error：no such device’错误</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -978,19 +1342,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T17:12:42+08:00">
-                2018-10-31
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-31 17:12:42 / 修改时间：18:50:20" itemprop="dateCreated datePublished" datetime="2018-10-31T17:12:42+08:00">2018-10-31</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1018,24 +1388,32 @@
       
         
           
-          问题起因原先的主机有一块固态硬盘和一块机械硬盘，机械硬盘上安装的是Ubuntu系统，固态硬盘上安装的是Windows10系统。平时使用的时候通过Ubuntu来引导启动。最近机械硬盘坏掉了，在BIOS将启动设备设置为固态硬盘想启动Windows系统的时候无法正常启动，报错‘Error：no such 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/31/repair-windows-grub-in-ubuntu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="问题起因"><a href="#问题起因" class="headerlink" title="问题起因"></a>问题起因</h1><p>原先的主机有一块固态硬盘和一块机械硬盘，机械硬盘上安装的是Ubuntu系统，固态硬盘上安装的是Windows10系统。平时使用的时候通过Ubuntu来引导启动。最近机械硬盘坏掉了，在BIOS将启动设备设置为固态硬盘想启动Windows系统的时候无法正常启动，报错‘Error：no such device’，然后就进入‘grub rescue’界面。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ol>
+<li>首先准备一个Ubuntu的U盘启动盘，然后修改BIOS启动顺序，通过U盘启动。U盘启动之后进入Live CD模式。</li>
+<li>打开Terminal，运行<code>sudo apt-get install lilo</code></li>
+<li>运行<code>sudo fdisk -l</code>，可以看到windows所在硬盘下有分区对应的Boot栏有<code>*</code>标记</li>
+<li>运行<code>sudo lilo -M /dev/sdb mbr</code>，其中<code>sdb</code>应当替换为windows所在硬盘。注意这里是<code>sdb</code>而不是<code>sdb1</code>。</li>
+<li>重新启动，调整BIOS启动顺序</li>
+</ol>
+<p>关于lilo和grub的区别，可以参照<a href="https://www.ibm.com/developerworks/library/l-bootload/index.html" target="_blank" rel="noopener">这个页面</a></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1068,21 +1446,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/29/fix-sound-in-ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/29/fix-sound-in-ubuntu/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -1092,11 +1472,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/29/fix-sound-in-ubuntu/" itemprop="url">解决Ubuntu中没有声音的问题</a></h1>
+                
+                <a href="/2018/10/29/fix-sound-in-ubuntu/" class="post-title-link" itemprop="url">解决Ubuntu中没有声音的问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1104,19 +1493,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T10:46:30+08:00">
-                2018-10-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-29 10:46:30 / 修改时间：11:19:32" itemprop="dateCreated datePublished" datetime="2018-10-29T10:46:30+08:00">2018-10-29</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1144,24 +1539,31 @@
       
         
           
-          我在使用Ubuntu的时候，发现主机机箱上的耳机口没有声音（但是连接显卡HDMI线的显示器上的耳机口能够正常播放）。在参考SoundTroubleshootingProcedure和How To Fix: No Sound In Ubuntu And Linux Mint这两个页面的方法之后，成功的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/29/fix-sound-in-ubuntu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>我在使用Ubuntu的时候，发现主机机箱上的耳机口没有声音（但是连接显卡HDMI线的显示器上的耳机口能够正常播放）。<br>在参考<a href="https://help.ubuntu.com/community/SoundTroubleshootingProcedure" target="_blank" rel="noopener">SoundTroubleshootingProcedure</a>和<a href="https://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/" target="_blank" rel="noopener">How To Fix: No Sound In Ubuntu And Linux Mint</a>这两个页面的方法之后，成功的使得Ubuntu正常播放声音。</p>
+<h1 id="alsa与pulseaudio"><a href="#alsa与pulseaudio" class="headerlink" title="alsa与pulseaudio"></a>alsa与pulseaudio</h1><p>ALSA全称是Advanced Linux Sound Architecture，是和硬件打交道的，pulseaudio则是基于alsa的一套软件，主要用于向其他软件提供统一的接口，以及额外的功能。</p>
+<h1 id="alsamixer"><a href="#alsamixer" class="headerlink" title="alsamixer"></a>alsamixer</h1><p>alasmixer与windows中的音量控制器类似。<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/Screenshot%20from%202018-10-29%2010-25-12.png" alt="img"><br>在Terminal中输入<code>alsamixer</code>，看到界面如图。如果显示MM，那么表明对应项处于静音状态，按M进行切换，上下键进行音量调整。<br>这里‘Headphone’表示的就是我需要的前置耳机孔。<br>这个方法有时候能够解决问题，但是我设置之后没有起到作用。</p>
+<h1 id="初始化-重启大法"><a href="#初始化-重启大法" class="headerlink" title="初始化-重启大法"></a>初始化-重启大法</h1><p>在计算机领域，有句话叫“遇事不决先重启”。因为重启之后很多软硬件的设置会恢复成初始状态，很多问题就直接消失了。<br>在声音这个问题上，初始化的方法是非常有效果的，最终解决了我的问题。<br>依次执行以下命令，每条指令执行之前都需要等待上一条完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alsactl init</span><br><span class="line">sudo killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*</span><br><span class="line">killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*</span><br><span class="line">pulseaudio -k</span><br><span class="line">sudo alsa force-reload</span><br></pre></td></tr></table></figure></p>
+<p>然后使用<code>alsamixer</code>调整音量设置即可。</p>
+<h1 id="保存设置"><a href="#保存设置" class="headerlink" title="保存设置"></a>保存设置</h1><p>需要注意的是，即使当前调整完成，当下次重启系统之后仍然没有声音。对于这个问题我的解决方案是将需要的指令写进一个脚本，每次开机运行脚本即可。</p>
+<h2 id="保存alsamixer配置"><a href="#保存alsamixer配置" class="headerlink" title="保存alsamixer配置"></a>保存alsamixer配置</h2><p>首先调整好alsamixer设置，然后运行<code>sudo alsactl --file ~/.config/asound.state restore</code>将配置文件保存到~/.config/asound.state。</p>
+<p>最后建立一个脚本，在其中添加如下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sound</span></span><br><span class="line">alsactl init</span><br><span class="line"><span class="built_in">wait</span></span><br><span class="line">sleep 3s</span><br><span class="line">sudo killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*</span><br><span class="line">killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*</span><br><span class="line"><span class="built_in">wait</span></span><br><span class="line">sleep 3s</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'killall pulseaudio have finished'</span></span><br><span class="line">pulseaudio -k</span><br><span class="line"><span class="built_in">wait</span></span><br><span class="line">sleep 1s</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'pulseaudio -k have finished'</span></span><br><span class="line">sudo alsa force-reload</span><br><span class="line"><span class="built_in">wait</span></span><br><span class="line">sleep 3s</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'alsa force-reload  have finished'</span></span><br><span class="line">sudo alsactl --file ~/.config/asound.state restore</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1194,21 +1596,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/26/dict-in-command-line/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/26/dict-in-command-line/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -1218,11 +1622,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/26/dict-in-command-line/" itemprop="url">在命令行中使用词典</a></h1>
+                
+                <a href="/2018/10/26/dict-in-command-line/" class="post-title-link" itemprop="url">在命令行中使用词典</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1230,19 +1643,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T15:30:34+08:00">
-                2018-10-26
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-26 15:30:34 / 修改时间：16:15:36" itemprop="dateCreated datePublished" datetime="2018-10-26T15:30:34+08:00">2018-10-26</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1270,25 +1689,70 @@
       
         
           
-          在Github看到一个有趣的工作，无道词典。这个词典使用的是有道词典的api，用python3来发送请求，没有GUI，一切在命令行中完成。这个项目简洁实用，深得我心。我Fork了这个Repo，根据词典中的生词本增加了默写的功能。这样这个程序不仅可以用来查单词，而且可以用来背单词。我的Repo在这里
+            <p>在Github看到一个有趣的工作，<a href="https://github.com/ChestnutHeng/Wudao-dict" target="_blank" rel="noopener">无道词典</a>。<br>这个词典使用的是有道词典的api，用python3来发送请求，没有GUI，一切在命令行中完成。这个项目简洁实用，深得我心。我Fork了这个Repo，根据词典中的生词本增加了默写的功能。这样这个程序不仅可以用来查单词，而且可以用来背单词。<a href="https://github.com/sparkydogX/Wudao-dict/tree/master" target="_blank" rel="noopener">我的Repo在这里</a></p>
+<h1 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h1><h2 id="Ubuntu-CentOS-Debian"><a href="#Ubuntu-CentOS-Debian" class="headerlink" title="Ubuntu/CentOS/Debian"></a>Ubuntu/CentOS/Debian</h2><p><a href="https://github.com/sparkydogX/Wudao-dict/blob/master/README.md" target="_blank" rel="noopener">ReadMe</a></p>
+<h3 id="安装环境-需要python3和bs4-lxml-在线搜索用"><a href="#安装环境-需要python3和bs4-lxml-在线搜索用" class="headerlink" title="安装环境: 需要python3和bs4, lxml(在线搜索用)"></a>安装环境: 需要python3和bs4, lxml(在线搜索用)</h3><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install bs4</span><br><span class="line">sudo pip3 install lxml</span><br></pre></td></tr></table></figure>
+<h4 id="OpenSUSE"><a href="#OpenSUSE" class="headerlink" title="OpenSUSE"></a>OpenSUSE</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper install python3-pip</span><br><span class="line">sudo pip3 install bs4</span><br><span class="line">sudo pip3 install lxml</span><br></pre></td></tr></table></figure>
+<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install python34</span><br><span class="line">sudo yum install python34-pip</span><br><span class="line">sudo pip3 install bs4</span><br><span class="line">sudo pip3 install lxml</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/sparkydogX/Wudao-dict.git</span><br><span class="line"><span class="built_in">cd</span> ./wudao-dict/wudao-dict</span><br><span class="line">sudo bash setup.sh <span class="comment">#或者sudo ./setup.sh</span></span><br></pre></td></tr></table></figure>
+<p>  看到出现<code>Setup Finished!</code>表明安装成功。如果发生由于移动安装文件不能使用的情况，只需再次运行该脚本即可。</p>
+<p>无法clone的，可以在<a href="https://github.com/sparkydogX/Wudao-dict/tree/master" target="_blank" rel="noopener">项目页面</a>下载zip文件 ,然后解压安装使用。</p>
+<p><strong>Note: 注意python的版本，只支持python3</strong></p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><p><a href="https://github.com/sparkydogX/Wudao-dict/blob/macOS_v2.1.1/README.md" target="_blank" rel="noopener">ReadMe</a></p>
+<h3 id="安装环境-需要python3和bs4-lxml-在线搜索用-1"><a href="#安装环境-需要python3和bs4-lxml-在线搜索用-1" class="headerlink" title="安装环境: 需要python3和bs4, lxml(在线搜索用)"></a>安装环境: 需要python3和bs4, lxml(在线搜索用)</h3><pre><code>#### MacOS
+需要安装有`brew`和`python3`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install bs4</span><br><span class="line">sudo pip3 install lxml</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h3><pre><code><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/sparkydogX/Wudao-dict.git</span><br><span class="line">git checkout macOS_v2.1.1</span><br><span class="line"><span class="built_in">cd</span> ./wudao-dict/wudao-dict</span><br><span class="line">sudo bash setup.sh <span class="comment">#或者sudo ./setup.sh</span></span><br></pre></td></tr></table></figure>
 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/26/dict-in-command-line/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+看到出现`Setup Finished!`表明安装成功。如果发生由于移动安装文件不能使用的情况，只需再次运行该脚本即可。
+</code></pre><p>无法clone的，可以<a href="https://github.com/sparkydogX/Wudao-dict/tree/macOS_v2.1.1" target="_blank" rel="noopener">从github页面</a>下载zip文件 ,然后解压安装使用。</p>
+<p><strong>Note: 注意python的版本，只支持python3</strong></p>
+<h3 id="英文发音（可选）"><a href="#英文发音（可选）" class="headerlink" title="英文发音（可选）"></a>英文发音（可选）</h3><pre><code>#### 需要ffplay
+通过brew安装ffplay。这里有个trick。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">brew install sdl --use-gcc</span><br><span class="line">brew uninstall ffmpeg</span><br><span class="line">brew install ffmpeg --use-gcc</span><br></pre></td></tr></table></figure>
+
+#### 修改 ./Wudao-dict/wudao-dict/wdd文件
+
+按照文件注释中的说明修改。
+
+#### 新建mp3文件夹
+
+在 wudao-dict/usr 文件夹下新建 mp3 文件夹，用于保存单词发音的音频文件。
+</code></pre><blockquote>
+<p>Ubuntu环境下也可以实现朗读单词的功能，但是由于我的Ubuntu机器音频接口无法使用，因此在master中没有实现这个功能。mac的branch中是实现了这一个功能的。在Ubuntu中使用只需将wdd文件按要求修改即可。</p>
+</blockquote>
+<h2 id="Windows10"><a href="#Windows10" class="headerlink" title="Windows10"></a>Windows10</h2><p>理论上来讲在Windows10中通过应用商店安装Linux子系统之后，按照Linux版本的环境要求配置环境。接下来安装与使用步骤与Linux下的操作相同。<br>但是这个我没有尝试过，有兴趣尝试的小伙伴可以告诉我结果，遇到问题也可以联系我或者创建Issue。</p>
+<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>运行<code>wd -h</code>查看使用说明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ wd -h</span><br><span class="line">Usage: wd [OPTION]... [WORD]</span><br><span class="line">Youdao is wudao, a powerful dict.</span><br><span class="line">-k, --kill             kill the server process    (退出服务进程)</span><br><span class="line">-h, --help             display this help and exit (查看帮助)</span><br><span class="line">-s, --short-desc       do not show sentence       (只看释义)</span><br><span class="line">-n, --not-save         query and save to notebook (不存入生词本)</span><br><span class="line">-d, --dictation        spell words in notebook (默写生词本中的单词)</span><br><span class="line">生词本文件: ... some path .../notebook.txt</span><br><span class="line">查询次数: ... some path .../usr_word.json</span><br></pre></td></tr></table></figure>
+<p>查词时可以直接使用<code>wd 词语</code>查汉英词典，或<code>wd word</code>查英汉词典(可以自动检测)。</p>
+<h1 id="关于默写模式"><a href="#关于默写模式" class="headerlink" title="关于默写模式"></a>关于默写模式</h1><p><code>wd -d</code> 进入默写模式。<br>默写模式中的单词来自单词本。当使用<code>wd xxx</code>命令查询单词的时候，单词会自动被记入单词本。<br>使用<code>wd -n xxx</code>不存入单词本。<br>进入默写模式，会有提示如何进行操作。</p>
+<blockquote>
+<p>默写模式的help暂时未完成。关于这一点如果有要求的话请告知我。</p>
+</blockquote>
+<p>默写模式下会自动统计错误次数，在默写模式下按’i’可以显示单词的错误情况。<br>对于已经掌握的单词，默写模式下按’d’将其从单词本删除。</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ol start="0">
+<li>./wd_monofile 是本词典的在线查询的单文件版本, 可以复制到<code>/usr/bin</code>下直接使用.(需要安装bs4)</li>
+<li>如果您不想看到例句, 请在<code>/usr/bin/wd</code>中的<code>./wdd</code>后面加上-s参数.</li>
+<li>有的用户反馈字体颜色看不清的问题, 你可以找到./wudao-dict/wudao-dict/src/CommandDraw.py, 可以看到释义,读音等采用的颜色, 直接修改即可.</li>
+<li>查询词组直接键入类似<code>wd take off</code>即可.</li>
+</ol>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1321,21 +1785,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/19/linux-terminal-cursor-disappear/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/19/linux-terminal-cursor-disappear/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -1345,11 +1811,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/19/linux-terminal-cursor-disappear/" itemprop="url">解决Linux操作系统下Terminal中光标消失的问题</a></h1>
+                
+                <a href="/2018/10/19/linux-terminal-cursor-disappear/" class="post-title-link" itemprop="url">解决Linux操作系统下Terminal中光标消失的问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1357,19 +1832,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T14:49:16+08:00">
-                2018-10-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-19 14:49:16 / 修改时间：14:51:27" itemprop="dateCreated datePublished" datetime="2018-10-19T14:49:16+08:00">2018-10-19</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1397,26 +1878,25 @@
       
         
           
-          使用Terminal时会偶尔遇到光标消失的问题。
-echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏光标
+            <p>使用Terminal时会偶尔遇到光标消失的问题。</p>
+<p><code>echo -e &quot;\033[?25h&quot;</code>  显示光标<br><code>echo -e &quot;\033[?25l&quot;</code>  隐藏光标</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/19/linux-terminal-cursor-disappear/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1449,21 +1929,23 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/18/args-from-command-line-to-dict/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/10/18/args-from-command-line-to-dict/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sparkydogX"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
+      <meta itemprop="name" content="SparkydogX Blog"/>
     </span>
 
     
@@ -1473,11 +1955,20 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/18/args-from-command-line-to-dict/" itemprop="url">python读取命令行参数并使用字典表示</a></h1>
+                
+                <a href="/2018/10/18/args-from-command-line-to-dict/" class="post-title-link" itemprop="url">python读取命令行参数并使用字典表示</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1485,19 +1976,37 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T20:15:01+08:00">
-                2018-10-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-18 20:15:01" itemprop="dateCreated datePublished" datetime="2018-10-18T20:15:01+08:00">2018-10-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-26 15:30:57" itemprop="dateModified" datetime="2018-10-26T15:30:57+08:00">2018-10-26</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1525,28 +2034,27 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
       
         
           
-          用argparse可以很方便的在python中读取命令行参数，但是argparse无法接受任意的参数名。在python中可以使用sys标准库中的args模块进行处理。代码如下：
+            <p>用argparse可以很方便的在python中读取命令行参数，但是argparse无法接受任意的参数名。<br>在python中可以使用sys标准库中的args模块进行处理。<br>代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/7aec89d105f9c90bdadcfed005542f07.js"></script>
 
-
-注意以这种形式读取的参数，值全都是字符串类型。cursor
+<p>注意以这种形式读取的参数，值全都是字符串类型。cursor</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/18/args-from-command-line-to-dict/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1575,15 +2083,12 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1599,63 +2104,349 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="sparkydogX"/>
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1663,6 +2454,7 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
     </div>
   </aside>
+  
 
 
         
@@ -1671,30 +2463,39 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1707,11 +2508,16 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1725,7 +2531,6 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
 
 
-  
 
 
 
@@ -1736,80 +2541,6 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1818,8 +2549,55 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1868,6 +2646,8 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1901,8 +2681,9 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2071,9 +2852,9 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2139,6 +2920,47 @@ echo -e &quot;\033[?25h&quot;  显示光标echo -e &quot;\033[?25l&quot;  隐藏
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 

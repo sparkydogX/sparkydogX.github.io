@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/page/4/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/page/4/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
 
   <link rel="canonical" href="http://sparkydogX.github.io/page/4/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -269,12 +297,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -285,6 +324,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,11 +352,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/receive-mail-on-server-lbox/" itemprop="url">使用个人服务器接收邮件</a></h1>
+                
+                <a href="/2018/12/05/receive-mail-on-server-lbox/" class="post-title-link" itemprop="url">使用个人服务器接收邮件</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +373,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T21:54:44+08:00">
-                2018-12-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-05 21:54:44" itemprop="dateCreated datePublished" datetime="2018-12-05T21:54:44+08:00">2018-12-05</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-06 10:04:29" itemprop="dateModified" datetime="2018-12-06T10:04:29+08:00">2018-12-06</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,24 +431,37 @@
       
         
           
-          首先需要说明的是，搭建完整的个人邮箱服务器不是一个好主意，部署复杂是一方面，部署之后它仍然需要你大量的时间和精力去维持垃圾邮件过滤和反病毒文件的工作。但是能够使用个人服务器——意味着用户名和域名都属于你自己的——来接收各种无关紧要的邮件，仍然是一件有趣的事情，你可以随心所欲的变换用户名，并且不需要手
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/05/receive-mail-on-server-lbox/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>首先需要说明的是，搭建完整的个人邮箱服务器不是一个好主意，部署复杂是一方面，部署之后它仍然需要你大量的时间和精力去维持垃圾邮件过滤和反病毒文件的工作。<br>但是能够使用个人服务器——意味着用户名和域名都属于你自己的——来接收各种无关紧要的邮件，仍然是一件有趣的事情，你可以随心所欲的变换用户名，并且不需要手机验证。<br>这篇文章我会讲述最简单的部署方法，本文使用的是阿里云服务器，搭载Ubuntu系统。</p>
+<h1 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h1><p>首先到你的域名商那里，设置域名解析</p>
+<ol>
+<li>MX记录<br>添加一条MX记录，主机记录为<code>@</code>，记录值为’mail.example.org’</li>
+<li>A记录<br>添加一条A记录，主机记录为‘mail’，记录值为邮箱服务器的ip</li>
+</ol>
+<h1 id="配置PTR记录"><a href="#配置PTR记录" class="headerlink" title="配置PTR记录"></a>配置PTR记录</h1><p>PTR记录用于反向地址解析，到主机商处将PTR记录设置成邮箱服务器域名。</p>
+<h1 id="设置Hostname"><a href="#设置Hostname" class="headerlink" title="设置Hostname"></a>设置Hostname</h1><p>使用<code>hostname -f</code>查看hostname与域名是否一致。<br>如果不一致，需要改成一致。</p>
+<h1 id="安装postfix"><a href="#安装postfix" class="headerlink" title="安装postfix"></a>安装postfix</h1><p><code>sudo apt-get install postfix</code><br>安装时选择第二个选项，Internet连接。</p>
+<h1 id="安装mailutils"><a href="#安装mailutils" class="headerlink" title="安装mailutils"></a>安装mailutils</h1><p><code>sudo apt-get install mailutils</code></p>
+<h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><p><code>echo &quot;hello&quot; | mail -s &quot;test&quot; example@example.org</code><br>很大的可能你会发现这一步失败了，这时查看日志文件<code>/var/log/mail.log</code>如果看到连接超时的错误，说明很有可能你的主机商禁用了25端口。<br>可以使用<code>traceroute</code>工具尝试连接目标邮箱服务器:<code>traceroute -T -p 25 xxx.xxx</code>，如果看到一排<code>***</code>，说明无法使用25端口。<br>主机商为了防止垃圾邮件禁用了25端口，阿里云可以申请解禁25端口，但是仍然不允许假设私人邮箱服务器向外发送邮件。可以通过更换邮件协议与端口的方法解决这个问题，但是这已经超出了本文的范围。在我的试验中，阿里云中的邮箱服务器虽然不能向外发送邮件，但是接收邮件是没有问题的。<br>当然，你也可以选择更换主机商，Linode是没有这一限制的。</p>
+<h1 id="接收邮件"><a href="#接收邮件" class="headerlink" title="接收邮件"></a>接收邮件</h1><p>首先用你的其余的邮箱发送一封邮件，收件人是<a href="mailto:`user@example.org" target="_blank" rel="noopener">`user@example.org</a><code>。其中user是你设置服务器时的用户，域名是你的邮箱域名，如果是作为root用户设置的，user就是root。
+如果没有问题，在服务器中使用</code>mail`命令可以看到有一封新的邮件。<br>如果有附件，使用write命令可以保存。</p>
+<p>参考网页：<a href="https://www.linuxdashen.com/ubuntu%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93postfix%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="noopener">https://www.linuxdashen.com/ubuntu%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93postfix%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8</a></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -411,6 +492,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -437,11 +520,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/simple-http-server-with-python/" itemprop="url">使用python建立HTTP文件服务器</a></h1>
+                
+                <a href="/2018/12/05/simple-http-server-with-python/" class="post-title-link" itemprop="url">使用python建立HTTP文件服务器</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -449,19 +541,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T21:39:15+08:00">
-                2018-12-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-05 21:39:15" itemprop="dateCreated datePublished" datetime="2018-12-05T21:39:15+08:00">2018-12-05</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-31 16:51:19" itemprop="dateModified" datetime="2019-01-31T16:51:19+08:00">2019-01-31</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -489,27 +599,28 @@
       
         
           
-          很多时候我们需要快速地查看服务器上的文件，或者将文件分享给别人。在Linux服务器上，这个需求用一行指令即可实现，首先cd到需要分享的文件夹，然后执行：
+            <p>很多时候我们需要快速地查看服务器上的文件，或者将文件分享给别人。<br>在Linux服务器上，这个需求用一行指令即可实现，首先cd到需要分享的文件夹，然后执行：</p>
+<ul>
+<li><strong>Python 2:</strong> <code>python -m SimpleHTTPServer 8080</code>  </li>
+<li><strong>Python 3:</strong> <code>python -m http.server 8080</code><br>这里指定的端口是8080，在浏览器中使用<a href="http://yoursite:8080即可访问。" target="_blank" rel="noopener">http://yoursite:8080即可访问。</a></li>
+</ul>
 
-Python 2: python -m SimpleHTTPServer 8080  
-Python 3: python -m http.ser
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/05/simple-http-server-with-python/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -540,6 +651,8 @@ Python 3: python -m http.ser
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -566,11 +679,20 @@ Python 3: python -m http.ser
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/04/email-linux-terminal/" itemprop="url">通过linux终端发送邮件</a></h1>
+                
+                <a href="/2018/12/04/email-linux-terminal/" class="post-title-link" itemprop="url">通过linux终端发送邮件</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -578,19 +700,25 @@ Python 3: python -m http.ser
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T17:20:58+08:00">
-                2018-12-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-04 17:20:58 / 修改时间：20:33:16" itemprop="dateCreated datePublished" datetime="2018-12-04T17:20:58+08:00">2018-12-04</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -618,24 +746,27 @@ Python 3: python -m http.ser
       
         
           
-          很多时候我们会希望程序在执行完毕或者遇到问题的时候给我们发个邮件，最好附带日志文件，这样即便人不在电脑旁边也能及时的获知程序运行情况。mailutils工具很好的解决了这一个问题。mailutils在大部分系统中可以通过包管理器安装，在Ubuntu下使用sudo apt-get install ma
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/04/email-linux-terminal/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>很多时候我们会希望程序在执行完毕或者遇到问题的时候给我们发个邮件，最好附带日志文件，这样即便人不在电脑旁边也能及时的获知程序运行情况。<br>mailutils工具很好的解决了这一个问题。<br>mailutils在大部分系统中可以通过包管理器安装，在Ubuntu下使用<code>sudo apt-get install mailutils</code> ，在MacOS中通过brew使用<code>brew install mailutils</code>安装。</p>
+<h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><p><code>echo -e &quot;hello,\nworld.&quot; | mail -s &quot;example&quot; example@example.org</code><br>其中‘echo -e’为发送的内容，-e表明允许转义符，-s后面跟的是邮件主题，<a href="mailto:example@example.org" target="_blank" rel="noopener">example@example.org</a>是目标邮箱地址。</p>
+<h1 id="发送附件"><a href="#发送附件" class="headerlink" title="发送附件"></a>发送附件</h1><p><code>echo -e &quot;hello,\nworld.&quot; | mail -s &quot;example&quot; example@example.org -A log.txt</code><br>使用-A指令指定附件</p>
+<h1 id="配置mailutils"><a href="#配置mailutils" class="headerlink" title="配置mailutils"></a>配置mailutils</h1><p>配置文件位置是’/etc/mailutils.rc’，如果没有的话需要手动创建。</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -666,6 +797,8 @@ Python 3: python -m http.ser
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -692,11 +825,20 @@ Python 3: python -m http.ser
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/03/nested-dict-python/" itemprop="url">在python中自动实现嵌套的字典</a></h1>
+                
+                <a href="/2018/12/03/nested-dict-python/" class="post-title-link" itemprop="url">在python中自动实现嵌套的字典</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -704,19 +846,25 @@ Python 3: python -m http.ser
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T19:32:05+08:00">
-                2018-12-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-03 19:32:05 / 修改时间：19:42:19" itemprop="dateCreated datePublished" datetime="2018-12-03T19:32:05+08:00">2018-12-03</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -744,26 +892,25 @@ Python 3: python -m http.ser
       
         
           
-          在python中，我们常常会用到嵌套字典，当使用到嵌套字典的时候，必须显式地指明字典变量，否额就会报错。为了解决这一问题，我们可以构建一个Dict的子类：
-在这个类别中，使用__missing__方法来定义键值缺失时的行为，walk方法提供对字典中所有元素的遍历
+            <p>在python中，我们常常会用到嵌套字典，当使用到嵌套字典的时候，必须显式地指明字典变量，否额就会报错。<br>为了解决这一问题，我们可以构建一个Dict的子类：</p>
+<p><script src="https://gist.github.com/sparkydogX/9a5cf522ea672b760350de89c3896aa9.js"></script><br>在这个类别中，使用<code>__missing__</code>方法来定义键值缺失时的行为，<code>walk</code>方法提供对字典中所有元素的遍历</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/03/nested-dict-python/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -794,6 +941,8 @@ Python 3: python -m http.ser
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -820,11 +969,20 @@ Python 3: python -m http.ser
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/03/gnuplot-pipe/" itemprop="url">在命令行中使用gnuplot快速查看数据</a></h1>
+                
+                <a href="/2018/12/03/gnuplot-pipe/" class="post-title-link" itemprop="url">在命令行中使用gnuplot快速查看数据</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -832,19 +990,25 @@ Python 3: python -m http.ser
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T11:05:45+08:00">
-                2018-12-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-03 11:05:45 / 修改时间：11:44:13" itemprop="dateCreated datePublished" datetime="2018-12-03T11:05:45+08:00">2018-12-03</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -872,26 +1036,29 @@ Python 3: python -m http.ser
       
         
           
-          很多时候在处理log文件的时候，我们希望能够绘制数值随时间变化曲线。gnuplot是一个命令行作图工具，具有很强大的交互式作图能力。而结合管道功能也可以很方便地满足我的需求。我的log文件如下：
+            <p>很多时候在处理log文件的时候，我们希望能够绘制数值随时间变化曲线。<br>gnuplot是一个命令行作图工具，具有很强大的交互式作图能力。而结合管道功能也可以很方便地满足我的需求。<br>我的log文件如下：</p>
+<blockquote>
+<p>Epoch    LR    Train Loss    Val Loss    Train Acc    Val Acc<br>  1.000000    0.000250    0.006155    0.006397    0.210200    0.371615<br>  2.000000    0.000250    0.004988    0.062103    0.405610    0.490865<br>  3.000000    0.000250    0.004645    0.011359    0.513939    0.563074<br>  4.000000    0.000250    0.004415    0.004224    0.573226    0.632654<br>  5.000000    0.000250    0.004252    0.004261    0.611022    0.667559        </p>
+</blockquote>
+<p>首先进行一些文本处理：去除第一行标题，然后选择第1列作为横坐标，第6列作为纵坐标，最后将数据送进gnuplot里作图即可。<br>命令行如下：<br><code>cat ./log.txt | sed &#39;1d&#39; | awk &#39;{print $1&quot;\t&quot;$6}&#39; | gnuplot -p  -e  &quot;plot &#39;&lt;cat&#39;&quot;</code><br>sed指令的作用是删除第一行，awk指令提取指定列，gnuplot命令中-p用来使图像暂停，不会在程序运行完成后直接消失。<br>效果如图：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/loggnuplot.png" alt="img"></p>
+<p>如果是在远程服务器上，可以在gnuplot中设置<code>set terminal dumb</code>，图像会输出在终端窗口中。<br>命令：<br><code>cat ./log.txt | sed &#39;1d&#39; | awk &#39;{print $1&quot;\t&quot;$6}&#39; | gnuplot -p  -e  &quot;set terminal dumb;plot &#39;/dev/stdin&#39;&quot;</code></p>
 
-Epoch    LR    Train Loss    Val Loss    Train Acc 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/03/gnuplot-pipe/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -922,6 +1089,8 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -948,11 +1117,20 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/30/system-performance-notebook/" itemprop="url">Linux系统性能分析笔记</a></h1>
+                
+                <a href="/2018/11/30/system-performance-notebook/" class="post-title-link" itemprop="url">Linux系统性能分析笔记</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -960,19 +1138,37 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T22:35:12+08:00">
-                2018-11-30
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-30 22:35:12" itemprop="dateCreated datePublished" datetime="2018-11-30T22:35:12+08:00">2018-11-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-03 21:13:37" itemprop="dateModified" datetime="2018-12-03T21:13:37+08:00">2018-12-03</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1000,28 +1196,132 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
       
         
           
-          查看CPU数量总核数 = 物理CPU个数 X 每颗物理CPU的核数总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+            <h1 id="查看CPU数量"><a href="#查看CPU数量" class="headerlink" title="查看CPU数量"></a>查看CPU数量</h1><p><strong>总核数 = 物理CPU个数 X 每颗物理CPU的核数</strong><br><strong>总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</strong></p>
+<ol>
+<li><p>查看物理CPU个数<br><code>cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l</code></p>
+</li>
+<li><p>查看每个物理CPU中core的个数(即核数)<br><code>cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq</code></p>
+</li>
+<li><p>查看逻辑CPU的个数<br><code>cat /proc/cpuinfo| grep &quot;processor&quot;| wc -l</code></p>
+</li>
+</ol>
+<h1 id="平均负载"><a href="#平均负载" class="headerlink" title="平均负载"></a>平均负载</h1><ol>
+<li><p><code>uptime</code><br>输出<code>17:06:20 up 2 days, 17:39,  1 user,  load average: 1.75, 1.59, 1.31</code><br>分别表示<code>当前时间,系统运行时间,正在登录用户数,过去 1 分钟,5 分钟,15 分钟的平均负载</code><br>运行<code>man uptime</code>可以得到平均负载的定义:</p>
+<blockquote>
+<p>System load averages is the average number of processes that are either in a runnable or uninterruptable state.  A process in a runnable state is either using  the  CPU  or waiting  to  use  the  CPU.   A process in uninterruptable state is waiting for some I/O access, eg waiting for disk.  The averages are taken over the three time intervals.<br>Load averages are not normalized for the number of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on  a  4  CPU  system  it means it was idle 75% of the time.</p>
+</blockquote>
+<p>除了正在运行的进程,还有不可中断进程.不可中断状态的进程是正处于内核态关键流程中的进程，并且这些流程是不可打断的，最常见的是等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态（Uninterruptible Sleep，也称为 Disk Sleep）的进程。<br>当平均负载大于CPU数量时表示出现了过载.</p>
+</li>
+<li><p>压力测试工具<code>stress</code><br>需要通过包管理器进行安装.<br>使用指令<code>stress --cpu 1 --timeout 600</code>可以施加1个CPU的负载,持续600秒.<br>使用指令<code>stress -i 1 --timeout 600</code>模拟io负载.<br>使用指令<code>stress -c 8 --timeout 600</code>模拟8个进程.  </p>
+<p>使用<code>uptime</code>和<code>mpstat -P ALL</code>可以对CPU的状态进行实时的查看.</p>
+</li>
+<li><p>使用<code>pidstat</code>查看当前进程占用CPU的情况<br>使用<code>pidstat -u 5 2</code>命令可以每5s统计一次当前CPU使用情况, 共显示两次.<br>使用<code>pidstat -d</code>可以查看当前进程的IO情况</p>
+</li>
+</ol>
+<h1 id="CPU上下文切换"><a href="#CPU上下文切换" class="headerlink" title="CPU上下文切换"></a>CPU上下文切换</h1><p>系统中的上下文切换可以分为:<strong>系统权限模式切换</strong>,<strong>进程上下文切换</strong>,<strong>线程上下文切换</strong>,<strong>中断上下文切换</strong><br>线程是调度的基本单位，而进程则是资源拥有的基本单位. 同进程内的线程切换，要比多进程间的切换消耗更少的资源.</p>
+<ol>
+<li><p>使用<code>vmstat</code>查看系统整体CPU切换情况<br>运行<code>vmstat 5</code>可以得到如下的结果:</p>
+<blockquote>
+<p>procs ———–memory———- —swap– —–io—- -system– ——cpu—–<br>r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st<br>0  0      0 699912 1015920 6586312    0    0     5    19    3   14  4  7 88  0  0<br>0  0      0 685852 1015920 6586344    0    0     0   171  671 1588  2  1 97  0  0<br>0  0      0 686720 1015924 6586340    0    0     0    42  551 1473  1  1 98  0  0<br>0  0      0 698912 1015924 6586368    0    0     0     7  816 3540  8  2 90  0  0  </p>
+</blockquote>
+<p>以下是<code>man vmstat</code>中对于输出参数的说明.</p>
+<blockquote>
+<p><strong>FIELD DESCRIPTION FOR VM MODE</strong><br>Procs</p>
+<pre><code>r: The number of runnable processes (running or waiting for run time).  
+b: The number of processes in uninterruptible sleep.  
+</code></pre><p>Memory  </p>
+<pre><code>swpd: the amount of virtual memory used.  
+free: the amount of idle memory.  
+buff: the amount of memory used as buffers.  
+cache: the amount of memory used as cache.  
+inact: the amount of inactive memory.  (-a option)  
+active: the amount of active memory.  (-a option)  
+</code></pre><p>Swap  </p>
+<pre><code>si: Amount of memory swapped in from disk (/s).  
+so: Amount of memory swapped to disk (/s).  
+</code></pre><p>IO  </p>
+<pre><code>bi: Blocks received from a block device (blocks/s).  
+bo: Blocks sent to a block device (blocks/s).  
+</code></pre><p>System  </p>
+<pre><code>in: The number of interrupts per second, including the clock.  
+cs: The number of context switches per second.  
+</code></pre><p>CPU  </p>
+<pre><code>These are percentages of total CPU time.  
+us: Time spent running non-kernel code.  (user time, including nice time)  
+sy: Time spent running kernel code.  (system time)  
+id: Time spent idle.  Prior to Linux 2.5.41, this includes IO-wait time.  
+wa: Time spent waiting for IO.  Prior to Linux 2.5.41, included in idle.  
+st: Time stolen from a virtual machine.  Prior to Linux 2.6.11, unknown.  
+</code></pre></blockquote>
+</li>
+</ol>
+<ul>
+<li>cs（context switch）是每秒上下文切换的次数。   </li>
+<li>in（interrupt）则是每秒中断的次数。</li>
+<li>r（Running or Runnable）是就绪队列的长度，也就是正在运行和等待 CPU 的进程数。  </li>
+<li>b（Blocked）则是处于不可中断睡眠状态的进程数.</li>
+</ul>
+<ol start="2">
+<li><p>使用<code>pidstat -w 5</code>查看每个进程的CPU切换情况<br>主要输出中有cswch/s和nvcswch/s两列<br>cswch/s 表示每秒任务所做的自愿上下文切换的总数。当任务阻塞时会发生自愿上下文切换，因为它需要的资源不可用。<br>nvcswch/s 每秒任务所做的非自愿上下文切换的总数。 当任务执行一段时间时，会发生非自愿的上下文切换,因为系统会给每个进程分配时间片段,时间片段到达限定之后就会跳转到别的进程, 作为系统实现多任务的一种方式.<br><code>pidstat -w</code>只显示进程之间的切换次数,<code>pidstat -wt</code>可以将线程之间的切换次数也计算入内.<br>在终端对其排序可使用<code>pidstat -w | sort -k4 -g</code>,表示对第4行排正序  </p>
+</li>
+<li><p>使用<code>sysbench</code>模拟系统多进程调度<br><code>sysbench --num-threads=64 --max-time=60 --max-requests=100000 --test=threads  run</code>指令可以模拟多线程压力测试.</p>
+</li>
+<li><p>查看中断切换情况<br><code>watch -d cat /proc/interrupts</code>查看中断信息. <code>/proc</code>是linux系统提供的虚拟空间, 用于用户空间和内核空间的通信.  </p>
+</li>
+<li><p>查看proc中的文件<br><code>/proc/stat</code> CPU整体活动信息<br><code>/proc/&lt;pid&gt;/stat</code> 进程活动信息<br><code>/proc/&lt;pid&gt;/task/&lt;tid&gt;/stat</code>  线程活动信息  </p>
+</li>
+</ol>
+<h1 id="CPU使用率"><a href="#CPU使用率" class="headerlink" title="CPU使用率"></a>CPU使用率</h1><ol>
+<li><p>查看系统节拍率<br>时钟节拍是特定的周期性中断,时钟节拍率越快,系统的额外开销就越大。越慢则系统响应速度越慢.<br><code>cat /boot/config-$(uname -r) | grep CONFIG_HZ=</code> 可以查看节拍率, 数值表示每秒钟CPU时间中断次数.<br><code>cat /proc/timer_list |grep jiffies</code> 可以查看jiffies的值, 表示启动以来触发的时间中断次数.  </p>
+</li>
+<li><p>使用<code>cat /proc/stat |grep ^cpu</code>  查看CPU情况<br>得到如下结果:</p>
+<blockquote>
+<p>cpu  5126936 5712 7710142 117664694 595706 0 64856 0 0 0<br>cpu0 1469407 1059 2327228 28911946 68524 0 22051 0 0 0<br>cpu1 1504594 1668 2536510 28675459 53180 0 22960 0 0 0<br>cpu2 698222 1269 468605 31543635 49917 0 14812 0 0 0<br>cpu3 1454710 1714 2377798 28533652 424084 0 5031 0 0 0  </p>
+</blockquote>
+<p>使用<code>man proc</code>可以得到每一列参数的说明:  </p>
+<blockquote>
+<pre><code>user   (1) Time spent in user mode.  
+nice   (2) Time spent in user mode with low priority (nice).  
+system (3) Time spent in system mode.  
+idle   (4) Time spent in the idle task.  This value should be USER_HZ times the second entry in the /proc/uptime   pseudo-file.  
+iowait (since Linux 2.5.41)  
+       (5) Time waiting for I/O to complete.  
+irq (since Linux 2.6.0-test4)  
+       (6) Time servicing interrupts.   
+softirq (since Linux 2.6.0-test4)  
+       (7) Time servicing softirqs.  
+steal (since Linux 2.6.11)  
+       (8) Stolen time, which is the time spent in other operating systems when running in a virtualized environment  
+guest (since Linux 2.6.24)  
+       (9) Time spent running a virtual CPU for guest operating systems under the control of the Linux kernel.
+guest_nice (since Linux 2.6.33)  
+       (10) Time spent running a niced guest (virtual CPU for guest operating systems under the control of the Linux kernel).  
+</code></pre></blockquote>
+<p>CPU使用率的计算去除idle的那一部分即可.<br>但是直接针对这个文件进行计算得到的是开机以来的CPU使用率, 需要查看当前CPU使用率的时候,可以取一段时间, 然后根据这段时间内数据的变化来计算出平均的CPU使用率.<br>在使用<code>top</code>指令进行查看的时候, 计算的是3s内的CPU平均使用率.  </p>
+<h1 id="查看占用CPU最多的函数"><a href="#查看占用CPU最多的函数" class="headerlink" title="查看占用CPU最多的函数"></a>查看占用CPU最多的函数</h1><ol>
+<li>使用<code>perf</code>指令<br>安装perf的时候需要注意, perf与内核的关联十分紧密, 通常会需要<code>sudo apt-get install linux-tools-$(uname -r)</code><br>如果包管理器中找不到对应内核的perf,可以从linux源码中的linux/tools/perf文件夹编译运行.<br>运行<code>perf top</code>会列出使用资源最高的函数, 最后一列会列出函数名, 函数名未知的列出内存地址.<br>执行<code>perf record ls -g</code>可以记录执行ls语句时候的系统调用情况, 结束后使用<code>perf report</code>可以看到结果<br><code>perf top -g -p 1302</code>可以看到pid为1302的进程函数调用情况  </li>
+<li><a href="https://github.com/brendangregg/perf-tools/blob/master/execsnoop" target="_blank" rel="noopener">exescoop</a>工具<br>exescoop是用于检查进程外部exec调用的工具. 有时候系统CPU占用很高, 但是单个进程查不出来, 这时候就有可能是进程在不断的调用比较小的外部进程, 或者是程序在不断的崩溃重启.</li>
+<li><code>pstree</code>可以用于查看进程树</li>
+</ol>
+</li>
+</ol>
 
-查看物理CPU个数cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l
-
-查
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/30/system-performance-notebook/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1052,6 +1352,8 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1078,11 +1380,20 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/28/latex-equation-in-office/" itemprop="url">在office中使用latex公式</a></h1>
+                
+                <a href="/2018/11/28/latex-equation-in-office/" class="post-title-link" itemprop="url">在office中使用latex公式</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1090,19 +1401,25 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T22:30:17+08:00">
-                2018-11-28
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-28 22:30:17 / 修改时间：22:48:27" itemprop="dateCreated datePublished" datetime="2018-11-28T22:30:17+08:00">2018-11-28</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1130,25 +1447,26 @@ Epoch    LR    Train Loss    Val Loss    Train Acc
       
         
           
-          用过Latex的都知道，Tex语法下的公式编辑与使用word编辑公式的体验简直是天壤之别，幸而目前有一些开源的工具，可以在Word和PowerPoint中使用latex语法编辑公式。注：这两款工具只支持Windows平台
-texswordtexsword是一款开源的工具，可以在word中插入late
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/28/latex-equation-in-office/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>用过Latex的都知道，Tex语法下的公式编辑与使用word编辑公式的体验简直是天壤之别，幸而目前有一些开源的工具，可以在Word和PowerPoint中使用latex语法编辑公式。<br><em>注：这两款工具只支持Windows平台</em></p>
+<h1 id="texsword"><a href="#texsword" class="headerlink" title="texsword"></a>texsword</h1><p>texsword是一款开源的工具，可以在word中插入latex公式。将<code>texsword.dotm</code>文件放入word的启动文件夹即可使用。下载页面：<a href="https://sourceforge.net/projects/texsword/" target="_blank" rel="noopener">https://sourceforge.net/projects/texsword/</a></p>
+<h1 id="IguanaTex"><a href="#IguanaTex" class="headerlink" title="IguanaTex"></a>IguanaTex</h1><p>IguanaTex同样是一款开源的工具，用于在PowerPoint中插入Latex公式。下载页面：<a href="http://www.jonathanleroux.org/software/iguanatex/" target="_blank" rel="noopener">http://www.jonathanleroux.org/software/iguanatex/</a></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1179,6 +1497,8 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1205,11 +1525,20 @@ texswordtexsword是一款开源的工具，可以在word中插入late
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/22/centos-service-onstart/" itemprop="url">在cnetos中添加开机启动的任务</a></h1>
+                
+                <a href="/2018/11/22/centos-service-onstart/" class="post-title-link" itemprop="url">在cnetos中添加开机启动的任务</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1217,19 +1546,37 @@ texswordtexsword是一款开源的工具，可以在word中插入late
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T16:07:00+08:00">
-                2018-11-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-22 16:07:00" itemprop="dateCreated datePublished" datetime="2018-11-22T16:07:00+08:00">2018-11-22</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-29 10:47:46" itemprop="dateModified" datetime="2018-11-29T10:47:46+08:00">2018-11-29</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1257,24 +1604,26 @@ texswordtexsword是一款开源的工具，可以在word中插入late
       
         
           
-          使用chkconfig使用chkconfig --list可以查看当前chkconfig列表中的服务。使用chkconfig yourservice off可以关闭对应服务。使用chkconfig yourservice on可以关闭对应服务。如果想要的服务不在列表中，需要使用chkconfig -
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/22/centos-service-onstart/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="使用chkconfig"><a href="#使用chkconfig" class="headerlink" title="使用chkconfig"></a>使用chkconfig</h1><p>使用<code>chkconfig --list</code>可以查看当前chkconfig列表中的服务。<br>使用<code>chkconfig yourservice off</code>可以关闭对应服务。<br>使用<code>chkconfig yourservice on</code>可以关闭对应服务。<br>如果想要的服务不在列表中，需要使用<code>chkconfig --add yourservice</code>添加。</p>
+<h1 id="修改-etc-rc-d-rc-local文件"><a href="#修改-etc-rc-d-rc-local文件" class="headerlink" title="修改/etc/rc.d/rc/local文件"></a>修改/etc/rc.d/rc/local文件</h1><p><code>/etc/rc.d/rc.local</code>文件中可以写入需要开启的服务</p>
+<h1 id="设置定时重启"><a href="#设置定时重启" class="headerlink" title="设置定时重启"></a>设置定时重启</h1><p>我的个人服务器常常被折腾的不堪重负，需要定期重启。<br>使用crontab完成这一功能。<br>crontab的作用是设置定时任务。<br><code>crontab -e</code>进入配置文件<br>写入<code>0 0 * * * /sbin/shutdown -r now</code>表示每天零点重启。</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1305,6 +1654,8 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1331,11 +1682,20 @@ texswordtexsword是一款开源的工具，可以在word中插入late
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/22/patch-plot-matplot/" itemprop="url">使用matplot绘制饼状图</a></h1>
+                
+                <a href="/2018/11/22/patch-plot-matplot/" class="post-title-link" itemprop="url">使用matplot绘制饼状图</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1343,19 +1703,25 @@ texswordtexsword是一款开源的工具，可以在word中插入late
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T09:57:34+08:00">
-                2018-11-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-22 09:57:34 / 修改时间：10:11:52" itemprop="dateCreated datePublished" datetime="2018-11-22T09:57:34+08:00">2018-11-22</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1383,26 +1749,25 @@ texswordtexsword是一款开源的工具，可以在word中插入late
       
         
           
-          代码：
-效果：
+            <p>代码：</p>
+<p><script src="https://gist.github.com/sparkydogX/26e5b475f9aa382525bb660fdf8cb75f.js"></script><br>效果：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/bingzhuangtu.png" alt="img2"></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/22/patch-plot-matplot/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1435,6 +1800,8 @@ texswordtexsword是一款开源的工具，可以在word中插入late
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1459,11 +1826,20 @@ texswordtexsword是一款开源的工具，可以在word中插入late
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/22/confusion-matrix-matplot/" itemprop="url">使用matplot绘制混淆矩阵</a></h1>
+                
+                <a href="/2018/11/22/confusion-matrix-matplot/" class="post-title-link" itemprop="url">使用matplot绘制混淆矩阵</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1471,19 +1847,25 @@ texswordtexsword是一款开源的工具，可以在word中插入late
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T09:56:51+08:00">
-                2018-11-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-22 09:56:51 / 修改时间：10:09:11" itemprop="dateCreated datePublished" datetime="2018-11-22T09:56:51+08:00">2018-11-22</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1511,27 +1893,26 @@ texswordtexsword是一款开源的工具，可以在word中插入late
       
         
           
-          混淆矩阵在对分类任务的结果进行分析的时候是一个非常有用的工具。使用matplotlib可以将混淆矩阵可视化。效果如图：
-代码如下：
-
+            <p>混淆矩阵在对分类任务的结果进行分析的时候是一个非常有用的工具。使用matplotlib可以将混淆矩阵可视化。<br>效果如图：<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/confusionmatrix.png" alt="img1"></p>
+<p>代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/5ca591bd3e8198211a11838fa36336dd.js"></script>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/22/confusion-matrix-matplot/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1560,15 +1941,12 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1584,63 +1962,347 @@ texswordtexsword是一款开源的工具，可以在word中插入late
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1648,6 +2310,7 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
     </div>
   </aside>
+  
 
 
         
@@ -1656,30 +2319,39 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1692,11 +2364,16 @@ texswordtexsword是一款开源的工具，可以在word中插入late
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1710,7 +2387,6 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
 
 
-  
 
 
 
@@ -1721,80 +2397,6 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1803,8 +2405,55 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1853,6 +2502,8 @@ texswordtexsword是一款开源的工具，可以在word中插入late
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1886,8 +2537,9 @@ texswordtexsword是一款开源的工具，可以在word中插入late
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2056,9 +2708,9 @@ texswordtexsword是一款开源的工具，可以在word中插入late
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2124,6 +2776,47 @@ texswordtexsword是一款开源的工具，可以在word中插入late
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 

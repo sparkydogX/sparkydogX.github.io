@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/page/2/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/page/2/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
 
   <link rel="canonical" href="http://sparkydogX.github.io/page/2/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -269,12 +297,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -285,6 +324,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,11 +352,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/09/openwrt-service-startup/" itemprop="url">在openwrt系统中设置开机自启服务</a></h1>
+                
+                <a href="/2019/01/09/openwrt-service-startup/" class="post-title-link" itemprop="url">在openwrt系统中设置开机自启服务</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +373,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T17:07:07+08:00">
-                2019-01-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-09 17:07:07 / 修改时间：17:23:31" itemprop="dateCreated datePublished" datetime="2019-01-09T17:07:07+08:00">2019-01-09</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,24 +419,28 @@
       
         
           
-          /etc/init.d目录下面就是系统加载的开机配置，文件夹中的每个文件都代表一个service。每个配置可以设置START优先级，数字越大启动越靠后，如果有很多需要依赖网络或者USB之类的启动程序最好设置靠后一些，等其他程序启动了再启动。系统读取etc/init.d/下的启动配置文件后，系统会根据
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/openwrt-service-startup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>/etc/init.d目录下面就是系统加载的开机配置，文件夹中的每个文件都代表一个service。<br>每个配置可以设置START优先级，数字越大启动越靠后，如果有很多需要依赖网络或者USB之类的启动程序最好设置靠后一些，等其他程序启动了再启动。<br>系统读取etc/init.d/下的启动配置文件后，系统会根据start优先级，按照顺序执行每个文件的start()函数中的命令。</p>
+<p>下面为myapp添加开启启动，假定myapp的路径是<code>/opt/myapp</code></p>
+<p>编辑<code>/etc/init.d/mystart</code></p>
+<p>输入以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/sh /etc/rc.common</span></span><br><span class="line">START=99</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">        /opt/myapp</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">        <span class="comment"># kill your pid</span></span><br><span class="line">        <span class="built_in">kill</span> -9 `ps | grep <span class="string">'/opt/myapp'</span> | grep -v <span class="string">'grep'</span> | awk <span class="string">'&#123;print $1&#125;'</span>`</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">        <span class="built_in">kill</span> -9 `ps | grep <span class="string">'/opt/myapp'</span> | grep -v <span class="string">'grep'</span> | awk <span class="string">'&#123;print $1&#125;'</span>`</span><br><span class="line">        /opt/myapp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后保存，退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/mystart <span class="comment">#设置可执行权限</span></span><br><span class="line">/etc/init.d/mystart <span class="built_in">enable</span></span><br><span class="line">/etc/init.d/mystart start</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -411,6 +471,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -437,11 +499,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/08/git-worktree/" itemprop="url">在git中使用worktree同时开发多个branch</a></h1>
+                
+                <a href="/2019/01/08/git-worktree/" class="post-title-link" itemprop="url">在git中使用worktree同时开发多个branch</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -449,19 +520,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T16:54:45+08:00">
-                2019-01-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-08 16:54:45 / 修改时间：18:37:59" itemprop="dateCreated datePublished" datetime="2019-01-08T16:54:45+08:00">2019-01-08</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -489,24 +566,26 @@
       
         
           
-          在运行程序的过程中，我喜欢用git来管理代码版本。有时候需要尝试加入新的功能，直接新建一个branch，然后在branch中开发，不会影响到master，十分方便。但是新的问题也随之产生了：我的程序常常运行一遍需要好几天，在此期间我显然不应当对当前目录下的代码进行修改，这时候worktree就派上用
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/08/git-worktree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>在运行程序的过程中，我喜欢用git来管理代码版本。有时候需要尝试加入新的功能，直接新建一个branch，然后在branch中开发，不会影响到master，十分方便。但是新的问题也随之产生了：我的程序常常运行一遍需要好几天，在此期间我显然不应当对当前目录下的代码进行修改，这时候worktree就派上用场了。<br>worktree是git 2.6之后推出的功能。版本过低可以通过源码进行编译安装来升级。</p>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><p>worktree的使用如下：<br><code>git worktree add &lt;path&gt; &lt;branch&gt;</code>：关联一个branch到指定的路径<br><code>git worktree add -b &lt;new_branch&gt; &lt;path&gt; &lt;branch&gt;</code>：基于指定branch新建一个branch到指定路径<br><strong>注意worktree的路径不能与原来的工作目录重叠</strong><br>在worktree建立完成后，原来branch的代码相当于被clone一份到了指定目录里，可以在主代码仓库像往常一样管理各个branch，但是此时新建branch的工作目录已经是在之前指定的文件夹了。<br>使用<code>git worktree list</code>可以查看当前的worktree情况。</p>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>删除branch所在工作目录，然后在主仓库所在文件夹执行<code>git worktree prune</code>。</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -537,6 +616,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -563,11 +644,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/02/pandas-dict/" itemprop="url">pandas dataframe数据与python内置字典的相互转换</a></h1>
+                
+                <a href="/2019/01/02/pandas-dict/" class="post-title-link" itemprop="url">pandas dataframe数据与python内置字典的相互转换</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -575,19 +665,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-02T22:33:59+08:00">
-                2019-01-02
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-02 22:33:59 / 修改时间：22:38:09" itemprop="dateCreated datePublished" datetime="2019-01-02T22:33:59+08:00">2019-01-02</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -615,27 +711,27 @@
       
         
           
-          Pandas是一个相当流行的数据处理模块，常用的数据结构被称为DataFrame。DataFrame与Python内置的字典类型可以方便地相互转化。代码如下：
+            <p>Pandas是一个相当流行的数据处理模块，常用的数据结构被称为DataFrame。DataFrame与Python内置的字典类型可以方便地相互转化。<br>代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/ffd9a3128a88a203ab0f1cd1304d67ef.js"></script>
 
+<p>输出如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Name  Value</span><br><span class="line">0  string1    2.0</span><br><span class="line">1  string2    1.0</span><br><span class="line">2  string1    3.0</span><br><span class="line">3  string2    3.0</span><br><span class="line">4  string3    3.5</span><br><span class="line">5  string1    4.0</span><br><span class="line">6  string2    4.5</span><br><span class="line">&#123;<span class="string">'string1'</span>: 9.0, <span class="string">'string2'</span>: 8.5, <span class="string">'string3'</span>: 3.5&#125;</span><br><span class="line">Name  Sum</span><br><span class="line">0  string1  9.0</span><br><span class="line">1  string2  8.5</span><br><span class="line">2  string3  3.5</span><br></pre></td></tr></table></figure></p>
 
-输出如下：12345678910111213Name  Value0  string1    2.01  string2    1.02
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/02/pandas-dict/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -666,6 +762,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -692,11 +790,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/29/py-bulit-in-logging/" itemprop="url">使用python标准库中的logging</a></h1>
+                
+                <a href="/2018/12/29/py-bulit-in-logging/" class="post-title-link" itemprop="url">使用python标准库中的logging</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -704,19 +811,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T15:15:13+08:00">
-                2018-12-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-29 15:15:13 / 修改时间：15:26:36" itemprop="dateCreated datePublished" datetime="2018-12-29T15:15:13+08:00">2018-12-29</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -744,26 +857,25 @@
       
         
           
-          Python自带logging模块，可以让我们很方便地在程序运行时输出日志。代码如下：
-
+            <p>Python自带logging模块，可以让我们很方便地在程序运行时输出日志。代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/08613192821ab9df16d4ae1ccdd83e80.js"></script>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/29/py-bulit-in-logging/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -794,6 +906,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -820,11 +934,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/28/script-on-startup/" itemprop="url">在Ubuntu中设置开机启动项</a></h1>
+                
+                <a href="/2018/12/28/script-on-startup/" class="post-title-link" itemprop="url">在Ubuntu中设置开机启动项</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -832,19 +955,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T19:31:20+08:00">
-                2018-12-28
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-28 19:31:20 / 修改时间：19:56:17" itemprop="dateCreated datePublished" datetime="2018-12-28T19:31:20+08:00">2018-12-28</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -872,26 +1001,30 @@
       
         
           
-          Ubuntu提供了一个叫做Startup Applications的工具，在这个工具中可以很方便的设置各种开机启动的程序或者脚本。这种方法操作简便，基本一看就会，这里不多介绍。但是这种方法有个缺陷：不能以root用户的身份来执行程序。为了能够以root身份运行，在ubuntu中大体上有三种方法：
+            <p>Ubuntu提供了一个叫做Startup Applications的工具，在这个工具中可以很方便的设置各种开机启动的程序或者脚本。这种方法操作简便，基本一看就会，这里不多介绍。但是这种方法有个缺陷：不能以root用户的身份来执行程序。<br>为了能够以root身份运行，在ubuntu中大体上有三种方法：</p>
+<ol>
+<li>在<code>/etc/systemd/system</code>文件夹下面建立service文件。不仅可以开机启动，而且能够方便的对程序进行管理。</li>
+<li>使用crontab或者在cron文件夹下建立新的文件，以<code>@reboot</code>开头。</li>
+<li>编辑<code>/etc/rc.local</code>文件</li>
+</ol>
+<p>关于linux中的service我们以后再说，这里就只讲最为简单直接的第3种方法。<br>首先运行<code>sudo vim /etc/rc.local</code>编辑文件，只需在<code>exit 0</code>上面加入一句话即可：<br><code>sleep 10s &amp;&amp; sudo nohup /home/sparkydog/onstartup.sh &amp;  &gt; /tmp/rc.local.log</code><br>注意这里先运行了<code>sleep 10s</code>是为了等待系统的各个进程都正常地加载完毕。尤其是当script文件中启动GUI界面程序的时候。<br><code>/etc/rc.local</code>文件中的最后一句话必须是<code>exit 0</code></p>
 
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/28/script-on-startup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -922,6 +1055,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -948,11 +1083,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/27/numpy-random-seed/" itemprop="url">Numpy中控制不同的变量拥有不同的随机数种子</a></h1>
+                
+                <a href="/2018/12/27/numpy-random-seed/" class="post-title-link" itemprop="url">Numpy中控制不同的变量拥有不同的随机数种子</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -960,19 +1104,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-27T22:08:33+08:00">
-                2018-12-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-27 22:08:33 / 修改时间：22:15:24" itemprop="dateCreated datePublished" datetime="2018-12-27T22:08:33+08:00">2018-12-27</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1000,25 +1150,26 @@
       
         
           
-          在numpy中，我们知道可以通常设置随机数种子来控制随机数的生成情况，在相同随机数种子的情况下，无论何时运行程序，生成的随机数序列都是相同的。这也从一个方面印证了自带的随机是伪随机。在使用随机数种子的时候，最简单的方法是：1numpy.random.seed(seed=1234)
-但是这样做设置的随
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/27/numpy-random-seed/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>在numpy中，我们知道可以通常设置随机数种子来控制随机数的生成情况，在相同随机数种子的情况下，无论何时运行程序，生成的随机数序列都是相同的。这也从一个方面印证了自带的随机是伪随机。<br>在使用随机数种子的时候，最简单的方法是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.random.seed(seed=<span class="number">1234</span>)</span><br></pre></td></tr></table></figure></p>
+<p>但是这样做设置的随机种子作用域是整个文件，也就是说当你在这个文件中使用numpy随机数的时候，都会使用这个语句所设置的随机数种子。<br>现在我有两个随机变量，我希望其中一个在每次程序运行的时候都保持不变，另一个则要发生变化。代码如下：</p>
+<script src="https://gist.github.com/sparkydogX/08fd2a7f21775cb913c26216f6c5a869.js"></script>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1049,6 +1200,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1075,11 +1228,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/25/python-osutime/" itemprop="url">使用python修改文件的修改时间和访问时间</a></h1>
+                
+                <a href="/2018/12/25/python-osutime/" class="post-title-link" itemprop="url">使用python修改文件的修改时间和访问时间</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1087,19 +1249,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T17:13:13+08:00">
-                2018-12-25
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-25 17:13:13 / 修改时间：18:41:59" itemprop="dateCreated datePublished" datetime="2018-12-25T17:13:13+08:00">2018-12-25</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1127,27 +1295,32 @@
       
         
           
-          事情起源于我一个很简单的需求：将文件夹中显示的文件按照自定义的规则排序。我有一堆文件夹，文件夹的名称最后一个字符是我想要的排序关键字。我用的是Ubuntu系统，找了一圈也没发现系统提供这个功能。最后只好自己实现。思路很简单：
+            <p>事情起源于我一个很简单的需求：将文件夹中显示的文件按照自定义的规则排序。我有一堆文件夹，文件夹的名称最后一个字符是我想要的排序关键字。<br>我用的是Ubuntu系统，找了一圈也没发现系统提供这个功能。最后只好自己实现。<br>思路很简单：</p>
+<ol>
+<li>先用python中的<code>os.listdir()</code>方法将文件名读进列表</li>
+<li>然后以我想要的方式对列表进行排序。</li>
+<li>排序完成之后挨个修改文件的修改时间。</li>
+<li>最后在文件夹中按照修改时间排序就可以了。</li>
+</ol>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">stinfo = os.stat(<span class="string">'path'</span>) <span class="comment">#stinfo可以当作具有十个元素的列表使用</span></span><br><span class="line">print(stinfo)</span><br><span class="line">atime,mtime = stinfo[<span class="number">-3</span>], stinfo[<span class="number">-2</span>]</span><br><span class="line">os.utime(<span class="string">'path'</span>,(atime,mtime))</span><br></pre></td></tr></table></figure></p>
+<p>其中atime是access time，mtime是modified time。</p>
 
-先用python中的os.listdir()方法将文件名读进列表
-然后以
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/25/python-osutime/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1178,6 +1351,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1204,11 +1379,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/20/ss-fCNR/" itemprop="url">使用ssh反向代理进行内网穿透</a></h1>
+                
+                <a href="/2018/12/20/ss-fCNR/" class="post-title-link" itemprop="url">使用ssh反向代理进行内网穿透</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1216,19 +1400,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T19:43:53+08:00">
-                2018-12-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-20 19:43:53 / 修改时间：19:57:52" itemprop="dateCreated datePublished" datetime="2018-12-20T19:43:53+08:00">2018-12-20</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1256,25 +1446,28 @@
       
         
           
-          之前我们介绍过使用ngrok和n2n这样的工具来进行内网穿透。这样的工具自己用当然是很棒，但是很多时候亲朋好友会遇到一些问题需要你用ssh连上帮忙解决的时候，以上两个工具配置起来还是太麻烦了。用ssh的好处是几乎每个现代的计算机上都会自带ssh工具，省去了配置的麻烦。
-服务器ssh -fCNL *:
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/20/ss-fCNR/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>之前我们介绍过使用ngrok和n2n这样的工具来进行内网穿透。这样的工具自己用当然是很棒，但是很多时候亲朋好友会遇到一些问题需要你用ssh连上帮忙解决的时候，以上两个工具配置起来还是太麻烦了。用ssh的好处是几乎每个现代的计算机上都会自带ssh工具，省去了配置的麻烦。</p>
+<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><p><code>ssh -fCNL *:6789:localhost:9876:localhost</code><br>将6789端口的ssh请求转发到9876端口上面，<code>*</code>表示接受来自所有ip的请求。</p>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p><code>ssh -fCNR 9876:localhost:22 server_user@server.domain -p 22</code><br>建立本地22端口到服务器9876端口的ssh反向代理。在被操作的机器上面执行这句命令，随后会要求输入密码，输入服务器上对应用户的密码即可。</p>
+<h1 id="登录ssh"><a href="#登录ssh" class="headerlink" title="登录ssh"></a>登录ssh</h1><p>这时候配置已经完成，随便找一台电脑输入<code>ssh client_user@erver.domain -p 6789</code>即可登录到客户机的ssh。</p>
+<p><strong>这种方法的缺陷在于一段时间不用之后ssh反向代理会自动断开，因此不适合长久的部署。但是胜在操作简单，应个急还是很不错的</strong></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1305,6 +1498,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1331,11 +1526,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/20/n2n/" itemprop="url">使用n2n搭建虚拟局域网</a></h1>
+                
+                <a href="/2018/12/20/n2n/" class="post-title-link" itemprop="url">使用n2n搭建虚拟局域网</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1343,19 +1547,37 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T14:02:48+08:00">
-                2018-12-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-20 14:02:48" itemprop="dateCreated datePublished" datetime="2018-12-20T14:02:48+08:00">2018-12-20</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-22 22:35:10" itemprop="dateModified" datetime="2018-12-22T22:35:10+08:00">2018-12-22</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1383,24 +1605,39 @@
       
         
           
-          n2n是一个P2P（peer to peer）的网络工具。与我们之前介绍过的ngrok不同，n2n不是简单的将端口暴露到具有公有ip的服务器上，而是存在一个supernode，supernode的作用是帮助client完成点到点的连接，完成连接之后客户机相当于处在同一个局域网内。n2n项目页面：ht
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/20/n2n/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>n2n是一个P2P（peer to peer）的网络工具。与我们之前介绍过的ngrok不同，n2n不是简单的将端口暴露到具有公有ip的服务器上，而是存在一个supernode，supernode的作用是帮助client完成点到点的连接，完成连接之后客户机相当于处在同一个局域网内。<br>n2n项目页面：<a href="https://github.com/ntop/n2n" target="_blank" rel="noopener">https://github.com/ntop/n2n</a></p>
+<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>这里以Ubuntu客户端为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion build-essential libssl-dev autoconf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ntop/n2n.git</span><br><span class="line"><span class="built_in">cd</span> n2n</span><br><span class="line">./autogen</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行服务端程序</strong><br><code>supernode -l 5000 -v</code><br>这句命令表示监听5000端口，<code>-v</code>用于输出日志，便于调试。</p>
+<h1 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h1><h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p><code>brew install autoconf</code><br><code>brew install automake</code><br><code>brew cask install tuntap</code>  这一步需要管理员权限，安装完成后需要在<code>System Preferences → Security &amp; Privacy → General</code>中允许程序运行。参考这个页面：<a href="https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt" target="_blank" rel="noopener">https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/include</span><br><span class="line">$ ln -s ../opt/openssl/include/openssl .</span><br></pre></td></tr></table></figure>
+<p>然后同样的，进入n2n文件夹，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./autogen</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行客户端程序</strong><br><code>sudo /usr/local/sbin/edge -d edge0 -a 10.0.0.10 -c mynetwork -u 1000 -g 1000 -k passwd -l server-ip:5000 -m ae:e0:4f:e7:47:5b</code><br>参数说明：</p>
+<blockquote>
+<p>“-a &lt;IP地址&gt;”选项（静态地）指定了分配给 TAP 接口的 VPN 的 IP 地址。如果你想要使用 DHCP，你需要在其中一台边缘节点上配置一台 DHCP 服务器，然后使用“-a dhcp:0.0.0.0”选项来代替。<br>  “-c &lt;组名&gt;”选项指定了 VPN 组的名字（最大长度为 16 个字节）。这个选项可以被用来在同样一组节点中创建多个 VPN。<br>  “-u”和“-g”选项被用来在创建一个 TAP 接口后降权放弃 root 权限。edge 守护进程将会作为指定的用户/组 ID 运行。<br>  “-k &lt;密钥&gt;”选项指定了一个由 twofish 加密的密钥来使用。如果你想要将密钥从命令行中隐藏，你可以使用 N2N_KEY 环境变量。<br>  “-l &lt;IP地址:端口&gt;”选项指定了超级节点的监听 IP 地址和端口号。为了冗余，你可以指定最多两个不同的超级节点（比如 -l &lt;超级节点 A&gt; -l &lt;超级节点 B&gt;）。<br>  “-m ”给 TAP 接口分配了一个静态的 MAC 地址。不使用这个参数的话，edge 命令将会随机生成一个 MAC 地址。事实上，为一个 VPN 接口强制指定一个静态的 MAC 地址是被强烈推荐的做法。否则，比如当你在一个节点上重启了 edge 守护程序的时候，其它节点的 ARP 缓存将会由于新生成的 MAC 地址而遭到污染，它们将不能向这个节点发送数据，直到被污染的 ARP 记录被消除。</p>
+</blockquote>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>Ubuntu客户机下的安装与服务器是一样的。</p>
+<p><strong>运行客户端程序</strong><br><code>sudo /usr/sbin/edge -d edge0 -a 10.0.0.11 -c mynetwork -u 1000 -g 1000 -k  passwd -l sparkydog.top:2333 -m ae:e0:4f:e7:47:5c</code></p>
+<p><strong>测试连接</strong><br>在客户机A中ping客户机B的虚拟ip地址，如10.0.0.10 ，如果ping通，说明配置成功。<br>edge是一个后台常驻进程，如果想要停止edge，需要找到对应pid手动kill。<br>使用命令<code>ps aux | grep edge</code>或者<code>sudo lsof -t -i:5644</code>可以得到edge进程的pid</p>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>openwrt路由器直接运行<code>opkg install n2n</code>就可以。我的路由器是小米的R2D，不能直接使用opkg的源。<br>我使用了一个针对小米路由器的第三方的工具箱，项目页面： <a href="https://github.com/monlor/Monlor-Tools" target="_blank" rel="noopener">https://github.com/monlor/Monlor-Tools</a><br>通过工具箱可以安装Entware。Entware有自己的仓库，同样使用opkg进行包管理，比原生的仓库具有更好的兼容性。<br>安装Entware后运行<code>source /etc/profile</code>。<br>然后就可以通过opkg安装n2n了。</p>
+<p>这样，我们所有的主机设备和路由器都进入了一个虚拟的局域网内，机器之间可以方便的互相访问。</p>
+<h1 id="管理vlan中的节点"><a href="#管理vlan中的节点" class="headerlink" title="管理vlan中的节点"></a>管理vlan中的节点</h1><p>很多时候我们需要查询当前vlan中的节点ip，使用<code>sudo nmap -sP 10.0.0.0-255</code>进行查看。</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1433,6 +1670,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1457,11 +1696,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/interesting-comment/" itemprop="url">提升编程效率的玄学方法</a></h1>
+                
+                <a href="/2018/12/18/interesting-comment/" class="post-title-link" itemprop="url">提升编程效率的玄学方法</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1469,19 +1717,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T21:12:24+08:00">
-                2018-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 21:12:24 / 修改时间：21:38:02" itemprop="dateCreated datePublished" datetime="2018-12-18T21:12:24+08:00">2018-12-18</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1509,24 +1763,25 @@
       
         
           
-          众所周知， 天气、季节、坐姿、朝向、饱食度、疲劳度等诸多因素会对程序员的编程效率产生影响。其中心情也是影响编程效率的一个重要因素。在输出或者注释中加入一些神奇的ascii图案，能够显著的提高心情。https://www.text-image.com/convert/ascii.html 这个网站可以
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/18/interesting-comment/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>众所周知， 天气、季节、坐姿、朝向、饱食度、疲劳度等诸多因素会对程序员的编程效率产生影响。其中心情也是影响编程效率的一个重要因素。<br>在输出或者注释中加入一些神奇的ascii图案，能够显著的提高心情。<br><a href="https://www.text-image.com/convert/ascii.html" target="_blank" rel="noopener">https://www.text-image.com/convert/ascii.html</a> 这个网站可以从图像中生成对应的ascii图案。<br><a href="http://patorjk.com/software/taag/" target="_blank" rel="noopener">http://patorjk.com/software/taag/</a> 这个网站可以输入文字，生成巨大的ascii标语图案。<br>我收集了一些ascii图案，整理成一个python的类以便使用。</p>
+<script src="https://gist.github.com/sparkydogX/bca7590fd51c9cffd38824d65f69b5c8.js"></script>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1555,15 +1810,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1579,63 +1831,347 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1643,6 +2179,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1651,30 +2188,39 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1687,11 +2233,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1705,7 +2256,6 @@
 
 
 
-  
 
 
 
@@ -1716,80 +2266,6 @@
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1798,8 +2274,55 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1848,6 +2371,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1881,8 +2406,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2051,9 +2577,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2119,6 +2645,47 @@
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 

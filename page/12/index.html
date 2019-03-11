@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/page/12/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/page/12/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
 
   <link rel="canonical" href="http://sparkydogX.github.io/page/12/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -269,12 +297,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -285,6 +324,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,11 +352,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/switch-mouse/" itemprop="url">在多个屏幕之间快速切换鼠标（Mac）</a></h1>
+                
+                <a href="/2017/09/21/switch-mouse/" class="post-title-link" itemprop="url">在多个屏幕之间快速切换鼠标（Mac）</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +373,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T17:01:49+08:00">
-                2017-09-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-21 17:01:49 / 修改时间：17:12:49" itemprop="dateCreated datePublished" datetime="2017-09-21T17:01:49+08:00">2017-09-21</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,25 +419,24 @@
       
         
           
-          使用多个显示器的时候，常常会为找不到鼠标而发愁，今天找到一款简单好用的工具CatchMouse。程序界面如下使用快捷键即可迅速改变鼠标位置。
+            <p>使用多个显示器的时候，常常会为找不到鼠标而发愁，今天找到一款简单好用的工具<a href="https://github.com/round/CatchMouse" target="_blank" rel="noopener">CatchMouse</a>。<br>程序界面如下<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/0921/catchMouse.png" alt="imageCatchMouse"><br>使用快捷键即可迅速改变鼠标位置。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/switch-mouse/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -412,6 +467,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -438,11 +495,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/refresh-Finder/" itemprop="url">如何刷新Finder</a></h1>
+                
+                <a href="/2017/09/21/refresh-Finder/" class="post-title-link" itemprop="url">如何刷新Finder</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -450,19 +516,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T16:39:01+08:00">
-                2017-09-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-21 16:39:01 / 修改时间：16:55:22" itemprop="dateCreated datePublished" datetime="2017-09-21T16:39:01+08:00">2017-09-21</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -490,26 +562,31 @@
       
         
           
-          在Windows系统中，文件管理器是自带刷新功能的，但是在MacOS中，Finder号称实时刷新，因此没有额外加入刷新功能。在使用时，常常会遇到Finder没有刷新的情况，尤其是在浏览服务器上的文件时，这时候就需要手动刷新。
+            <p>在Windows系统中，文件管理器是自带刷新功能的，但是在MacOS中，Finder号称实时刷新，因此没有额外加入刷新功能。在使用时，常常会遇到Finder没有刷新的情况，尤其是在浏览服务器上的文件时，这时候就需要手动刷新。</p>
+<ol>
+<li>新建AppleScript，内容为<code>tell application &quot;Finder&quot; to tell front window to update every item</code></li>
+<li>将文件保存为Application</li>
+<li>按住‘Command’+‘Option’键，将保存好的<code>.app</code>文件拖到Finder的工具栏</li>
+<li>找到保存好的app文件，按’Command’+’i’键查看文件简介，复制一张图片，粘贴到文件简介左上角的文件图标处，即可改变文件图标。</li>
+<li>在Finder中点击对应图标即可刷新Finder</li>
+</ol>
 
-新建AppleScript，内容为tell application &q
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/refresh-Finder/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -540,6 +617,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -566,11 +645,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/linux-nohup/" itemprop="url">Linux服务器中后台运行程序</a></h1>
+                
+                <a href="/2017/09/21/linux-nohup/" class="post-title-link" itemprop="url">Linux服务器中后台运行程序</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -578,19 +666,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T16:02:59+08:00">
-                2017-09-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-21 16:02:59 / 修改时间：16:09:57" itemprop="dateCreated datePublished" datetime="2017-09-21T16:02:59+08:00">2017-09-21</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -618,26 +712,25 @@
       
         
           
-          在使用ssh连接到Linux服务器时，当ssh连接断开，服务器会kill所有相关进程，为了使得断开连接后程序能够继续运行，可以采用以下几种方式：
-nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.txt。
+            <p>在使用ssh连接到Linux服务器时，当ssh连接断开，服务器会kill所有相关进程，为了使得断开连接后程序能够继续运行，可以采用以下几种方式：</p>
+<h1 id="nohup命令"><a href="#nohup命令" class="headerlink" title="nohup命令"></a>nohup命令</h1><p>在指令前加入<code>nohup</code>，例如<code>nohup du -s --max-depth=1 &gt;&gt;du.txt</code>。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/linux-nohup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -668,6 +761,8 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -694,11 +789,20 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/linux-du/" itemprop="url">linux中查看文件夹大小</a></h1>
+                
+                <a href="/2017/09/21/linux-du/" class="post-title-link" itemprop="url">linux中查看文件夹大小</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -706,19 +810,25 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T16:02:38+08:00">
-                2017-09-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-21 16:02:38 / 修改时间：16:06:11" itemprop="dateCreated datePublished" datetime="2017-09-21T16:02:38+08:00">2017-09-21</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -746,25 +856,24 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
       
         
           
-          在linux中查看文件夹大小时使用du指令。cd到文件夹后，常用指令如下：du -h --max-depth=1 xxx其中max-depth表示列出的子文件夹目录深度。
+            <p>在linux中查看文件夹大小时使用<code>du</code>指令。<br>cd到文件夹后，常用指令如下：<code>du -h --max-depth=1 xxx</code><br>其中max-depth表示列出的子文件夹目录深度。</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/linux-du/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -795,6 +904,8 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -821,11 +932,20 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/detection-question/" itemprop="url">多闻阙疑————目标检测论文</a></h1>
+                
+                <a href="/2017/09/21/detection-question/" class="post-title-link" itemprop="url">多闻阙疑————目标检测论文</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -833,19 +953,37 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T10:30:46+08:00">
-                2017-09-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-21 10:30:46" itemprop="dateCreated datePublished" datetime="2017-09-21T10:30:46+08:00">2017-09-21</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-09-28 09:47:16" itemprop="dateModified" datetime="2017-09-28T09:47:16+08:00">2017-09-28</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -873,25 +1011,27 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
       
         
           
-          在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM
-这个是因为svm训练和cnn训练过程的正负样本定义方式各有不同，导致最后采用CNN softmax输出比采用svm精度还低。事情是这样的，cnn在训练的时候，对训练数据做了比较宽松的标注，比如一个bounding
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/detection-question/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM"><a href="#在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM" class="headerlink" title="在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM"></a>在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM</h3><ul>
+<li>这个是因为svm训练和cnn训练过程的正负样本定义方式各有不同，导致最后采用CNN softmax输出比采用svm精度还低。事情是这样的，cnn在训练的时候，对训练数据做了比较宽松的标注，比如一个bounding box可能只包含物体的一部分，那么我也把它标注为正样本，用于训练cnn；采用这个方法的主要原因在于因为CNN容易过拟合，所以需要大量的训练数据，所以在CNN训练阶段我们是对Bounding box的位置限制条件限制的比较松(IOU只要大于0.5都被标注为正样本了)；然而svm训练的时候，因为svm适用于少样本训练，所以对于训练样本数据的IOU要求比较严格，我们只有当bounding box把整个物体都包含进去了，我们才把它标注为物体类别，然后训练svm。<h3 id="在faster-RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale-3，aspect-ratio-3，k-3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）"><a href="#在faster-RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale-3，aspect-ratio-3，k-3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）" class="headerlink" title="在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）"></a>在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）</h3></li>
+<li>在region proposal的时候只会出现这些大小的框，但是在最后输出结果的时候由于有bounding-box regressor的存在，会框得到修正，产生各种不同尺寸的输出。</li>
+</ul>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -922,6 +1062,8 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -948,11 +1090,20 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/19/howtoinstalldeepcut/" itemprop="url">在服务器上安装Deep Cut</a></h1>
+                
+                <a href="/2017/09/19/howtoinstalldeepcut/" class="post-title-link" itemprop="url">在服务器上安装Deep Cut</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -960,19 +1111,25 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T19:09:54+08:00">
-                2017-09-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-19 19:09:54 / 修改时间：20:01:04" itemprop="dateCreated datePublished" datetime="2017-09-19T19:09:54+08:00">2017-09-19</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1000,32 +1157,67 @@ nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.
       
         
           
-          Deep Cut用于多人姿势辨识。
-安装准备首先确保服务器上安装有caffe和matlab，并且已安装有Deep Cut主页上要求的软件环境：
+            <p><a href="https://github.com/eldar/deepcut" target="_blank" rel="noopener">Deep Cut</a>用于多人姿势辨识。</p>
+<h1 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h1><p>首先确保服务器上安装有caffe和matlab，并且已安装有<a href="https://github.com/eldar/deepcut" target="_blank" rel="noopener">Deep Cut</a>主页上要求的软件环境：</p>
+<ul>
+<li>HDF5 1.8</li>
+<li>CMake</li>
+<li>C++ 11</li>
+<li>CUDA &gt;=7.5</li>
+<li><a href="http://caffe.berkeleyvision.org/installation.html" target="_blank" rel="noopener">Caffe building instructions</a></li>
+<li><a href="https://user.gurobi.com/download/gurobi-optimizer" target="_blank" rel="noopener">Gurobi optimizer 6.0.x</a></li>
+</ul>
+<h1 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h1><ol>
+<li>git clone<br><code>git clone https://github.com/eldar/deepcut --recursive</code></li>
+<li>编译Caffe与Matlab接口<br>这一步需要修改external/caffe文件夹下的<code>Makefile.config</code>文件：</li>
+</ol>
+<ul>
+<li>添加语句以使用C++11编译：<code>CXXFLAGS += -std=c++11</code></li>
+<li>更改matlab文件位置：<code>MATLAB_DIR := /usr/local/MATLAB/MATLAB_Production_Server/R2015a</code></li>
+</ul>
+<ol start="3">
+<li><p>编译liblinear</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> external/liblinear-1.94/matlab</span><br><span class="line">$ CC=gcc CXX=g++ MATLABDIR=/usr/lib/matlab-8.6/ make</span><br><span class="line"><span class="comment">#修改代码中的Matlab路径</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译求解器<br>这一步比较复杂，需要安装求解器<a href="https://user.gurobi.com/" target="_blank" rel="noopener">gurobi</a>，gurobib不是开源软件，使用前要申请得到一个license。另外需要注意的是gurobi的最新版本中不支持Academic许可证在Docker container中运行，因此选择6.0.5版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://packages.gurobi.com/6.0/gurobi6.0.5_linux64.tar.gz</span><br><span class="line">$ tar -xvf gurobi6.0.5_linux64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>下面参照<a href="http://abelsiqueira.github.io/blog/installing-gurobi-7-on-linux/" target="_blank" rel="noopener">这个博客</a>中的步骤：</p>
+<ul>
+<li>编辑<code>.bashrc</code>文件。<br><code>vim $HOME/.bashrc</code></li>
+<li><p>在文件中添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> GUROBI_HOME=<span class="string">"/FULL/PATH/gurobi605/linux64"</span> <span class="comment">#这里改成gurobi所在的路径，在终端中使用pwd命令可查看当前路径</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;GUROBI_HOME&#125;</span>/bin"</span></span><br><span class="line">$ <span class="built_in">export</span> LD_LIBRARY_PATH=<span class="string">"<span class="variable">$&#123;LD_LIBRARY_PATH&#125;</span>:<span class="variable">$&#123;GUROBI_HOME&#125;</span>/lib"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成修改后在终端中输入<code>source $HOME/.bashrc</code>以更新设置。</p>
+</li>
+<li>在terminal中输入：<code>grbgetkey</code>，然后输入申请到的key，联网完成授权，保存<code>gurobi.lic</code>文件至合适的位置。</li>
+<li>编辑<code>.bashrc</code>文件，输入<code>export GRB_LICENSE_FILE=&quot;$HOME/gurobi.lic&quot;</code>,将这里的值修改为保存<code>gurobi.lic</code>文件的位置，完 成修改后在终端中输入<code>source $HOME/.bashrc</code>以更新设置。</li>
+<li>在终端中输入<code>gurobi.sh</code>，如果报错，可以尝试将<code>gurobi.lic</code>文件复制一份到’/root’文件夹下</li>
+<li>在终端中输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> external/solver</span><br><span class="line">$ cmake . -DGUROBI_ROOT_DIR=/path/to/gurobi605/linux64 -DGUROBI_VERSION=60 <span class="comment">#这里的l路径改为服务器中gurobi文件夹所在路径</span></span><br><span class="line">$ make solver-callback</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这一步可能报错找不到glut library，安装glut即可，如果无法安装glut，可无视这一错误。<br>到这里安装已经基本完成了。</p>
+<h1 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd data</span><br><span class="line">$ ./download_models.sh</span><br></pre></td></tr></table></figure>
+<h1 id="运行Demo"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;root_dir&gt;</span><br><span class="line">$ ./start_matlab_console.sh</span><br><span class="line">% in MATLAB</span><br><span class="line">&gt;&gt; demo_multiperson</span><br></pre></td></tr></table></figure>
+<p>这一步运行出错的，可以直接在命令行中输入<code>matlab</code>打开matlab，然后在matlab中运行<code>demo_multiperson</code></p>
 
-HDF5 1.8
-CMake
-C++ 11
-CUDA &gt;=7.5
-Caffe building instructions
-Gurobi optimi
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/19/howtoinstalldeepcut/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1056,6 +1248,8 @@ Gurobi optimi
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1082,11 +1276,20 @@ Gurobi optimi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/13/snedmeanemail/" itemprop="url">使用python发送邮件</a></h1>
+                
+                <a href="/2017/09/13/snedmeanemail/" class="post-title-link" itemprop="url">使用python发送邮件</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1094,19 +1297,37 @@ Gurobi optimi
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:10:04+08:00">
-                2017-09-13
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-13 16:10:04" itemprop="dateCreated datePublished" datetime="2017-09-13T16:10:04+08:00">2017-09-13</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-09-21 10:51:32" itemprop="dateModified" datetime="2017-09-21T10:51:32+08:00">2017-09-21</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1134,25 +1355,31 @@ Gurobi optimi
       
         
           
-          最近在服务器上跑CNN，要跑好长时间。没耐心盯着terminal，遂使用&gt;&gt;重定向输出到一个文件里。为了在程序运行完成收到提醒，在程序里添加发送邮件的功能，这样一来在家也能debug了XD。代码如下：
-123456789101112131415161718192021import smt
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/13/snedmeanemail/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>最近在服务器上跑CNN，要跑好长时间。没耐心盯着terminal，遂使用<code>&gt;&gt;</code>重定向输出到一个文件里。为了在程序运行完成收到提醒，在程序里添加发送邮件的功能，这样一来在家也能debug了XD。<br>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMail</span><span class="params">(msg,subject=<span class="string">'Duang'</span>)</span>:</span></span><br><span class="line">    smtp_server = <span class="string">"smtp-mail.outlook.com"</span> <span class="comment">#发件人邮箱账号</span></span><br><span class="line">    from_addr = <span class="string">"xxx@outlook.com"</span></span><br><span class="line">    password = <span class="string">"xxx"</span></span><br><span class="line">    sender = <span class="string">"csyguo"</span></span><br><span class="line">    to_addr = <span class="string">'xxx@qq.com'</span></span><br><span class="line">    message = MIMEText(msg, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'Subject'</span>] = subject</span><br><span class="line">    message[<span class="string">'From'</span>] = <span class="string">'severReport@outlook.com'</span></span><br><span class="line">    message[<span class="string">'To'</span>] = <span class="string">'xxx@qq.com'</span></span><br><span class="line">    server = smtplib.SMTP(smtp_server, <span class="number">587</span>) <span class="comment">#outlook的SMTP端口</span></span><br><span class="line">    <span class="comment"># server.set_debuglevel(1)</span></span><br><span class="line">    <span class="comment"># server.ehlo()</span></span><br><span class="line">    server.starttls() <span class="comment">#在使用163邮箱时去掉这一行</span></span><br><span class="line">    server.login(from_addr, password)</span><br><span class="line">    server.sendmail(from_addr, [to_addr], message.as_string())</span><br><span class="line">    server.quit()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'successfully send an email to '</span> + to_addr</span><br></pre></td></tr></table></figure>
+<p>在测试的时候使用163邮箱遇到了554错误，解决方法如下：</p>
+<ul>
+<li>邮件标题不要写成‘test’</li>
+<li>sender、receiver需要与message[‘From’] 、message[‘To’] 一致</li>
+<li>163邮箱端口为25</li>
+</ul>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1183,6 +1410,8 @@ Gurobi optimi
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1209,11 +1438,20 @@ Gurobi optimi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/11/pycharm-changelibrary/" itemprop="url">修改pycharm中的External-Library</a></h1>
+                
+                <a href="/2017/09/11/pycharm-changelibrary/" class="post-title-link" itemprop="url">修改pycharm中的External-Library</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1221,19 +1459,25 @@ Gurobi optimi
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T21:14:37+08:00">
-                2017-09-11
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-11 21:14:37 / 修改时间：21:20:26" itemprop="dateCreated datePublished" datetime="2017-09-11T21:14:37+08:00">2017-09-11</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1261,25 +1505,24 @@ Gurobi optimi
       
         
           
-          Project-&gt;Project interpreter
+            <p>Project-&gt;Project interpreter<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/0911/pycharm.png" alt="pic"></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/pycharm-changelibrary/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1310,6 +1553,8 @@ Gurobi optimi
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1336,11 +1581,20 @@ Gurobi optimi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/11/sklearn/" itemprop="url">sklearn之分类器的使用</a></h1>
+                
+                <a href="/2017/09/11/sklearn/" class="post-title-link" itemprop="url">sklearn之分类器的使用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1348,19 +1602,37 @@ Gurobi optimi
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T20:39:27+08:00">
-                2017-09-11
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-11 20:39:27" itemprop="dateCreated datePublished" datetime="2017-09-11T20:39:27+08:00">2017-09-11</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-09-12 21:28:31" itemprop="dateModified" datetime="2017-09-12T21:28:31+08:00">2017-09-12</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1388,30 +1660,32 @@ Gurobi optimi
       
         
           
-          sklearn是一个机器学习的开源库，简单好用。在sklearn中，所有的分类器都可以秉持“三步走”方法：
+            <p>sklearn是一个机器学习的开源库，简单好用。<br>在sklearn中，所有的分类器都可以秉持“三步走”方法：</p>
+<ul>
+<li>设置分类器</li>
+<li>fit训练数据</li>
+<li>使用测试集对训练好对模型进行评估</li>
+</ul>
+<h1 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" target="_blank" rel="noopener">KNN</a></h1><p>sklearn.neighbors.KNeighborsClassifier<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">neigh=KNeighborsClassifier(n_neighbors=i)</span><br><span class="line">neigh.fit(X_train,y_train)</span><br><span class="line">print &apos;n=&apos;,i,&apos;\tscore=&apos;,neigh.score(X_test,y_test)</span><br></pre></td></tr></table></figure></p>
+<h1 id="线性SVM"><a href="#线性SVM" class="headerlink" title="线性SVM"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC" target="_blank" rel="noopener">线性SVM</a></h1><p>sklearn.svm.LinearSVC<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clf = LinearSVC(random_state=0)</span><br><span class="line">clf.fit(X_train,y_train)</span><br><span class="line">print clf.score(X_test,y_test)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" target="_blank" rel="noopener">Softmax</a></h1><p>softmax和LogisticRegression分别适用于多分类和二分类问题，sklearn将这两者放在一起，只需设置相应的参数即可选择分类器与对应的优化算法，需要注意的是loss function是否收敛。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">clf=LogisticRegression(multi_class=&apos;ovr&apos;,solver=&apos;sag&apos;)</span><br><span class="line">clf.fit(X_train,y_train)</span><br><span class="line">r=clf.score(X_test,y_test)</span><br></pre></td></tr></table></figure></p>
 
-设置分类器
-fit训练数据
-使用测试集对训练好对模型进行评估
-
-KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/sklearn/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1444,6 +1718,8 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1468,11 +1744,20 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/08/install-gym/" itemprop="url">在Ubuntu上安装openAI Gym</a></h1>
+                
+                <a href="/2017/09/08/install-gym/" class="post-title-link" itemprop="url">在Ubuntu上安装openAI Gym</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1480,19 +1765,25 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T16:55:15+08:00">
-                2017-09-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-08 16:55:15 / 修改时间：19:26:28" itemprop="dateCreated datePublished" datetime="2017-09-08T16:55:15+08:00">2017-09-08</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1520,28 +1811,33 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
       
         
           
-          服务器上的Docker Container使用的是Ubuntu系统，在安装openAI Gym时遇到了不少的问题，想要安装成功，需要以下步骤：
+            <p>服务器上的Docker Container使用的是Ubuntu系统，在安装openAI Gym时遇到了不少的问题，想要安装成功，需要以下步骤：</p>
+<ol>
+<li>更新apt-get<br><code>sudo apt-get update</code></li>
+<li>更新pip<br><code>pip install -U pip</code></li>
+<li>安装Cmake<br><code>sudo apt-get install cmake</code></li>
+<li>安装git<br><code>sudo apt-get install git</code></li>
+<li>安装依赖包<br><code>sudo apt-get install swig zlib1g-dev libboost1.54-dev</code></li>
+<li>安装Gym<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/openai/gym</span><br><span class="line">cd gym</span><br><span class="line">pip install -e .[all]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
-更新apt-getsudo apt-get update
-更新pippip install -U pip
-安装Cmakesudo apt-get inst
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/08/install-gym/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1570,15 +1866,12 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1594,63 +1887,347 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1658,6 +2235,7 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
     </div>
   </aside>
+  
 
 
         
@@ -1666,30 +2244,39 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1702,11 +2289,16 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1720,7 +2312,6 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
 
 
-  
 
 
 
@@ -1731,80 +2322,6 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1813,8 +2330,55 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1863,6 +2427,8 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1896,8 +2462,9 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2066,9 +2633,9 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2134,6 +2701,47 @@ KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neigh
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 

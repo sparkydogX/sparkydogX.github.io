@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -37,48 +44,23 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=7.0.1">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.0.1">
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+  <link rel="mask-icon" href="/favicon.png?v=7.0.1" color="#222">
 
 
 
@@ -86,37 +68,20 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/page/11/index.html">
-<meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkydogX Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -128,12 +93,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SparkydogX Blog">
+<meta property="og:url" content="http://sparkydogX.github.io/page/11/index.html">
+<meta property="og:site_name" content="SparkydogX Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SparkydogX Blog">
+
+
+
+
+
 
   <link rel="canonical" href="http://sparkydogX.github.io/page/11/">
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>SparkydogX Blog</title>
   
@@ -149,11 +135,34 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -161,13 +170,12 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -177,13 +185,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,56 +198,77 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -269,12 +297,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -285,6 +324,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -311,11 +352,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/10/install-caffe/" itemprop="url">在服务器上编译caffe</a></h1>
+                
+                <a href="/2017/10/10/install-caffe/" class="post-title-link" itemprop="url">在服务器上编译caffe</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -323,19 +373,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T18:34:26+08:00">
-                2017-10-10
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-10 18:34:26 / 修改时间：21:39:21" itemprop="dateCreated datePublished" datetime="2017-10-10T18:34:26+08:00">2017-10-10</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -363,29 +419,50 @@
       
         
           
-          更改Sources工欲善其事，必先利其器。Ubuntu默认的Sources被神秘力量阻隔而无法访问，pip最近也很不稳定，所以第一步是将其换成稳定可用的Sources。
-更改Ubuntu的Sources参照这篇博客中的教程。
+            <h2 id="更改Sources"><a href="#更改Sources" class="headerlink" title="更改Sources"></a>更改Sources</h2><p>工欲善其事，必先利其器。Ubuntu默认的Sources被神秘力量阻隔而无法访问，pip最近也很不稳定，所以第一步是将其换成稳定可用的Sources。</p>
+<h3 id="更改Ubuntu的Sources"><a href="#更改Ubuntu的Sources" class="headerlink" title="更改Ubuntu的Sources"></a>更改Ubuntu的Sources</h3><p>参照<a href="https://sparkydogx.github.io/2017/10/09/aptget-update/#more">这篇博客</a>中的教程。</p>
+<blockquote>
+<ol>
+<li><code>vim /etc/apt/sources.list</code></li>
+<li><code>:%s/archive.ubuntu.com/debian.ustc.edu.cn/g</code></li>
+<li><code>sudo rm /var/lib/apt/lists/* -vf</code></li>
+<li><code>sudo apt-get update</code></li>
+</ol>
+</blockquote>
+<h3 id="更改pip的Sources"><a href="#更改pip的Sources" class="headerlink" title="更改pip的Sources"></a>更改pip的Sources</h3><ol>
+<li><code>mkdir -m 777 ~/.pip</code></li>
+<li><code>sudo vim ~/.pip/pip.conf</code></li>
+<li><p>将以下内容粘贴到文件中并保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">index-url=https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>这里使用的是清华大学的镜像源，可以手动更改成其他源。</p>
+<blockquote>
+<p>如果系统没有pip，并且get-pip.py不能使用时，可以先通过<code>sudo apt-get install python-pip</code>安装pip，通常这种方法安装的是低版本的pip，需要获取更新。<br>如果pip版本过低，可以先卸载：<code>sudo pip uninstall pip</code>，然后使用<code>get-pip.py</code>安装。</p>
+</blockquote>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install libatlas-base-dev</span><br><span class="line">sudo apt-get install python-dev</span><br><span class="line">sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install python-protobuf</span><br><span class="line">sudo apt-get install python-numpy python-pydot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip2 install scikit-image</span><br><span class="line">pip2 install opencv-python</span><br></pre></td></tr></table></figure>
+<p>如果pip版本较低，可能还需要<code>sudo apt-get install libatlas-base-dev gfortran</code></p>
+<h2 id="修改Makeile-config"><a href="#修改Makeile-config" class="headerlink" title="修改Makeile.config"></a>修改Makeile.config</h2><p>常修改的有CUDA路径，PYTHON INCLUDE路径等。(Anaconda与默认配置会有区别)</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p><code>make all</code><br><code>make pycaffe</code></p>
+<h2 id="将caffe-python添加到python系统路径"><a href="#将caffe-python添加到python系统路径" class="headerlink" title="将caffe/python添加到python系统路径"></a>将caffe/python添加到python系统路径</h2><p>vim ~/.bashrc<br>将<code>export PYTHONPATH=path/to/caffe/python:$PYTHONPATH</code>添加到文件中。<br><code>source ~/.bashrc</code> 使更改生效。<br>此时在python shell中输入<code>import caffe</code>，可以加载caffe</p>
 
-
-vim /etc/apt/sources.list
-:%s/archi
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/10/install-caffe/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -416,6 +493,8 @@ vim /etc/apt/sources.list
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -442,11 +521,20 @@ vim /etc/apt/sources.list
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/09/aptget-update/" itemprop="url">解决'apt-get update'时404的问题</a></h1>
+                
+                <a href="/2017/10/09/aptget-update/" class="post-title-link" itemprop="url">解决'apt-get update'时404的问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -454,19 +542,37 @@ vim /etc/apt/sources.list
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T21:49:58+08:00">
-                2017-10-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-09 21:49:58" itemprop="dateCreated datePublished" datetime="2017-10-09T21:49:58+08:00">2017-10-09</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-10-28 23:23:50" itemprop="dateModified" datetime="2017-10-28T23:23:50+08:00">2017-10-28</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -494,28 +600,35 @@ vim /etc/apt/sources.list
       
         
           
-          在服务器上的Ubuntu里使用sudo apt-get update时总是报错，经检查是source的网址被墙了，需要修改source文件。
+            <p>在服务器上的Ubuntu里使用<code>sudo apt-get update</code>时总是报错，经检查是source的网址被墙了，需要修改source文件。</p>
+<ol>
+<li><code>vim /etc/apt/sources.list</code></li>
+<li><code>:%s/archive.ubuntu.com/debian.ustc.edu.cn/g</code></li>
+<li><code>sudo rm /var/lib/apt/lists/* -vf</code></li>
+<li><code>sudo apt-get update</code></li>
+</ol>
+<blockquote>
+<p>其中<code>debian.ustc.edu.cn</code>是中科大的镜像源，也可以换成其他镜像源，比如：<br>mirrors.163.com<br>mirrors.sohu.com<br>ftp.sjtu.edu.cn #上海交通大学服务器<br>debian.ustc.edu.cn #中科大<br>mirror9.net9.org #清华<br>mirror.rootguide.org #上海电信</p>
+</blockquote>
+<hr>
+<p>2017/10/28更新<br>最近网络环境极为恶劣，由于apt-get的缘故，耽搁了我一个下午的工作。发现交通大学和香港中文的服务器较为稳定。不建议使用阿里云的镜像源。</p>
 
-vim /etc/apt/sources.list
-:%s/archive.ubuntu.com/debian.ustc.edu.cn/g
-sudo rm 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/09/aptget-update/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -546,6 +659,8 @@ sudo rm
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -572,11 +687,20 @@ sudo rm
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/07/handle-dir-with-matlab/" itemprop="url">使用Matlab批量处理数据</a></h1>
+                
+                <a href="/2017/10/07/handle-dir-with-matlab/" class="post-title-link" itemprop="url">使用Matlab批量处理数据</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -584,19 +708,37 @@ sudo rm
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-07T21:01:45+08:00">
-                2017-10-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-07 21:01:45" itemprop="dateCreated datePublished" datetime="2017-10-07T21:01:45+08:00">2017-10-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-10-28 23:20:57" itemprop="dateModified" datetime="2017-10-28T23:20:57+08:00">2017-10-28</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -624,24 +766,33 @@ sudo rm
       
         
           
-          最近接到任务，需要批量分割灰度图像，并保存为.mat文件。图像文件保存在若干个子文件夹中。代码如下：12345678910111213141516171819202122232425maindir='sparkydogx/cityscape/val';subdir=dir(maindir);for 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/07/handle-dir-with-matlab/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>最近接到任务，需要批量分割灰度图像，并保存为.mat文件。图像文件保存在若干个子文件夹中。代码如下：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">maindir=<span class="string">'sparkydogx/cityscape/val'</span>;</span><br><span class="line">subdir=dir(maindir);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> =<span class="number">1</span>:<span class="built_in">length</span>( subdir )</span><br><span class="line">    <span class="keyword">if</span>( <span class="built_in">isequal</span>( subdir( <span class="built_in">i</span> ).name, <span class="string">'.'</span> )||<span class="built_in">isequal</span>( subdir( <span class="built_in">i</span> ).name, <span class="string">'..'</span>)||(~subdir( <span class="built_in">i</span> ).isdir))  </span><br><span class="line">        <span class="keyword">continue</span>; <span class="comment">%subdir的前两个元素是../和./</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    subdirpath = fullfile( maindir, subdir( <span class="built_in">i</span> ).name, <span class="string">'*.png'</span> ); <span class="comment">%subdirpath为字符串，用于描述文件位置和类型</span></span><br><span class="line">    dat = dir( subdirpath );        <span class="comment">%dat为所有满足条件的文件路径   </span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span> : <span class="built_in">length</span>( dat )</span><br><span class="line">        datpath = fullfile( maindir, subdir( <span class="built_in">i</span> ).name, dat( <span class="built_in">j</span> ).name);</span><br><span class="line">        A=double(imread([<span class="string">''</span>,datpath])); <span class="comment">%灰度图像读取后为uint8格式，将其转换为double</span></span><br><span class="line">        <span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">43</span></span><br><span class="line">            h&#123;k&#125;=A(:,<span class="number">656</span>*(k<span class="number">-1</span>)+<span class="number">1</span>:<span class="number">656</span>*k);</span><br><span class="line">            <span class="keyword">if</span> k&lt;=<span class="number">15</span></span><br><span class="line">                cmd=[<span class="string">'X.val.'</span>,subdir(i).name,<span class="string">'('</span>,num2str(j),<span class="string">').BeliefMap('</span>,num2str(k),<span class="string">')=h('</span>,num2str(k),<span class="string">');'</span>];</span><br><span class="line">                eval(cmd);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">               cmd=[<span class="string">'X.val.'</span>,subdir(i).name,<span class="string">'('</span>,num2str(j),<span class="string">').PAF('</span>,num2str(k<span class="number">-15</span>),<span class="string">')=h('</span>,num2str(k),<span class="string">');'</span>];</span><br><span class="line">               eval(cmd);</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">save(<span class="string">'/spardogx/val.mat'</span>,<span class="string">'X'</span>,<span class="string">'-v7.3'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>涉及到的点：</p>
+<ol>
+<li>文件夹的遍历，在上面的代码中通过<code>dir</code>实现</li>
+<li><code>eval</code>函数的使用，eval可以执行字符串中的指令，使用子文件夹名作为structure的字段，十分方便。</li>
+<li><code>&#39;-v7.3&#39;</code> 最初在执行时遇到错误：<br><code>Warning: Variable &#39;X&#39; cannot be saved to a MAT-file whose version is older than 7.3.
+To save this variable, use the -v7.3 switch.</code><br>原因是Matlab在7.3版本之前不支持大个数据的存储（2GB以上），在7.3版本后添加了这一支持。</li>
+</ol>
+<hr>
+<p>2017-10-25 更新：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">maindir=<span class="string">'/data2/source/cityscapes'</span></span><br><span class="line">outputDir=<span class="string">'/data2/dest/heatmaps'</span></span><br><span class="line">subdir_1=dir(maindir);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(subdir_1);</span><br><span class="line">    <span class="keyword">if</span>( <span class="built_in">isequal</span>( subdir_1( <span class="built_in">i</span> ).name, <span class="string">'.'</span> )||<span class="built_in">isequal</span>( subdir_1( <span class="built_in">i</span> ).name, <span class="string">'..'</span>)||(~subdir_1( <span class="built_in">i</span> ).isdir))  </span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    subdir_2=dir(fullfile(maindir,subdir_1(<span class="built_in">i</span>).name));</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="built_in">length</span>(subdir_2)</span><br><span class="line">        <span class="keyword">if</span>( <span class="built_in">isequal</span>( subdir_2( <span class="built_in">j</span> ).name, <span class="string">'.'</span> )||<span class="built_in">isequal</span>( subdir_2( <span class="built_in">j</span> ).name, <span class="string">'..'</span>)||(~subdir_2( <span class="built_in">j</span> ).isdir))  </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        subdir_3=dir(fullfile(maindir,subdir_1(<span class="built_in">i</span>).name,subdir_2(<span class="built_in">j</span>).name));</span><br><span class="line">        <span class="keyword">for</span> x=<span class="number">1</span>:<span class="built_in">length</span>(subdir_3)</span><br><span class="line">            <span class="keyword">if</span>( <span class="built_in">isequal</span>( subdir_3(x).name, <span class="string">'.'</span> )||<span class="built_in">isequal</span>( subdir_3( x ).name, <span class="string">'..'</span>)||(~subdir_3( x ).isdir))  </span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">            finalpath=fullfile(maindir,subdir_1(<span class="built_in">i</span>).name,subdir_2(<span class="built_in">j</span>).name,subdir_3(x).name,<span class="string">'*.png'</span>)</span><br><span class="line">            dat=dir(finalpath);</span><br><span class="line">            <span class="keyword">for</span> idx =<span class="number">1</span>:<span class="built_in">length</span>(dat)</span><br><span class="line">                imgId=dat(idx).name(<span class="number">1</span>:<span class="built_in">length</span>(dat(idx).name)<span class="number">-13</span>);</span><br><span class="line">                datpath=fullfile(maindir,subdir_1(<span class="built_in">i</span>).name,subdir_2(<span class="built_in">j</span>).name,subdir_3(x).name,dat(idx).name);</span><br><span class="line">                A=double(imread([<span class="string">''</span>,datpath]));</span><br><span class="line">                    <span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">43</span></span><br><span class="line">                        h&#123;k&#125;=A(:,<span class="number">656</span>*(k<span class="number">-1</span>)+<span class="number">1</span>:<span class="number">656</span>*k);</span><br><span class="line">                        <span class="keyword">if</span> k&lt;=<span class="number">15</span></span><br><span class="line">                            hmfullfile=fullfile(outputDir,subdir_1(<span class="built_in">i</span>).name,subdir_2(<span class="built_in">j</span>).name,[imgId,<span class="string">'_bm.mat'</span>]);</span><br><span class="line">                            pafname=fullfile(outputDir,subdir_1(<span class="built_in">i</span>).name,subdir_2(<span class="built_in">j</span>).name,[imgId,<span class="string">'_paf.mat'</span>]);</span><br><span class="line">                            <span class="comment">% cmd=['X.val.',subdir(i).name,'.',dat(j).name,'.BeliefMap(',num2str(k),')=h(',num2str(k),');'];</span></span><br><span class="line">                            cmd1=[<span class="string">'heatmap.imageID='''</span>,imgId,<span class="string">''';'</span>];</span><br><span class="line">                            cmd2=[<span class="string">'heatmap.BeliefMap('</span>,num2str(k),<span class="string">')=h('</span>,num2str(k),<span class="string">');'</span>];</span><br><span class="line">                            cmd3=[<span class="string">'save('''</span>,hmfullfile,<span class="string">''',''heatmap'');'</span>];</span><br><span class="line">                            eval(cmd1);</span><br><span class="line">                            eval(cmd2);</span><br><span class="line">                            eval(cmd3);</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        <span class="comment">%    cmd=['X.val.',subdir(i).name,'.',dat(j).name,'.PAF(',num2str(k-15),')=h(',num2str(k),');'];</span></span><br><span class="line">                            cmd1=[<span class="string">'paf.imageID='''</span>,imgId,<span class="string">''';'</span>];</span><br><span class="line">                            cmd2=[<span class="string">'paf.PAF('</span>,num2str(k<span class="number">-15</span>),<span class="string">')=h('</span>,num2str(k),<span class="string">');'</span>];</span><br><span class="line">                            cmd3=[<span class="string">'save('''</span>,pafname,<span class="string">''',''paf'');'</span>];</span><br><span class="line">                        <span class="comment">%    eval(cmd);</span></span><br><span class="line">                            eval(cmd1);</span><br><span class="line">                            eval(cmd2);</span><br><span class="line">                            eval(cmd3);</span><br><span class="line">                        <span class="keyword">end</span></span><br><span class="line">                    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -672,6 +823,8 @@ sudo rm
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -698,11 +851,20 @@ sudo rm
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/07/terminal-cover/" itemprop="url">解决Terminal中命令行覆盖的问题</a></h1>
+                
+                <a href="/2017/10/07/terminal-cover/" class="post-title-link" itemprop="url">解决Terminal中命令行覆盖的问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -710,19 +872,25 @@ sudo rm
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-07T16:59:42+08:00">
-                2017-10-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-07 16:59:42 / 修改时间：21:20:47" itemprop="dateCreated datePublished" datetime="2017-10-07T16:59:42+08:00">2017-10-07</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -750,25 +918,24 @@ sudo rm
       
         
           
-          在使用Ternimal时，常常会发现命令行过长时，之前输入的内容在显示时会被覆盖掉。为了解决这一问题，可以在~/.bash_profile中添加如下语句：PS1=&#39;\[\e[01;33m\]\u@\h \W\$\[\e[m\] &#39;
+            <p>在使用Ternimal时，常常会发现命令行过长时，之前输入的内容在显示时会被覆盖掉。为了解决这一问题，可以在<code>~/.bash_profile</code>中添加如下语句：<br><code>PS1=&#39;\[\e[01;33m\]\u@\h \W\$\[\e[m\] &#39;</code></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/07/terminal-cover/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -799,6 +966,8 @@ sudo rm
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -825,11 +994,20 @@ sudo rm
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/vim-python-inden/" itemprop="url">在Vim中设置python的缩进</a></h1>
+                
+                <a href="/2017/10/05/vim-python-inden/" class="post-title-link" itemprop="url">在Vim中设置python的缩进</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -837,19 +1015,25 @@ sudo rm
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T20:16:30+08:00">
-                2017-10-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-05 20:16:30 / 修改时间：21:13:26" itemprop="dateCreated datePublished" datetime="2017-10-05T20:16:30+08:00">2017-10-05</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -877,24 +1061,24 @@ sudo rm
       
         
           
-          在python中，缩进可以使用Tab，也可以使用空格。python3中允许混用，但是在python2中将空格与Tab键混用会报错。pep8规范中建议全部使用空格作为缩进。许多python IDE会自动将用户输入的Tab转变为4个空格，但是纯洁不做作的Vim显然不会自动帮你完成。需要在~/.vimrc
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/vim-python-inden/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>在python中，缩进可以使用Tab，也可以使用空格。python3中允许混用，但是在python2中将空格与Tab键混用会报错。pep8规范中建议全部使用空格作为缩进。<br>许多python IDE会自动将用户输入的Tab转变为4个空格，但是纯洁不做作的Vim显然不会自动帮你完成。需要在<code>~/.vimrc</code>文件中加入以下内容来实现这一功能：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set number</span><br><span class="line">set shiftwidth=4</span><br><span class="line">set tabstop=4</span><br><span class="line">set expandtab</span><br><span class="line">set smartindent</span><br><span class="line">set autoindent</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -925,6 +1109,8 @@ sudo rm
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -951,11 +1137,20 @@ sudo rm
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/fix-problem-tf-libcudnn/" itemprop="url">使用tensorflow-gpu时libcudnn报错的解决方案</a></h1>
+                
+                <a href="/2017/10/05/fix-problem-tf-libcudnn/" class="post-title-link" itemprop="url">使用tensorflow-gpu时libcudnn报错的解决方案</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -963,19 +1158,25 @@ sudo rm
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T19:46:34+08:00">
-                2017-10-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-05 19:46:34 / 修改时间：21:16:57" itemprop="dateCreated datePublished" datetime="2017-10-05T19:46:34+08:00">2017-10-05</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1003,24 +1204,36 @@ sudo rm
       
         
           
-          实验室服务器上的tensorflow Docker镜像里只有python2的完整环境，而遇到程序需要在python3里跑，于是通过pip3安装了tensorflow和tensorflow-gpu。安装完成后在GPU上跑tensorflow时会报错ImportError: libcudnn.5: ca
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/fix-problem-tf-libcudnn/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>实验室服务器上的tensorflow Docker镜像里只有python2的完整环境，而遇到程序需要在python3里跑，于是通过<code>pip3</code>安装了<code>tensorflow</code>和<code>tensorflow-gpu</code>。安装完成后在GPU上跑tensorflow时会报错<code>ImportError: libcudnn.5: cannot open shared object file: No such file or directory</code>。<br>经检查发现缩安装的tensorflow需要CUDA8.0以及cuDNN6.0，而服务器上的cuDNN为5.0.<br>解决方法如下：</p>
+<ol>
+<li>前往NVIDIA网站上的<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">下载页面</a>下载cuDNN v6.0 for CUDA 8.0。注意下载需要注册NVIDIA Developer账号。</li>
+<li>解压所下载的压缩文件。<br><code>tar -zxvf cudnn-8.0-linux-x64-v6.0.tgz</code></li>
+<li>将<code>../cuda/lib64/</code>文件夹下的<code>libcudnn.so.6.0.21</code>和<code>libcudnn_static.a</code>这两个文件复制到<code>/usr/local/cuda/lib64/</code>文件夹下。</li>
+<li><p>建立link</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local/cuda/lib64/</span><br><span class="line">$ sudo ln -s libcudnn.so.6.0.21 libcudnn.so.6</span><br><span class="line">$ sudo ln -s libcudnn.so.6 libcudnn.so</span><br></pre></td></tr></table></figure>
+<p>如果遇到报错link已存在，将其unlink，重新执行即可。</p>
+</li>
+<li>复制include文件夹下的cudnn.h到<code>/usr/local/cuda/include</code><br><code>$ sudo cp cudnn.h /usr/local/cuda/include/</code></li>
+<li>在<code>.bashrc</code>文件中添加cuda路径<br><code>export LD_LIBRARY_PATH=/usr/local/cuda/lib64/</code></li>
+<li>重新加载<code>.bashrc</code>文件<br><code>source ~/.bashrc</code></li>
+</ol>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1051,6 +1264,8 @@ sudo rm
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1077,11 +1292,20 @@ sudo rm
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/30/howto-handle-json-in-matlab/" itemprop="url">如何在Matlab中处理json文件</a></h1>
+                
+                <a href="/2017/09/30/howto-handle-json-in-matlab/" class="post-title-link" itemprop="url">如何在Matlab中处理json文件</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1089,19 +1313,37 @@ sudo rm
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T22:16:09+08:00">
-                2017-09-30
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-30 22:16:09" itemprop="dateCreated datePublished" datetime="2017-09-30T22:16:09+08:00">2017-09-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-10-05 21:13:21" itemprop="dateModified" datetime="2017-10-05T21:13:21+08:00">2017-10-05</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1129,27 +1371,27 @@ sudo rm
       
         
           
-          本文使用JSONLab工具读取json文件。
-git clonegit clone https://github.com/fangq/jsonlab.git
-加入路径打开Matlab，输入addpath(&#39;Path/to/jsonlab&#39;)
-测试是否可以使用help loadjson
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/30/howto-handle-json-in-matlab/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>本文使用<code>JSONLab</code>工具读取json文件。</p>
+<h2 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h2><p><code>git clone https://github.com/fangq/jsonlab.git</code></p>
+<h2 id="加入路径"><a href="#加入路径" class="headerlink" title="加入路径"></a>加入路径</h2><p>打开Matlab，输入<code>addpath(&#39;Path/to/jsonlab&#39;)</code></p>
+<h2 id="测试是否可以使用"><a href="#测试是否可以使用" class="headerlink" title="测试是否可以使用"></a>测试是否可以使用</h2><p><code>help loadjson</code></p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1180,6 +1422,8 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1206,11 +1450,20 @@ git clonegit clone https://github.com/fangq/jsonlab.git
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/29/howto-viewPictureSize/" itemprop="url">在Linux中如何查看图片尺寸</a></h1>
+                
+                <a href="/2017/09/29/howto-viewPictureSize/" class="post-title-link" itemprop="url">在Linux中如何查看图片尺寸</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1218,19 +1471,25 @@ git clonegit clone https://github.com/fangq/jsonlab.git
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T14:12:58+08:00">
-                2017-09-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-29 14:12:58 / 修改时间：14:16:05" itemprop="dateCreated datePublished" datetime="2017-09-29T14:12:58+08:00">2017-09-29</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1258,28 +1517,27 @@ git clonegit clone https://github.com/fangq/jsonlab.git
       
         
           
-          
-安装imagemagickapt-get install imagemagick
-使用idetify命令查询identify xxx.jpg输出 xxx.jpg JPEG 500x750 500x750+0+0 8-bit DirectClass 57.8KB 0.000u 0:00.000
+            <ol>
+<li>安装<code>imagemagick</code><br><code>apt-get install imagemagick</code></li>
+<li>使用idetify命令查询<br><code>identify xxx.jpg</code><br>输出 <code>xxx.jpg JPEG 500x750 500x750+0+0 8-bit DirectClass 57.8KB 0.000u 0:00.000</code></li>
+</ol>
 
-
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/29/howto-viewPictureSize/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1310,6 +1568,8 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1336,11 +1596,20 @@ git clonegit clone https://github.com/fangq/jsonlab.git
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/howto-delete/" itemprop="url">在Linux下如何删除大量文件</a></h1>
+                
+                <a href="/2017/09/28/howto-delete/" class="post-title-link" itemprop="url">在Linux下如何删除大量文件</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1348,19 +1617,25 @@ git clonegit clone https://github.com/fangq/jsonlab.git
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T16:44:10+08:00">
-                2017-09-28
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-28 16:44:10 / 修改时间：16:47:48" itemprop="dateCreated datePublished" datetime="2017-09-28T16:44:10+08:00">2017-09-28</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1388,24 +1663,24 @@ git clonegit clone https://github.com/fangq/jsonlab.git
       
         
           
-          在Linux下，直接删除一个包含大量文件的文件夹时会报错：bash: /bin/rm: Argument list too long此时可使用命令：ls | xargs -n 10 rm -fr ls来删除。这个命令的意思是：输出所有的文件名(用空格分割)，xargs将ls的输出分组，每10个为一组
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/28/howto-delete/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>在Linux下，直接删除一个包含大量文件的文件夹时会报错：<code>bash: /bin/rm: Argument list too long</code><br>此时可使用命令：<code>ls | xargs -n 10 rm -fr ls</code>来删除。<br>这个命令的意思是：输出所有的文件名(用空格分割)，xargs将ls的输出分组，每10个为一组(以空格为分隔符)作为rm -rf的参数，也就是说将所有文件名10个为一组，由rm -rf删除。</p>
+
+          
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1438,6 +1713,8 @@ git clonegit clone https://github.com/fangq/jsonlab.git
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1462,11 +1739,20 @@ git clonegit clone https://github.com/fangq/jsonlab.git
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/countDocumentNUmbers/" itemprop="url">Linux下计算文件数目</a></h1>
+                
+                <a href="/2017/09/28/countDocumentNUmbers/" class="post-title-link" itemprop="url">Linux下计算文件数目</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1474,19 +1760,25 @@ git clonegit clone https://github.com/fangq/jsonlab.git
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T09:37:18+08:00">
-                2017-09-28
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-28 09:37:18 / 修改时间：09:45:06" itemprop="dateCreated datePublished" datetime="2017-09-28T09:37:18+08:00">2017-09-28</time>
             
 
             
+              
 
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1514,27 +1806,28 @@ git clonegit clone https://github.com/fangq/jsonlab.git
       
         
           
+            <ul>
+<li>统计当前文件下的文件个数（不包括子文件夹）<br><code>$ ls -l | grep &quot;^-&quot; | wc -l</code></li>
+<li>统计当前目录下的文件个数（包括子文件夹）<br><code>$ ls -lR| grep &quot;^-&quot; | wc -l</code></li>
+<li>查看目录下文件夹的个数（包括子文件夹）<br><code>$ ls -lR | grep &quot;^d&quot; | wc -l</code></li>
+</ul>
+
           
-统计当前文件下的文件个数（不包括子文件夹）$ ls -l | grep &quot;^-&quot; | wc -l
-统计当前目录下的文件个数（包括子文件夹）$ ls -lR| grep &quot;^-&quot; | wc -l
-查看目录下文件夹的个数（包括子文件夹）$ ls -lR | gr
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/28/countDocumentNUmbers/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1563,15 +1856,12 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1587,63 +1877,347 @@ git clonegit clone https://github.com/fangq/jsonlab.git
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
-          <p class="site-author-name" itemprop="name">sparkydogX</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sparkydogX">
+            
+              <p class="site-author-name" itemprop="name">sparkydogX</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">127</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sparkydogX" title="GitHub &rarr; https://github.com/sparkydogX" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
             </div>
           
 
           
 
           
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -1651,6 +2225,7 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
     </div>
   </aside>
+  
 
 
         
@@ -1659,30 +2234,39 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">sparkydogX</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
@@ -1695,11 +2279,16 @@ git clonegit clone https://github.com/fangq/jsonlab.git
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1713,7 +2302,6 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
 
 
-  
 
 
 
@@ -1724,80 +2312,6 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
 
 
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1806,8 +2320,55 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1856,6 +2417,8 @@ git clonegit clone https://github.com/fangq/jsonlab.git
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1889,8 +2452,9 @@ git clonegit clone https://github.com/fangq/jsonlab.git
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2059,9 +2623,9 @@ git clonegit clone https://github.com/fangq/jsonlab.git
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2127,6 +2691,47 @@ git clonegit clone https://github.com/fangq/jsonlab.git
 
 
 
+
+  
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
 
   
 
