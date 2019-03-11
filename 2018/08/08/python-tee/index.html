@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -419,13 +419,57 @@
       
 
       
-        <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>tee是linux下的一个命令行工具，通过pipe可以将程序的输出同时输出到屏幕和文件。<br>python下也可以实现这样的效果，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tee</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, mode)</span>:</span></span><br><span class="line">        self.file = open(name, mode)</span><br><span class="line">        self.stdout = sys.stdout</span><br><span class="line">        sys.stdout = self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        sys.stdout = self.stdout</span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.file.write(data)</span><br><span class="line">        self.stdout.write(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flush</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.file.flush()</span><br></pre></td></tr></table></figure></p>
+        <h1><span id="代码">代码</span></h1><p>tee是linux下的一个命令行工具，通过pipe可以将程序的输出同时输出到屏幕和文件。<br>python下也可以实现这样的效果，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tee</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, mode)</span>:</span></span><br><span class="line">        self.file = open(name, mode)</span><br><span class="line">        self.stdout = sys.stdout</span><br><span class="line">        sys.stdout = self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        sys.stdout = self.stdout</span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.file.write(data)</span><br><span class="line">        self.stdout.write(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flush</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.file.flush()</span><br></pre></td></tr></table></figure></p>
 <p>Tee这个类在初始化方法里接管了标准输出，此后程序中所有的print都会输出到文件。</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tee <span class="keyword">import</span> Tee</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    logger = Tee(<span class="string">'log.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]</span><br><span class="line">    B=A[::<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">print</span> B</span><br><span class="line">    L=range(<span class="number">1</span>,<span class="number">13</span>)</span><br><span class="line">    <span class="keyword">print</span> L,type(L)</span><br></pre></td></tr></table></figure>
+<h1><span id="例子">例子</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Tee <span class="keyword">import</span> Tee</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    logger = Tee(<span class="string">'log.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]</span><br><span class="line">    B=A[::<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">print</span> B</span><br><span class="line">    L=range(<span class="number">1</span>,<span class="number">13</span>)</span><br><span class="line">    <span class="keyword">print</span> L,type(L)</span><br></pre></td></tr></table></figure>
 <p>‘log.txt’中的内容为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 3, 5, 7, 9]</span><br><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] &lt;type &apos;list&apos;&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/08/29/python-00/" rel="bookmark">如何查找python及pip的安装位置</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/09/03/affine-with-python/" rel="bookmark">使用python对2D坐标点进行仿射变换</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/12/11/create-conda-env/" rel="bookmark">使用anaconda管理多个python版本</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -878,7 +922,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li></ol></div>
             
 
           </div>
@@ -1027,6 +1071,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1422,6 +1469,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

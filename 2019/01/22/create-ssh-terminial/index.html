@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,12 +420,56 @@
 
       
         <p>在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。</p>
-<h1 id="免密登录服务器"><a href="#免密登录服务器" class="headerlink" title="免密登录服务器"></a>免密登录服务器</h1><p><code>ssh-keygen</code>创建一个新的密钥对<br>将公钥复制到服务器<br><code>ssh-copy-id user@my.server.com</code><br>从现在起，服务器应该识别你的密钥，而不再要求输入密码。</p>
-<h1 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h1><p>我的脚本如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">cmd=<span class="string">'watch -n 1 nvidia-smi'</span></span><br><span class="line"> gnome-terminal \</span><br><span class="line"> --window  -e <span class="string">"ssh  node0 "</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node0 <span class="variable">$cmd</span>"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1 <span class="variable">$cmd</span>"</span> \</span><br></pre></td></tr></table></figure></p>
-<p>这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用<a href="mailto:`user@my.server.com" target="_blank" rel="noopener">`user@my.server.com</a>`替代即可。<br>这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。  </p>
+<h1><span id="免密登录服务器">免密登录服务器</span></h1><p><code>ssh-keygen</code>创建一个新的密钥对<br>将公钥复制到服务器<br><code>ssh-copy-id user@my.server.com</code><br>从现在起，服务器应该识别你的密钥，而不再要求输入密码。</p>
+<h1><span id="编写脚本">编写脚本</span></h1><p>我的脚本如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">cmd=<span class="string">'watch -n 1 nvidia-smi'</span></span><br><span class="line"> gnome-terminal \</span><br><span class="line"> --window  -e <span class="string">"ssh  node0 "</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node0 <span class="variable">$cmd</span>"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1 <span class="variable">$cmd</span>"</span> \</span><br></pre></td></tr></table></figure></p>
+<p>这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用<a href="mailto:`user@my.server.com" target="_blank" rel="noopener">`user@my.server.com</a>`替代即可。<br>这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。</p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/11/19/android-x86/" rel="bookmark">在Ubuntu中使用安卓模拟器</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/06/21/connect-ubuntu-server-via-afp/" rel="bookmark">通过afp从Mac连接到ubuntu共享文件</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/28/script-on-startup/" rel="bookmark">在Ubuntu中设置开机启动项</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2019/01/16/ubuntu-wake-on-lan/" rel="bookmark">在Ubuntu中设置网络唤醒</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/09/block-ssh-connection/" rel="bookmark">防止ssh的暴力破解</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -880,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#免密登录服务器"><span class="nav-number">1.</span> <span class="nav-text">免密登录服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写脚本"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">免密登录服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li></ol></div>
             
 
           </div>
@@ -1029,6 +1073,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1424,6 +1471,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

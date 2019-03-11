@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -432,8 +432,8 @@
 
       
         <p>实际工作中经常遇到以下场景：使用ssh连接远程服务器，当本地机器一段时间不操作，ssh连接会自动断开，ssh下的进程也会自动终止，执行之前命令时的终端输出也丢失了。<br>tmux可以用来解决这一问题。</p>
-<h2 id="安装tmux"><a href="#安装tmux" class="headerlink" title="安装tmux"></a>安装tmux</h2><p><code>apt-get install tmux</code></p>
-<h2 id="常用tmux指令"><a href="#常用tmux指令" class="headerlink" title="常用tmux指令"></a>常用tmux指令</h2><p>tmux中有两个重要的概念，分别是session和window。其中session是window的容器。<br>在终端下输入<code>tmux ls</code>可以查看当前活动的tmux的session。<br>如果没有session运行，输入tmux会新建一个session，名称为默认的数字。如果需要指定名称，可以用以下命令来创建session：<code>tmux new -s session_name</code>.<br>运行<code>tmux a -t session_name</code>可以进入对应的session。<br>一个session中可以有多个window。初次进入session的时候会默认创建一个window。<br>在tmux中按<code>Ctrl + B</code>组合键进入控制状态。</p>
+<h2><span id="安装tmux">安装tmux</span></h2><p><code>apt-get install tmux</code></p>
+<h2><span id="常用tmux指令">常用tmux指令</span></h2><p>tmux中有两个重要的概念，分别是session和window。其中session是window的容器。<br>在终端下输入<code>tmux ls</code>可以查看当前活动的tmux的session。<br>如果没有session运行，输入tmux会新建一个session，名称为默认的数字。如果需要指定名称，可以用以下命令来创建session：<code>tmux new -s session_name</code>.<br>运行<code>tmux a -t session_name</code>可以进入对应的session。<br>一个session中可以有多个window。初次进入session的时候会默认创建一个window。<br>在tmux中按<code>Ctrl + B</code>组合键进入控制状态。</p>
 <table>
 <thead>
 <tr>
@@ -473,10 +473,54 @@
 </tbody>
 </table>
 <p>更多指令可以查看<a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7" target="_blank" rel="noopener">这个页面</a></p>
-<h2 id="恢复先前状态"><a href="#恢复先前状态" class="headerlink" title="恢复先前状态"></a>恢复先前状态</h2><p><code>tmux attach</code></p>
+<h2><span id="恢复先前状态">恢复先前状态</span></h2><p><code>tmux attach</code></p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/04/email-linux-terminal/" rel="bookmark">通过linux终端发送邮件</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/01/30/linux-ftp/" rel="bookmark">使用命令行连接ftp服务器</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/09/21/linux-du/" rel="bookmark">linux中查看文件夹大小</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/09/21/linux-nohup/" rel="bookmark">Linux服务器中后台运行程序</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/19/linux-terminal-cursor-disappear/" rel="bookmark">解决Linux操作系统下Terminal中光标消失的问题</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -929,7 +973,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装tmux"><span class="nav-number">1.</span> <span class="nav-text">安装tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用tmux指令"><span class="nav-number">2.</span> <span class="nav-text">常用tmux指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复先前状态"><span class="nav-number">3.</span> <span class="nav-text">恢复先前状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">常用tmux指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">恢复先前状态</span></a></li></ol></div>
             
 
           </div>
@@ -1078,6 +1122,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1473,6 +1520,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

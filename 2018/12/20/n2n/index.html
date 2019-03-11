@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -432,24 +432,28 @@
 
       
         <p>n2n是一个P2P（peer to peer）的网络工具。与我们之前介绍过的ngrok不同，n2n不是简单的将端口暴露到具有公有ip的服务器上，而是存在一个supernode，supernode的作用是帮助client完成点到点的连接，完成连接之后客户机相当于处在同一个局域网内。<br>n2n项目页面：<a href="https://github.com/ntop/n2n" target="_blank" rel="noopener">https://github.com/ntop/n2n</a></p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>这里以Ubuntu客户端为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion build-essential libssl-dev autoconf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ntop/n2n.git</span><br><span class="line"><span class="built_in">cd</span> n2n</span><br><span class="line">./autogen</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<h1><span id="服务端">服务端</span></h1><p>这里以Ubuntu客户端为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion build-essential libssl-dev autoconf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ntop/n2n.git</span><br><span class="line"><span class="built_in">cd</span> n2n</span><br><span class="line">./autogen</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
 <p><strong>运行服务端程序</strong><br><code>supernode -l 5000 -v</code><br>这句命令表示监听5000端口，<code>-v</code>用于输出日志，便于调试。</p>
-<h1 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h1><h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p><code>brew install autoconf</code><br><code>brew install automake</code><br><code>brew cask install tuntap</code>  这一步需要管理员权限，安装完成后需要在<code>System Preferences → Security &amp; Privacy → General</code>中允许程序运行。参考这个页面：<a href="https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt" target="_blank" rel="noopener">https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt</a></p>
+<h1><span id="客户端安装">客户端安装</span></h1><h2><span id="macos">MacOS</span></h2><p><code>brew install autoconf</code><br><code>brew install automake</code><br><code>brew cask install tuntap</code>  这一步需要管理员权限，安装完成后需要在<code>System Preferences → Security &amp; Privacy → General</code>中允许程序运行。参考这个页面：<a href="https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt" target="_blank" rel="noopener">https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/include</span><br><span class="line">$ ln -s ../opt/openssl/include/openssl .</span><br></pre></td></tr></table></figure>
 <p>然后同样的，进入n2n文件夹，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./autogen</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
 <p><strong>运行客户端程序</strong><br><code>sudo /usr/local/sbin/edge -d edge0 -a 10.0.0.10 -c mynetwork -u 1000 -g 1000 -k passwd -l server-ip:5000 -m ae:e0:4f:e7:47:5b</code><br>参数说明：</p>
 <blockquote>
 <p>“-a &lt;IP地址&gt;”选项（静态地）指定了分配给 TAP 接口的 VPN 的 IP 地址。如果你想要使用 DHCP，你需要在其中一台边缘节点上配置一台 DHCP 服务器，然后使用“-a dhcp:0.0.0.0”选项来代替。<br>  “-c &lt;组名&gt;”选项指定了 VPN 组的名字（最大长度为 16 个字节）。这个选项可以被用来在同样一组节点中创建多个 VPN。<br>  “-u”和“-g”选项被用来在创建一个 TAP 接口后降权放弃 root 权限。edge 守护进程将会作为指定的用户/组 ID 运行。<br>  “-k &lt;密钥&gt;”选项指定了一个由 twofish 加密的密钥来使用。如果你想要将密钥从命令行中隐藏，你可以使用 N2N_KEY 环境变量。<br>  “-l &lt;IP地址:端口&gt;”选项指定了超级节点的监听 IP 地址和端口号。为了冗余，你可以指定最多两个不同的超级节点（比如 -l &lt;超级节点 A&gt; -l &lt;超级节点 B&gt;）。<br>  “-m ”给 TAP 接口分配了一个静态的 MAC 地址。不使用这个参数的话，edge 命令将会随机生成一个 MAC 地址。事实上，为一个 VPN 接口强制指定一个静态的 MAC 地址是被强烈推荐的做法。否则，比如当你在一个节点上重启了 edge 守护程序的时候，其它节点的 ARP 缓存将会由于新生成的 MAC 地址而遭到污染，它们将不能向这个节点发送数据，直到被污染的 ARP 记录被消除。</p>
 </blockquote>
-<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>Ubuntu客户机下的安装与服务器是一样的。</p>
+<h2><span id="ubuntu">Ubuntu</span></h2><p>Ubuntu客户机下的安装与服务器是一样的。</p>
 <p><strong>运行客户端程序</strong><br><code>sudo /usr/sbin/edge -d edge0 -a 10.0.0.11 -c mynetwork -u 1000 -g 1000 -k  passwd -l sparkydog.top:2333 -m ae:e0:4f:e7:47:5c</code></p>
 <p><strong>测试连接</strong><br>在客户机A中ping客户机B的虚拟ip地址，如10.0.0.10 ，如果ping通，说明配置成功。<br>edge是一个后台常驻进程，如果想要停止edge，需要找到对应pid手动kill。<br>使用命令<code>ps aux | grep edge</code>或者<code>sudo lsof -t -i:5644</code>可以得到edge进程的pid</p>
-<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>openwrt路由器直接运行<code>opkg install n2n</code>就可以。我的路由器是小米的R2D，不能直接使用opkg的源。<br>我使用了一个针对小米路由器的第三方的工具箱，项目页面： <a href="https://github.com/monlor/Monlor-Tools" target="_blank" rel="noopener">https://github.com/monlor/Monlor-Tools</a><br>通过工具箱可以安装Entware。Entware有自己的仓库，同样使用opkg进行包管理，比原生的仓库具有更好的兼容性。<br>安装Entware后运行<code>source /etc/profile</code>。<br>然后就可以通过opkg安装n2n了。</p>
+<h2><span id="路由器">路由器</span></h2><p>openwrt路由器直接运行<code>opkg install n2n</code>就可以。我的路由器是小米的R2D，不能直接使用opkg的源。<br>我使用了一个针对小米路由器的第三方的工具箱，项目页面： <a href="https://github.com/monlor/Monlor-Tools" target="_blank" rel="noopener">https://github.com/monlor/Monlor-Tools</a><br>通过工具箱可以安装Entware。Entware有自己的仓库，同样使用opkg进行包管理，比原生的仓库具有更好的兼容性。<br>安装Entware后运行<code>source /etc/profile</code>。<br>然后就可以通过opkg安装n2n了。</p>
 <p>这样，我们所有的主机设备和路由器都进入了一个虚拟的局域网内，机器之间可以方便的互相访问。</p>
-<h1 id="管理vlan中的节点"><a href="#管理vlan中的节点" class="headerlink" title="管理vlan中的节点"></a>管理vlan中的节点</h1><p>很多时候我们需要查询当前vlan中的节点ip，使用<code>sudo nmap -sP 10.0.0.0-255</code>进行查看。</p>
+<h1><span id="管理vlan中的节点">管理vlan中的节点</span></h1><p>很多时候我们需要查询当前vlan中的节点ip，使用<code>sudo nmap -sP 10.0.0.0-255</code>进行查看。</p>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -900,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端安装"><span class="nav-number">2.</span> <span class="nav-text">客户端安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MacOS"><span class="nav-number">2.1.</span> <span class="nav-text">MacOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu"><span class="nav-number">2.2.</span> <span class="nav-text">Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由器"><span class="nav-number">2.3.</span> <span class="nav-text">路由器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理vlan中的节点"><span class="nav-number">3.</span> <span class="nav-text">管理vlan中的节点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">客户端安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">MacOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">路由器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">管理vlan中的节点</span></a></li></ol></div>
             
 
           </div>
@@ -1049,6 +1053,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1444,6 +1451,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

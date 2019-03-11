@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -431,12 +431,16 @@
       
 
       
-        <h1 id="Install-opencv-from-source"><a href="#Install-opencv-from-source" class="headerlink" title="Install opencv from source"></a>Install opencv from source</h1><h2 id="Getting-the-Opencv-from-the-Git-Repository"><a href="#Getting-the-Opencv-from-the-Git-Repository" class="headerlink" title="Getting the Opencv from the Git Repository"></a>Getting the Opencv from the Git Repository</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd workspace</span><br><span class="line">git clone https://github.com/opencv/opencv.git</span><br></pre></td></tr></table></figure>
-<h2 id="Building-OpenCV-using-CMake"><a href="#Building-OpenCV-using-CMake" class="headerlink" title="Building OpenCV using CMake"></a>Building OpenCV using CMake</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd opencv</span><br><span class="line">mkdir release</span><br><span class="line">cd release</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..</span><br></pre></td></tr></table></figure>
+        <h1><span id="install-opencv-from-source">Install opencv from source</span></h1><h2><span id="getting-the-opencv-from-the-git-repository">Getting the Opencv from the Git Repository</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd workspace</span><br><span class="line">git clone https://github.com/opencv/opencv.git</span><br></pre></td></tr></table></figure>
+<h2><span id="building-opencv-using-cmake">Building OpenCV using CMake</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd opencv</span><br><span class="line">mkdir release</span><br><span class="line">cd release</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -887,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-opencv-from-source"><span class="nav-number">1.</span> <span class="nav-text">Install opencv from source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-the-Opencv-from-the-Git-Repository"><span class="nav-number">1.1.</span> <span class="nav-text">Getting the Opencv from the Git Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-OpenCV-using-CMake"><span class="nav-number">1.2.</span> <span class="nav-text">Building OpenCV using CMake</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Install opencv from source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Getting the Opencv from the Git Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Building OpenCV using CMake</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1036,6 +1040,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1431,6 +1438,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

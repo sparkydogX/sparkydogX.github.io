@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -432,18 +432,22 @@
 
       
         <p>服务器上的CUDA版本为7.0，而跑程序至少需要7.5。因此重新安装CUDA</p>
-<h2 id="卸载旧版本的CUDA"><a href="#卸载旧版本的CUDA" class="headerlink" title="卸载旧版本的CUDA"></a>卸载旧版本的CUDA</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda-7.0/bin</span><br><span class="line">sudo ./uninstall_cuda_toolkit_7.0.pl</span><br></pre></td></tr></table></figure>
+<h2><span id="卸载旧版本的cuda">卸载旧版本的CUDA</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda-7.0/bin</span><br><span class="line">sudo ./uninstall_cuda_toolkit_7.0.pl</span><br></pre></td></tr></table></figure>
 <p>如果有提示卸载失败的文件或文件夹，可以自己手动删除掉。</p>
-<h2 id="卸载原来的NVIDIA驱动"><a href="#卸载原来的NVIDIA驱动" class="headerlink" title="卸载原来的NVIDIA驱动"></a>卸载原来的NVIDIA驱动</h2><p><code>sudo apt-get remove nvidia*</code></p>
-<h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>安装开发需要的基本包<br><code>sudo apt-get install build-essential</code><br>前往Nvidia<a href="http://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">官网</a>下载CUDA安装包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure></p>
+<h2><span id="卸载原来的nvidia驱动">卸载原来的NVIDIA驱动</span></h2><p><code>sudo apt-get remove nvidia*</code></p>
+<h2><span id="安装cuda">安装CUDA</span></h2><p>安装开发需要的基本包<br><code>sudo apt-get install build-essential</code><br>前往Nvidia<a href="http://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">官网</a>下载CUDA安装包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure></p>
 <p>安装完成，可以重启机器以验证安装。</p>
-<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda-7.5</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;CUDA_HOME&#125;/lib64</span><br><span class="line">PATH=$&#123;CUDA_HOME&#125;/bin:$&#123;PATH&#125;</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
-<h2 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h2><figure class="highlight plain"><figcaption><span>cuda-install-samples-7.5.sh  ~</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/NVIDIA_CUDA-7.5_Samples</span><br><span class="line">$ cd 1_Utilities/deviceQuery</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+<h2><span id="添加环境变量">添加环境变量</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda-7.5</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;CUDA_HOME&#125;/lib64</span><br><span class="line">PATH=$&#123;CUDA_HOME&#125;/bin:$&#123;PATH&#125;</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
+<h2><span id="验证安装">验证安装</span></h2><figure class="highlight plain"><figcaption><span>cuda-install-samples-7.5.sh  ~</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/NVIDIA_CUDA-7.5_Samples</span><br><span class="line">$ cd 1_Utilities/deviceQuery</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
 <p>这里使用的是官方提供的sample，如果编译过程不报错，说明安装成功。可通过<code>nvcc --version</code>指令查看CUDA的版本信息。</p>
-<h2 id="安装cudnn"><a href="#安装cudnn" class="headerlink" title="安装cudnn"></a>安装cudnn</h2><p>通常只安装CUDA是不够的，还需要安装对应的cudnn，可以参考<a href="https://sparkydogx.github.io/2017/10/05/fix-problem-tf-libcudnn/#more">这篇教程</a>。</p>
+<h2><span id="安装cudnn">安装cudnn</span></h2><p>通常只安装CUDA是不够的，还需要安装对应的cudnn，可以参考<a href="https://sparkydogx.github.io/2017/10/05/fix-problem-tf-libcudnn/#more">这篇教程</a>。</p>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -894,7 +898,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载旧版本的CUDA"><span class="nav-number">1.</span> <span class="nav-text">卸载旧版本的CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载原来的NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">卸载原来的NVIDIA驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加环境变量"><span class="nav-number">4.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证安装"><span class="nav-number">5.</span> <span class="nav-text">验证安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装cudnn"><span class="nav-number">6.</span> <span class="nav-text">安装cudnn</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">卸载旧版本的CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">卸载原来的NVIDIA驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">验证安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">安装cudnn</span></a></li></ol></div>
             
 
           </div>
@@ -1043,6 +1047,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1438,6 +1445,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -432,17 +432,17 @@
 
       
         <p><a href="https://github.com/shadowsocks" target="_blank" rel="noopener">SS</a>是当前最好用的科学上网工具之一，但是在terminal中无法直接使用ss代理，需要使用额外的工具来实现这一功能。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>在开始之前，请确保：</p>
+<h2><span id="准备">准备</span></h2><p>在开始之前，请确保：</p>
 <ul>
 <li>拥有一个可以正常使用的SS</li>
 <li>Mac上已安装有<a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a></li>
 </ul>
-<h2 id="安装privoxy"><a href="#安装privoxy" class="headerlink" title="安装privoxy"></a>安装privoxy</h2><p>使用以下命令安装：<br><code>brew install privoxy</code></p>
-<h2 id="privoxy配置"><a href="#privoxy配置" class="headerlink" title="privoxy配置"></a>privoxy配置</h2><p>打开配置文件，文件路径为<code>/usr/local/etc/privoxy/config</code><br>在配置文件底部加入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen-address 0.0.0.0:8118</span><br><span class="line">forward-socks5 / localhost:1080 .</span><br></pre></td></tr></table></figure></p>
-<h2 id="启动privoxy"><a href="#启动privoxy" class="headerlink" title="启动privoxy"></a>启动privoxy</h2><p>输入以下语句：<br><code>sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config</code><br>查看是否启动成功：<br><code>netstat -na | grep 8118</code><br>看到如下消息说明启动成功：<br><code>tcp4 0   0  *.8118       *.*     LISTEN</code></p>
-<h2 id="使用privoxy"><a href="#使用privoxy" class="headerlink" title="使用privoxy"></a>使用privoxy</h2><p>在命令行终端中输入如下命令后，该终端即可走代理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=&apos;http://localhost:8118&apos;</span><br><span class="line">export https_proxy=&apos;http://localhost:8118&apos;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="安装privoxy">安装privoxy</span></h2><p>使用以下命令安装：<br><code>brew install privoxy</code></p>
+<h2><span id="privoxy配置">privoxy配置</span></h2><p>打开配置文件，文件路径为<code>/usr/local/etc/privoxy/config</code><br>在配置文件底部加入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen-address 0.0.0.0:8118</span><br><span class="line">forward-socks5 / localhost:1080 .</span><br></pre></td></tr></table></figure></p>
+<h2><span id="启动privoxy">启动privoxy</span></h2><p>输入以下语句：<br><code>sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config</code><br>查看是否启动成功：<br><code>netstat -na | grep 8118</code><br>看到如下消息说明启动成功：<br><code>tcp4 0   0  *.8118       *.*     LISTEN</code></p>
+<h2><span id="使用privoxy">使用privoxy</span></h2><p>在命令行终端中输入如下命令后，该终端即可走代理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=&apos;http://localhost:8118&apos;</span><br><span class="line">export https_proxy=&apos;http://localhost:8118&apos;</span><br></pre></td></tr></table></figure></p>
 <p>这时输入<code>curl ip.gs</code>会显示代理服务器的信息<br>关闭终端代理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unset http_proxy</span><br><span class="line">unset https_proxy</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置bash文件"><a href="#配置bash文件" class="headerlink" title="配置bash文件"></a>配置bash文件</h2><p>经过上面几步，已经可以在终端使用SS代理，每次使用都需要输入一大串命令。可以在 ~/.bash_profile 里加入函数，便于使用。</p>
+<h2><span id="配置bash文件">配置bash文件</span></h2><p>经过上面几步，已经可以在终端使用SS代理，每次使用都需要输入一大串命令。可以在 ~/.bash_profile 里加入函数，便于使用。</p>
 <ul>
 <li><p>macOS系统中默认没有<code>.bash_profile</code>文件，需要手动创建文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/</span><br><span class="line">touch .bash_profile</span><br></pre></td></tr></table></figure>
@@ -453,12 +453,28 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function proxy_off()&#123;</span><br><span class="line">    unset http_proxy</span><br><span class="line">    unset https_proxy</span><br><span class="line">    echo -e &quot;已关闭代理&quot;</span><br><span class="line">&#125;</span><br><span class="line">function proxy_on() &#123;</span><br><span class="line">    export http_proxy=&apos;http://localhost:8118&apos;</span><br><span class="line">    export https_proxy=&apos;http://localhost:8118&apos;</span><br><span class="line">    echo -e &quot;已开启代理&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使配置立即生效：<code>source  ~/.bash_profile</code></p>
-<h2 id="调用bash函数"><a href="#调用bash函数" class="headerlink" title="调用bash函数"></a>调用bash函数</h2><p>配置已经全部完成，在终端使用<code>proxy_on</code>/<code>proxy_off</code>指令即可打开/关闭代理</p>
+<h2><span id="调用bash函数">调用bash函数</span></h2><p>配置已经全部完成，在终端使用<code>proxy_on</code>/<code>proxy_off</code>指令即可打开/关闭代理</p>
 </li>
 </ul>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/10/07/terminal-cover/" rel="bookmark">解决Terminal中命令行覆盖的问题</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -909,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装privoxy"><span class="nav-number">2.</span> <span class="nav-text">安装privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#privoxy配置"><span class="nav-number">3.</span> <span class="nav-text">privoxy配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动privoxy"><span class="nav-number">4.</span> <span class="nav-text">启动privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用privoxy"><span class="nav-number">5.</span> <span class="nav-text">使用privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置bash文件"><span class="nav-number">6.</span> <span class="nav-text">配置bash文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用bash函数"><span class="nav-number">7.</span> <span class="nav-text">调用bash函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">privoxy配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">启动privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">使用privoxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">配置bash文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">调用bash函数</span></a></li></ol></div>
             
 
           </div>
@@ -1058,6 +1074,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1453,6 +1472,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

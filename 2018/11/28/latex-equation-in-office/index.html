@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,11 +420,27 @@
 
       
         <p>用过Latex的都知道，Tex语法下的公式编辑与使用word编辑公式的体验简直是天壤之别，幸而目前有一些开源的工具，可以在Word和PowerPoint中使用latex语法编辑公式。<br><em>注：这两款工具只支持Windows平台</em></p>
-<h1 id="texsword"><a href="#texsword" class="headerlink" title="texsword"></a>texsword</h1><p>texsword是一款开源的工具，可以在word中插入latex公式。将<code>texsword.dotm</code>文件放入word的启动文件夹即可使用。下载页面：<a href="https://sourceforge.net/projects/texsword/" target="_blank" rel="noopener">https://sourceforge.net/projects/texsword/</a></p>
-<h1 id="IguanaTex"><a href="#IguanaTex" class="headerlink" title="IguanaTex"></a>IguanaTex</h1><p>IguanaTex同样是一款开源的工具，用于在PowerPoint中插入Latex公式。下载页面：<a href="http://www.jonathanleroux.org/software/iguanatex/" target="_blank" rel="noopener">http://www.jonathanleroux.org/software/iguanatex/</a></p>
+<h1><span id="texsword">texsword</span></h1><p>texsword是一款开源的工具，可以在word中插入latex公式。将<code>texsword.dotm</code>文件放入word的启动文件夹即可使用。下载页面：<a href="https://sourceforge.net/projects/texsword/" target="_blank" rel="noopener">https://sourceforge.net/projects/texsword/</a></p>
+<h1><span id="iguanatex">IguanaTex</span></h1><p>IguanaTex同样是一款开源的工具，用于在PowerPoint中插入Latex公式。下载页面：<a href="http://www.jonathanleroux.org/software/iguanatex/" target="_blank" rel="noopener">http://www.jonathanleroux.org/software/iguanatex/</a></p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2019/03/01/latex-add-notes/" rel="bookmark">在latex中添加notes</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -879,7 +895,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#texsword"><span class="nav-number">1.</span> <span class="nav-text">texsword</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IguanaTex"><span class="nav-number">2.</span> <span class="nav-text">IguanaTex</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">texsword</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">IguanaTex</span></a></li></ol></div>
             
 
           </div>
@@ -1028,6 +1044,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1423,6 +1442,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

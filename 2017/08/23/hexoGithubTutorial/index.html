@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -434,45 +434,49 @@
 
       
         <p><a href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>是一个静态站点托管服务，用户可以用它来搭建便捷、稳定的个人站点。</p>
-<h1 id="Github-Pages的设置"><a href="#Github-Pages的设置" class="headerlink" title="Github Pages的设置"></a>Github Pages的设置</h1><h2 id="申请Github账号"><a href="#申请Github账号" class="headerlink" title="申请Github账号"></a>申请Github账号</h2><p>  首先需要有一个<a href="https://github.com/" target="_blank" rel="noopener">Github</a>的账号，使用Github Pages建站时域名必须与Github ID一致，所以记得取一个响亮的名字XD。</p>
-<h2 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h2><p>  下面以macOS为例，其余系统的同学可以参照<a href="https://pages.github.com/" target="_blank" rel="noopener">这里</a>的说明。</p>
-<h3 id="查看现有的ssh-keys"><a href="#查看现有的ssh-keys" class="headerlink" title="查看现有的ssh keys"></a>查看现有的ssh keys</h3><p>  macOS自带ssh工具，打开终端，输入<code>ls -al ~/.ssh</code>可以查看本机当前已有的SSH key。<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br><span class="line"><span class="comment"># 列出 .ssh文件夹下所有的文件（如果存在）</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="创建新的ssh-key"><a href="#创建新的ssh-key" class="headerlink" title="创建新的ssh key"></a>创建新的ssh key</h3><ul>
+<h1><span id="github-pages的设置">Github Pages的设置</span></h1><h2><span id="申请github账号">申请Github账号</span></h2><p>  首先需要有一个<a href="https://github.com/" target="_blank" rel="noopener">Github</a>的账号，使用Github Pages建站时域名必须与Github ID一致，所以记得取一个响亮的名字XD。</p>
+<h2><span id="生成ssh-key">生成SSH key</span></h2><p>  下面以macOS为例，其余系统的同学可以参照<a href="https://pages.github.com/" target="_blank" rel="noopener">这里</a>的说明。</p>
+<h3><span id="查看现有的ssh-keys">查看现有的ssh keys</span></h3><p>  macOS自带ssh工具，打开终端，输入<code>ls -al ~/.ssh</code>可以查看本机当前已有的SSH key。<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br><span class="line"><span class="comment"># 列出 .ssh文件夹下所有的文件（如果存在）</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="创建新的ssh-key">创建新的ssh key</span></h3><ul>
 <li>打开终端</li>
 <li>输入如下指令，将指令中的邮箱地址替换为你的github邮箱，创建一个新的ssh key<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="保存ssh-key"><a href="#保存ssh-key" class="headerlink" title="保存ssh key"></a>保存ssh key</h3><p>当终端显示“Enter a file in which to save the key”，按下Enter键，将ssh key文件保存在默认位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure></p>
-<h3 id="输入密令"><a href="#输入密令" class="headerlink" title="输入密令"></a>输入密令</h3><p>密令由用户自己设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure></p>
-<h2 id="把ssh-key添加到ssh-agent"><a href="#把ssh-key添加到ssh-agent" class="headerlink" title="把ssh key添加到ssh-agent"></a>把ssh key添加到ssh-agent</h2><h3 id="在后台启动ssh-agent"><a href="#在后台启动ssh-agent" class="headerlink" title="在后台启动ssh-agent"></a>在后台启动ssh-agent</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment">#Agent pid 59566</span></span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在macOS Sierra 10.12.2及之后的系统，需要修改ssh的配置文件。配置文件的位置在<code>/etc/ssh/ssh_config</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<h3><span id="保存ssh-key">保存ssh key</span></h3><p>当终端显示“Enter a file in which to save the key”，按下Enter键，将ssh key文件保存在默认位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure></p>
+<h3><span id="输入密令">输入密令</span></h3><p>密令由用户自己设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure></p>
+<h2><span id="把ssh-key添加到ssh-agent">把ssh key添加到ssh-agent</span></h2><h3><span id="在后台启动ssh-agent">在后台启动ssh-agent</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment">#Agent pid 59566</span></span><br></pre></td></tr></table></figure>
+<h3><span id="修改配置文件">修改配置文件</span></h3><p>在macOS Sierra 10.12.2及之后的系统，需要修改ssh的配置文件。配置文件的位置在<code>/etc/ssh/ssh_config</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
 <p> 在配置文件中添加如上三条语句。</p>
-<h3 id="添加ssh私钥到ssh-agent"><a href="#添加ssh私钥到ssh-agent" class="headerlink" title="添加ssh私钥到ssh-agent"></a>添加ssh私钥到ssh-agent</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -K ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h3><span id="添加ssh私钥到ssh-agent">添加ssh私钥到ssh-agent</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -K ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 <p>如果ssh key的文件名不为id_rsa，则以上命令中对应的位置都要进行相应的替换。</p>
-<h2 id="把ssh-key添加到Github账户"><a href="#把ssh-key添加到Github账户" class="headerlink" title="把ssh key添加到Github账户"></a>把ssh key添加到Github账户</h2><h3 id="复制ssh-key"><a href="#复制ssh-key" class="headerlink" title="复制ssh key"></a>复制ssh key</h3><p>执行以下命令，将ssh key的公钥复制到剪贴板<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="添加到Github账户"><a href="#添加到Github账户" class="headerlink" title="添加到Github账户"></a>添加到Github账户</h3><p>依次点击Settings-&gt;SSH and GPG keys-&gt;New SSH key<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/0823/githubsshkey.png" alt="Github"><br>得到的网页如上图所示，在Title栏输入一个便于标识的名字，在key栏右击粘贴，然后点击‘Add SSH key’。</p>
-<h2 id="测试ssh-key是否添加成功"><a href="#测试ssh-key是否添加成功" class="headerlink" title="测试ssh key是否添加成功"></a>测试ssh key是否添加成功</h2><p>打开终端，输入<code>ssh -vT git@github.com</code>，如果显示<code>Hi yourID! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>，则表明已经成功添加。</p>
-<h2 id="创建一个repository"><a href="#创建一个repository" class="headerlink" title="创建一个repository"></a>创建一个repository</h2><p>点击Github页面上的’New respository’按钮，在Respository Name一栏填入<code>yourID.github.io</code>，把<code>yourID</code>替换成你的github<br>ID。</p>
-<h1 id="Hexo的安装与配置"><a href="#Hexo的安装与配置" class="headerlink" title="Hexo的安装与配置"></a>Hexo的安装与配置</h1><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>是一个快速、简洁、高效的博客框架，并且有一份详尽的<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">中文文档</a>。</p>
-<h2 id="Hexo的安装"><a href="#Hexo的安装" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h2><p>首先确保本机已经安装<a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a>和<a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>，输入以下命令即可完成Hexo的安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>Hexo执行初始化必须使用一个空文件夹，执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<h2><span id="把ssh-key添加到github账户">把ssh key添加到Github账户</span></h2><h3><span id="复制ssh-key">复制ssh key</span></h3><p>执行以下命令，将ssh key的公钥复制到剪贴板<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="添加到github账户">添加到Github账户</span></h3><p>依次点击Settings-&gt;SSH and GPG keys-&gt;New SSH key<br><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2017/0823/githubsshkey.png" alt="Github"><br>得到的网页如上图所示，在Title栏输入一个便于标识的名字，在key栏右击粘贴，然后点击‘Add SSH key’。</p>
+<h2><span id="测试ssh-key是否添加成功">测试ssh key是否添加成功</span></h2><p>打开终端，输入<code>ssh -vT git@github.com</code>，如果显示<code>Hi yourID! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>，则表明已经成功添加。</p>
+<h2><span id="创建一个repository">创建一个repository</span></h2><p>点击Github页面上的’New respository’按钮，在Respository Name一栏填入<code>yourID.github.io</code>，把<code>yourID</code>替换成你的github<br>ID。</p>
+<h1><span id="hexo的安装与配置">Hexo的安装与配置</span></h1><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>是一个快速、简洁、高效的博客框架，并且有一份详尽的<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">中文文档</a>。</p>
+<h2><span id="hexo的安装">Hexo的安装</span></h2><p>首先确保本机已经安装<a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a>和<a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>，输入以下命令即可完成Hexo的安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<h2><span id="建站">建站</span></h2><p>Hexo执行初始化必须使用一个空文件夹，执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
 <p>_config.yml是网站的配置信息，可以在此配置大部分的参数。themes文件夹下保存网站主题。scource文件夹下的_posts文件夹中存放博文，博文写作使用<a href="https://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener">Markdown</a>语法。<a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">这个网站</a>提供markdown语法的中文文档。</p>
 <p>##配置<br>打开_config.yml文件，修改其中的<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a>。<br>参数名与参数值之间用冒号隔开，冒号的右侧需要加空格。<br>通常必须修改的是以下几项：title为网站的标题，subtitle为副标题，author为作者，language改为zh-Cn使网站使用中文。<br>如果想把网站部署到Github上，还必须在配置文件里进行如下改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourID/yourID.github.io.git</span><br></pre></td></tr></table></figure></p>
-<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p>Hexo 3.0 把服务器独立成了个别模块，必须先安装 hexo-server 才能使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
+<h2><span id="预览">预览</span></h2><p>Hexo 3.0 把服务器独立成了个别模块，必须先安装 hexo-server 才能使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
 <p>安装完成后，在hexo所在文件夹下执行<code>hexo s -g</code>，可以看到以下输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
 <p>此时在浏览器中访问<a href="http://localhost:4000/，即可看到网站预览。" target="_blank" rel="noopener">http://localhost:4000/，即可看到网站预览。</a></p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>配置完成后，输入命令’hexo d -g’</p>
+<h2><span id="部署">部署</span></h2><p>配置完成后，输入命令’hexo d -g’</p>
 <blockquote>
 <p>我在部署时遇到过github访问被拒的情况，后来发现是因为我有两个ssh key同时在不同的github账号上使用。<br>我把其中一个账号的ssh key删除才使问题得以解决。我希望能够寻找到一种更妥善的方法来解决这个问题，<br>如果你有想法，欢迎在评论区留言。</p>
 </blockquote>
-<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"article"</span></span><br></pre></td></tr></table></figure>
+<h2><span id="写作">写作</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"article"</span></span><br></pre></td></tr></table></figure>
 <p>这一指令可以创建一篇新的博文，在<code>/sources/_posts/</code>文件夹下可以找到新建的文件，后缀名为<code>.md</code>。<br>使用markdown语法即可在此文件上进行写作。</p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>Hexo提供许多模板供人使用，这些模板在node_models文件夹下，使用时需要将其复制到themes文件夹中。<br>在建站时我使用的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a>主题。</p>
-<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a>主题原生支持DuoShuo和<a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a>。<br>以Disqus举例，得到shortname后在主题下的配置文件中完成相应的修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname: your-duoshuo-shortname</span><br></pre></td></tr></table></figure></p>
+<h2><span id="主题">主题</span></h2><p>Hexo提供许多模板供人使用，这些模板在node_models文件夹下，使用时需要将其复制到themes文件夹中。<br>在建站时我使用的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a>主题。</p>
+<h2><span id="评论">评论</span></h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a>主题原生支持DuoShuo和<a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a>。<br>以Disqus举例，得到shortname后在主题下的配置文件中完成相应的修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname: your-duoshuo-shortname</span><br></pre></td></tr></table></figure></p>
 <p>运行<code>hexo s -g</code>即可在本地端口查看。</p>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -923,7 +927,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Pages的设置"><span class="nav-number">1.</span> <span class="nav-text">Github Pages的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#申请Github账号"><span class="nav-number">1.1.</span> <span class="nav-text">申请Github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成SSH-key"><span class="nav-number">1.2.</span> <span class="nav-text">生成SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看现有的ssh-keys"><span class="nav-number">1.2.1.</span> <span class="nav-text">查看现有的ssh keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新的ssh-key"><span class="nav-number">1.2.2.</span> <span class="nav-text">创建新的ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存ssh-key"><span class="nav-number">1.2.3.</span> <span class="nav-text">保存ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入密令"><span class="nav-number">1.2.4.</span> <span class="nav-text">输入密令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把ssh-key添加到ssh-agent"><span class="nav-number">1.3.</span> <span class="nav-text">把ssh key添加到ssh-agent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在后台启动ssh-agent"><span class="nav-number">1.3.1.</span> <span class="nav-text">在后台启动ssh-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加ssh私钥到ssh-agent"><span class="nav-number">1.3.3.</span> <span class="nav-text">添加ssh私钥到ssh-agent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把ssh-key添加到Github账户"><span class="nav-number">1.4.</span> <span class="nav-text">把ssh key添加到Github账户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复制ssh-key"><span class="nav-number">1.4.1.</span> <span class="nav-text">复制ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到Github账户"><span class="nav-number">1.4.2.</span> <span class="nav-text">添加到Github账户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试ssh-key是否添加成功"><span class="nav-number">1.5.</span> <span class="nav-text">测试ssh key是否添加成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个repository"><span class="nav-number">1.6.</span> <span class="nav-text">创建一个repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的安装与配置"><span class="nav-number">2.</span> <span class="nav-text">Hexo的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo的安装"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览"><span class="nav-number">2.3.</span> <span class="nav-text">预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">2.4.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">2.5.</span> <span class="nav-text">写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">2.6.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论"><span class="nav-number">2.7.</span> <span class="nav-text">评论</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Github Pages的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">申请Github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">生成SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">查看现有的ssh keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">创建新的ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">保存ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.4.</span> <span class="nav-text">输入密令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">把ssh key添加到ssh-agent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">在后台启动ssh-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">添加ssh私钥到ssh-agent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">把ssh key添加到Github账户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.1.</span> <span class="nav-text">复制ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.2.</span> <span class="nav-text">添加到Github账户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">测试ssh key是否添加成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">创建一个repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Hexo的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.7.</span> <span class="nav-text">评论</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1072,6 +1076,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1467,6 +1474,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

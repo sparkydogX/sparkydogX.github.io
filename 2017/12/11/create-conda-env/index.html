@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,12 +420,56 @@
 
       
         <p>使用python的同学都知道，python各种版本以及对应的包管理是很让人头疼的事情。Anaconda很好的解决了这个问题。<br>在Anaconda中，用户可以创建指定python版本的环境，并且方便的在哥哥环境中切换。</p>
-<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>安装完Anaconda后，将anaconda路径添加到PATH变量中。<br>使用如下命令：<br><code>conda create -n a python=3.3</code><br>可以创建一个名称为a的python3.3环境。</p>
-<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><p><code>source activate a</code><br>可以默认将环境指定为a，通过<code>conda info</code>指令可以查看当前默认环境。</p>
-<h2 id="查看已安装环境"><a href="#查看已安装环境" class="headerlink" title="查看已安装环境"></a>查看已安装环境</h2><p><code>conda info --env</code></p>
+<h2><span id="创建环境">创建环境</span></h2><p>安装完Anaconda后，将anaconda路径添加到PATH变量中。<br>使用如下命令：<br><code>conda create -n a python=3.3</code><br>可以创建一个名称为a的python3.3环境。</p>
+<h2><span id="激活环境">激活环境</span></h2><p><code>source activate a</code><br>可以默认将环境指定为a，通过<code>conda info</code>指令可以查看当前默认环境。</p>
+<h2><span id="查看已安装环境">查看已安装环境</span></h2><p><code>conda info --env</code></p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/08/31/python-01/" rel="bookmark">python及numpy笔记（一）</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/09/03/affine-with-python/" rel="bookmark">使用python对2D坐标点进行仿射变换</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/07/11/draw-with-matplotlib/" rel="bookmark">使用matplotlib绘制统计直方图</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -878,7 +922,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建环境"><span class="nav-number">1.</span> <span class="nav-text">创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激活环境"><span class="nav-number">2.</span> <span class="nav-text">激活环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已安装环境"><span class="nav-number">3.</span> <span class="nav-text">查看已安装环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">激活环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">查看已安装环境</span></a></li></ol></div>
             
 
           </div>
@@ -1027,6 +1071,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1422,6 +1469,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

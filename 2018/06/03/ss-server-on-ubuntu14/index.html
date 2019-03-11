@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -419,14 +419,18 @@
       
 
       
-        <h2 id="安装依赖包与SS"><a href="#安装依赖包与SS" class="headerlink" title="安装依赖包与SS"></a>安装依赖包与SS</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install python-pip python-m2crypto</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-<h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>在<code>/etc/shadowsocks/config.json</code>文件里写入配置内容：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>: <span class="string">"YOUR_SERVER_IP"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">  <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">  <span class="attr">"password"</span>: <span class="string">"YOUR_SS_PASSWORD"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="启动SS"><a href="#启动SS" class="headerlink" title="启动SS"></a>启动SS</h2><p><code>sudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json --user nobody -qq -d start</code></p>
+        <h2><span id="安装依赖包与ss">安装依赖包与SS</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install python-pip python-m2crypto</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<h2><span id="创建配置文件">创建配置文件</span></h2><p>在<code>/etc/shadowsocks/config.json</code>文件里写入配置内容：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>: <span class="string">"YOUR_SERVER_IP"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">  <span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">  <span class="attr">"password"</span>: <span class="string">"YOUR_SS_PASSWORD"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="启动ss">启动SS</span></h2><p><code>sudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json --user nobody -qq -d start</code></p>
 <p>也可以把这个命令加到 <code>/etc/rc.local</code>里面，每次系统启动都会启动SS</p>
 <p><a href="http://meilbn.com/2017/10/25/VPS-build-shadowsocks-and-bbr/" target="_blank" rel="noopener">参考来源</a></p>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -877,7 +881,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖包与SS"><span class="nav-number">1.</span> <span class="nav-text">安装依赖包与SS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建配置文件"><span class="nav-number">2.</span> <span class="nav-text">创建配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动SS"><span class="nav-number">3.</span> <span class="nav-text">启动SS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装依赖包与SS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">创建配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">启动SS</span></a></li></ol></div>
             
 
           </div>
@@ -1026,6 +1030,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1421,6 +1428,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

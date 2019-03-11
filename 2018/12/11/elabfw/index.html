@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,7 +420,7 @@
 
       
         <p>elabfw是一个开源的实验记录工具. 可以自由的部署在个人PC或者服务器上.<br>官方安装文档:<a href="https://doc.elabftw.net/install.html" target="_blank" rel="noopener">https://doc.elabftw.net/install.html</a></p>
-<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>首先要安装docker, 如果网络环境允许, 可以跟随<a href="https://docs.docker.com/compose/install/这个页面上的指示" target="_blank" rel="noopener">https://docs.docker.com/compose/install/这个页面上的指示</a>. 但是我安装的时候网速相当慢, 后来使用国内的镜像代替.<br>我的安装步骤如下:</p>
+<h1><span id="安装依赖">安装依赖</span></h1><p>首先要安装docker, 如果网络环境允许, 可以跟随<a href="https://docs.docker.com/compose/install/这个页面上的指示" target="_blank" rel="noopener">https://docs.docker.com/compose/install/这个页面上的指示</a>. 但是我安装的时候网速相当慢, 后来使用国内的镜像代替.<br>我的安装步骤如下:</p>
 <ol>
 <li><p>安装docker的依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
@@ -434,7 +434,7 @@
 <li><p>安装dialog<br><code>sudo apt-get install dialog</code></p>
 </li>
 </ol>
-<h1 id="安装eLabFTW"><a href="#安装eLabFTW" class="headerlink" title="安装eLabFTW"></a>安装eLabFTW</h1><ol>
+<h1><span id="安装elabftw">安装eLabFTW</span></h1><ol>
 <li><p>安装elabctl</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the program (a bash script)</span></span><br><span class="line">curl -sL https://get.elabftw.net -o elabctl &amp;&amp; chmod +x elabctl</span><br><span class="line"><span class="comment"># add it to a directory in your $PATH</span></span><br><span class="line">sudo mv elabctl /usr/<span class="built_in">local</span>/bin/</span><br></pre></td></tr></table></figure>
 </li>
@@ -445,14 +445,37 @@
 <li><p>启动eLabFTW<br><code>sudo elabctl start</code></p>
 </li>
 </ol>
-<h1 id="使用eLabFTW"><a href="#使用eLabFTW" class="headerlink" title="使用eLabFTW"></a>使用eLabFTW</h1><p>eLabFTW默认运行在443端口, 因此访问https://&lt;your-elabftw-site.org&gt; (或者 https://<ip address>)<br>注册的第一个账户会成为管理员账户.<br>之后应当在设置界面配置一个SMTP账户, 确保在忘记密码的时候可以发送邮件到注册的邮箱, 否则忘记密码之后是无法找回的, 切记!  </ip></p>
-<h2 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h2><p><code>sudo elabctl backup</code><br>对应script: <a href="https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0" target="_blank" rel="noopener">https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0</a><br>script中的SQL user/password可以在docker container中的/elabftw/config.php找到.<br>相关页面:<a href="https://doc.elabftw.net/backup.html#backup" target="_blank" rel="noopener">https://doc.elabftw.net/backup.html#backup</a></p>
-<h2 id="恢复备份"><a href="#恢复备份" class="headerlink" title="恢复备份"></a>恢复备份</h2><p>恢复页面恢复数据库(elabftw):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unzip uploaded_files-YYYY-MM-DD.zip</span><br><span class="line">mv var/elabftw/web/* /var/elabftw/web</span><br><span class="line">mv etc/elabftw.yml /etc/elabftw.yml</span><br><span class="line"># now fix the permissions</span><br><span class="line">chown -R 100:101 /var/elabftw/web</span><br><span class="line">chmod 600 /etc/elabftw.yml</span><br></pre></td></tr></table></figure></p>
+<h1><span id="使用elabftw">使用eLabFTW</span></h1><p>eLabFTW默认运行在443端口, 因此访问https://&lt;your-elabftw-site.org&gt; (或者 https://<ip address>)<br>注册的第一个账户会成为管理员账户.<br>之后应当在设置界面配置一个SMTP账户, 确保在忘记密码的时候可以发送邮件到注册的邮箱, 否则忘记密码之后是无法找回的, 切记!  </ip></p>
+<h2><span id="备份数据">备份数据</span></h2><p><code>sudo elabctl backup</code><br>对应script: <a href="https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0" target="_blank" rel="noopener">https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0</a><br>script中的SQL user/password可以在docker container中的/elabftw/config.php找到.<br>相关页面:<a href="https://doc.elabftw.net/backup.html#backup" target="_blank" rel="noopener">https://doc.elabftw.net/backup.html#backup</a></p>
+<h2><span id="恢复备份">恢复备份</span></h2><p>恢复页面恢复数据库(elabftw):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unzip uploaded_files-YYYY-MM-DD.zip</span><br><span class="line">mv var/elabftw/web/* /var/elabftw/web</span><br><span class="line">mv etc/elabftw.yml /etc/elabftw.yml</span><br><span class="line"># now fix the permissions</span><br><span class="line">chown -R 100:101 /var/elabftw/web</span><br><span class="line">chmod 600 /etc/elabftw.yml</span><br></pre></td></tr></table></figure></p>
 <p>恢复数据库(在mysql的container中操作):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gunzip mysql_dump-YYYY-MM-DD.sql.gz # uncompress the file</span><br><span class="line">docker cp mysql_dump-YYYY-MM-DD.sql mysql:/ # copy it inside the mysql container</span><br><span class="line">docker exec -it mysql bash # spawn a shell in the mysql container</span><br><span class="line">mysql -uroot -p # login to mysql prompt</span><br><span class="line"># here you type the password you put in MYSQL_ROOT_PASSWORD in the /etc/elabftw.yml file</span><br><span class="line">Mysql&gt; drop database elabftw; # delete the brand new database</span><br><span class="line">Mysql&gt; create database elabftw; # create a new one</span><br><span class="line">Mysql&gt; use elabftw; # select it</span><br><span class="line">Mysql&gt; source mysql_dump-YYYY-MM-DD.sql; # import the backup</span><br><span class="line">Mysql&gt; exit;</span><br></pre></td></tr></table></figure></p>
 <p>目前存在的问题是在目录页面显示中文的时候会乱码, 这是目前对中文的支持不完善导致的. 解决方案是在mysql的docker container中设置lang为UTF-8。使用<code>locale -a</code>可以看到当前可用的语言。</p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/08/20/docker-save-and-load/" rel="bookmark">Docker容器的保存与加载</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/03/02/vncserver/" rel="bookmark">使用VNC连接docker容器</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -905,7 +928,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装依赖"><span class="nav-number">1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装eLabFTW"><span class="nav-number">2.</span> <span class="nav-text">安装eLabFTW</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用eLabFTW"><span class="nav-number">3.</span> <span class="nav-text">使用eLabFTW</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#备份数据"><span class="nav-number">3.1.</span> <span class="nav-text">备份数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复备份"><span class="nav-number">3.2.</span> <span class="nav-text">恢复备份</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装eLabFTW</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">使用eLabFTW</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">备份数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">恢复备份</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1054,6 +1077,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1449,6 +1475,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

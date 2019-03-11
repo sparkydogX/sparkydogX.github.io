@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -432,8 +432,8 @@
 
       
         <p>有时候对于一个未完成的tex文件，为了方便与他人交流，或者为了给自己提个醒，我们希望能够在生成的pdf文件中加入醒目的注释。<br>使用<code>todonotes</code>和<code>marginnote</code>都可以实现这样的功能。</p>
-<h1 id="在页面两侧空白处添加notes"><a href="#在页面两侧空白处添加notes" class="headerlink" title="在页面两侧空白处添加notes"></a>在页面两侧空白处添加notes</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><script src="https://gist.github.com/sparkydogX/b065fea8c48bf65293450b53f4876c65.js"></script><br>其中最后四行是为了保持原来排版不变的情况下增加边距。<br>因为默认的边距往往较小，显示出来的效果比较糟糕，所以往往需要增加边距，以容纳注释文本。<br>在最终版本中应该将这四行删除。</p>
-<h2 id="在文章中使用"><a href="#在文章中使用" class="headerlink" title="在文章中使用"></a>在文章中使用</h2><ul>
+<h1><span id="在页面两侧空白处添加notes">在页面两侧空白处添加notes</span></h1><h2><span id="定义">定义</span></h2><p><script src="https://gist.github.com/sparkydogX/b065fea8c48bf65293450b53f4876c65.js"></script><br>其中最后四行是为了保持原来排版不变的情况下增加边距。<br>因为默认的边距往往较小，显示出来的效果比较糟糕，所以往往需要增加边距，以容纳注释文本。<br>在最终版本中应该将这四行删除。</p>
+<h2><span id="在文章中使用">在文章中使用</span></h2><ul>
 <li><p>使用todonotes</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\todo&#123;Don&apos;t forget to put an introduction here.&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -442,10 +442,26 @@
 </li>
 </ul>
 <p>这里的3cm定义了这个注释显示在页面中的高度。<br>关于使用marginnote的更详细用法可以参考<a href="https://www.overleaf.com/learn/latex/Margin_notes" target="_blank" rel="noopener">https://www.overleaf.com/learn/latex/Margin_notes</a></p>
-<h1 id="使用todonotes实现inline-notes"><a href="#使用todonotes实现inline-notes" class="headerlink" title="使用todonotes实现inline notes"></a>使用todonotes实现inline notes</h1><p>行内的notes会占据正文的空间，这种方法的好处是不用考虑额外的边距问题，也更加方便阅读。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[textsize=small]&#123;todonotes&#125;</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">\todo[inline,caption=&#123;&#125;]&#123;</span><br><span class="line">  \begin&#123;itemize&#125;</span><br><span class="line">    \item Bla bla bla</span><br><span class="line">  \end&#123;itemize&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1><span id="使用todonotes实现inline-notes">使用todonotes实现inline notes</span></h1><p>行内的notes会占据正文的空间，这种方法的好处是不用考虑额外的边距问题，也更加方便阅读。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[textsize=small]&#123;todonotes&#125;</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">\todo[inline,caption=&#123;&#125;]&#123;</span><br><span class="line">  \begin&#123;itemize&#125;</span><br><span class="line">    \item Bla bla bla</span><br><span class="line">  \end&#123;itemize&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/11/28/latex-equation-in-office/" rel="bookmark">在office中使用latex公式</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -896,7 +912,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在页面两侧空白处添加notes"><span class="nav-number">1.</span> <span class="nav-text">在页面两侧空白处添加notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在文章中使用"><span class="nav-number">1.2.</span> <span class="nav-text">在文章中使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用todonotes实现inline-notes"><span class="nav-number">2.</span> <span class="nav-text">使用todonotes实现inline notes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">在页面两侧空白处添加notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">在文章中使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">使用todonotes实现inline notes</span></a></li></ol></div>
             
 
           </div>
@@ -1045,6 +1061,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1440,6 +1459,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

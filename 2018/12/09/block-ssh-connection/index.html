@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,12 +420,12 @@
 
       
         <p>最近登陆服务器的时候，发现有很多未知的ssh登录尝试。CentOS系统中ssh登录的日志文件在<code>/var/log/secure</code>。使用<code>cat /var/log/secure | grep Failed | tail -50</code>可以查看最近的50条记录。我查看这个文件的时候发现有一个ip尝试了7000次登录，并且在我登录期间仍然在不停进行尝试，真是丧心病狂，令人发指。必须要采取措施限制这些奇怪的行为。</p>
-<h1 id="修改SSH默认端口"><a href="#修改SSH默认端口" class="headerlink" title="修改SSH默认端口"></a>修改SSH默认端口</h1><p>ssh的默认端口是22，修改端口会增加被破解的障碍。</p>
+<h1><span id="修改ssh默认端口">修改SSH默认端口</span></h1><p>ssh的默认端口是22，修改端口会增加被破解的障碍。</p>
 <ol>
 <li>首先选一个你喜欢的端口，只要没被占用就可以。然后在防火墙中打开这一端口。</li>
 <li>sshd的配置文件位于<code>/etc/ssh/sshd_config</code>，修改端口设置之后重启sshd服务。<br>大多数情况下到这一步端口已经修改好了。但是有些主机商（比如linode）会要求使用semanger声明修改。</li>
 <li>(Option) 安装 policycoreutils-python：<code>yum install policycoreutils-python</code>,执行<code>semanage port -a -t ssh_port_t -p tcp $PORT</code>。</li>
-<li>运行<code>ss -tnlp | grep ssh</code>查看端口是否正确。<h1 id="自动封禁多次登录失败的IP"><a href="#自动封禁多次登录失败的IP" class="headerlink" title="自动封禁多次登录失败的IP"></a>自动封禁多次登录失败的IP</h1>将多次登录失败的IP添加到<code>/etc/hosts.deny</code>文件。<br>创建一个脚本：<code>/usr/local/bin/autodeny.sh</code>  <script src="https://gist.github.com/sparkydogX/1837a6e1a2286df9b2d03e9aa798f360.js"></script>
+<li>运行<code>ss -tnlp | grep ssh</code>查看端口是否正确。<h1><span id="自动封禁多次登录失败的ip">自动封禁多次登录失败的IP</span></h1>将多次登录失败的IP添加到<code>/etc/hosts.deny</code>文件。<br>创建一个脚本：<code>/usr/local/bin/autodeny.sh</code>  <script src="https://gist.github.com/sparkydogX/1837a6e1a2286df9b2d03e9aa798f360.js"></script>
 
 </li>
 </ol>
@@ -433,6 +433,50 @@
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2019/01/22/create-ssh-terminial/" rel="bookmark">通过脚本在终端中打开多个ssh session</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/20/ss-fCNR/" rel="bookmark">使用ssh反向代理进行内网穿透</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/01/25/ssh2dockercontainer/" rel="bookmark">使用ssh远程连接内网中的docker container</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/10/31/first-use-aliyun/" rel="bookmark">初次使用阿里云服务器</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/05/receive-mail-on-server-lbox/" rel="bookmark">使用个人服务器接收邮件</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -885,7 +929,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#修改SSH默认端口"><span class="nav-number">1.</span> <span class="nav-text">修改SSH默认端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动封禁多次登录失败的IP"><span class="nav-number">2.</span> <span class="nav-text">自动封禁多次登录失败的IP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">修改SSH默认端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">自动封禁多次登录失败的IP</span></a></li></ol></div>
             
 
           </div>
@@ -1034,6 +1078,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1429,6 +1476,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

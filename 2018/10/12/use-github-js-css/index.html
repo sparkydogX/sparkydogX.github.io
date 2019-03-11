@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,12 +420,35 @@
 
       
         <p>Github本身托管的js和css文件是不能直接被调用的，<a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85" target="_blank" rel="noopener">这个页面</a>对这个问题有所说明。<br>幸好有一些第三方服务来解决这个问题。<br>网络上搜索一下，名气最大的是 <a href="http://rawgit.com/" target="_blank" rel="noopener">http://rawgit.com/</a> ， 但是rawgit在2018年10月停止了服务。<br>rawgit推荐的替代服务有jsDelivr、GitHub Pages、CodeSandbox、unpkg 。<br>这篇文章以jsDelivr为例，介绍如何使用jsDelivr。</p>
-<h1 id="Release-Github-Repo"><a href="#Release-Github-Repo" class="headerlink" title="Release Github Repo"></a>Release Github Repo</h1><p>首先将需要使用的js或者css文件上传到一个github中，然后Release对应的Repo。<br>记住对应的版本号，在后面使用jsDelivr的时候会需要。</p>
-<h1 id="jsDelivr"><a href="#jsDelivr" class="headerlink" title="jsDelivr"></a>jsDelivr</h1><p>打开<a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDeliver官网</a>，可以看到使用方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// load any GitHub release or commit</span><br><span class="line"></span><br><span class="line">// note: we recommend using npm for projects that support it</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/user/repo@version/file</span><br></pre></td></tr></table></figure></p>
-<h1 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h1><p>在浏览器中打开 <a href="https://cdn.jsdelivr.net/gh/sparkydogX/pictures@0.1/2018/corevalue/style/index.css" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/sparkydogX/pictures@0.1/2018/corevalue/style/index.css</a> 可以看到对应的css文件，此时这个连接已经可以直接用在网页里面了</p>
+<h1><span id="release-github-repo">Release Github Repo</span></h1><p>首先将需要使用的js或者css文件上传到一个github中，然后Release对应的Repo。<br>记住对应的版本号，在后面使用jsDelivr的时候会需要。</p>
+<h1><span id="jsdelivr">jsDelivr</span></h1><p>打开<a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsDeliver官网</a>，可以看到使用方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// load any GitHub release or commit</span><br><span class="line"></span><br><span class="line">// note: we recommend using npm for projects that support it</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/user/repo@version/file</span><br></pre></td></tr></table></figure></p>
+<h1><span id="示例">示例：</span></h1><p>在浏览器中打开 <a href="https://cdn.jsdelivr.net/gh/sparkydogX/pictures@0.1/2018/corevalue/style/index.css" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/sparkydogX/pictures@0.1/2018/corevalue/style/index.css</a> 可以看到对应的css文件，此时这个连接已经可以直接用在网页里面了</p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/26/dict-in-command-line/" rel="bookmark">在命令行中使用词典</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2019/02/03/sync-code-via-github/" rel="bookmark">通过Github私有仓库同步代码</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -880,7 +903,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Release-Github-Repo"><span class="nav-number">1.</span> <span class="nav-text">Release Github Repo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsDelivr"><span class="nav-number">2.</span> <span class="nav-text">jsDelivr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例："><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Release Github Repo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">jsDelivr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li></ol></div>
             
 
           </div>
@@ -1029,6 +1052,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1424,6 +1450,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

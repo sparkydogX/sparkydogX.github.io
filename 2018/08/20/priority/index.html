@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,12 +420,49 @@
 
       
         <p>在系统中，我们希望有些进程的优先级可以高一些，有些要低一些。这会决定不同进程占用的CPU时间。下面介绍如何调整优先级。</p>
-<h1 id="nice指令"><a href="#nice指令" class="headerlink" title="nice指令"></a>nice指令</h1><p>当运行一个程序的时候，使用<a href="http://manpages.ubuntu.com/manpages/cosmic/man1/nice.1.html" target="_blank" rel="noopener">nice</a>指令可以指定优先级。<br>例如，运行<code>nice -n 5 htop</code>会发现htop的优先级降低了。<br>-n参数可以是 -19～20 之间的整数，越低表示优先级越高。当不使用nice指定是，进程的NI值默认为0。<br>需要注意的是，当使用负值参数的时候，需要sudo才能起作用。</p>
-<h1 id="renice指令"><a href="#renice指令" class="headerlink" title="renice指令"></a>renice指令</h1><p>当程序已经开始运行，可以使用renice指令重新指定进程的NI值，用法与nice类似，可以一次指定多个。</p>
-<h1 id="查看子进程的PID"><a href="#查看子进程的PID" class="headerlink" title="查看子进程的PID"></a>查看子进程的PID</h1><p>父进程fork出来的子进程nice值与父进程相同。父进程renice，子进程nice值不会随之改变。<br>有时候需要提高子进程的优先级，使用<code>ps --ppid &lt;pid of the parent&gt;</code>可以获得子进程的PID。</p>
+<h1><span id="nice指令">nice指令</span></h1><p>当运行一个程序的时候，使用<a href="http://manpages.ubuntu.com/manpages/cosmic/man1/nice.1.html" target="_blank" rel="noopener">nice</a>指令可以指定优先级。<br>例如，运行<code>nice -n 5 htop</code>会发现htop的优先级降低了。<br>-n参数可以是 -19～20 之间的整数，越低表示优先级越高。当不使用nice指定是，进程的NI值默认为0。<br>需要注意的是，当使用负值参数的时候，需要sudo才能起作用。</p>
+<h1><span id="renice指令">renice指令</span></h1><p>当程序已经开始运行，可以使用renice指令重新指定进程的NI值，用法与nice类似，可以一次指定多个。</p>
+<h1><span id="查看子进程的pid">查看子进程的PID</span></h1><p>父进程fork出来的子进程nice值与父进程相同。父进程renice，子进程nice值不会随之改变。<br>有时候需要提高子进程的优先级，使用<code>ps --ppid &lt;pid of the parent&gt;</code>可以获得子进程的PID。</p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/29/fix-sound-in-ubuntu/" rel="bookmark">解决Ubuntu中没有声音的问题</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/04/09/install-ubuntu-windows10/" rel="bookmark">UEFI模式下安装Ubuntu和Windows10双系统</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/11/03/fix-boot-in-ubuntu/" rel="bookmark">修复Ubuntu中的启动项</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/09/20/privoxy-for-ios/" rel="bookmark">使用privoxy为局域网中的移动设备使用代理</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -876,7 +913,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nice指令"><span class="nav-number">1.</span> <span class="nav-text">nice指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#renice指令"><span class="nav-number">2.</span> <span class="nav-text">renice指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看子进程的PID"><span class="nav-number">3.</span> <span class="nav-text">查看子进程的PID</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">nice指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">renice指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">查看子进程的PID</span></a></li></ol></div>
             
 
           </div>
@@ -1025,6 +1062,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1420,6 +1460,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

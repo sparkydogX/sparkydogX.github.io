@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -420,29 +420,52 @@
 
       
         <p>vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。</p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>vncserver部署在服务器中的docker容器内。</p>
-<h2 id="Docker容器端口映射"><a href="#Docker容器端口映射" class="headerlink" title="Docker容器端口映射"></a>Docker容器端口映射</h2><p>通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：<code>-p 2222:2222</code>，建立容器2222端口与服务器2222端口之间的连接。<br>如果已经有配置好的docker容器，可以使用<code>docker commit</code>指令commit当前的docker容器，然后以commit的镜像为image重新创建一个docker容器，创建时指定端口。<br>如果有需求，还可以在创建时使用<code>--shm-size=128m</code>指令指定 /dev/shm 的大小。如果不手动指定，docker默认分配64M。</p>
-<h2 id="修改镜像源"><a href="#修改镜像源" class="headerlink" title="修改镜像源"></a>修改镜像源</h2><p>工欲善其事必先利其器。这是为下一步安装图形桌面做准备。由于图形桌面的软件包较大，需要使用一个靠谱的国内镜像源。以作者的环境为例，Ubuntu 14.04，使用上海交通大学的镜像源：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/apt/sources.list</span><br><span class="line">$ :%s/archive.ubuntu.com/ftp.sjtu.edu.cn/g</span><br><span class="line">$ sudo rm /var/lib/apt/lists/* -vf</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装x11"><a href="#安装x11" class="headerlink" title="安装x11"></a>安装x11</h2><p>x11是一个用于远程图形界面的程序，若只安装x11，也可以通过ssh -x连接后显示图形程序。<br><code>sudo apt-get install xorg openbox</code></p>
-<h2 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h2><p>可以任意选择一下一种：</p>
-<h3 id="Unity"><a href="#Unity" class="headerlink" title="Unity :"></a>Unity :</h3><p><code>sudo apt-get install ubuntu-desktop</code></p>
-<h3 id="Xfce"><a href="#Xfce" class="headerlink" title="Xfce:"></a>Xfce:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install xfce4</span><br><span class="line">$ sudo apt-get install xubuntu-desktop</span><br><span class="line">$ xfce4-session</span><br></pre></td></tr></table></figure>
-<h2 id="安装vncserver"><a href="#安装vncserver" class="headerlink" title="安装vncserver"></a>安装vncserver</h2><p><code>sudo apt-get install vnc4server</code></p>
+<h1><span id="服务端">服务端</span></h1><p>vncserver部署在服务器中的docker容器内。</p>
+<h2><span id="docker容器端口映射">Docker容器端口映射</span></h2><p>通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：<code>-p 2222:2222</code>，建立容器2222端口与服务器2222端口之间的连接。<br>如果已经有配置好的docker容器，可以使用<code>docker commit</code>指令commit当前的docker容器，然后以commit的镜像为image重新创建一个docker容器，创建时指定端口。<br>如果有需求，还可以在创建时使用<code>--shm-size=128m</code>指令指定 /dev/shm 的大小。如果不手动指定，docker默认分配64M。</p>
+<h2><span id="修改镜像源">修改镜像源</span></h2><p>工欲善其事必先利其器。这是为下一步安装图形桌面做准备。由于图形桌面的软件包较大，需要使用一个靠谱的国内镜像源。以作者的环境为例，Ubuntu 14.04，使用上海交通大学的镜像源：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/apt/sources.list</span><br><span class="line">$ :%s/archive.ubuntu.com/ftp.sjtu.edu.cn/g</span><br><span class="line">$ sudo rm /var/lib/apt/lists/* -vf</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<h2><span id="安装x11">安装x11</span></h2><p>x11是一个用于远程图形界面的程序，若只安装x11，也可以通过ssh -x连接后显示图形程序。<br><code>sudo apt-get install xorg openbox</code></p>
+<h2><span id="安装桌面环境">安装桌面环境</span></h2><p>可以任意选择一下一种：</p>
+<h3><span id="unity">Unity :</span></h3><p><code>sudo apt-get install ubuntu-desktop</code></p>
+<h3><span id="xfce">Xfce:</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install xfce4</span><br><span class="line">$ sudo apt-get install xubuntu-desktop</span><br><span class="line">$ xfce4-session</span><br></pre></td></tr></table></figure>
+<h2><span id="安装vncserver">安装vncserver</span></h2><p><code>sudo apt-get install vnc4server</code></p>
 <p>启动vncserver:<code>vncserver</code>，首次启动需要设置密码。</p>
-<h2 id="设置vnc端口"><a href="#设置vnc端口" class="headerlink" title="设置vnc端口"></a>设置vnc端口</h2><p><code>vim /usr/bin/vncserver</code><br>在这个文件中找到vncPort一行，可以看到<code>$vncPort = 5900 + $displayNumber;</code><br>将5900修改为需要的端口号，之后我想把displayNumber设置为1，因此这里改为：<br><code>$vncPort = 2332 + $displayNumber;</code><br>用<code>vncserver :1</code>命令启动vncserver后，查看log文件可以看到启用的是2333端口。</p>
-<h2 id="安装其他包"><a href="#安装其他包" class="headerlink" title="安装其他包"></a>安装其他包</h2><p><code>sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</code></p>
-<h2 id="修改xtartup文件"><a href="#修改xtartup文件" class="headerlink" title="修改xtartup文件"></a>修改xtartup文件</h2><p>文件位置：<code>~/.vnc/xstartup</code></p>
-<h3 id="Unity-1"><a href="#Unity-1" class="headerlink" title="Unity"></a>Unity</h3><p>将其修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span></span><br><span class="line"><span class="comment">#[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="comment">#xsetroot -solid grey</span></span><br><span class="line"><span class="comment">#vncconfig -iconic &amp;</span></span><br><span class="line"><span class="comment">#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;</span></span><br><span class="line"><span class="comment">#x-window-manager &amp;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">gnome-session &amp;</span><br><span class="line">gnome-panel &amp;</span><br><span class="line">gnome-settings-daemon &amp;</span><br><span class="line">metacity &amp;</span><br><span class="line">nautilus &amp;</span><br><span class="line">gnome-terminal &amp;</span><br></pre></td></tr></table></figure></p>
+<h2><span id="设置vnc端口">设置vnc端口</span></h2><p><code>vim /usr/bin/vncserver</code><br>在这个文件中找到vncPort一行，可以看到<code>$vncPort = 5900 + $displayNumber;</code><br>将5900修改为需要的端口号，之后我想把displayNumber设置为1，因此这里改为：<br><code>$vncPort = 2332 + $displayNumber;</code><br>用<code>vncserver :1</code>命令启动vncserver后，查看log文件可以看到启用的是2333端口。</p>
+<h2><span id="安装其他包">安装其他包</span></h2><p><code>sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</code></p>
+<h2><span id="修改xtartup文件">修改xtartup文件</span></h2><p>文件位置：<code>~/.vnc/xstartup</code></p>
+<h3><span id="unity">Unity</span></h3><p>将其修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span></span><br><span class="line"><span class="comment">#[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="comment">#xsetroot -solid grey</span></span><br><span class="line"><span class="comment">#vncconfig -iconic &amp;</span></span><br><span class="line"><span class="comment">#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;</span></span><br><span class="line"><span class="comment">#x-window-manager &amp;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">gnome-session &amp;</span><br><span class="line">gnome-panel &amp;</span><br><span class="line">gnome-settings-daemon &amp;</span><br><span class="line">metacity &amp;</span><br><span class="line">nautilus &amp;</span><br><span class="line">gnome-terminal &amp;</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://gist.github.com/Musinux/8e6c4752ed3c143d49764311a504c1e9" target="_blank" rel="noopener">参考来源</a></p>
-<h3 id="Xfce-1"><a href="#Xfce-1" class="headerlink" title="Xfce"></a>Xfce</h3><p><code>sed -i &#39;s$x-window-manager$xfce4-session$&#39; ~/.vnc/xstartup</code></p>
-<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><ol>
+<h3><span id="xfce">Xfce</span></h3><p><code>sed -i &#39;s$x-window-manager$xfce4-session$&#39; ~/.vnc/xstartup</code></p>
+<h2><span id="设置分辨率">设置分辨率</span></h2><ol>
 <li>关闭vncserver：<code>vncserver -kill :1</code></li>
 <li>设置分辨率并重启：<code>vncserver -geometry 1366x768 :1</code></li>
 </ol>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>客户端我使用<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，也可自由选择其他软件。<br>这一步比较简单，只需输入ip，指定端口号，正确填写之前设定的vnc密码，即可连接</p>
+<h1><span id="客户端">客户端</span></h1><p>客户端我使用<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，也可自由选择其他软件。<br>这一步比较简单，只需输入ip，指定端口号，正确填写之前设定的vnc密码，即可连接</p>
 
       
     </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/08/20/docker-save-and-load/" rel="bookmark">Docker容器的保存与加载</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/12/11/elabfw/" rel="bookmark">在PC和服务器上部署elabfw</a></div>
+      
+    </li>
+  
+  </ul>
+
 
     
 
@@ -895,7 +918,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker容器端口映射"><span class="nav-number">1.1.</span> <span class="nav-text">Docker容器端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改镜像源"><span class="nav-number">1.2.</span> <span class="nav-text">修改镜像源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装x11"><span class="nav-number">1.3.</span> <span class="nav-text">安装x11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装桌面环境"><span class="nav-number">1.4.</span> <span class="nav-text">安装桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity"><span class="nav-number">1.4.1.</span> <span class="nav-text">Unity :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xfce"><span class="nav-number">1.4.2.</span> <span class="nav-text">Xfce:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vncserver"><span class="nav-number">1.5.</span> <span class="nav-text">安装vncserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置vnc端口"><span class="nav-number">1.6.</span> <span class="nav-text">设置vnc端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装其他包"><span class="nav-number">1.7.</span> <span class="nav-text">安装其他包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改xtartup文件"><span class="nav-number">1.8.</span> <span class="nav-text">修改xtartup文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">Unity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xfce-1"><span class="nav-number">1.8.2.</span> <span class="nav-text">Xfce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置分辨率"><span class="nav-number">1.9.</span> <span class="nav-text">设置分辨率</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Docker容器端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">修改镜像源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">安装x11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">安装桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.1.</span> <span class="nav-text">Unity :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.2.</span> <span class="nav-text">Xfce:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">安装vncserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">设置vnc端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">安装其他包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.</span> <span class="nav-text">修改xtartup文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.1.</span> <span class="nav-text">Unity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.2.</span> <span class="nav-text">Xfce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.9.</span> <span class="nav-text">设置分辨率</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a></li></ol></div>
             
 
           </div>
@@ -1044,6 +1067,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1439,6 +1465,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>

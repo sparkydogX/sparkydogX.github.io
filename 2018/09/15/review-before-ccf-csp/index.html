@@ -74,7 +74,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -419,28 +419,32 @@
       
 
       
-        <h2 id="1-跳一跳"><a href="#1-跳一跳" class="headerlink" title="1. 跳一跳"></a>1. 跳一跳</h2><tr><td class="probref">问题描述：</td><td><div class="pdsec">　　近来，跳一跳这款小游戏风靡全国，受到不少玩家的喜爱。<br>　　简化后的跳一跳规则如下：玩家每次从当前方块跳到下一个方块，如果没有跳到下一个方块上则游戏结束。<br>　　如果跳到了方块上，但没有跳到方块的中心则获得1分；跳到方块中心时，若上一次的得分为1分或这是本局游戏的第一次跳跃则此次得分为2分，否则此次得分比上一次得分多两分（即连续跳到方块中心时，总得分将+2，+4，+6，+8…）。<br>　　现在给出一个人跳一跳的全过程，请你求出他本局游戏的得分（按照题目描述的规则）。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入包含多个数字，用空格分隔，每个数字都是1，2，0之一，1表示此次跳跃跳到了方块上但是没有跳到中心，2表示此次跳跃跳到了方块上并且跳到了方块中心，0表示此次跳跃没有跳到方块上（此时游戏结束）。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一个整数，为本局游戏的得分（在本题的规则下）。</div><div class="pdsec">样例输入</div><div class="pddata">1 1 2 2 2 1 1 2 2 0</div><div class="pdsec">样例输出</div><div class="pddata">22</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，输入的数字不超过30个，保证0正好出现一次且为最后一个数字。</div><br><br>    </td></tr>
+        <h2><span id="1-跳一跳">1. 跳一跳</span></h2><tr><td class="probref">问题描述：</td><td><div class="pdsec">　　近来，跳一跳这款小游戏风靡全国，受到不少玩家的喜爱。<br>　　简化后的跳一跳规则如下：玩家每次从当前方块跳到下一个方块，如果没有跳到下一个方块上则游戏结束。<br>　　如果跳到了方块上，但没有跳到方块的中心则获得1分；跳到方块中心时，若上一次的得分为1分或这是本局游戏的第一次跳跃则此次得分为2分，否则此次得分比上一次得分多两分（即连续跳到方块中心时，总得分将+2，+4，+6，+8…）。<br>　　现在给出一个人跳一跳的全过程，请你求出他本局游戏的得分（按照题目描述的规则）。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入包含多个数字，用空格分隔，每个数字都是1，2，0之一，1表示此次跳跃跳到了方块上但是没有跳到中心，2表示此次跳跃跳到了方块上并且跳到了方块中心，0表示此次跳跃没有跳到方块上（此时游戏结束）。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一个整数，为本局游戏的得分（在本题的规则下）。</div><div class="pdsec">样例输入</div><div class="pddata">1 1 2 2 2 1 1 2 2 0</div><div class="pdsec">样例输出</div><div class="pddata">22</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，输入的数字不超过30个，保证0正好出现一次且为最后一个数字。</div><br><br>    </td></tr>
 
 <script src="https://gist.github.com/sparkydogX/fcb4a0bfa1e2e28d266bd8087bd31678.js"></script>
 
-<h2 id="2-碰撞的小球"><a href="#2-碰撞的小球" class="headerlink" title="2. 碰撞的小球"></a>2. 碰撞的小球</h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　数轴上有一条长度为L（L为偶数)的线段，左端点在原点，右端点在坐标L处。有n个不计体积的小球在线段上，开始时所有的小球都处在偶数坐标上，速度方向向右，速度大小为1单位长度每秒。<br>　　当小球到达线段的端点（左端点或右端点）的时候，会立即向相反的方向移动，速度大小仍然为原来大小。<br>　　当两个小球撞到一起的时候，两个小球会分别向与自己原来移动的方向相反的方向，以原来的速度大小继续移动。<br>　　现在，告诉你线段的长度L，小球数量n，以及n个小球的初始位置，请你计算t秒之后，各个小球的位置。</div><div class="pdsec">提示</div><div class="pdcont">　　因为所有小球的初始位置都为偶数，而且线段的长度为偶数，可以证明，不会有三个小球同时相撞，小球到达线段端点以及小球之间的碰撞时刻均为整数。<br>　　同时也可以证明两个小球发生碰撞的位置一定是整数（但不一定是偶数）。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入的第一行包含三个整数n, L, t，用空格分隔，分别表示小球的个数、线段长度和你需要计算t秒之后小球的位置。<br>　　第二行包含n个整数a1, a2, …, an，用空格分隔，表示初始时刻n个小球的位置。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一行包含n个整数，用空格分隔，第i个整数代表初始时刻位于ai的小球，在t秒之后的位置。</div><div class="pdsec">样例输入</div><div class="pddata">3 10 5<br>4 6 8</div><div class="pdsec">样例输出</div><div class="pddata">7 9 9</div><div class="pdsec">样例说明</div><div class="pdcont">　　初始时，三个小球的位置分别为4, 6, 8。<br>　　一秒后，三个小球的位置分别为5, 7, 9。<br>　　两秒后，第三个小球碰到墙壁，速度反向，三个小球位置分别为6, 8, 10。<br>　　三秒后，第二个小球与第三个小球在位置9发生碰撞，速度反向（注意碰撞位置不一定为偶数），三个小球位置分别为7, 9, 9。<br>　　四秒后，第一个小球与第二个小球在位置8发生碰撞，速度反向，第三个小球碰到墙壁，速度反向，三个小球位置分别为8, 8, 10。<br>　　五秒后，三个小球的位置分别为7, 9, 9。<br></div><div class="pdsec">样例输入</div><div class="pddata">10 22 30<br>14 12 16 6 10 2 8 20 18 4</div><div class="pdsec">样例输出</div><div class="pddata">6 6 8 2 4 0 4 12 10 2</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，1 ≤ n ≤ 100，1 ≤ t ≤ 100，2 ≤ L ≤ 1000，0 &lt; ai &lt; L。L为偶数。<br>　　保证所有小球的初始位置互不相同且均为偶数。</div><br><br>    </td>
+<h2><span id="2-碰撞的小球">2. 碰撞的小球</span></h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　数轴上有一条长度为L（L为偶数)的线段，左端点在原点，右端点在坐标L处。有n个不计体积的小球在线段上，开始时所有的小球都处在偶数坐标上，速度方向向右，速度大小为1单位长度每秒。<br>　　当小球到达线段的端点（左端点或右端点）的时候，会立即向相反的方向移动，速度大小仍然为原来大小。<br>　　当两个小球撞到一起的时候，两个小球会分别向与自己原来移动的方向相反的方向，以原来的速度大小继续移动。<br>　　现在，告诉你线段的长度L，小球数量n，以及n个小球的初始位置，请你计算t秒之后，各个小球的位置。</div><div class="pdsec">提示</div><div class="pdcont">　　因为所有小球的初始位置都为偶数，而且线段的长度为偶数，可以证明，不会有三个小球同时相撞，小球到达线段端点以及小球之间的碰撞时刻均为整数。<br>　　同时也可以证明两个小球发生碰撞的位置一定是整数（但不一定是偶数）。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入的第一行包含三个整数n, L, t，用空格分隔，分别表示小球的个数、线段长度和你需要计算t秒之后小球的位置。<br>　　第二行包含n个整数a1, a2, …, an，用空格分隔，表示初始时刻n个小球的位置。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一行包含n个整数，用空格分隔，第i个整数代表初始时刻位于ai的小球，在t秒之后的位置。</div><div class="pdsec">样例输入</div><div class="pddata">3 10 5<br>4 6 8</div><div class="pdsec">样例输出</div><div class="pddata">7 9 9</div><div class="pdsec">样例说明</div><div class="pdcont">　　初始时，三个小球的位置分别为4, 6, 8。<br>　　一秒后，三个小球的位置分别为5, 7, 9。<br>　　两秒后，第三个小球碰到墙壁，速度反向，三个小球位置分别为6, 8, 10。<br>　　三秒后，第二个小球与第三个小球在位置9发生碰撞，速度反向（注意碰撞位置不一定为偶数），三个小球位置分别为7, 9, 9。<br>　　四秒后，第一个小球与第二个小球在位置8发生碰撞，速度反向，第三个小球碰到墙壁，速度反向，三个小球位置分别为8, 8, 10。<br>　　五秒后，三个小球的位置分别为7, 9, 9。<br></div><div class="pdsec">样例输入</div><div class="pddata">10 22 30<br>14 12 16 6 10 2 8 20 18 4</div><div class="pdsec">样例输出</div><div class="pddata">6 6 8 2 4 0 4 12 10 2</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，1 ≤ n ≤ 100，1 ≤ t ≤ 100，2 ≤ L ≤ 1000，0 &lt; ai &lt; L。L为偶数。<br>　　保证所有小球的初始位置互不相同且均为偶数。</div><br><br>    </td>
 
 <script src="https://gist.github.com/sparkydogX/7564105094bf8b6faa08cfcb039f6edc.js"></script>
 
-<h2 id="3-URL-映射"><a href="#3-URL-映射" class="headerlink" title="3. URL 映射"></a>3. URL 映射</h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　URL 映射是诸如 Django、Ruby on Rails 等网页框架 (web frameworks) 的一个重要组件。对于从浏览器发来的 HTTP 请求，URL 映射模块会解析请求中的 URL 地址，并将其分派给相应的处理代码。现在，请你来实现一个简单的 URL 映射功能。<br>　　本题中 URL 映射功能的配置由若干条 URL 映射规则组成。当一个请求到达时，URL 映射功能会将请求中的 URL 地址按照配置的先后顺序逐一与这些规则进行匹配。当遇到第一条完全匹配的规则时，匹配成功，得到匹配的规则以及匹配的参数。若不能匹配任何一条规则，则匹配失败。<br>　　本题输入的 URL 地址是以斜杠 / 作为分隔符的路径，保证以斜杠开头。其他合法字符还包括大小写英文字母、阿拉伯数字、减号 -、下划线 _ 和小数点 .。例如，/person/123/ 是一个合法的 URL 地址，而 /person/123? 则不合法（存在不合法的字符问号 ?）。另外，英文字母区分大小写，因此 /case/ 和 /CAse/ 是不同的 URL 地址。<br>　　对于 URL 映射规则，同样是以斜杠开始。除了可以是正常的 URL 地址外，还可以包含参数，有以下 3 种：<br>　　字符串 &lt;str&gt;：用于匹配一段字符串，注意字符串里不能包含斜杠。例如，abcde0123。<br>　　整数 &lt;int&gt;：用于匹配一个不带符号的整数，全部由阿拉伯数字组成。例如，01234。<br>　　路径 &lt;path&gt;：用于匹配一段字符串，字符串可以包含斜杠。例如，abcd/0123/。<br>　　以上 3 种参数都必须匹配非空的字符串。简便起见，题目规定规则中 &lt;str&gt; 和 &lt;int&gt; 前面一定是斜杠，后面要么是斜杠，要么是规则的结束（也就是该参数是规则的最后一部分）。而 &lt;path&gt; 的前面一定是斜杠，后面一定是规则的结束。无论是 URL 地址还是规则，都不会出现连续的斜杠。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入第一行是两个正整数 <i>n</i> 和 <i>m</i>，分别表示 URL 映射的规则条数和待处理的 URL 地址个数，中间用一个空格字符分隔。<br>　　第 2 行至第 <i>n</i>+1 行按匹配的先后顺序描述 URL 映射规则的配置信息。第 <i>i</i>+1 行包含两个字符串 <i>p<sub>i</sub></i> 和 <i>r<sub>i</sub></i>，其中 <i>p<sub>i</sub></i> 表示 URL 匹配的规则，<i>r<sub>i</sub></i> 表示这条 URL 匹配的名字。两个字符串都非空，且不包含空格字符，两者中间用一个空格字符分隔。<br>　　第 <i>n</i>+2 行至第 <i>n</i>+<i>m</i>+1 行描述待处理的 URL 地址。第 <i>n</i>+1+<i>i</i> 行包含一个字符串 <i>q<sub>i</sub></i>，表示待处理的 URL 地址，字符串中不包含空格字符。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输入共 <i>m</i> 行，第 <i>i</i> 行表示 <i>q<sub>i</sub></i> 的匹配结果。如果匹配成功，设匹配了规则 <i>p<sub>j</sub></i> ，则输出对应的 <i>r<sub>j</sub></i>。同时，如果规则中有参数，则在同一行内依次输出匹配后的参数。注意整数参数输出时要把前导零去掉。相邻两项之间用一个空格字符分隔。如果匹配失败，则输出 404。</div><div class="pdsec">样例输入</div><div class="pddata">5 4<br>/articles/2003/ special_case_2003<br>/articles/&lt;int&gt;/ year_archive<br>/articles/&lt;int&gt;/&lt;int&gt;/ month_archive<br>/articles/&lt;int&gt;/&lt;int&gt;/&lt;str&gt;/ article_detail<br>/static/&lt;path&gt; static_serve<br>/articles/2004/<br>/articles/1985/09/aloha/<br>/articles/hello/<br>/static/js/jquery.js</div><div class="pdsec">样例输出</div><div class="pddata">year_archive 2004<br>article_detail 1985 9 aloha<br>404<br>static_serve js/jquery.js</div><div class="pdsec">样例说明</div><div class="pdcont">　　对于第 1 个地址 /articles/2004/，无法匹配第 1 条规则，可以匹配第 2 条规则，参数为 2004。<br>　　对于第 2 个地址 /articles/1985/09/aloha/，只能匹配第 4 条规则，参数依次为 1985、9（已经去掉前导零）和 aloha。<br>　　对于第 3 个地址 /articles/hello/，无法匹配任何一条规则。<br>　　对于第 4 个地址 /static/js/jquery.js，可以匹配最后一条规则，参数为 js/jquery.js。</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　1 ≤ <i>n</i> ≤ 100，1 ≤ <i>m</i> ≤ 100。<br>　　所有输入行的长度不超过 100 个字符（不包含换行符）。<br>　　保证输入的规则都是合法的。</div><br><br>    </td>
+<h2><span id="3-url-映射">3. URL 映射</span></h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　URL 映射是诸如 Django、Ruby on Rails 等网页框架 (web frameworks) 的一个重要组件。对于从浏览器发来的 HTTP 请求，URL 映射模块会解析请求中的 URL 地址，并将其分派给相应的处理代码。现在，请你来实现一个简单的 URL 映射功能。<br>　　本题中 URL 映射功能的配置由若干条 URL 映射规则组成。当一个请求到达时，URL 映射功能会将请求中的 URL 地址按照配置的先后顺序逐一与这些规则进行匹配。当遇到第一条完全匹配的规则时，匹配成功，得到匹配的规则以及匹配的参数。若不能匹配任何一条规则，则匹配失败。<br>　　本题输入的 URL 地址是以斜杠 / 作为分隔符的路径，保证以斜杠开头。其他合法字符还包括大小写英文字母、阿拉伯数字、减号 -、下划线 _ 和小数点 .。例如，/person/123/ 是一个合法的 URL 地址，而 /person/123? 则不合法（存在不合法的字符问号 ?）。另外，英文字母区分大小写，因此 /case/ 和 /CAse/ 是不同的 URL 地址。<br>　　对于 URL 映射规则，同样是以斜杠开始。除了可以是正常的 URL 地址外，还可以包含参数，有以下 3 种：<br>　　字符串 &lt;str&gt;：用于匹配一段字符串，注意字符串里不能包含斜杠。例如，abcde0123。<br>　　整数 &lt;int&gt;：用于匹配一个不带符号的整数，全部由阿拉伯数字组成。例如，01234。<br>　　路径 &lt;path&gt;：用于匹配一段字符串，字符串可以包含斜杠。例如，abcd/0123/。<br>　　以上 3 种参数都必须匹配非空的字符串。简便起见，题目规定规则中 &lt;str&gt; 和 &lt;int&gt; 前面一定是斜杠，后面要么是斜杠，要么是规则的结束（也就是该参数是规则的最后一部分）。而 &lt;path&gt; 的前面一定是斜杠，后面一定是规则的结束。无论是 URL 地址还是规则，都不会出现连续的斜杠。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入第一行是两个正整数 <i>n</i> 和 <i>m</i>，分别表示 URL 映射的规则条数和待处理的 URL 地址个数，中间用一个空格字符分隔。<br>　　第 2 行至第 <i>n</i>+1 行按匹配的先后顺序描述 URL 映射规则的配置信息。第 <i>i</i>+1 行包含两个字符串 <i>p<sub>i</sub></i> 和 <i>r<sub>i</sub></i>，其中 <i>p<sub>i</sub></i> 表示 URL 匹配的规则，<i>r<sub>i</sub></i> 表示这条 URL 匹配的名字。两个字符串都非空，且不包含空格字符，两者中间用一个空格字符分隔。<br>　　第 <i>n</i>+2 行至第 <i>n</i>+<i>m</i>+1 行描述待处理的 URL 地址。第 <i>n</i>+1+<i>i</i> 行包含一个字符串 <i>q<sub>i</sub></i>，表示待处理的 URL 地址，字符串中不包含空格字符。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输入共 <i>m</i> 行，第 <i>i</i> 行表示 <i>q<sub>i</sub></i> 的匹配结果。如果匹配成功，设匹配了规则 <i>p<sub>j</sub></i> ，则输出对应的 <i>r<sub>j</sub></i>。同时，如果规则中有参数，则在同一行内依次输出匹配后的参数。注意整数参数输出时要把前导零去掉。相邻两项之间用一个空格字符分隔。如果匹配失败，则输出 404。</div><div class="pdsec">样例输入</div><div class="pddata">5 4<br>/articles/2003/ special_case_2003<br>/articles/&lt;int&gt;/ year_archive<br>/articles/&lt;int&gt;/&lt;int&gt;/ month_archive<br>/articles/&lt;int&gt;/&lt;int&gt;/&lt;str&gt;/ article_detail<br>/static/&lt;path&gt; static_serve<br>/articles/2004/<br>/articles/1985/09/aloha/<br>/articles/hello/<br>/static/js/jquery.js</div><div class="pdsec">样例输出</div><div class="pddata">year_archive 2004<br>article_detail 1985 9 aloha<br>404<br>static_serve js/jquery.js</div><div class="pdsec">样例说明</div><div class="pdcont">　　对于第 1 个地址 /articles/2004/，无法匹配第 1 条规则，可以匹配第 2 条规则，参数为 2004。<br>　　对于第 2 个地址 /articles/1985/09/aloha/，只能匹配第 4 条规则，参数依次为 1985、9（已经去掉前导零）和 aloha。<br>　　对于第 3 个地址 /articles/hello/，无法匹配任何一条规则。<br>　　对于第 4 个地址 /static/js/jquery.js，可以匹配最后一条规则，参数为 js/jquery.js。</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　1 ≤ <i>n</i> ≤ 100，1 ≤ <i>m</i> ≤ 100。<br>　　所有输入行的长度不超过 100 个字符（不包含换行符）。<br>　　保证输入的规则都是合法的。</div><br><br>    </td>
 
   <script src="https://gist.github.com/sparkydogX/4aa113cd357541bdbce6a37323c5a746.js"></script>
 
-<h2 id="4-最小差值"><a href="#4-最小差值" class="headerlink" title="4. 最小差值"></a>4. 最小差值</h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　给定<i>n</i>个数，请找出其中相差（差的绝对值）最小的两个数，输出它们的差值的绝对值。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入第一行包含一个整数<i>n</i>。<br>　　第二行包含<i>n</i>个正整数，相邻整数之间使用一个空格分隔。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一个整数，表示答案。</div><div class="pdsec">样例输入</div><div class="pddata">5<br>1 5 4 8 20</div><div class="pdsec">样例输出</div><div class="pddata">1</div><div class="pdsec">样例说明</div><div class="pdcont">　　相差最小的两个数是5和4，它们之间的差值是1。</div><div class="pdsec">样例输入</div><div class="pddata">5<br>9 3 6 1 3</div><div class="pdsec">样例输出</div><div class="pddata">0</div><div class="pdsec">样例说明</div><div class="pdcont">　　有两个相同的数3，它们之间的差值是0.</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，2 ≤ <i>n</i> ≤ 1000，每个给定的整数都是不超过10000的正整数。</div><br><br>    </td><br><script src="https://gist.github.com/sparkydogX/aaf9b0005af8bdc4f1efd36d5a992c08.js"></script><br><br>## 5. JSON<br><td><div class="pdsec">问题描述</div><div class="pdcont">　　JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式，可以用来描述半结构化的数据。JSON 格式中的基本单元是值 (value)，出于简化的目的本题只涉及 2 种类型的值：<br>　　<em> 字符串 (string)：字符串是由双引号 “ 括起来的一组字符（可以为空）。如果字符串的内容中出现双引号 “，在双引号前面加反斜杠，也就是用 \” 表示；如果出现反斜杠 \，则用两个反斜杠 \ 表示。反斜杠后面不能出现 “ 和 \ 以外的字符。例如：””、”hello”、”\”\“。
+<h2><span id="4-最小差值">4. 最小差值</span></h2><td><div class="pdsec">问题描述</div><div class="pdcont">　　给定<i>n</i>个数，请找出其中相差（差的绝对值）最小的两个数，输出它们的差值的绝对值。</div><div class="pdsec">输入格式</div><div class="pdcont">　　输入第一行包含一个整数<i>n</i>。<br>　　第二行包含<i>n</i>个正整数，相邻整数之间使用一个空格分隔。</div><div class="pdsec">输出格式</div><div class="pdcont">　　输出一个整数，表示答案。</div><div class="pdsec">样例输入</div><div class="pddata">5<br>1 5 4 8 20</div><div class="pdsec">样例输出</div><div class="pddata">1</div><div class="pdsec">样例说明</div><div class="pdcont">　　相差最小的两个数是5和4，它们之间的差值是1。</div><div class="pdsec">样例输入</div><div class="pddata">5<br>9 3 6 1 3</div><div class="pdsec">样例输出</div><div class="pddata">0</div><div class="pdsec">样例说明</div><div class="pdcont">　　有两个相同的数3，它们之间的差值是0.</div><div class="pdsec">数据规模和约定</div><div class="pdcont">　　对于所有评测用例，2 ≤ <i>n</i> ≤ 1000，每个给定的整数都是不超过10000的正整数。</div><br><br>    </td><br><script src="https://gist.github.com/sparkydogX/aaf9b0005af8bdc4f1efd36d5a992c08.js"></script><br><br>## 5. JSON<br><td><div class="pdsec">问题描述</div><div class="pdcont">　　JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式，可以用来描述半结构化的数据。JSON 格式中的基本单元是值 (value)，出于简化的目的本题只涉及 2 种类型的值：<br>　　<em> 字符串 (string)：字符串是由双引号 “ 括起来的一组字符（可以为空）。如果字符串的内容中出现双引号 “，在双引号前面加反斜杠，也就是用 \” 表示；如果出现反斜杠 \，则用两个反斜杠 \ 表示。反斜杠后面不能出现 “ 和 \ 以外的字符。例如：””、”hello”、”\”\“。
 　　</em> 对象 (object)：对象是一组键值对的无序集合（可以为空）。键值对表示对象的属性，键是属性名，值是属性的内容。对象以左花括号 { 开始，右花括号 } 结束，键值对之间以逗号 , 分隔。一个键值对的键和值之间以冒号 : 分隔。键必须是字符串，同一个对象所有键值对的键必须两两都不相同；值可以是字符串，也可以是另一个对象。例如：{}、{“foo”: “bar”}、{“Mon”: “weekday”, “Tue”: “weekday”, “Sun”: “weekend”}。<br>　　除了字符串内部的位置，其他位置都可以插入一个或多个空格使得 JSON 的呈现更加美观，也可以在一些地方换行，不会影响所表示的数据内容。例如，上面举例的最后一个 JSON 数据也可以写成如下形式。<br>　　{<br>　　“Mon”: “weekday”,<br>　　“Tue”: “weekday”,<br>　　“Sun”: “weekend”<br>　　}<br>　　给出一个 JSON 格式描述的数据，以及若干查询，编程返回这些查询的结果。</div><div class="pdsec">输入格式</div><div class="pdcont">　　第一行是两个正整数 <i>n</i> 和 <i>m</i>，分别表示 JSON 数据的行数和查询的个数。<br>　　接下来 <i>n</i> 行，描述一个 JSON 数据，保证输入是一个合法的 JSON 对象。<br>　　接下来 <i>m</i> 行，每行描述一个查询。给出要查询的属性名，要求返回对应属性的内容。需要支持多层查询，各层的属性名之间用小数点 . 连接。保证查询的格式都是合法的。</div><div class="pdsec">输出格式</div><div class="pdcont">　　对于输入的每一个查询，按顺序输出查询结果，每个结果占一行。<br>　　如果查询结果是一个字符串，则输出 STRING &lt;string&gt;，其中 &lt;string&gt; 是字符串的值，中间用一个空格分隔。<br>　　如果查询结果是一个对象，则输出 OBJECT，不需要输出对象的内容。<br>　　如果查询结果不存在，则输出 NOTEXIST。</div><div class="pdsec">样例输入</div><div class="pddata">10 5<br>{<br>“firstName”: “John”,<br>“lastName”: “Smith”,<br>“address”: {<br>“streetAddress”: “2ndStreet”,<br>“city”: “NewYork”,<br>“state”: “NY”<br>},<br>“esc\aped”: “\”hello\””<br>}<br>firstName<br>address<br>address.city<br>address.postal<br>esc\aped</div><div class="pdsec">样例输出</div><div class="pddata">STRING John<br>OBJECT<br>STRING NewYork<br>NOTEXIST<br>STRING “hello”</div><div class="pdsec">评测用例规模与约定</div><div class="pdcont">　　<i>n</i> ≤ 100，每行不超过 80 个字符。<br>　　<i>m</i> ≤ 100，每个查询的长度不超过 80 个字符。<br>　　字符串中的字符均为 ASCII 码 33-126 的可打印字符，不会出现空格。所有字符串都不是空串。<br>　　所有作为键的字符串不会包含小数点 .。查询时键的大小写敏感。<br>　　50%的评测用例输入的对象只有 1 层结构，80%的评测用例输入的对象结构层数不超过 2 层。举例来说，{“a”: “b”} 是一层结构的对象，{“a”: {“b”: “c”}} 是二层结构的对象，以此类推。</div><br><br>    </td>
 
 <p><code>这道题直接调用了python的json包，只有90分</code><br>  <script src="https://gist.github.com/sparkydogX/ea66dd8a42ce475f604a1c3f56d146b5.js"></script></p>
-<h2 id="6-排序"><a href="#6-排序" class="headerlink" title="6. 排序"></a>6. 排序</h2><script src="https://gist.github.com/sparkydogX/e7a97431be225fca99547ce67314d1c2.js"></script>
+<h2><span id="6-排序">6. 排序</span></h2><script src="https://gist.github.com/sparkydogX/e7a97431be225fca99547ce67314d1c2.js"></script>
 
-<h2 id="7-日期"><a href="#7-日期" class="headerlink" title="7. 日期"></a>7. 日期</h2><script src="https://gist.github.com/sparkydogX/2a1abaa88c58ebd681442252f3be1fc6.js"></script>
+<h2><span id="7-日期">7. 日期</span></h2><script src="https://gist.github.com/sparkydogX/2a1abaa88c58ebd681442252f3be1fc6.js"></script>
 
       
     </div>
+
+    
+      
+
 
     
 
@@ -891,7 +895,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-跳一跳"><span class="nav-number">1.</span> <span class="nav-text">1. 跳一跳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-碰撞的小球"><span class="nav-number">2.</span> <span class="nav-text">2. 碰撞的小球</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-URL-映射"><span class="nav-number">3.</span> <span class="nav-text">3. URL 映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-最小差值"><span class="nav-number">4.</span> <span class="nav-text">4. 最小差值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-排序"><span class="nav-number">5.</span> <span class="nav-text">6. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-日期"><span class="nav-number">6.</span> <span class="nav-text">7. 日期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1. 跳一跳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">2. 碰撞的小球</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">3. URL 映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">4. 最小差值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">6. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">7. 日期</span></a></li></ol></div>
             
 
           </div>
@@ -1040,6 +1044,9 @@
 
 
   
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
 
   
 
@@ -1435,6 +1442,79 @@
   
 
   
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
 </body>
 </html>
