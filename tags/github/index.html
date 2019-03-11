@@ -96,7 +96,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="SparkydogX Blog">
-<meta property="og:url" content="http://sparkydogX.github.io/tags/github/index.html">
+<meta property="og:url" content="http://sparkydogX.github.io/tags/Github/index.html">
 <meta property="og:site_name" content="SparkydogX Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://sparkydogX.github.io/tags/github/">
+  <link rel="canonical" href="http://sparkydogX.github.io/tags/Github/">
 
 
 
 
 
-  <title>标签: github | SparkydogX Blog</title>
+  <title>标签: Github | SparkydogX Blog</title>
   
 
 
@@ -283,7 +283,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>github<small>标签</small>
+        <h1>Github<small>标签</small>
         </h1>
       </div>
 
@@ -295,69 +295,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/02/03/sync-code-via-github/" itemprop="url">
+            <a class="post-title-link" href="/2017/08/23/hexoGithubTutorial/" itemprop="url">
               
-                <span itemprop="name">通过Github私有仓库同步代码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-03T15:28:01+08:00" content="2019-02-03">
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/26/dict-in-command-line/" itemprop="url">
-              
-                <span itemprop="name">在命令行中使用词典</span>
+                <span itemprop="name">在Github上搭建博客</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-26T15:30:34+08:00" content="2018-10-26">
-          10-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/12/use-github-js-css/" itemprop="url">
-              
-                <span itemprop="name">使用Github托管js和css文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-12T16:10:13+08:00" content="2018-10-12">
-          10-12
+        <time class="post-time" itemprop="dateCreated" datetime="2017-08-23T14:37:43+08:00" content="2017-08-23">
+          08-23
         </time>
       </div>
 
@@ -611,30 +559,6 @@
 
 
 
-
-   
-   
-   
-   
-   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-   
-       <script type="text/javascript">
-           function ShowGitment(){
-               document.getElementById("gitment-display-button").style.display = "none";
-               document.getElementById("gitment-container").style.display = "block";
-               var gitment = new Gitment({
-                   id: document.location.href, 
-                   owner: 'sparkydogX',
-                   repo: 'sparkydogx_blog_comment',
-                   oauth: {
-                       client_id: '1fb8be035d1a1d3f1082',
-                       client_secret: '95a81b31942994a8fa2912b53106264174f0c7f8',
-                   }});
-               gitment.render('gitment-container');
-           }
-       </script>
-   
 
 
   
@@ -910,6 +834,71 @@
               })
               searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+tent.innerHTML = searchResultList;
             }
           }
 
