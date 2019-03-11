@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[在python中调用matlab]]></title>
+    <url>%2F2019%2F03%2F04%2Fpython-matlab%2F</url>
+    <content type="text"><![CDATA[本文介绍如何在python中调用matlab的函数。 安装matlab首先需要安装matlab，如果已经安装可以跳过这一节。本文使用的matlab版本是R2016b，安装在远程的服务器上。由于是远程安装，所以需要在安装matlab的时候使用静默模式。 首先修改安装目录下的installer_input.txt文件，选择需要安装的组件，修改文件中的相应状态。cd到matlab安装文件所在目录，执行./install -inputFile /xxx/xxx/xxx/installer_input.txt这里建议写全文件所在的绝对路径。 激活matlab。matlab安装后需要激活，cd到matlab安装路径下，这个路径在installer_input.txt文件中进行过设置。执行 12cd bin./activate_matlab.sh -propertiesFile /xxx/xxx/xxx/activate.ini 安装成功后可以执行bin/matlab来启动matlab为了便于使用，可以将matlab的启动路径作为别名添加到bashrc文件中。 python安装matlab engine12cd $matlab_root/extern/pythonpython set.py install 注意不同版本的matlab支持的python版本也不尽相同。这样就安装成功了，可以运行一段代码测试一下：1234import matlab.engineeng = matlab.engine.start_matlab()tf = eng.isprime(37)print(tf) 更多用法可以参考这个页面]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在latex中添加notes]]></title>
+    <url>%2F2019%2F03%2F01%2Flatex-add-notes%2F</url>
+    <content type="text"><![CDATA[有时候对于一个未完成的tex文件，为了方便与他人交流，或者为了给自己提个醒，我们希望能够在生成的pdf文件中加入醒目的注释。使用todonotes和marginnote都可以实现这样的功能。 在页面两侧空白处添加notes定义其中最后四行是为了保持原来排版不变的情况下增加边距。因为默认的边距往往较小，显示出来的效果比较糟糕，所以往往需要增加边距，以容纳注释文本。在最终版本中应该将这四行删除。 在文章中使用 使用todonotes 1\todo&#123;Don&apos;t forget to put an introduction here.&#125; 使用marginnote 1\marginnote&#123;This is a margin note&#125;[3cm] 这里的3cm定义了这个注释显示在页面中的高度。关于使用marginnote的更详细用法可以参考https://www.overleaf.com/learn/latex/Margin_notes 使用todonotes实现inline notes行内的notes会占据正文的空间，这种方法的好处是不用考虑额外的边距问题，也更加方便阅读。123456789\usepackage[textsize=small]&#123;todonotes&#125;...\todo[inline,caption=&#123;&#125;]&#123; \begin&#123;itemize&#125; \item Bla bla bla \end&#123;itemize&#125;&#125;]]></content>
+      <tags>
+        <tag>latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[获得当前git提交版本的hash]]></title>
+    <url>%2F2019%2F02%2F27%2Fget-current-commit-version%2F</url>
+    <content type="text"><![CDATA[想知道当前代码在git仓库中的版本，最直接的方法是使用git log直接进行查看。此外也可以通过在terminal中执行以下指令直接获得：1git log --pretty=format:"%h" -n 1 将”%h”换成”%H”可以获得long形式的Hash]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在python的tqdm中加入前缀和后缀]]></title>
+    <url>%2F2019%2F02%2F18%2Ftqdm-with-description%2F</url>
+    <content type="text"><![CDATA[tqdm是python中非常好用的模块，可以用来指示循环的运行情况，最简单的方法是在for循环中直接加入tqdm，如for i in tqdm(range(100))。但是如果想要在循环中指示更多信息，则需要修改一些代码： 这样可以在tqdm读条的前后显示需要的信息，set_description()设定的是前缀，set_postfix()设定的是后缀。如果需要更加细致全面美观的功能，可以使用progress模块。使用tqdm主要就是图个方便省事。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>tqdm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过Github私有仓库同步代码]]></title>
+    <url>%2F2019%2F02%2F03%2Fsync-code-via-github%2F</url>
+    <content type="text"><![CDATA[前一阵Github向个人用户免费开放了私有仓库的功能。通过私有仓库同步代码相当方便。本文不考虑对master分支进行合并操作，仅介绍dev分支的同步。 本地dev分支 若dev分支不存在，创建dev分支： git checkout -b dev master 修改代码后提交： git add, git commit 上传代码到Github： git push origin dev 远程机器 若dev分支不存在，创建并切换到dev分支：git checkout -b origin/dev 同步Github仓库中的代码：git pull]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>push</tag>
+        <tag>pull</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在SimpleHTTPServer中加入上传功能]]></title>
+    <url>%2F2019%2F02%2F03%2Fpython-simplehttpserverwithupload%2F</url>
+    <content type="text"><![CDATA[感谢以下两篇博客给出的详细实现思路： http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerWithUpload_with_python3.html 分别实现了python2和python3的版本。在中文环境下建议使用python3的版本，在测试中我使用python2版本上传中文文件时会出现乱码。（亘古不变的编码大坑=_=!）代码如下：]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>SimpleHTTPServer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过脚本在终端中打开多个ssh session]]></title>
+    <url>%2F2019%2F01%2F22%2Fcreate-ssh-terminial%2F</url>
+    <content type="text"><![CDATA[在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。 免密登录服务器ssh-keygen创建一个新的密钥对将公钥复制到服务器ssh-copy-id user@my.server.com从现在起，服务器应该识别你的密钥，而不再要求输入密码。 编写脚本我的脚本如下：1234567#!/bin/bashcmd='watch -n 1 nvidia-smi' gnome-terminal \ --window -e "ssh node0 " \ --tab -e "ssh -t node0 $cmd" \ --tab -e "ssh -t node1" \ --tab -e "ssh -t node1 $cmd" \ 这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用`user@my.server.com`替代即可。这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>ssh</tag>
+        <tag>gnome-terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[部署供Telegram使用的MTProxy服务]]></title>
+    <url>%2F2019%2F01%2F17%2Fmtproxy-telegram%2F</url>
+    <content type="text"><![CDATA[更新后的telegram在iOS上使用系统代理无效，可以选择使用telegram内置的socks5和mtproxy来进行代理。socks5代理搞得我一头雾水，到最后也没找到iOS上我vpn程序的本地端口在哪。只能使用mtproxy。好在mtproxy服务器的配置也很简单。以我的服务器为例，操作系统是centos6。 安装依赖123yum updateyum install openssl-devel zlib-devel git wget vimyum groupinstall "Development Tools" 安装C++111234cd /etc/yum.repos.dwget http://linuxsoft.cern.ch/cern/scl/slc6-scl.repoyum -y --nogpgcheck install devtoolset-3-gcc devtoolset-3-gcc-c++scl enable devtoolset-3 bash 编译源代码123git clone https://github.com/TelegramMessenger/MTProxycd MTProxymake 运行123456cd objs/bin# 获取 AES 密钥用于连接 Telegram 服务器curl -s https://core.telegram.org/getProxySecret -o proxy-secret# 获取 Telegram 服务器列表及配置，建议定时更新curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.confhead -c 16 /dev/urandom | xxd -ps 添加用户：12adduser mtproxypasswd mtproxy 记住到这一步生成的密钥。12chmod +x mtproto-proxy./mtproto-proxy -u mtproxy -p 8888 -H 445 -S &lt;secret&gt; --aes-pwd proxy-secret proxy-multi.conf -M 0 &amp; 更改防火墙设置，允许对应的 TCP 端口通过：sudo iptables -A INPUT -p tcp --dport 445 -j ACCEPT 添加开机启动cd /home/MTProxy/objs/bin &amp;&amp; ./mtproto-proxy -u mtproxy -p 8888 -H 445 -S &lt;secret&gt; --aes-pwd proxy-secret proxy-multi.conf -M 0 &amp; 停止MTProxypkill -u mtproxy 参考来源： https://github.com/iimarks/MTProxy Telegram 专用代理服务器 MTProxy 搭建 Telegram MTproxy代理搭建完全指南]]></content>
+      <tags>
+        <tag>telegram</tag>
+        <tag>MTProxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu中设置网络唤醒]]></title>
+    <url>%2F2019%2F01%2F16%2Fubuntu-wake-on-lan%2F</url>
+    <content type="text"><![CDATA[网络唤醒，实际上就是远程开机了，首先需要主板支持wake on lan（大部分2000年后生产的主板都支持wol），此外机器需要连接到电源。 设置BIOS在BIOS设置中打开wol功能，通常到制造商的网站上可以找到具体操作步骤，我用的是华硕主板，设置步骤在这里:BIOS中如何开启&amp;关闭网络唤醒 在Ubuntu系统中进行设置 安装 ethtoolsudo apt-get install ethtool 启动ethtoolsudo ethtool -s eth0 wol g这里的eth0应该根据具体的网卡名称修改。可以使用ifconfig查看当前机器的网卡。 设置开机启动ethtoolvim /etc/rc.local 12sleep 5ethtool -s eth0 wol g sudo vim/etc/init.d/halt设置NETDOWN = no 记录Ubuntu机器的Mac地址 远程启动 For Ubuntu:sudo apt-get install wakeonlan For Mac: brew install wakeonlan For Windows: Wake on Lan以Ubuntu和Mac为例，在命令行中执行wakeonlan xx:xx:xx:xx:xx:xx （输入Ubuntu机器对应的mac地址）就可以唤醒机器了。]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>wake on lan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[将gitignore中的更新同步到git仓库]]></title>
+    <url>%2F2019%2F01%2F09%2Fapply-gitignore%2F</url>
+    <content type="text"><![CDATA[有时候我们gitignore文件中写错了一些条目，知道commit的时候才发现。有时修改gitignore发现没有作用。需要运行以下代码：123456# rm all filesgit rm -r --cached .# add all files as per new .gitignoregit add .# now, commit for new .gitignore to applygit commit -m ".gitignore is now working"]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在openwrt系统中设置开机自启服务]]></title>
+    <url>%2F2019%2F01%2F09%2Fopenwrt-service-startup%2F</url>
+    <content type="text"><![CDATA[/etc/init.d目录下面就是系统加载的开机配置，文件夹中的每个文件都代表一个service。每个配置可以设置START优先级，数字越大启动越靠后，如果有很多需要依赖网络或者USB之类的启动程序最好设置靠后一些，等其他程序启动了再启动。系统读取etc/init.d/下的启动配置文件后，系统会根据start优先级，按照顺序执行每个文件的start()函数中的命令。 下面为myapp添加开启启动，假定myapp的路径是/opt/myapp 编辑/etc/init.d/mystart 输入以下内容12345678910111213#!/bin/sh /etc/rc.commonSTART=99start()&#123; /opt/myapp&#125;stop()&#123; # kill your pid kill -9 `ps | grep '/opt/myapp' | grep -v 'grep' | awk '&#123;print $1&#125;'`&#125;restart()&#123; kill -9 `ps | grep '/opt/myapp' | grep -v 'grep' | awk '&#123;print $1&#125;'` /opt/myapp&#125; 然后保存，退出123chmod +x /etc/init.d/mystart #设置可执行权限/etc/init.d/mystart enable/etc/init.d/mystart start]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>openwrt</tag>
+        <tag>service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在git中使用worktree同时开发多个branch]]></title>
+    <url>%2F2019%2F01%2F08%2Fgit-worktree%2F</url>
+    <content type="text"><![CDATA[在运行程序的过程中，我喜欢用git来管理代码版本。有时候需要尝试加入新的功能，直接新建一个branch，然后在branch中开发，不会影响到master，十分方便。但是新的问题也随之产生了：我的程序常常运行一遍需要好几天，在此期间我显然不应当对当前目录下的代码进行修改，这时候worktree就派上用场了。worktree是git 2.6之后推出的功能。版本过低可以通过源码进行编译安装来升级。 创建worktree的使用如下：git worktree add &lt;path&gt; &lt;branch&gt;：关联一个branch到指定的路径git worktree add -b &lt;new_branch&gt; &lt;path&gt; &lt;branch&gt;：基于指定branch新建一个branch到指定路径注意worktree的路径不能与原来的工作目录重叠在worktree建立完成后，原来branch的代码相当于被clone一份到了指定目录里，可以在主代码仓库像往常一样管理各个branch，但是此时新建branch的工作目录已经是在之前指定的文件夹了。使用git worktree list可以查看当前的worktree情况。 删除删除branch所在工作目录，然后在主仓库所在文件夹执行git worktree prune。]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>worktree</tag>
+        <tag>branch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pandas dataframe数据与python内置字典的相互转换]]></title>
+    <url>%2F2019%2F01%2F02%2Fpandas-dict%2F</url>
+    <content type="text"><![CDATA[Pandas是一个相当流行的数据处理模块，常用的数据结构被称为DataFrame。DataFrame与Python内置的字典类型可以方便地相互转化。代码如下： 输出如下：12345678910111213Name Value0 string1 2.01 string2 1.02 string1 3.03 string2 3.04 string3 3.55 string1 4.06 string2 4.5&#123;'string1': 9.0, 'string2': 8.5, 'string3': 3.5&#125;Name Sum0 string1 9.01 string2 8.52 string3 3.5]]></content>
+      <tags>
+        <tag>dict</tag>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python标准库中的logging]]></title>
+    <url>%2F2018%2F12%2F29%2Fpy-bulit-in-logging%2F</url>
+    <content type="text"><![CDATA[Python自带logging模块，可以让我们很方便地在程序运行时输出日志。代码如下：]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>logging</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu中设置开机启动项]]></title>
+    <url>%2F2018%2F12%2F28%2Fscript-on-startup%2F</url>
+    <content type="text"><![CDATA[Ubuntu提供了一个叫做Startup Applications的工具，在这个工具中可以很方便的设置各种开机启动的程序或者脚本。这种方法操作简便，基本一看就会，这里不多介绍。但是这种方法有个缺陷：不能以root用户的身份来执行程序。为了能够以root身份运行，在ubuntu中大体上有三种方法： 在/etc/systemd/system文件夹下面建立service文件。不仅可以开机启动，而且能够方便的对程序进行管理。 使用crontab或者在cron文件夹下建立新的文件，以@reboot开头。 编辑/etc/rc.local文件 关于linux中的service我们以后再说，这里就只讲最为简单直接的第3种方法。首先运行sudo vim /etc/rc.local编辑文件，只需在exit 0上面加入一句话即可：sleep 10s &amp;&amp; sudo nohup /home/sparkydog/onstartup.sh &amp; &gt; /tmp/rc.local.log注意这里先运行了sleep 10s是为了等待系统的各个进程都正常地加载完毕。尤其是当script文件中启动GUI界面程序的时候。/etc/rc.local文件中的最后一句话必须是exit 0]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>startup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Numpy中控制不同的变量拥有不同的随机数种子]]></title>
+    <url>%2F2018%2F12%2F27%2Fnumpy-random-seed%2F</url>
+    <content type="text"><![CDATA[在numpy中，我们知道可以通常设置随机数种子来控制随机数的生成情况，在相同随机数种子的情况下，无论何时运行程序，生成的随机数序列都是相同的。这也从一个方面印证了自带的随机是伪随机。在使用随机数种子的时候，最简单的方法是：1numpy.random.seed(seed=1234) 但是这样做设置的随机种子作用域是整个文件，也就是说当你在这个文件中使用numpy随机数的时候，都会使用这个语句所设置的随机数种子。现在我有两个随机变量，我希望其中一个在每次程序运行的时候都保持不变，另一个则要发生变化。代码如下：]]></content>
+      <tags>
+        <tag>numpy</tag>
+        <tag>random seed</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python修改文件的修改时间和访问时间]]></title>
+    <url>%2F2018%2F12%2F25%2Fpython-osutime%2F</url>
+    <content type="text"><![CDATA[事情起源于我一个很简单的需求：将文件夹中显示的文件按照自定义的规则排序。我有一堆文件夹，文件夹的名称最后一个字符是我想要的排序关键字。我用的是Ubuntu系统，找了一圈也没发现系统提供这个功能。最后只好自己实现。思路很简单： 先用python中的os.listdir()方法将文件名读进列表 然后以我想要的方式对列表进行排序。 排序完成之后挨个修改文件的修改时间。 最后在文件夹中按照修改时间排序就可以了。 代码如下：12345import osstinfo = os.stat('path') #stinfo可以当作具有十个元素的列表使用print(stinfo)atime,mtime = stinfo[-3], stinfo[-2]os.utime('path',(atime,mtime)) 其中atime是access time，mtime是modified time。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>sort</tag>
+        <tag>utime</tag>
+        <tag>stat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用ssh反向代理进行内网穿透]]></title>
+    <url>%2F2018%2F12%2F20%2Fss-fCNR%2F</url>
+    <content type="text"><![CDATA[之前我们介绍过使用ngrok和n2n这样的工具来进行内网穿透。这样的工具自己用当然是很棒，但是很多时候亲朋好友会遇到一些问题需要你用ssh连上帮忙解决的时候，以上两个工具配置起来还是太麻烦了。用ssh的好处是几乎每个现代的计算机上都会自带ssh工具，省去了配置的麻烦。 服务器ssh -fCNL *:6789:localhost:9876:localhost将6789端口的ssh请求转发到9876端口上面，*表示接受来自所有ip的请求。 客户端ssh -fCNR 9876:localhost:22 server_user@server.domain -p 22建立本地22端口到服务器9876端口的ssh反向代理。在被操作的机器上面执行这句命令，随后会要求输入密码，输入服务器上对应用户的密码即可。 登录ssh这时候配置已经完成，随便找一台电脑输入ssh client_user@erver.domain -p 6789即可登录到客户机的ssh。 这种方法的缺陷在于一段时间不用之后ssh反向代理会自动断开，因此不适合长久的部署。但是胜在操作简单，应个急还是很不错的]]></content>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用n2n搭建虚拟局域网]]></title>
+    <url>%2F2018%2F12%2F20%2Fn2n%2F</url>
+    <content type="text"><![CDATA[n2n是一个P2P（peer to peer）的网络工具。与我们之前介绍过的ngrok不同，n2n不是简单的将端口暴露到具有公有ip的服务器上，而是存在一个supernode，supernode的作用是帮助client完成点到点的连接，完成连接之后客户机相当于处在同一个局域网内。n2n项目页面：https://github.com/ntop/n2n 服务端这里以Ubuntu客户端为例123456sudo apt-get install subversion build-essential libssl-dev autoconfgit clone https://github.com/ntop/n2n.gitcd n2n./autogenmakesudo make install 运行服务端程序supernode -l 5000 -v这句命令表示监听5000端口，-v用于输出日志，便于调试。 客户端安装MacOSbrew install autoconfbrew install automakebrew cask install tuntap 这一步需要管理员权限，安装完成后需要在System Preferences → Security &amp; Privacy → General中允许程序运行。参考这个页面：https://github.com/ntop/n2n/blob/master/doc/n2n_on_MacOS.txt 12$ cd /usr/local/include$ ln -s ../opt/openssl/include/openssl . 然后同样的，进入n2n文件夹，执行123./autogenmakesudo make install 运行客户端程序sudo /usr/local/sbin/edge -d edge0 -a 10.0.0.10 -c mynetwork -u 1000 -g 1000 -k passwd -l server-ip:5000 -m ae:e0:4f:e7:47:5b参数说明： “-a &lt;IP地址&gt;”选项（静态地）指定了分配给 TAP 接口的 VPN 的 IP 地址。如果你想要使用 DHCP，你需要在其中一台边缘节点上配置一台 DHCP 服务器，然后使用“-a dhcp:0.0.0.0”选项来代替。 “-c &lt;组名&gt;”选项指定了 VPN 组的名字（最大长度为 16 个字节）。这个选项可以被用来在同样一组节点中创建多个 VPN。 “-u”和“-g”选项被用来在创建一个 TAP 接口后降权放弃 root 权限。edge 守护进程将会作为指定的用户/组 ID 运行。 “-k &lt;密钥&gt;”选项指定了一个由 twofish 加密的密钥来使用。如果你想要将密钥从命令行中隐藏，你可以使用 N2N_KEY 环境变量。 “-l &lt;IP地址:端口&gt;”选项指定了超级节点的监听 IP 地址和端口号。为了冗余，你可以指定最多两个不同的超级节点（比如 -l &lt;超级节点 A&gt; -l &lt;超级节点 B&gt;）。 “-m ”给 TAP 接口分配了一个静态的 MAC 地址。不使用这个参数的话，edge 命令将会随机生成一个 MAC 地址。事实上，为一个 VPN 接口强制指定一个静态的 MAC 地址是被强烈推荐的做法。否则，比如当你在一个节点上重启了 edge 守护程序的时候，其它节点的 ARP 缓存将会由于新生成的 MAC 地址而遭到污染，它们将不能向这个节点发送数据，直到被污染的 ARP 记录被消除。 UbuntuUbuntu客户机下的安装与服务器是一样的。 运行客户端程序sudo /usr/sbin/edge -d edge0 -a 10.0.0.11 -c mynetwork -u 1000 -g 1000 -k passwd -l sparkydog.top:2333 -m ae:e0:4f:e7:47:5c 测试连接在客户机A中ping客户机B的虚拟ip地址，如10.0.0.10 ，如果ping通，说明配置成功。edge是一个后台常驻进程，如果想要停止edge，需要找到对应pid手动kill。使用命令ps aux | grep edge或者sudo lsof -t -i:5644可以得到edge进程的pid 路由器openwrt路由器直接运行opkg install n2n就可以。我的路由器是小米的R2D，不能直接使用opkg的源。我使用了一个针对小米路由器的第三方的工具箱，项目页面： https://github.com/monlor/Monlor-Tools通过工具箱可以安装Entware。Entware有自己的仓库，同样使用opkg进行包管理，比原生的仓库具有更好的兼容性。安装Entware后运行source /etc/profile。然后就可以通过opkg安装n2n了。 这样，我们所有的主机设备和路由器都进入了一个虚拟的局域网内，机器之间可以方便的互相访问。 管理vlan中的节点很多时候我们需要查询当前vlan中的节点ip，使用sudo nmap -sP 10.0.0.0-255进行查看。]]></content>
+      <tags>
+        <tag>n2n</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[提升编程效率的玄学方法]]></title>
+    <url>%2F2018%2F12%2F18%2Finteresting-comment%2F</url>
+    <content type="text"><![CDATA[众所周知， 天气、季节、坐姿、朝向、饱食度、疲劳度等诸多因素会对程序员的编程效率产生影响。其中心情也是影响编程效率的一个重要因素。在输出或者注释中加入一些神奇的ascii图案，能够显著的提高心情。https://www.text-image.com/convert/ascii.html 这个网站可以从图像中生成对应的ascii图案。http://patorjk.com/software/taag/ 这个网站可以输入文字，生成巨大的ascii标语图案。我收集了一些ascii图案，整理成一个python的类以便使用。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>comments</tag>
+        <tag>interesting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用metapost作图]]></title>
+    <url>%2F2018%2F12%2F18%2Fmetapost%2F</url>
+    <content type="text"><![CDATA[metapost是一个历史悠久的作图工具，生成的是postscript矢量图，在一些领域有比较多的使用。本文讲述如何在Ubuntu下安装使用metapost。metapost的作者是大名鼎鼎的Donald Knuth，也是tex的主要作者。在Ubuntu中想使用metapost首先要安装tex。sudo apt-get install texlivesudo apt-get install texlive-metapost安装完成后输入命令：mpost myfigure.mp即可从描述文件myfigure.mp生成ps矢量图。metapost有个扩展metafun，常常会一起使用。sudo apt-get install context使用时的指令为：mpost --mem=metafun myfigure.mp]]></content>
+      <tags>
+        <tag>metapost</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Jupyter Notebook中更新图像]]></title>
+    <url>%2F2018%2F12%2F14%2Fjupyter-udate-image-in-single-cell%2F</url>
+    <content type="text"><![CDATA[Jupyter Notebook是一个非常好用的工具。使用pyplot在Jupyter Notebook中作图可以直接展示在Cell中，有时候我们需要刷新图像的内容，或者希望能产生动图。为了这一效果，我们需要用到display以及一些控件。 这段代码产生一个显示区域和一个button，每次点击button就会刷新图像。如果需要播放视频，根据需要的帧率运行sleep命令即可。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用pyplot在一张图上绘制多个直方图]]></title>
+    <url>%2F2018%2F12%2F13%2Fmulti-hist-pyplot%2F</url>
+    <content type="text"><![CDATA[在一张图上绘制多个直方图的关键在于透明度alpha的设置，代码如下： 效果如下：]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+        <tag>pyplot</tag>
+        <tag>histogram</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在本地部署SciNote]]></title>
+    <url>%2F2018%2F12%2F13%2Fscinote-deploy%2F</url>
+    <content type="text"><![CDATA[SciNote是一个开源的ELN（Electronic Lab Notebook）, Github页面:https://github.com/biosistemika/scinote-web有一个在线服务SciNote, 但是国内网速很慢, 难以使用.由于scinote开源，因此可以在本地部署。 准备工作 获取源代码 1git clone https://github.com/biosistemika/scinote-web.git 创建文件config/application.yml 对应变量说明 环境要求: make, Docker, docker-compose, 3000端口 确认安装权限 如果在Ubuntu下, 运行sudo -i获取sudo权限 开发者环境 依次执行以下命令: make docker make run 等待执行完毕可以看到服务已经运行在3000端口, 然后在命令行中Ctrl + C停止服务. 参考页面 执行make cli进入docker container, 依次执行以下语句: rails db:drop rails db:create rails db:migrate rails db:seed exit 到这里已经可以在http://localhost:3000 看到有服务在运行了, 但是我运行到这一步的时候, 显示的是错误页面. 我检查之后发现container下面的public文件夹几乎是空的. 这个项目使用的是前端webpacker + 后端rails. 我推测是没有编译webpacker导致的问题, 但是我对于这两个工具都相当不熟悉, 没能找到编译的方法. 如果是对于这两个工具比较熟悉的朋友, 应该编译一下就能用了. 尝试编译的朋友请在评论区留个言~我没办法只能转向生产环境 生产环境 依次执行以下语句: make config-production make docker-production make database-production 启动服务:docker-compose -f ./docker-compose.production.yml up如果想在后台运行, 使用docker-compose -f ./docker-compose.production.yml up -d 此时在http://localhost:3000 已经可以正常使用了.参考页面 备份数据需要备份的数据有postgres数据库中的数据和系统文件, 以及config/application.yml和production.env文件. 备份postgresql数据库docker exec scinote_db_production pg_dump -h localhost -p 5432 -U postgres -d scinote_production -c -b -f /home/db.bakdocker cp scinote_db_production:/home/db.bak /your/bakup/path/ 备份文件系统中的数据docker cp scinote_web_production:/usr/src/app/public/system /your/bakup/path/ 定期执行备份将上述命令编写成脚本, 使用crontab定期执行备份.这里也可以结合以前提到过的bypy工具包, 定期备份到百度云.我的备份脚本： 恢复数据如果是在另外一台主机上恢复数据, 需要将备份的config/application.yml和production.env文件拷贝到对应位置. 恢复postgresql数据库 拷贝数据到container:docker cp db.bak scinote_db_production:/home/db.bak 进入scinote_db_production的container,执行psql -h localhost -p 5432 -U postgres -d scinote_production -f /home/db.bakdocker cp ~/Documents/sciweb-data-bak/system/. scinote_web_production:/usr/src/app/public/system/make docker-production 恢复文件系统中的数据 拷贝数据到container:docker cp /your/bakup/path/ scinote_web_production:/usr/src/app/public/system 更新源文件 重建docker镜像: make docker-production 迁移数据: make cli-production rails db:migrate 重启docker container docker-compose -f ./docker-compose.production.yml up -d]]></content>
+      <tags>
+        <tag>scinote</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在PC和服务器上部署elabfw]]></title>
+    <url>%2F2018%2F12%2F11%2Felabfw%2F</url>
+    <content type="text"><![CDATA[elabfw是一个开源的实验记录工具. 可以自由的部署在个人PC或者服务器上.官方安装文档:https://doc.elabftw.net/install.html 安装依赖首先要安装docker, 如果网络环境允许, 可以跟随https://docs.docker.com/compose/install/这个页面上的指示. 但是我安装的时候网速相当慢, 后来使用国内的镜像代替.我的安装步骤如下: 安装docker的依赖 12345$ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ software-properties-common 下载deb文件我下载的是中科大的镜像网站上的文件.链接: http://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb 安装deb文件sudo deb -i docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb 安装Docker Compose我的安装参考这个页面:https://docs.docker.com/compose/install/#master-buildssudo curl -L &quot;https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-composesudo chmod +x /usr/local/bin/docker-compose测试是否安装成功: docker-compose --version 安装dialogsudo apt-get install dialog 安装eLabFTW 安装elabctl 1234# get the program (a bash script)curl -sL https://get.elabftw.net -o elabctl &amp;&amp; chmod +x elabctl# add it to a directory in your $PATHsudo mv elabctl /usr/local/bin/ 配置elabctlelabctl install (可选)编辑配置文件配置文件位置:/etc/elabftw.yml 启动eLabFTWsudo elabctl start 使用eLabFTWeLabFTW默认运行在443端口, 因此访问https://&lt;your-elabftw-site.org&gt; (或者 https://)注册的第一个账户会成为管理员账户.之后应当在设置界面配置一个SMTP账户, 确保在忘记密码的时候可以发送邮件到注册的邮箱, 否则忘记密码之后是无法找回的, 切记! 备份数据sudo elabctl backup对应script: https://gist.github.com/NicolasCARPi/5d9e2599857a148a54b0script中的SQL user/password可以在docker container中的/elabftw/config.php找到.相关页面:https://doc.elabftw.net/backup.html#backup 恢复备份恢复页面恢复数据库(elabftw):123456unzip uploaded_files-YYYY-MM-DD.zipmv var/elabftw/web/* /var/elabftw/webmv etc/elabftw.yml /etc/elabftw.yml# now fix the permissionschown -R 100:101 /var/elabftw/webchmod 600 /etc/elabftw.yml 恢复数据库(在mysql的container中操作):12345678910gunzip mysql_dump-YYYY-MM-DD.sql.gz # uncompress the filedocker cp mysql_dump-YYYY-MM-DD.sql mysql:/ # copy it inside the mysql containerdocker exec -it mysql bash # spawn a shell in the mysql containermysql -uroot -p # login to mysql prompt# here you type the password you put in MYSQL_ROOT_PASSWORD in the /etc/elabftw.yml fileMysql&gt; drop database elabftw; # delete the brand new databaseMysql&gt; create database elabftw; # create a new oneMysql&gt; use elabftw; # select itMysql&gt; source mysql_dump-YYYY-MM-DD.sql; # import the backupMysql&gt; exit; 目前存在的问题是在目录页面显示中文的时候会乱码, 这是目前对中文的支持不完善导致的. 解决方案是在mysql的docker container中设置lang为UTF-8。使用locale -a可以看到当前可用的语言。]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>elabfw</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python读写excel文件]]></title>
+    <url>%2F2018%2F12%2F09%2Fexcel-python%2F</url>
+    <content type="text"><![CDATA[使用Python可以处理Excel文件。读取数据：https://github.com/python-excel/xlrd写数据：https://github.com/python-excel/xlwt写数据使用示例：1234567891011121314151617import xlwtfrom datetime import datetimestyle0 = xlwt.easyxf('font: name Times New Roman, color-index red, bold on', num_format_str='#,##0.00')style1 = xlwt.easyxf(num_format_str='D-MMM-YY')wb = xlwt.Workbook()ws = wb.add_sheet('A Test Sheet')ws.write(0, 0, 1234.56, style0)ws.write(1, 0, datetime.now(), style1)ws.write(2, 0, 1)ws.write(2, 1, 1)ws.write(2, 2, xlwt.Formula("A3+B3"))wb.save('example.xls')]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[防止ssh的暴力破解]]></title>
+    <url>%2F2018%2F12%2F09%2Fblock-ssh-connection%2F</url>
+    <content type="text"><![CDATA[最近登陆服务器的时候，发现有很多未知的ssh登录尝试。CentOS系统中ssh登录的日志文件在/var/log/secure。使用cat /var/log/secure | grep Failed | tail -50可以查看最近的50条记录。我查看这个文件的时候发现有一个ip尝试了7000次登录，并且在我登录期间仍然在不停进行尝试，真是丧心病狂，令人发指。必须要采取措施限制这些奇怪的行为。 修改SSH默认端口ssh的默认端口是22，修改端口会增加被破解的障碍。 首先选一个你喜欢的端口，只要没被占用就可以。然后在防火墙中打开这一端口。 sshd的配置文件位于/etc/ssh/sshd_config，修改端口设置之后重启sshd服务。大多数情况下到这一步端口已经修改好了。但是有些主机商（比如linode）会要求使用semanger声明修改。 (Option) 安装 policycoreutils-python：yum install policycoreutils-python,执行semanage port -a -t ssh_port_t -p tcp $PORT。 运行ss -tnlp | grep ssh查看端口是否正确。自动封禁多次登录失败的IP将多次登录失败的IP添加到/etc/hosts.deny文件。创建一个脚本：/usr/local/bin/autodeny.sh 在命令行中运行crontab -e，添加一行：*/10 * * * * sh /usr/local/bin/autodeny.sh，每十分钟自动执行一次。当登录失败超过10次之后IP会被加入黑名单。记得同时将你常用的IP添加到/etc/hosts.allow文件中，以免出现乌龙。]]></content>
+      <tags>
+        <tag>ssh</tag>
+        <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[查看正在运行的jupyter notebook的token]]></title>
+    <url>%2F2018%2F12%2F07%2Fpasswd-of-running-jupyter%2F</url>
+    <content type="text"><![CDATA[在服务器上开一个jupyter notebook，本地通过浏览器访问，是很方便的一件事。但是过了很久访问的时候，有时会忘记jupyter notebook的token。在服务器上执行jupyter notebool list可以看到正在运行的jupyter以及对应的token。]]></content>
+      <tags>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[查看命令行命令的时间]]></title>
+    <url>%2F2018%2F12%2F07%2Fterminal-history-time%2F</url>
+    <content type="text"><![CDATA[在Linux命令行中，输入history可以看到历史指令。但是这个指令默认不带时间信息，输入HISTTIMEFORMAT=&quot;%d/%m/%y %T &quot;，然后执行history，可以得到含有时间信息的历史指令。将这一语句加入~/.bashrc文件中可以在bash启动时自动加载这一语句。]]></content>
+      <tags>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在python中调用shell命令并获得返回值]]></title>
+    <url>%2F2018%2F12%2F07%2Fpython-terminal%2F</url>
+    <content type="text"><![CDATA[代码中的cmd变量是bash中获得当前git repo的branch名字的命令。测试算法的时候我习惯创建多个branch来探索各个因素的影响，结合返回的变量可以方便的将不同branch的结果保存到统一的并且gitignore的log文件夹下。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用个人服务器接收邮件]]></title>
+    <url>%2F2018%2F12%2F05%2Freceive-mail-on-server-lbox%2F</url>
+    <content type="text"><![CDATA[首先需要说明的是，搭建完整的个人邮箱服务器不是一个好主意，部署复杂是一方面，部署之后它仍然需要你大量的时间和精力去维持垃圾邮件过滤和反病毒文件的工作。但是能够使用个人服务器——意味着用户名和域名都属于你自己的——来接收各种无关紧要的邮件，仍然是一件有趣的事情，你可以随心所欲的变换用户名，并且不需要手机验证。这篇文章我会讲述最简单的部署方法，本文使用的是阿里云服务器，搭载Ubuntu系统。 配置域名首先到你的域名商那里，设置域名解析 MX记录添加一条MX记录，主机记录为@，记录值为’mail.example.org’ A记录添加一条A记录，主机记录为‘mail’，记录值为邮箱服务器的ip 配置PTR记录PTR记录用于反向地址解析，到主机商处将PTR记录设置成邮箱服务器域名。 设置Hostname使用hostname -f查看hostname与域名是否一致。如果不一致，需要改成一致。 安装postfixsudo apt-get install postfix安装时选择第二个选项，Internet连接。 安装mailutilssudo apt-get install mailutils 发送邮件echo &quot;hello&quot; | mail -s &quot;test&quot; example@example.org很大的可能你会发现这一步失败了，这时查看日志文件/var/log/mail.log如果看到连接超时的错误，说明很有可能你的主机商禁用了25端口。可以使用traceroute工具尝试连接目标邮箱服务器:traceroute -T -p 25 xxx.xxx，如果看到一排***，说明无法使用25端口。主机商为了防止垃圾邮件禁用了25端口，阿里云可以申请解禁25端口，但是仍然不允许假设私人邮箱服务器向外发送邮件。可以通过更换邮件协议与端口的方法解决这个问题，但是这已经超出了本文的范围。在我的试验中，阿里云中的邮箱服务器虽然不能向外发送邮件，但是接收邮件是没有问题的。当然，你也可以选择更换主机商，Linode是没有这一限制的。 接收邮件首先用你的其余的邮箱发送一封邮件，收件人是`user@example.org。其中user是你设置服务器时的用户，域名是你的邮箱域名，如果是作为root用户设置的，user就是root。 如果没有问题，在服务器中使用mail`命令可以看到有一封新的邮件。如果有附件，使用write命令可以保存。 参考网页：https://www.linuxdashen.com/ubuntu%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93postfix%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8]]></content>
+      <tags>
+        <tag>server</tag>
+        <tag>mail</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python建立HTTP文件服务器]]></title>
+    <url>%2F2018%2F12%2F05%2Fsimple-http-server-with-python%2F</url>
+    <content type="text"><![CDATA[很多时候我们需要快速地查看服务器上的文件，或者将文件分享给别人。在Linux服务器上，这个需求用一行指令即可实现，首先cd到需要分享的文件夹，然后执行： Python 2: python -m SimpleHTTPServer 8080 Python 3: python -m http.server 8080这里指定的端口是8080，在浏览器中使用http://yoursite:8080即可访问。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过linux终端发送邮件]]></title>
+    <url>%2F2018%2F12%2F04%2Femail-linux-terminal%2F</url>
+    <content type="text"><![CDATA[很多时候我们会希望程序在执行完毕或者遇到问题的时候给我们发个邮件，最好附带日志文件，这样即便人不在电脑旁边也能及时的获知程序运行情况。mailutils工具很好的解决了这一个问题。mailutils在大部分系统中可以通过包管理器安装，在Ubuntu下使用sudo apt-get install mailutils ，在MacOS中通过brew使用brew install mailutils安装。 发送邮件echo -e &quot;hello,\nworld.&quot; | mail -s &quot;example&quot; example@example.org其中‘echo -e’为发送的内容，-e表明允许转义符，-s后面跟的是邮件主题，example@example.org是目标邮箱地址。 发送附件echo -e &quot;hello,\nworld.&quot; | mail -s &quot;example&quot; example@example.org -A log.txt使用-A指令指定附件 配置mailutils配置文件位置是’/etc/mailutils.rc’，如果没有的话需要手动创建。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>email</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在python中自动实现嵌套的字典]]></title>
+    <url>%2F2018%2F12%2F03%2Fnested-dict-python%2F</url>
+    <content type="text"><![CDATA[在python中，我们常常会用到嵌套字典，当使用到嵌套字典的时候，必须显式地指明字典变量，否额就会报错。为了解决这一问题，我们可以构建一个Dict的子类： 在这个类别中，使用__missing__方法来定义键值缺失时的行为，walk方法提供对字典中所有元素的遍历]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>dict</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在命令行中使用gnuplot快速查看数据]]></title>
+    <url>%2F2018%2F12%2F03%2Fgnuplot-pipe%2F</url>
+    <content type="text"><![CDATA[很多时候在处理log文件的时候，我们希望能够绘制数值随时间变化曲线。gnuplot是一个命令行作图工具，具有很强大的交互式作图能力。而结合管道功能也可以很方便地满足我的需求。我的log文件如下： Epoch LR Train Loss Val Loss Train Acc Val Acc 1.000000 0.000250 0.006155 0.006397 0.210200 0.371615 2.000000 0.000250 0.004988 0.062103 0.405610 0.490865 3.000000 0.000250 0.004645 0.011359 0.513939 0.563074 4.000000 0.000250 0.004415 0.004224 0.573226 0.632654 5.000000 0.000250 0.004252 0.004261 0.611022 0.667559 首先进行一些文本处理：去除第一行标题，然后选择第1列作为横坐标，第6列作为纵坐标，最后将数据送进gnuplot里作图即可。命令行如下：cat ./log.txt | sed &#39;1d&#39; | awk &#39;{print $1&quot;\t&quot;$6}&#39; | gnuplot -p -e &quot;plot &#39;&lt;cat&#39;&quot;sed指令的作用是删除第一行，awk指令提取指定列，gnuplot命令中-p用来使图像暂停，不会在程序运行完成后直接消失。效果如图： 如果是在远程服务器上，可以在gnuplot中设置set terminal dumb，图像会输出在终端窗口中。命令：cat ./log.txt | sed &#39;1d&#39; | awk &#39;{print $1&quot;\t&quot;$6}&#39; | gnuplot -p -e &quot;set terminal dumb;plot &#39;/dev/stdin&#39;&quot;]]></content>
+      <tags>
+        <tag>gnuplot</tag>
+        <tag>pipe</tag>
+        <tag>作图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux系统性能分析笔记]]></title>
+    <url>%2F2018%2F11%2F30%2Fsystem-performance-notebook%2F</url>
+    <content type="text"><![CDATA[查看CPU数量总核数 = 物理CPU个数 X 每颗物理CPU的核数总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数 查看物理CPU个数cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l 查看每个物理CPU中core的个数(即核数)cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq 查看逻辑CPU的个数cat /proc/cpuinfo| grep &quot;processor&quot;| wc -l 平均负载 uptime输出17:06:20 up 2 days, 17:39, 1 user, load average: 1.75, 1.59, 1.31分别表示当前时间,系统运行时间,正在登录用户数,过去 1 分钟,5 分钟,15 分钟的平均负载运行man uptime可以得到平均负载的定义: System load averages is the average number of processes that are either in a runnable or uninterruptable state. A process in a runnable state is either using the CPU or waiting to use the CPU. A process in uninterruptable state is waiting for some I/O access, eg waiting for disk. The averages are taken over the three time intervals.Load averages are not normalized for the number of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on a 4 CPU system it means it was idle 75% of the time. 除了正在运行的进程,还有不可中断进程.不可中断状态的进程是正处于内核态关键流程中的进程，并且这些流程是不可打断的，最常见的是等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态（Uninterruptible Sleep，也称为 Disk Sleep）的进程。当平均负载大于CPU数量时表示出现了过载. 压力测试工具stress需要通过包管理器进行安装.使用指令stress --cpu 1 --timeout 600可以施加1个CPU的负载,持续600秒.使用指令stress -i 1 --timeout 600模拟io负载.使用指令stress -c 8 --timeout 600模拟8个进程. 使用uptime和mpstat -P ALL可以对CPU的状态进行实时的查看. 使用pidstat查看当前进程占用CPU的情况使用pidstat -u 5 2命令可以每5s统计一次当前CPU使用情况, 共显示两次.使用pidstat -d可以查看当前进程的IO情况 CPU上下文切换系统中的上下文切换可以分为:系统权限模式切换,进程上下文切换,线程上下文切换,中断上下文切换线程是调度的基本单位，而进程则是资源拥有的基本单位. 同进程内的线程切换，要比多进程间的切换消耗更少的资源. 使用vmstat查看系统整体CPU切换情况运行vmstat 5可以得到如下的结果: procs ———–memory———- —swap– —–io—- -system– ——cpu—–r b swpd free buff cache si so bi bo in cs us sy id wa st0 0 0 699912 1015920 6586312 0 0 5 19 3 14 4 7 88 0 00 0 0 685852 1015920 6586344 0 0 0 171 671 1588 2 1 97 0 00 0 0 686720 1015924 6586340 0 0 0 42 551 1473 1 1 98 0 00 0 0 698912 1015924 6586368 0 0 0 7 816 3540 8 2 90 0 0 以下是man vmstat中对于输出参数的说明. FIELD DESCRIPTION FOR VM MODEProcs r: The number of runnable processes (running or waiting for run time). b: The number of processes in uninterruptible sleep. Memory swpd: the amount of virtual memory used. free: the amount of idle memory. buff: the amount of memory used as buffers. cache: the amount of memory used as cache. inact: the amount of inactive memory. (-a option) active: the amount of active memory. (-a option) Swap si: Amount of memory swapped in from disk (/s). so: Amount of memory swapped to disk (/s). IO bi: Blocks received from a block device (blocks/s). bo: Blocks sent to a block device (blocks/s). System in: The number of interrupts per second, including the clock. cs: The number of context switches per second. CPU These are percentages of total CPU time. us: Time spent running non-kernel code. (user time, including nice time) sy: Time spent running kernel code. (system time) id: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time. wa: Time spent waiting for IO. Prior to Linux 2.5.41, included in idle. st: Time stolen from a virtual machine. Prior to Linux 2.6.11, unknown. cs（context switch）是每秒上下文切换的次数。 in（interrupt）则是每秒中断的次数。 r（Running or Runnable）是就绪队列的长度，也就是正在运行和等待 CPU 的进程数。 b（Blocked）则是处于不可中断睡眠状态的进程数. 使用pidstat -w 5查看每个进程的CPU切换情况主要输出中有cswch/s和nvcswch/s两列cswch/s 表示每秒任务所做的自愿上下文切换的总数。当任务阻塞时会发生自愿上下文切换，因为它需要的资源不可用。nvcswch/s 每秒任务所做的非自愿上下文切换的总数。 当任务执行一段时间时，会发生非自愿的上下文切换,因为系统会给每个进程分配时间片段,时间片段到达限定之后就会跳转到别的进程, 作为系统实现多任务的一种方式.pidstat -w只显示进程之间的切换次数,pidstat -wt可以将线程之间的切换次数也计算入内.在终端对其排序可使用pidstat -w | sort -k4 -g,表示对第4行排正序 使用sysbench模拟系统多进程调度sysbench --num-threads=64 --max-time=60 --max-requests=100000 --test=threads run指令可以模拟多线程压力测试. 查看中断切换情况watch -d cat /proc/interrupts查看中断信息. /proc是linux系统提供的虚拟空间, 用于用户空间和内核空间的通信. 查看proc中的文件/proc/stat CPU整体活动信息/proc/&lt;pid&gt;/stat 进程活动信息/proc/&lt;pid&gt;/task/&lt;tid&gt;/stat 线程活动信息 CPU使用率 查看系统节拍率时钟节拍是特定的周期性中断,时钟节拍率越快,系统的额外开销就越大。越慢则系统响应速度越慢.cat /boot/config-$(uname -r) | grep CONFIG_HZ= 可以查看节拍率, 数值表示每秒钟CPU时间中断次数.cat /proc/timer_list |grep jiffies 可以查看jiffies的值, 表示启动以来触发的时间中断次数. 使用cat /proc/stat |grep ^cpu 查看CPU情况得到如下结果: cpu 5126936 5712 7710142 117664694 595706 0 64856 0 0 0cpu0 1469407 1059 2327228 28911946 68524 0 22051 0 0 0cpu1 1504594 1668 2536510 28675459 53180 0 22960 0 0 0cpu2 698222 1269 468605 31543635 49917 0 14812 0 0 0cpu3 1454710 1714 2377798 28533652 424084 0 5031 0 0 0 使用man proc可以得到每一列参数的说明: user (1) Time spent in user mode. nice (2) Time spent in user mode with low priority (nice). system (3) Time spent in system mode. idle (4) Time spent in the idle task. This value should be USER_HZ times the second entry in the /proc/uptime pseudo-file. iowait (since Linux 2.5.41) (5) Time waiting for I/O to complete. irq (since Linux 2.6.0-test4) (6) Time servicing interrupts. softirq (since Linux 2.6.0-test4) (7) Time servicing softirqs. steal (since Linux 2.6.11) (8) Stolen time, which is the time spent in other operating systems when running in a virtualized environment guest (since Linux 2.6.24) (9) Time spent running a virtual CPU for guest operating systems under the control of the Linux kernel. guest_nice (since Linux 2.6.33) (10) Time spent running a niced guest (virtual CPU for guest operating systems under the control of the Linux kernel). CPU使用率的计算去除idle的那一部分即可.但是直接针对这个文件进行计算得到的是开机以来的CPU使用率, 需要查看当前CPU使用率的时候,可以取一段时间, 然后根据这段时间内数据的变化来计算出平均的CPU使用率.在使用top指令进行查看的时候, 计算的是3s内的CPU平均使用率. 查看占用CPU最多的函数 使用perf指令安装perf的时候需要注意, perf与内核的关联十分紧密, 通常会需要sudo apt-get install linux-tools-$(uname -r)如果包管理器中找不到对应内核的perf,可以从linux源码中的linux/tools/perf文件夹编译运行.运行perf top会列出使用资源最高的函数, 最后一列会列出函数名, 函数名未知的列出内存地址.执行perf record ls -g可以记录执行ls语句时候的系统调用情况, 结束后使用perf report可以看到结果perf top -g -p 1302可以看到pid为1302的进程函数调用情况 exescoop工具exescoop是用于检查进程外部exec调用的工具. 有时候系统CPU占用很高, 但是单个进程查不出来, 这时候就有可能是进程在不断的调用比较小的外部进程, 或者是程序在不断的崩溃重启. pstree可以用于查看进程树]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>system performance</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在office中使用latex公式]]></title>
+    <url>%2F2018%2F11%2F28%2Flatex-equation-in-office%2F</url>
+    <content type="text"><![CDATA[用过Latex的都知道，Tex语法下的公式编辑与使用word编辑公式的体验简直是天壤之别，幸而目前有一些开源的工具，可以在Word和PowerPoint中使用latex语法编辑公式。注：这两款工具只支持Windows平台 texswordtexsword是一款开源的工具，可以在word中插入latex公式。将texsword.dotm文件放入word的启动文件夹即可使用。下载页面：https://sourceforge.net/projects/texsword/ IguanaTexIguanaTex同样是一款开源的工具，用于在PowerPoint中插入Latex公式。下载页面：http://www.jonathanleroux.org/software/iguanatex/]]></content>
+      <tags>
+        <tag>latex</tag>
+        <tag>powerpoint</tag>
+        <tag>word</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在cnetos中添加开机启动的任务]]></title>
+    <url>%2F2018%2F11%2F22%2Fcentos-service-onstart%2F</url>
+    <content type="text"><![CDATA[使用chkconfig使用chkconfig --list可以查看当前chkconfig列表中的服务。使用chkconfig yourservice off可以关闭对应服务。使用chkconfig yourservice on可以关闭对应服务。如果想要的服务不在列表中，需要使用chkconfig --add yourservice添加。 修改/etc/rc.d/rc/local文件/etc/rc.d/rc.local文件中可以写入需要开启的服务 设置定时重启我的个人服务器常常被折腾的不堪重负，需要定期重启。使用crontab完成这一功能。crontab的作用是设置定时任务。crontab -e进入配置文件写入0 0 * * * /sbin/shutdown -r now表示每天零点重启。]]></content>
+      <tags>
+        <tag>chkconfig</tag>
+        <tag>crontab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matplot绘制饼状图]]></title>
+    <url>%2F2018%2F11%2F22%2Fpatch-plot-matplot%2F</url>
+    <content type="text"><![CDATA[代码： 效果：]]></content>
+      <tags>
+        <tag>饼状图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matplot绘制混淆矩阵]]></title>
+    <url>%2F2018%2F11%2F22%2Fconfusion-matrix-matplot%2F</url>
+    <content type="text"><![CDATA[混淆矩阵在对分类任务的结果进行分析的时候是一个非常有用的工具。使用matplotlib可以将混淆矩阵可视化。效果如图： 代码如下：]]></content>
+      <tags>
+        <tag>混淆矩阵</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Tinyproxy搭建透明代理]]></title>
+    <url>%2F2018%2F11%2F20%2Ftinyproxy%2F</url>
+    <content type="text"><![CDATA[Tinyproxy是一款轻量级的http(s)代理工具。Github页面注意：这只是一个透明代理，本身不具备任何传输安全性。 安装Tinyproxy以Ubuntu为例，在服务器上执行sudo apt-get install tinyproxy 配置Tinyproxysudo vim /etc/tinyproxy.conf修改下面两个部分：Port 8888。 8888是默认的端口，将其更改为其他端口。Allow 127.0.0.1。设置允许连接的ip和网段，默认全都禁止，如果全注释掉，则表示允许所有连接。需要根据端口相应地修改服务器防火墙的配置 重启tinyproxy servicesudo service tinyproxy restart 配置客户端此时http代理服务器就搭建好了，在客户端设置HTTP代理即可。 iOS在无线网络配置中，选择HTTP代理-&gt;配置代理-&gt;手动，输入http://代理服务器ip:port。配置完成，打开百度或者谷歌，输入ip，返回代理服务器的ip说明配置成功。 Linux Terminal在终端中执行12export http_proxy=http://代理服务器ip:portexport httpa_proxy=http://代理服务器ip:port]]></content>
+      <tags>
+        <tag>server</tag>
+        <tag>tinyproxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu中使用安卓模拟器]]></title>
+    <url>%2F2018%2F11%2F19%2Fandroid-x86%2F</url>
+    <content type="text"><![CDATA[这篇文章介绍如何在Ubuntu中使用安卓模拟器。在Ubuntu中运行android程序并非易事，因为大部分移动设备上运行的android程序都是基于Arm架构的芯片开发的，而在家用的台式机上我们通常使用的是x86的芯片。为了解决这一个问题，两种方案，一个是使用Android Studio提供的Android模拟器，选择arm架构，模拟器就能够运行arm架构下的app。但是这种方法运行的模拟器速度非常缓慢，Android Studio会提示x86架构模拟器速度会是arm的10x以上。为了解决应用兼容性的问题，Intel公司开发了houdini技术。Houdini是intel 研发的ARM binary translator，用于解决当前android部分native应用库兼容跑在x86架构上的技术，它的原理在于把ARM的二进制代码转译为X86指令集，使得可以在X86的CPU上执行。 安装Genymotion由于Android Studio以及那一套SDK工具用起来十分繁琐，而我没有Android开发的需求，只是想单纯的运行android程序，因此我在这里选择了Genymotion。Genymotion是一个x86的安卓模拟器软件，个人版可以注册账号免费试用。安装Genymotion需要机器安装有Virtualbox，安装好之后运行Genymotion，在Genymotion中创建一个虚拟的设备，期间会下载所用到的系统镜像，等候片刻。运行虚拟设备，如之前所说，此时只能安装很少量的x86 app。 解决兼容性问题下载对应操作系统版本的Arm Translation文件，Android 5.1点这里 , Android 6.0点这里。将文件直接拖进模拟器，在模拟器中会弹出对话框，点击Yes,OK之后重启虚拟机即可。 安装app在Genymotion的安装路径下找到tools文件夹，运行tools/adb install &quot;your_apk_file_path&quot;，即可完成程序的安装。 模拟触屏操作很多软件中会用到多点触屏、滑动、甚至摇杆操作。只使用鼠标单机显然是无法完成这些操作的。Game Controller 2 Touch Pro这款软件可以用于解决这样的问题。Game Controller 2 Touch Pro操作手册]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Find Max/Min Value in Tensorboard Json]]></title>
+    <url>%2F2018%2F11%2F14%2FFind-Max-in-Tensorboard-Json%2F</url>
+    <content type="text"><![CDATA[Find Min/Max Value /* Add style rules here */ .dropzxoneborder { padding: 10px; border: 1px solid #ccc; font-size: 25px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 2; word-wrap: break-word; width: 70%; } #drop_zone { border: 2px dashed #bbb; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 25px; text-align: center; font: 20pt bold 'Vollkorn'; color: #bbb; } if (window.File && window.FileReader && window.FileList && window.Blob) { // Great success! All the File APIs are supported. } else { alert('The File APIs are not fully supported in this browser.'); } Find Max in Tensorboard Json Drop files here function handleFileSelect(evt) { evt.stopPropagation(); evt.preventDefault(); var files = evt.dataTransfer.files; // FileList object. // files is a FileList of File objects. List some properties. var output = []; for (var i = 0, f; f = files[i]; i++) { output.push('', escape(f.name), ' (', f.type || 'n/a', ') - ', f.size, ' bytes, last modified: ', f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a', ''); if (!f.type.match('json.*')) { alert('File type is not supported.'); continue; } var reader = new FileReader(); // Closure to capture the file information. reader.onload = (function (theFile) { return function (e) { var jsonText = e.target.result; var myarray = JSON.parse(jsonText) var minIdx = 0; var maxIdx = 0; var maxVal = myarray[0][2]; var minVal = myarray[0][2]; myarray.forEach(function (v) { if (maxVal < v[2]) { maxVal = v[2]; maxIdx = v[1]; }; if (minVal < v[2]) { minIdx = v[2]; minIdx = v[1]; }; }); var para = document.createElement("span"); // Create a element // para.innerHTML = [ // 'Min:' + '\xa0\xa0\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0' // + 'Step:' + '\xa0\xa0\xa0\xa0' // + minIdx.toString() + '' // + 'Max:' + '\xa0\xa0\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0' // + 'Step:' + '\xa0\xa0\xa0\xa0' // + maxIdx.toString() + '' // + '' // ] para.innerHTML = [ '' + 'Min:' + '\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0' + '' + 'Step:' + '\xa0\xa0' + minIdx.toString() + '' + 'Max:' + '\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0' + '' + 'Step:' + '\xa0\xa0' + maxIdx.toString() + '' + '' ] document.getElementById("result_zone").appendChild(para); // Append to }; })(f); reader.readAsText(f); } document.getElementById('list').innerHTML = document.getElementById('list').innerHTML + '' + output.join('') + ''; } function handleDragOver(evt) { evt.stopPropagation(); evt.preventDefault(); evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy. } // Setup the dnd listeners. var dropZone = document.getElementById('drop_zone'); dropZone.addEventListener('dragover', handleDragOver, false); dropZone.addEventListener('drop', handleFileSelect, false); document.getElementById('files').addEventListener('change', handleFileSelect, false);]]></content>
+      <tags>
+        <tag>json</tag>
+        <tag>tensorboard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在个人服务器上部署Rocket-chat]]></title>
+    <url>%2F2018%2F11%2F10%2Frocket-chat-deploy%2F</url>
+    <content type="text"><![CDATA[RocketChat是一个开源的即时通讯项目。 准备工作 系统环境linode服务器, CentOS 7.没有在CentOS 6上面进行过测试. 配置服务器防火墙端口在linode中,可以使用如下命令配置端口: 12345sudo firewall-cmd --zone=public --add-service=http --permanentsudo firewall-cmd --zone=public --add-service=https --permanent# sudo firewall-cmd --zone=public --add-service=httpsudo firewall-cmd --zone=public --add-port=12345/tcp --permanent# sudo firewall-cmd --zone=public --remove-port=12345/tcp --permanent # 移除端口 配置完成后使用sudo firewall-cmd --reload使配置生效.使用sudo firewall-cmd --list-all-zones可以查看当前的端口配置情况. 在设置防火请的时候我遇到过permission to firewalld&#39;s &quot;ifcfg-eth0&quot;的问题, 参照这个页面解决了问题. 参考页面: https://linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos/#configuring-firewalld 使用Let&#39;s Encrypt生成SSL证书Let’s Encrypt是一个用于免费获取SSL证书的在线服务.12345sudo yum updatesudo yum install gitsudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencryptcd /opt/letsencryptsudo -H ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com # Relpace example.com to your own site 运行成功后在/etc/letsencrypt/live可以看到当前证书注意这个证书有效期为90天,所以最好定期更新证书,使用sudo crontab -e添加0 0 1 * * /opt/letsencrypt/letsencrypt-auto renew,以定期执行. 安装nginx 将nginx放到yum repro库中[root@localhost ~]# rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm 查看nginx信息[root@localhost ~]# yum info nginx 使用yum安装ngnix[root@localhost ~]# yum install nginx 启动nginx[root@localhost ~]# systemctl start nginx 查看nginx版本[root@localhost ~]# nginx -v 访问nginx，现在你可以通过公网ip (本地可以通过 localhost /或 127.0.0.1 ) 查看nginx 服务返回的信息。[root@localhost ~]# curl -i localhost nginx配置文件位置在/etc/nginx/[root@localhost /]# ll /etc/nginx/ 测试配置文件是否正常nginx -t 参考页面: https://www.jianshu.com/p/96691511295f 安装Rocket-Chatnginx配置参考这个页面参考这个页面 解决502错误查看log文件logs/xxx发现是权限问题,setsebool httpd_can_network_connect on -P解决 完成以上步骤之后，在Rocket-chat的客户端使用 https://example.com 就可以连接到配置好的服务器了。]]></content>
+      <tags>
+        <tag>Rocket-Chat</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[修复Ubuntu中的启动项]]></title>
+    <url>%2F2018%2F11%2F03%2Ffix-boot-in-ubuntu%2F</url>
+    <content type="text"><![CDATA[问题描述之前是Ubuntu和Windows双系统,Ubuntu系统装在硬盘A,Windows系统装在硬盘B,由Ubuntu的grub进行启动引导.后来硬盘A出了问题,送去维修.在此期间想要使用Windows系统,于是通过lilo修改了引导记录,成功启动了Windows.麻烦的是后来Ubuntu系统所在的硬盘A回来了,硬盘A可以正常进行读写,但是读写的时候会发出非常大的噪音,于是买了一块全新的硬盘C,希望将硬盘A上的内容全部迁移到硬盘C上,因为Ubuntu上重装系统重新配置环境实在是太麻烦了,最终我找到一个解决方案,能够直接不用重新安装系统,就可以使用迁移过后的Ubuntu系统.值得注意的是,此时由于使用lilo修改过引导记录的缘故,硬盘A再次安装到主机,也无法直接从硬盘A启动. 准备工作 Ubuntu的U盘启动盘 确保已经插好网线,网络环境正常 硬盘A和硬盘C被连接到主板 使用Gparted进行分区 进入U盘启动中的live CD 使用sudo fdisk -l可以查看各个磁盘中的分区情况.记住磁盘A中的每个分区的名称以及在原Ubuntu系统中对应的目录,以及分区类型,例如我的根目录是在/dev/sda9,boot是在/dev/sda8.如果不能确认,可以使用sudo mount /dev/sda9 /mnt这样的命令挂载对应分区,然后查看其中内容来确认.之后在Gparted中对硬盘C进行分区,要确保分区与硬盘A中Ubuntu系统的分区数量一致,并且每个分区的大小都不小于原来分区的大小. 拷贝分区 使用dd命令从硬盘A将对应的分区拷贝到硬盘C,例如sudo dd if=/dev/sda1 of=/dev/sdb1. 这个过程不会有输出,为了查看复制的进程,可以在另外的terminal中执行watch -n 5 killall -USR1 dd,这样在dd的窗口中可以看到输出. 重复这一指令直到所有的分区都拷贝完成. 注意:使用dd命令拷贝之后所有的新分区与原来分区具有相同的uuid.如果不希望uuid相同,可以在gparted中修改uuid,并且在文件系统对应分区的/etc/fstab中完成对应修改 使用gparted在硬盘C中boot对应分区添加boot标记 使用gparted新建分区,大小大于1M, file system选择unformatted.标记为boot_grub. 解除挂载硬盘A 修复grub 挂载系统. 12345sudo mount /dev/sdX /mntsudo mount /dev/sdY /mnt/bootsudo mount /dev /mnt/devsudo mount /sys /mnt/syssudo mount /proc /mnt/proc 使用chroot进入虚拟系统sudo chroot /mnt 修复grubsudo grub-install --force 使用boot-repair 安装boot-repair123sudo add-apt-repository ppa:yannubuntu/boot-repairsudo apt-get updatesudo apt-get install -y boot-repair &amp;&amp; boot-repair 进行正确的设置之后,等待完成,重启即可.]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[修复启动Windows时的‘Error：no such device’错误]]></title>
+    <url>%2F2018%2F10%2F31%2Frepair-windows-grub-in-ubuntu%2F</url>
+    <content type="text"><![CDATA[问题起因原先的主机有一块固态硬盘和一块机械硬盘，机械硬盘上安装的是Ubuntu系统，固态硬盘上安装的是Windows10系统。平时使用的时候通过Ubuntu来引导启动。最近机械硬盘坏掉了，在BIOS将启动设备设置为固态硬盘想启动Windows系统的时候无法正常启动，报错‘Error：no such device’，然后就进入‘grub rescue’界面。 解决方案 首先准备一个Ubuntu的U盘启动盘，然后修改BIOS启动顺序，通过U盘启动。U盘启动之后进入Live CD模式。 打开Terminal，运行sudo apt-get install lilo 运行sudo fdisk -l，可以看到windows所在硬盘下有分区对应的Boot栏有*标记 运行sudo lilo -M /dev/sdb mbr，其中sdb应当替换为windows所在硬盘。注意这里是sdb而不是sdb1。 重新启动，调整BIOS启动顺序 关于lilo和grub的区别，可以参照这个页面]]></content>
+      <tags>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Ubuntu中没有声音的问题]]></title>
+    <url>%2F2018%2F10%2F29%2Ffix-sound-in-ubuntu%2F</url>
+    <content type="text"><![CDATA[我在使用Ubuntu的时候，发现主机机箱上的耳机口没有声音（但是连接显卡HDMI线的显示器上的耳机口能够正常播放）。在参考SoundTroubleshootingProcedure和How To Fix: No Sound In Ubuntu And Linux Mint这两个页面的方法之后，成功的使得Ubuntu正常播放声音。 alsa与pulseaudioALSA全称是Advanced Linux Sound Architecture，是和硬件打交道的，pulseaudio则是基于alsa的一套软件，主要用于向其他软件提供统一的接口，以及额外的功能。 alsamixeralasmixer与windows中的音量控制器类似。在Terminal中输入alsamixer，看到界面如图。如果显示MM，那么表明对应项处于静音状态，按M进行切换，上下键进行音量调整。这里‘Headphone’表示的就是我需要的前置耳机孔。这个方法有时候能够解决问题，但是我设置之后没有起到作用。 初始化-重启大法在计算机领域，有句话叫“遇事不决先重启”。因为重启之后很多软硬件的设置会恢复成初始状态，很多问题就直接消失了。在声音这个问题上，初始化的方法是非常有效果的，最终解决了我的问题。依次执行以下命令，每条指令执行之前都需要等待上一条完成。12345alsactl initsudo killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*pulseaudio -ksudo alsa force-reload 然后使用alsamixer调整音量设置即可。 保存设置需要注意的是，即使当前调整完成，当下次重启系统之后仍然没有声音。对于这个问题我的解决方案是将需要的指令写进一个脚本，每次开机运行脚本即可。 保存alsamixer配置首先调整好alsamixer设置，然后运行sudo alsactl --file ~/.config/asound.state restore将配置文件保存到~/.config/asound.state。 最后建立一个脚本，在其中添加如下内容：123456789101112131415161718# Soundalsactl initwaitsleep 3ssudo killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*killall pulseaudio; rm -r ~/.config/pulse/* ; rm -r ~/.pulse*waitsleep 3secho 'killall pulseaudio have finished'pulseaudio -kwaitsleep 1secho 'pulseaudio -k have finished'sudo alsa force-reloadwaitsleep 3secho 'alsa force-reload have finished'sudo alsactl --file ~/.config/asound.state restore]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>sound</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在命令行中使用词典]]></title>
+    <url>%2F2018%2F10%2F26%2Fdict-in-command-line%2F</url>
+    <content type="text"><![CDATA[在Github看到一个有趣的工作，无道词典。这个词典使用的是有道词典的api，用python3来发送请求，没有GUI，一切在命令行中完成。这个项目简洁实用，深得我心。我Fork了这个Repo，根据词典中的生词本增加了默写的功能。这样这个程序不仅可以用来查单词，而且可以用来背单词。我的Repo在这里 安装说明Ubuntu/CentOS/DebianReadMe 安装环境: 需要python3和bs4, lxml(在线搜索用)Debian/Ubuntu 1234sudo apt-get install python3sudo apt-get install python3-pipsudo pip3 install bs4sudo pip3 install lxml OpenSUSE 123sudo zypper install python3-pipsudo pip3 install bs4sudo pip3 install lxml CentOS 1234sudo yum install python34sudo yum install python34-pipsudo pip3 install bs4sudo pip3 install lxml 运行 123git clone https://github.com/sparkydogX/Wudao-dict.gitcd ./wudao-dict/wudao-dictsudo bash setup.sh #或者sudo ./setup.sh 看到出现Setup Finished!表明安装成功。如果发生由于移动安装文件不能使用的情况，只需再次运行该脚本即可。 无法clone的，可以在项目页面下载zip文件 ,然后解压安装使用。 Note: 注意python的版本，只支持python3 macOSReadMe 安装环境: 需要python3和bs4, lxml(在线搜索用)#### MacOS 需要安装有`brew`和`python3` 12sudo pip3 install bs4sudo pip3 install lxml 运行1234git clone https://github.com/sparkydogX/Wudao-dict.gitgit checkout macOS_v2.1.1cd ./wudao-dict/wudao-dictsudo bash setup.sh #或者sudo ./setup.sh 看到出现`Setup Finished!`表明安装成功。如果发生由于移动安装文件不能使用的情况，只需再次运行该脚本即可。 无法clone的，可以从github页面下载zip文件 ,然后解压安装使用。 Note: 注意python的版本，只支持python3 英文发音（可选）#### 需要ffplay 通过brew安装ffplay。这里有个trick。 1234brew install wgetbrew install sdl --use-gccbrew uninstall ffmpegbrew install ffmpeg --use-gcc #### 修改 ./Wudao-dict/wudao-dict/wdd文件 按照文件注释中的说明修改。 #### 新建mp3文件夹 在 wudao-dict/usr 文件夹下新建 mp3 文件夹，用于保存单词发音的音频文件。 Ubuntu环境下也可以实现朗读单词的功能，但是由于我的Ubuntu机器音频接口无法使用，因此在master中没有实现这个功能。mac的branch中是实现了这一个功能的。在Ubuntu中使用只需将wdd文件按要求修改即可。 Windows10理论上来讲在Windows10中通过应用商店安装Linux子系统之后，按照Linux版本的环境要求配置环境。接下来安装与使用步骤与Linux下的操作相同。但是这个我没有尝试过，有兴趣尝试的小伙伴可以告诉我结果，遇到问题也可以联系我或者创建Issue。 使用说明运行wd -h查看使用说明。 12345678910$ wd -hUsage: wd [OPTION]... [WORD]Youdao is wudao, a powerful dict.-k, --kill kill the server process (退出服务进程)-h, --help display this help and exit (查看帮助)-s, --short-desc do not show sentence (只看释义)-n, --not-save query and save to notebook (不存入生词本)-d, --dictation spell words in notebook (默写生词本中的单词)生词本文件: ... some path .../notebook.txt查询次数: ... some path .../usr_word.json 查词时可以直接使用wd 词语查汉英词典，或wd word查英汉词典(可以自动检测)。 关于默写模式wd -d 进入默写模式。默写模式中的单词来自单词本。当使用wd xxx命令查询单词的时候，单词会自动被记入单词本。使用wd -n xxx不存入单词本。进入默写模式，会有提示如何进行操作。 默写模式的help暂时未完成。关于这一点如果有要求的话请告知我。 默写模式下会自动统计错误次数，在默写模式下按’i’可以显示单词的错误情况。对于已经掌握的单词，默写模式下按’d’将其从单词本删除。 Tips ./wd_monofile 是本词典的在线查询的单文件版本, 可以复制到/usr/bin下直接使用.(需要安装bs4) 如果您不想看到例句, 请在/usr/bin/wd中的./wdd后面加上-s参数. 有的用户反馈字体颜色看不清的问题, 你可以找到./wudao-dict/wudao-dict/src/CommandDraw.py, 可以看到释义,读音等采用的颜色, 直接修改即可. 查询词组直接键入类似wd take off即可.]]></content>
+      <tags>
+        <tag>github</tag>
+        <tag>dictionary</tag>
+        <tag>词典</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Linux操作系统下Terminal中光标消失的问题]]></title>
+    <url>%2F2018%2F10%2F19%2Flinux-terminal-cursor-disappear%2F</url>
+    <content type="text"><![CDATA[使用Terminal时会偶尔遇到光标消失的问题。 echo -e &quot;\033[?25h&quot; 显示光标echo -e &quot;\033[?25l&quot; 隐藏光标]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python读取命令行参数并使用字典表示]]></title>
+    <url>%2F2018%2F10%2F18%2Fargs-from-command-line-to-dict%2F</url>
+    <content type="text"><![CDATA[用argparse可以很方便的在python中读取命令行参数，但是argparse无法接受任意的参数名。在python中可以使用sys标准库中的args模块进行处理。代码如下： 注意以这种形式读取的参数，值全都是字符串类型。cursor]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在命令行中使用find命令查找文件]]></title>
+    <url>%2F2018%2F10%2F16%2Ffind-file-in-terminal%2F</url>
+    <content type="text"><![CDATA[find . -name &quot;*.sh&quot;可以查找当前文件夹以及子文件夹中文件名中包含“.sh”的文件。]]></content>
+      <tags>
+        <tag>find</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Github托管js和css文件]]></title>
+    <url>%2F2018%2F10%2F12%2Fuse-github-js-css%2F</url>
+    <content type="text"><![CDATA[Github本身托管的js和css文件是不能直接被调用的，这个页面对这个问题有所说明。幸好有一些第三方服务来解决这个问题。网络上搜索一下，名气最大的是 http://rawgit.com/ ， 但是rawgit在2018年10月停止了服务。rawgit推荐的替代服务有jsDelivr、GitHub Pages、CodeSandbox、unpkg 。这篇文章以jsDelivr为例，介绍如何使用jsDelivr。 Release Github Repo首先将需要使用的js或者css文件上传到一个github中，然后Release对应的Repo。记住对应的版本号，在后面使用jsDelivr的时候会需要。 jsDelivr打开jsDeliver官网，可以看到使用方式：12345// load any GitHub release or commit// note: we recommend using npm for projects that support ithttps://cdn.jsdelivr.net/gh/user/repo@version/file 示例：在浏览器中打开 https://cdn.jsdelivr.net/gh/sparkydogX/pictures@0.1/2018/corevalue/style/index.css 可以看到对应的css文件，此时这个连接已经可以直接用在网页里面了]]></content>
+      <tags>
+        <tag>github</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Core Value Encoder/Decoder]]></title>
+    <url>%2F2018%2F10%2F12%2Fcorevalue%2F</url>
+    <content type="text"><![CDATA[Core Values Decoder Core Values Encoder Encode &darr; &uarr; Decode Celebrate 19 big, 2017 Please enable JavaScript to view the comments powered by Disqus. var disqus_config = function () { this.page.url = 'http://sparkydogX.github.io/2018/10/12/corevalue/'; this.page.identifier = '2018/10/12/corevalue/'; this.page.title = 'Core Value Encoder/Decoder'; }; var d = document, s = d.createElement('script'); s.src = 'https://sparkydogX.disqus.com/embed.js'; s.setAttribute('data-timestamp', '' + +new Date()); (d.head || d.body).appendChild(s); &copy;2018 sparkydogX]]></content>
+      <tags>
+        <tag>core-value</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网站推荐]]></title>
+    <url>%2F2018%2F09%2F27%2Frecommend-websites%2F</url>
+    <content type="text"><![CDATA[邮箱https://mail.protonmail.com注册方便，不用提供手机号 接收验证码https://smsreceivefree.com/提供临时的手机号，可以用于接收验证码短信 Fake Address Generatorhttps://www.fakeaddressgenerator.com/随机生成一个像模像样的个人信息档案，甚至连银行卡号都有～ ┏ (^ω^)=]]></content>
+      <tags>
+        <tag>web</tag>
+        <tag>AppleID</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用DSNTNN处理heatmap的使用示例]]></title>
+    <url>%2F2018%2F09%2F27%2Fdsntnn_basic_usage%2F</url>
+    <content type="text"><![CDATA[MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/LaTeX", "output/HTML-CSS"], "HTML-CSS": { availableFonts: ["TeX"] } }); @font-face { font-family: ' Arial'; font-style: normal; font-weight: 300; src: local('Raleway Light'), local('Raleway-Light'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FArifk_vArhqVIZ0nv9q090hN8.woff2) format('woff2'); } @font-face { font-family: ' Arial'; font-style: normal; font-weight: 400; src: local(' Arial'), url(http://fonts.gstatic.com/s/raleway/v9/0dTEPzkLWceF7z0koJaX1A.woff2) format('woff2'); } @font-face { font-family: ' Arial'; font-style: normal; font-weight: 600; src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(http://fonts.gstatic.com/s/raleway/v9/xkvoNo9fC8O2RDydKj12b_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2'); } html { font-family: sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ } body { margin: 0; } article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; } audio, canvas, progress, video { display: inline-block; /* 1 */ vertical-align: baseline; /* 2 */ } audio:not([controls]) { display: none; height: 0; } [hidden], template { display: none; } a:active, a:hover { outline: 0; } abbr[title] { border-bottom: 1px dotted; } b, strong { font-weight: bold; } dfn { font-style: italic; } h1 { font-size: 2em; margin: 0.67em 0; } mark { background: #ff0; color: #000; } small { font-size: 80%; } sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; } sup { top: -0.5em; } sub { bottom: -0.25em; } img { border: 0; } svg:not(:root) { overflow: hidden; } figure { margin: 1em 40px; } hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; } pre { overflow: auto; } code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; } button, input, optgroup, select, textarea { color: inherit; /* 1 */ font: inherit; /* 2 */ margin: 0; /* 3 */ } button { overflow: visible; } button, select { text-transform: none; } button, html input[type="button"], /* 1 */ input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ } button[disabled], html input[disabled] { cursor: default; } button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; } input { line-height: normal; } input[type="checkbox"], input[type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ } input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; } input[type="search"] { -webkit-appearance: textfield; /* 1 */ -moz-box-sizing: content-box; -webkit-box-sizing: content-box; /* 2 */ box-sizing: content-box; } input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; } fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; } legend { border: 0; /* 1 */ padding: 0; /* 2 */ } textarea { overflow: auto; } optgroup { font-weight: bold; } table { border-collapse: collapse; border-spacing: 0; } td, th { padding: 0; } /* * Skeleton V2.0.4 * Copyright 2014, Dave Gamache * www.getskeleton.com * Free to use under the MIT license. * http://www.opensource.org/licenses/mit-license.php * 12/29/2014 */ .container { position: relative; width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; } .column, .columns { width: 100%; float: left; box-sizing: border-box; } @media (min-width: 400px) { .container { width: 85%; padding: 0; } } @media (min-width: 550px) { .container { width: 80%; } .column, .columns { margin-left: 4%; } .column:first-child, .columns:first-child { margin-left: 0; } .one.column, .one.columns { width: 4.66666666667%; } .two.columns { width: 13.3333333333%; } .three.columns { width: 22%; } .four.columns { width: 30.6666666667%; } .five.columns { width: 39.3333333333%; } .six.columns { width: 48%; } .seven.columns { width: 56.6666666667%; } .eight.columns { width: 65.3333333333%; } .nine.columns { width: 74.0%; } .ten.columns { width: 82.6666666667%; } .eleven.columns { width: 91.3333333333%; } .twelve.columns { width: 100%; margin-left: 0; } .one-third.column { width: 30.6666666667%; } .two-thirds.column { width: 65.3333333333%; } .one-half.column { width: 48%; } /* Offsets */ .offset-by-one.column, .offset-by-one.columns { margin-left: 8.66666666667%; } .offset-by-two.column, .offset-by-two.columns { margin-left: 17.3333333333%; } .offset-by-three.column, .offset-by-three.columns { margin-left: 26%; } .offset-by-four.column, .offset-by-four.columns { margin-left: 34.6666666667%; } .offset-by-five.column, .offset-by-five.columns { margin-left: 43.3333333333%; } .offset-by-six.column, .offset-by-six.columns { margin-left: 52%; } .offset-by-seven.column, .offset-by-seven.columns { margin-left: 60.6666666667%; } .offset-by-eight.column, .offset-by-eight.columns { margin-left: 69.3333333333%; } .offset-by-nine.column, .offset-by-nine.columns { margin-left: 78.0%; } .offset-by-ten.column, .offset-by-ten.columns { margin-left: 86.6666666667%; } .offset-by-eleven.column, .offset-by-eleven.columns { margin-left: 95.3333333333%; } .offset-by-one-third.column, .offset-by-one-third.columns { margin-left: 34.6666666667%; } .offset-by-two-thirds.column, .offset-by-two-thirds.columns { margin-left: 69.3333333333%; } .offset-by-one-half.column, .offset-by-one-half.columns { margin-left: 52%; } } html { font-size: 62.5%; } body { font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */ line-height: 1.6; font-weight: 400; font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #222; } h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 2rem; font-weight: 300; } h1 { font-size: 3.6rem; line-height: 1.2; letter-spacing: -.1rem;} h2 { font-size: 3.4rem; line-height: 1.25; letter-spacing: -.1rem; } h3 { font-size: 3.2rem; line-height: 1.3; letter-spacing: -.1rem; } h4 { font-size: 2.8rem; line-height: 1.35; letter-spacing: -.08rem; } h5 { font-size: 2.4rem; line-height: 1.5; letter-spacing: -.05rem; } h6 { font-size: 1.5rem; line-height: 1.6; letter-spacing: 0; } p { margin-top: 0; } a { color: #1EAEDB; } a:hover { color: #0FA0CE; } .button, button, input[type="submit"], input[type="reset"], input[type="button"] { display: inline-block; height: 38px; padding: 0 30px; color: #555; text-align: center; font-size: 11px; font-weight: 600; line-height: 38px; letter-spacing: .1rem; text-transform: uppercase; text-decoration: none; white-space: nowrap; background-color: transparent; border-radius: 4px; border: 1px solid #bbb; cursor: pointer; box-sizing: border-box; } .button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, .button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus { color: #333; border-color: #888; outline: 0; } .button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary { color: #FFF; background-color: #33C3F0; border-color: #33C3F0; } .button.button-primary:hover, button.button-primary:hover, input[type="submit"].button-primary:hover, input[type="reset"].button-primary:hover, input[type="button"].button-primary:hover, .button.button-primary:focus, button.button-primary:focus, input[type="submit"].button-primary:focus, input[type="reset"].button-primary:focus, input[type="button"].button-primary:focus { color: #FFF; background-color: #1EAEDB; border-color: #1EAEDB; } input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select { height: 38px; padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */ background-color: #fff; border: 1px solid #D1D1D1; border-radius: 4px; box-shadow: none; box-sizing: border-box; } /* Removes awkward default styles on some inputs for iOS */ input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea { -webkit-appearance: none; -moz-appearance: none; appearance: none; } textarea { min-height: 65px; padding-top: 6px; padding-bottom: 6px; } input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus { border: 1px solid #33C3F0; outline: 0; } label, legend { display: block; margin-bottom: .5rem; font-weight: 600; } fieldset { padding: 0; border-width: 0; } input[type="checkbox"], input[type="radio"] { display: inline; } label > .label-body { display: inline-block; margin-left: .5rem; font-weight: normal; } ul { list-style: circle inside; } ol { list-style: decimal inside; } ol, ul { padding-left: 0; margin-top: 0; } ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 90%; } li { margin-bottom: 1rem; } th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #E1E1E1; } th:first-child, td:first-child { padding-left: 0; } th:last-child, td:last-child { padding-right: 0; } button, .button { margin-bottom: 1rem; } input, textarea, select, fieldset { margin-bottom: 1.5rem; } pre, blockquote, dl, figure, table, p, ul, ol, form { margin-bottom: 2.5rem; } .u-full-width { width: 100%; box-sizing: border-box; } .u-max-full-width { max-width: 100%; box-sizing: border-box; } .u-pull-right { float: right; } .u-pull-left { float: left; } hr { margin-top: 3rem; margin-bottom: 3.5rem; border-width: 0; border-top: 1px solid #E1E1E1; } .container:after, .row:after, .u-cf { content: ""; display: table; clear: both; } pre { display: block; padding: 9.5px; margin: 0 0 10px; font-size: 13px; line-height: 1.42857143; color: #333; word-break: break-all; word-wrap: break-word; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; } code, kbd, pre, samp { font-family: Menlo, Monaco, Consolas, monospace; } code { padding: 2px 4px; font-size: 90%; color: #c7254e; background-color: #f9f2f4; border-radius: 4px; } @media (min-width: 400px) {} @media (min-width: 550px) {} @media (min-width: 750px) {} @media (min-width: 1000px) {} @media (min-width: 1200px) {} .hll { background-color: #ffffcc } .c { color: #408080; font-style: italic } /* Comment */ .err { border: 1px solid #FF0000 } /* Error */ .k { color: #008000; font-weight: bold } /* Keyword */ .o { color: #666666 } /* Operator */ .ch { color: #408080; font-style: italic } /* Comment.Hashbang */ .cm { color: #408080; font-style: italic } /* Comment.Multiline */ .cp { color: #BC7A00 } /* Comment.Preproc */ .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */ .c1 { color: #408080; font-style: italic } /* Comment.Single */ .cs { color: #408080; font-style: italic } /* Comment.Special */ .gd { color: #A00000 } /* Generic.Deleted */ .ge { font-style: italic } /* Generic.Emph */ .gr { color: #FF0000 } /* Generic.Error */ .gh { color: #000080; font-weight: bold } /* Generic.Heading */ .gi { color: #00A000 } /* Generic.Inserted */ .go { color: #888888 } /* Generic.Output */ .gp { color: #000080; font-weight: bold } /* Generic.Prompt */ .gs { font-weight: bold } /* Generic.Strong */ .gu { color: #800080; font-weight: bold } /* Generic.Subheading */ .gt { color: #0044DD } /* Generic.Traceback */ .kc { color: #008000; font-weight: bold } /* Keyword.Constant */ .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */ .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */ .kp { color: #008000 } /* Keyword.Pseudo */ .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */ .kt { color: #B00040 } /* Keyword.Type */ .m { color: #666666 } /* Literal.Number */ .s { color: #BA2121 } /* Literal.String */ .na { color: #7D9029 } /* Name.Attribute */ .nb { color: #008000 } /* Name.Builtin */ .nc { color: #0000FF; font-weight: bold } /* Name.Class */ .no { color: #880000 } /* Name.Constant */ .nd { color: #AA22FF } /* Name.Decorator */ .ni { color: #999999; font-weight: bold } /* Name.Entity */ .ne { color: #D2413A; font-weight: bold } /* Name.Exception */ .nf { color: #0000FF } /* Name.Function */ .nl { color: #A0A000 } /* Name.Label */ .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */ .nt { color: #008000; font-weight: bold } /* Name.Tag */ .nv { color: #19177C } /* Name.Variable */ .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */ .w { color: #bbbbbb } /* Text.Whitespace */ .mb { color: #666666 } /* Literal.Number.Bin */ .mf { color: #666666 } /* Literal.Number.Float */ .mh { color: #666666 } /* Literal.Number.Hex */ .mi { color: #666666 } /* Literal.Number.Integer */ .mo { color: #666666 } /* Literal.Number.Oct */ .sa { color: #BA2121 } /* Literal.String.Affix */ .sb { color: #BA2121 } /* Literal.String.Backtick */ .sc { color: #BA2121 } /* Literal.String.Char */ .dl { color: #BA2121 } /* Literal.String.Delimiter */ .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */ .s2 { color: #BA2121 } /* Literal.String.Double */ .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */ .sh { color: #BA2121 } /* Literal.String.Heredoc */ .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */ .sx { color: #008000 } /* Literal.String.Other */ .sr { color: #BB6688 } /* Literal.String.Regex */ .s1 { color: #BA2121 } /* Literal.String.Single */ .ss { color: #19177C } /* Literal.String.Symbol */ .bp { color: #008000 } /* Name.Builtin.Pseudo */ .fm { color: #0000FF } /* Name.Function.Magic */ .vc { color: #19177C } /* Name.Variable.Class */ .vg { color: #19177C } /* Name.Variable.Global */ .vi { color: #19177C } /* Name.Variable.Instance */ .vm { color: #19177C } /* Name.Variable.Magic */ .il { color: #666666 } /* Literal.Number.Integer.Long */ h1.title {margin-top : 20px} img {max-width : 100%} #From nbconvert .ansi-black-fg { color: #3E424D; } .ansi-black-bg { background-color: #3E424D; } .ansi-black-intense-fg { color: #282C36; } .ansi-black-intense-bg { background-color: #282C36; } .ansi-red-fg { color: #E75C58; } .ansi-red-bg { background-color: #E75C58; } .ansi-red-intense-fg { color: #B22B31; } .ansi-red-intense-bg { background-color: #B22B31; } .ansi-green-fg { color: #00A250; } .ansi-green-bg { background-color: #00A250; } .ansi-green-intense-fg { color: #007427; } .ansi-green-intense-bg { background-color: #007427; } .ansi-yellow-fg { color: #DDB62B; } .ansi-yellow-bg { background-color: #DDB62B; } .ansi-yellow-intense-fg { color: #B27D12; } .ansi-yellow-intense-bg { background-color: #B27D12; } .ansi-blue-fg { color: #208FFB; } .ansi-blue-bg { background-color: #208FFB; } .ansi-blue-intense-fg { color: #0065CA; } .ansi-blue-intense-bg { background-color: #0065CA; } .ansi-magenta-fg { color: #D160C4; } .ansi-magenta-bg { background-color: #D160C4; } .ansi-magenta-intense-fg { color: #A03196; } .ansi-magenta-intense-bg { background-color: #A03196; } .ansi-cyan-fg { color: #60C6C8; } .ansi-cyan-bg { background-color: #60C6C8; } .ansi-cyan-intense-fg { color: #258F8F; } .ansi-cyan-intense-bg { background-color: #258F8F; } .ansi-white-fg { color: #C5C1B4; } .ansi-white-bg { background-color: #C5C1B4; } .ansi-white-intense-fg { color: #A1A6B2; } .ansi-white-intense-bg { background-color: #A1A6B2; } .ansi-bold { font-weight: bold; } Basic DSNT usage guide You can use Pweave to execute the code in this document and produce a HTML report. import torch torch.manual_seed(12345) &lt;torch._C.Generator at 0x7fa9bad16c10&gt; Building a coordinate regression model from torch import nn import dsntnn The bulk of the model can be any sort of fully convolutional network (FCN). Here we'll just use a custom network with three convolutional layers. class FCN(nn.Module): def __init__(self): super().__init__() self.layers = nn.Sequential( nn.Conv2d(3, 16, kernel_size=3, padding=1), nn.ReLU(), nn.BatchNorm2d(16), nn.Conv2d(16, 16, kernel_size=3, padding=1), nn.ReLU(), nn.BatchNorm2d(16), nn.Conv2d(16, 16, kernel_size=3, padding=1), ) def forward(self, x): return self.layers(x) Using the DSNT layer, we can very simply extend any FCN to tackle coordinate regression tasks. class CoordRegressionNetwork(nn.Module): def __init__(self, n_locations): super().__init__() self.fcn = FCN() self.hm_conv = nn.Conv2d(16, n_locations, kernel_size=1, bias=False) def forward(self, images): # 1. Run the images through our FCN fcn_out = self.fcn(images) # 2. Use a 1x1 conv to get one unnormalized heatmap per location unnormalized_heatmaps = self.hm_conv(fcn_out) # 3. Normalize the heatmaps heatmaps = dsntnn.flat_softmax(unnormalized_heatmaps) # 4. Calculate the coordinates coords = dsntnn.dsnt(heatmaps) return coords, heatmaps Training the model from torch import optim from torch.autograd import Variable import matplotlib.pyplot as plt import scipy.misc To demonstrate the model in action, we're going to train on an image of a raccoon's eye. image_size = [40, 40] raccoon_face = scipy.misc.imresize(scipy.misc.face()[200:400, 600:800, :], image_size) eye_x, eye_y = 24, 26 plt.imshow(raccoon_face) plt.scatter([eye_x], [eye_y], color=&#39;red&#39;, marker=&#39;X&#39;) plt.show() /home/maddaff/miniconda2/envs/python36/bin/pweave:2: DeprecationWarning: `imresize` is deprecated! `imresize` is deprecated in SciPy 1.0.0, and will be removed in 1.2.0. Use ``skimage.transform.resize`` instead. The input and target need to be put into PyTorch tensors. Importantly, the target coordinates are normalized so that they are in the range (-1, 1). The DSNT layer always outputs coordinates in this range. raccoon_face_tensor = torch.from_numpy(raccoon_face).permute(2, 0, 1).float() input_tensor = raccoon_face_tensor.div(255).unsqueeze(0) input_var = Variable(input_tensor, requires_grad=False) eye_coords_tensor = torch.Tensor([[[eye_x, eye_y]]]) target_tensor = (eye_coords_tensor * 2 + 1) / torch.Tensor(image_size) - 1 target_var = Variable(target_tensor, requires_grad=False) print(&#39;Target: {:0.4f}, {:0.4f}&#39;.format(*list(target_tensor.squeeze()))) Target: 0.2250, 0.3250 The coordinate regression model needs to be told ahead of time how many locations to predict coordinates for. In this case we'll intantiate a model to output 1 location per image. model = CoordRegressionNetwork(n_locations=1) Doing a forward pass with the model is the same as with any PyTorch model. The results aren't very good yet since the model is completely untrained. coords, heatmaps = model(input_var) print(&#39;Initial prediction: {:0.4f}, {:0.4f}&#39;.format(*list(coords.data[0, 0]))) plt.imshow(heatmaps[0, 0].data.cpu().numpy()) plt.show() Initial prediction: -0.0002, -0.0133 Now we'll train the model to overfit the location of the eye. Of course, for real applications the model should be trained and evaluated using separate training and validation datasets! optimizer = optim.RMSprop(model.parameters(), lr=2.5e-4) for i in range(400): # Forward pass coords, heatmaps = model(input_var) # Per-location euclidean losses euc_losses = dsntnn.euclidean_losses(coords, target_var) # Per-location regularization losses reg_losses = dsntnn.js_reg_losses(heatmaps, target_var, sigma_t=1.0) # Combine losses into an overall loss loss = dsntnn.average_loss(euc_losses + reg_losses) # Calculate gradients optimizer.zero_grad() loss.backward() # Update model parameters with RMSprop optimizer.step() # Predictions after training print(&#39;Predicted coords: {:0.4f}, {:0.4f}&#39;.format(*list(coords.data[0, 0]))) plt.imshow(heatmaps[0, 0].data.cpu().numpy()) plt.show() Predicted coords: 0.2229, 0.3198 Published from basic_usage.md using Pweave 0.30.3 on 26-09-2018.]]></content>
+      <tags>
+        <tag>dsntnn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pytorch在加载模型参数时指定设备]]></title>
+    <url>%2F2018%2F09%2F26%2Fpytorch-state-dict-gpu-to-cpu%2F</url>
+    <content type="text"><![CDATA[将参数加载到CPU在使用torch.load()方法加载函数的时候，会遇到CUDA OUT OF MEMORY的问题，这是由于训练的时候是在GPU上进行训练，因此在加载的时候默认也是加载到GPU上。根据torch.load的官方文档torch.load(&#39;my_file.pt&#39;, map_location=lambda storage, loc: storage)语句可以将参数保存到CPU上。 更多操作12345678910111213&gt;&gt;&gt; torch.load('tensors.pt')# Load all tensors onto the CPU&gt;&gt;&gt; torch.load('tensors.pt', map_location=torch.device('cpu'))# Load all tensors onto the CPU, using a function&gt;&gt;&gt; torch.load('tensors.pt', map_location=lambda storage, loc: storage)# Load all tensors onto GPU 1&gt;&gt;&gt; torch.load('tensors.pt', map_location=lambda storage, loc: storage.cuda(1))# Map tensors from GPU 1 to GPU 0&gt;&gt;&gt; torch.load('tensors.pt', map_location=&#123;'cuda:1':'cuda:0'&#125;)# Load tensor from io.BytesIO object&gt;&gt;&gt; with open('tensor.pt') as f: buffer = io.BytesIO(f.read())&gt;&gt;&gt; torch.load(buffer)]]></content>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用rsync进行选择性复制]]></title>
+    <url>%2F2018%2F09%2F21%2Frsync-exculde-dir%2F</url>
+    <content type="text"><![CDATA[有时候复制文件夹希望不全部复制，而是有选择的进行。这时候就可以使用rsync。1rsync -av --exclude cache/ src_folder/ target_folder/ 其中exclude参数可以多次使用。在命令中使用-n可以干运行]]></content>
+      <tags>
+        <tag>rsync</tag>
+        <tag>copy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用privoxy为局域网中的移动设备使用代理]]></title>
+    <url>%2F2018%2F09%2F20%2Fprivoxy-for-ios%2F</url>
+    <content type="text"><![CDATA[Privoxy是一款实用的端口转发工具，当主机使用代理的时候，可以使用privoxy为同一个局域网内的移动设备使用主机上的代理。 配置privoxyvim /etc/privoxy/config 12listen-address 0.0.0.0:6666 #这一行可以选择任意未使用端口forward-socks5 / 127.0.0.1:1080 . #不要漏掉这里的点 启动privoxyservice privoxy start 配置移动设备这里以iOS为例选择同一局域网下的Wifi，进行配置。HTTP代理设置为“手动”，服务器在主机在局域网内的ip地址，端口填写之前设置的端口。即可。]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>privoxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCF CSP考前复习-python]]></title>
+    <url>%2F2018%2F09%2F15%2Freview-before-ccf-csp%2F</url>
+    <content type="text"><![CDATA[1. 跳一跳问题描述： 近来，跳一跳这款小游戏风靡全国，受到不少玩家的喜爱。 简化后的跳一跳规则如下：玩家每次从当前方块跳到下一个方块，如果没有跳到下一个方块上则游戏结束。 如果跳到了方块上，但没有跳到方块的中心则获得1分；跳到方块中心时，若上一次的得分为1分或这是本局游戏的第一次跳跃则此次得分为2分，否则此次得分比上一次得分多两分（即连续跳到方块中心时，总得分将+2，+4，+6，+8…）。 现在给出一个人跳一跳的全过程，请你求出他本局游戏的得分（按照题目描述的规则）。输入格式 输入包含多个数字，用空格分隔，每个数字都是1，2，0之一，1表示此次跳跃跳到了方块上但是没有跳到中心，2表示此次跳跃跳到了方块上并且跳到了方块中心，0表示此次跳跃没有跳到方块上（此时游戏结束）。输出格式 输出一个整数，为本局游戏的得分（在本题的规则下）。样例输入1 1 2 2 2 1 1 2 2 0样例输出22数据规模和约定 对于所有评测用例，输入的数字不超过30个，保证0正好出现一次且为最后一个数字。 2. 碰撞的小球问题描述 数轴上有一条长度为L（L为偶数)的线段，左端点在原点，右端点在坐标L处。有n个不计体积的小球在线段上，开始时所有的小球都处在偶数坐标上，速度方向向右，速度大小为1单位长度每秒。 当小球到达线段的端点（左端点或右端点）的时候，会立即向相反的方向移动，速度大小仍然为原来大小。 当两个小球撞到一起的时候，两个小球会分别向与自己原来移动的方向相反的方向，以原来的速度大小继续移动。 现在，告诉你线段的长度L，小球数量n，以及n个小球的初始位置，请你计算t秒之后，各个小球的位置。提示 因为所有小球的初始位置都为偶数，而且线段的长度为偶数，可以证明，不会有三个小球同时相撞，小球到达线段端点以及小球之间的碰撞时刻均为整数。 同时也可以证明两个小球发生碰撞的位置一定是整数（但不一定是偶数）。输入格式 输入的第一行包含三个整数n, L, t，用空格分隔，分别表示小球的个数、线段长度和你需要计算t秒之后小球的位置。 第二行包含n个整数a1, a2, …, an，用空格分隔，表示初始时刻n个小球的位置。输出格式 输出一行包含n个整数，用空格分隔，第i个整数代表初始时刻位于ai的小球，在t秒之后的位置。样例输入3 10 54 6 8样例输出7 9 9样例说明 初始时，三个小球的位置分别为4, 6, 8。 一秒后，三个小球的位置分别为5, 7, 9。 两秒后，第三个小球碰到墙壁，速度反向，三个小球位置分别为6, 8, 10。 三秒后，第二个小球与第三个小球在位置9发生碰撞，速度反向（注意碰撞位置不一定为偶数），三个小球位置分别为7, 9, 9。 四秒后，第一个小球与第二个小球在位置8发生碰撞，速度反向，第三个小球碰到墙壁，速度反向，三个小球位置分别为8, 8, 10。 五秒后，三个小球的位置分别为7, 9, 9。样例输入10 22 3014 12 16 6 10 2 8 20 18 4样例输出6 6 8 2 4 0 4 12 10 2数据规模和约定 对于所有评测用例，1 ≤ n ≤ 100，1 ≤ t ≤ 100，2 ≤ L ≤ 1000，0 &lt; ai &lt; L。L为偶数。 保证所有小球的初始位置互不相同且均为偶数。 3. URL 映射问题描述 URL 映射是诸如 Django、Ruby on Rails 等网页框架 (web frameworks) 的一个重要组件。对于从浏览器发来的 HTTP 请求，URL 映射模块会解析请求中的 URL 地址，并将其分派给相应的处理代码。现在，请你来实现一个简单的 URL 映射功能。 本题中 URL 映射功能的配置由若干条 URL 映射规则组成。当一个请求到达时，URL 映射功能会将请求中的 URL 地址按照配置的先后顺序逐一与这些规则进行匹配。当遇到第一条完全匹配的规则时，匹配成功，得到匹配的规则以及匹配的参数。若不能匹配任何一条规则，则匹配失败。 本题输入的 URL 地址是以斜杠 / 作为分隔符的路径，保证以斜杠开头。其他合法字符还包括大小写英文字母、阿拉伯数字、减号 -、下划线 _ 和小数点 .。例如，/person/123/ 是一个合法的 URL 地址，而 /person/123? 则不合法（存在不合法的字符问号 ?）。另外，英文字母区分大小写，因此 /case/ 和 /CAse/ 是不同的 URL 地址。 对于 URL 映射规则，同样是以斜杠开始。除了可以是正常的 URL 地址外，还可以包含参数，有以下 3 种： 字符串 &lt;str&gt;：用于匹配一段字符串，注意字符串里不能包含斜杠。例如，abcde0123。 整数 &lt;int&gt;：用于匹配一个不带符号的整数，全部由阿拉伯数字组成。例如，01234。 路径 &lt;path&gt;：用于匹配一段字符串，字符串可以包含斜杠。例如，abcd/0123/。 以上 3 种参数都必须匹配非空的字符串。简便起见，题目规定规则中 &lt;str&gt; 和 &lt;int&gt; 前面一定是斜杠，后面要么是斜杠，要么是规则的结束（也就是该参数是规则的最后一部分）。而 &lt;path&gt; 的前面一定是斜杠，后面一定是规则的结束。无论是 URL 地址还是规则，都不会出现连续的斜杠。输入格式 输入第一行是两个正整数 n 和 m，分别表示 URL 映射的规则条数和待处理的 URL 地址个数，中间用一个空格字符分隔。 第 2 行至第 n+1 行按匹配的先后顺序描述 URL 映射规则的配置信息。第 i+1 行包含两个字符串 pi 和 ri，其中 pi 表示 URL 匹配的规则，ri 表示这条 URL 匹配的名字。两个字符串都非空，且不包含空格字符，两者中间用一个空格字符分隔。 第 n+2 行至第 n+m+1 行描述待处理的 URL 地址。第 n+1+i 行包含一个字符串 qi，表示待处理的 URL 地址，字符串中不包含空格字符。输出格式 输入共 m 行，第 i 行表示 qi 的匹配结果。如果匹配成功，设匹配了规则 pj ，则输出对应的 rj。同时，如果规则中有参数，则在同一行内依次输出匹配后的参数。注意整数参数输出时要把前导零去掉。相邻两项之间用一个空格字符分隔。如果匹配失败，则输出 404。样例输入5 4/articles/2003/ special_case_2003/articles/&lt;int&gt;/ year_archive/articles/&lt;int&gt;/&lt;int&gt;/ month_archive/articles/&lt;int&gt;/&lt;int&gt;/&lt;str&gt;/ article_detail/static/&lt;path&gt; static_serve/articles/2004//articles/1985/09/aloha//articles/hello//static/js/jquery.js样例输出year_archive 2004article_detail 1985 9 aloha404static_serve js/jquery.js样例说明 对于第 1 个地址 /articles/2004/，无法匹配第 1 条规则，可以匹配第 2 条规则，参数为 2004。 对于第 2 个地址 /articles/1985/09/aloha/，只能匹配第 4 条规则，参数依次为 1985、9（已经去掉前导零）和 aloha。 对于第 3 个地址 /articles/hello/，无法匹配任何一条规则。 对于第 4 个地址 /static/js/jquery.js，可以匹配最后一条规则，参数为 js/jquery.js。数据规模和约定 1 ≤ n ≤ 100，1 ≤ m ≤ 100。 所有输入行的长度不超过 100 个字符（不包含换行符）。 保证输入的规则都是合法的。 4. 最小差值问题描述 给定n个数，请找出其中相差（差的绝对值）最小的两个数，输出它们的差值的绝对值。输入格式 输入第一行包含一个整数n。 第二行包含n个正整数，相邻整数之间使用一个空格分隔。输出格式 输出一个整数，表示答案。样例输入51 5 4 8 20样例输出1样例说明 相差最小的两个数是5和4，它们之间的差值是1。样例输入59 3 6 1 3样例输出0样例说明 有两个相同的数3，它们之间的差值是0.数据规模和约定 对于所有评测用例，2 ≤ n ≤ 1000，每个给定的整数都是不超过10000的正整数。 ## 5. JSON问题描述 JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式，可以用来描述半结构化的数据。JSON 格式中的基本单元是值 (value)，出于简化的目的本题只涉及 2 种类型的值： 字符串 (string)：字符串是由双引号 “ 括起来的一组字符（可以为空）。如果字符串的内容中出现双引号 “，在双引号前面加反斜杠，也就是用 \” 表示；如果出现反斜杠 \，则用两个反斜杠 \ 表示。反斜杠后面不能出现 “ 和 \ 以外的字符。例如：””、”hello”、”\”\“。 对象 (object)：对象是一组键值对的无序集合（可以为空）。键值对表示对象的属性，键是属性名，值是属性的内容。对象以左花括号 { 开始，右花括号 } 结束，键值对之间以逗号 , 分隔。一个键值对的键和值之间以冒号 : 分隔。键必须是字符串，同一个对象所有键值对的键必须两两都不相同；值可以是字符串，也可以是另一个对象。例如：{}、{“foo”: “bar”}、{“Mon”: “weekday”, “Tue”: “weekday”, “Sun”: “weekend”}。 除了字符串内部的位置，其他位置都可以插入一个或多个空格使得 JSON 的呈现更加美观，也可以在一些地方换行，不会影响所表示的数据内容。例如，上面举例的最后一个 JSON 数据也可以写成如下形式。 { “Mon”: “weekday”, “Tue”: “weekday”, “Sun”: “weekend” } 给出一个 JSON 格式描述的数据，以及若干查询，编程返回这些查询的结果。输入格式 第一行是两个正整数 n 和 m，分别表示 JSON 数据的行数和查询的个数。 接下来 n 行，描述一个 JSON 数据，保证输入是一个合法的 JSON 对象。 接下来 m 行，每行描述一个查询。给出要查询的属性名，要求返回对应属性的内容。需要支持多层查询，各层的属性名之间用小数点 . 连接。保证查询的格式都是合法的。输出格式 对于输入的每一个查询，按顺序输出查询结果，每个结果占一行。 如果查询结果是一个字符串，则输出 STRING &lt;string&gt;，其中 &lt;string&gt; 是字符串的值，中间用一个空格分隔。 如果查询结果是一个对象，则输出 OBJECT，不需要输出对象的内容。 如果查询结果不存在，则输出 NOTEXIST。样例输入10 5{“firstName”: “John”,“lastName”: “Smith”,“address”: {“streetAddress”: “2ndStreet”,“city”: “NewYork”,“state”: “NY”},“esc\aped”: “\”hello\””}firstNameaddressaddress.cityaddress.postalesc\aped样例输出STRING JohnOBJECTSTRING NewYorkNOTEXISTSTRING “hello”评测用例规模与约定 n ≤ 100，每行不超过 80 个字符。 m ≤ 100，每个查询的长度不超过 80 个字符。 字符串中的字符均为 ASCII 码 33-126 的可打印字符，不会出现空格。所有字符串都不是空串。 所有作为键的字符串不会包含小数点 .。查询时键的大小写敏感。 50%的评测用例输入的对象只有 1 层结构，80%的评测用例输入的对象结构层数不超过 2 层。举例来说，{“a”: “b”} 是一层结构的对象，{“a”: {“b”: “c”}} 是二层结构的对象，以此类推。 这道题直接调用了python的json包，只有90分 6. 排序 7. 日期]]></content>
+      <tags>
+        <tag>ccfcsp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ss+provixy在Ubuntu命令行中翻越长城]]></title>
+    <url>%2F2018%2F09%2F12%2Fss-provixy-ubuntu%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>ss</tag>
+        <tag>provixy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python解压中文编码的zip文件]]></title>
+    <url>%2F2018%2F09%2F04%2Funzip-with-python%2F</url>
+    <content type="text"><![CDATA[在Ubuntu下，有时遇到中文编码的zip文件，会发现解压乱码。这时候可以使用python来解决。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>unzip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python对2D坐标点进行仿射变换]]></title>
+    <url>%2F2018%2F09%2F03%2Faffine-with-python%2F</url>
+    <content type="text"><![CDATA[仿射变换是一种常用的变换。使用矩阵操作可以很方便的对2D点进行仿射变换，逆变换的时候只需要求解逆矩阵即可。如下图所示： Python代码示例：仅实现了常用的平移、旋转、翻折变换：]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>affine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在pycharm中使用gist]]></title>
+    <url>%2F2018%2F08%2F31%2Fpycharm-github%2F</url>
+    <content type="text"><![CDATA[GistGist是github提供的便捷分享代码的工具，效果就是一个网页，网页下面有评论区域。Gist分为secret和public两种，public可以被搜索到，secret也不是私有的，而是指需要通过链接才能访问，并且无法被搜索。官方给出的建议是写ToDoList或者与朋友分享代码的时候选择secret。 在Pycharm中进行设置打开pycharm中的设置，搜索Github，输入账号密码即可。然后选中需要分享的代码，右击‘Create Gist’，之后按照提示输入标题和描述，即可。 示例下面是以一段使用bcrypt在python中进行文本加密的代码，在pycharm中通过gist分享，随后在gist页面获得嵌入地址，可以放入Blog中，十分方便。]]></content>
+      <tags>
+        <tag>pycharm</tag>
+        <tag>gist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker容器的保存与加载]]></title>
+    <url>%2F2018%2F08%2F20%2Fdocker-save-and-load%2F</url>
+    <content type="text"><![CDATA[保存对镜像的修改docker commitdocker commit 8d418a7b6021 postgres:latest deploy这时候用docker images可以看见保存的镜像，可以使用正常镜像加载的命令加载。加载时经常使用的一些参数：123-p : 指定端口映射--shm-size= : 指定shm大小，pytorch中设置多个worker的时候会用到--cap-add= : Add Linux capabilities 其中cap-add参数的使用可以参考官方文档。例:--cap-add=SYS_NICE 将镜像保存为文件sudo docker save image &gt; /home/save.tar 从文件恢复镜像docker load &lt; /home/save.tar 重命名镜像docker tag IMAGEID REPOSITORY:TAG]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu下调整进程的优先级]]></title>
+    <url>%2F2018%2F08%2F20%2Fpriority%2F</url>
+    <content type="text"><![CDATA[在系统中，我们希望有些进程的优先级可以高一些，有些要低一些。这会决定不同进程占用的CPU时间。下面介绍如何调整优先级。 nice指令当运行一个程序的时候，使用nice指令可以指定优先级。例如，运行nice -n 5 htop会发现htop的优先级降低了。-n参数可以是 -19～20 之间的整数，越低表示优先级越高。当不使用nice指定是，进程的NI值默认为0。需要注意的是，当使用负值参数的时候，需要sudo才能起作用。 renice指令当程序已经开始运行，可以使用renice指令重新指定进程的NI值，用法与nice类似，可以一次指定多个。 查看子进程的PID父进程fork出来的子进程nice值与父进程相同。父进程renice，子进程nice值不会随之改变。有时候需要提高子进程的优先级，使用ps --ppid &lt;pid of the parent&gt;可以获得子进程的PID。]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在matlab中使用python接口]]></title>
+    <url>%2F2018%2F08%2F15%2Fmatlab-python%2F</url>
+    <content type="text"><![CDATA[随着python的流行，matlab逐渐支持python的部分功能。python在字符串处理和文件读写上比matlab方便许多，在这些场景下使用python显然更省事。下面介绍如何在matlab中调用python的接口。 示例代码 main.m 12345678910111213141516171819202122232425262728root_dir = '/data3/Human36M/Bbox/S%d/MySegmentsMat/ground_truth_bb';save_dir = '/data2/guoyu/workspace/pytorch-3dpose/BBox_par';S = [1,5,6,7,8,9,11];for i =1:1:7 subject = S(i); cur_dir = sprintf(root_dir,subject) fileList = py.os.listdir(cur_dir); fileList = cell(fileList); fileList = cellfun(@char, fileList, 'UniformOutput', false); for j =1:1:length(fileList) filename = fileList(j); filepath = fullfile(cur_dir,filename); F = load(filepath&#123;1&#125;); M = F.Masks; Bbox = zeros(length(M),4); fork =1:length(M) Bbox(k,:) = getBbox_par(M&#123;k&#125;); end save_cur_dir = fullfile(save_dir, ['S',num2str(S(i))]); savepath = fullfile(save_cur_dir,[filename&#123;1&#125;(1:end-4),'.h5']) if ~py.os.path.exists(save_cur_dir) py.os.makedirs(save_cur_dir); end h5create(savepath,'/bbox',size(Bbox)) h5write(savepath,'/bbox',Bbox) endendmessage = 'All Done' getBbox.m 12345678910111213function [ start_x , start_y, end_x,end_y ] = getBbox( I )%UNTITLED Summary of this function goes here% Detailed explanation goes hereS = find(I);idx1 = S(1);idx2 = S(end);start_y = mod(idx1, 1002);start_x = round(idx1/1002);end_y = mod(idx2, 1002);end_x = round(idx2/1002);end 代码注释123fileList = py.os.listdir(cur_dir);fileList = cell(fileList);fileList = cellfun(@char, fileList, &apos;UniformOutput&apos;, false); 在matlab中，调用python接口需要统一的py.，在使用listdir之后，matlab中返回值是py.list类型，需要将其转换为cell类型才能在matlab中使用。同样的，返回的字符串是py.str类型，需要用char进行类型转换。 123if ~py.os.path.exists(save_cur_dir) py.os.makedirs(save_cur_dir);end 这里使用python中的os.path.exists()判断文件是否存在，在matlab中的返回值为0或者1。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在pytorch中设置learning rate的衰减]]></title>
+    <url>%2F2018%2F08%2F10%2Flr-decay-pytorch%2F</url>
+    <content type="text"><![CDATA[很多时候我们要对学习率（learning rate）进行衰减，下面的代码示范了如何每30个epoch按10%的速率衰减： 12345def adjust_learning_rate(optimizer, epoch): """Sets the learning rate to the initial LR decayed by 10 every 30 epochs""" lr = args.lr * (0.1 ** (epoch // 30)) for param_group in optimizer.param_groups: param_group['lr'] = lr 来源：https://www.pytorchtutorial.com/pytorch-learning-rate-decay/]]></content>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python实现tee的效果]]></title>
+    <url>%2F2018%2F08%2F08%2Fpython-tee%2F</url>
+    <content type="text"><![CDATA[代码tee是linux下的一个命令行工具，通过pipe可以将程序的输出同时输出到屏幕和文件。python下也可以实现这样的效果，代码如下：123456789101112131415161718import sysclass Tee(object): def __init__(self, name, mode): self.file = open(name, mode) self.stdout = sys.stdout sys.stdout = self def __del__(self): sys.stdout = self.stdout self.file.close() def write(self, data): self.file.write(data) self.stdout.write(data) def flush(self): self.file.flush() Tee这个类在初始化方法里接管了标准输出，此后程序中所有的print都会输出到文件。 例子123456789from Tee import Teeif __name__ == '__main__': logger = Tee('log.txt', 'w') A = [1,2,3,4,5,6,7,8,9,0] B=A[::2] print B L=range(1,13) print L,type(L) ‘log.txt’中的内容为12[1, 3, 5, 7, 9][1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] &lt;type &apos;list&apos;&gt;]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>tee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决pytorch中DataParallel后模型参数出现问题的方法]]></title>
+    <url>%2F2018%2F08%2F08%2Fpytorch-dataparallel-problem%2F</url>
+    <content type="text"><![CDATA[pytorch中如果使用DataParallel，那么保存的模型key值前面会多处’modules.’，这样如果训练的时候使用的是多GPU，而测试的时候使用的是单GPU，模型载入就会出现问题。一个解决方法是测试的时候强行DataParallel，但是有时候情况较为复杂，可以使用如下的方法：（参考来源：https://discuss.pytorch.org/t/solved-keyerror-unexpected-key-module-encoder-embedding-weight-in-state-dict/1686/13） original saved file with DataParallel1state_dict = torch.load(‘myfile.pth.tar’) create new OrderedDict that does not contain module.12345from collections import OrderedDictnew_state_dict = OrderedDict()for k, v in state_dict.items():name = k[7:] # remove module.new_state_dict[name] = v load params1model.load_state_dict(new_state_dict) 简而言之，就是重新创建一个OrderedDict，然后将它载入模型就行了。]]></content>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python读取cdf数据]]></title>
+    <url>%2F2018%2F07%2F18%2Fcdf-python%2F</url>
+    <content type="text"><![CDATA[CDF是NASA提出的一种数据格式，NASA提供了用于操作CDF文件的程序。 安装CDF工具包安装文档先下载CDF Library编译make OS=linux ENV=gnu CURSES=yes FORTRAN=no UCOPTIONS=-O2 SHARED=yes all安装sudo make INSTALLDIR=/usr/local/cdf install 安装spacepy pip install spacepy 示例代码1234567import osfrom spacepy import pycdfos.environ["CDF_LIB"] = "/usr/local/cdf/lib"anno_Greeting=pycdf.CDF('/home/maddaff/Documents/TestSpace/Greeting.54138969.cdf')data=anno_Greeting.copy()anno_Greeting.close()print data.keys()]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>cdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在视频中加入标注——Demo]]></title>
+    <url>%2F2018%2F07%2F18%2Fanno-Video%2F</url>
+    <content type="text"><![CDATA[有些数据以视频的形式给出，在观察数据集的时候就需要对其进行处理，将对应的标注信息显示在视频中。 示例代码这段代码依次读取视频文件，对其进行标注之后显示出来。 Main.py12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182import numpy as npimport cv2import h5pyimport timeimport osfrom drawJoints import DrawJointsCONNECTED_PAIRS=[[10,11],[11,12],[13,14],[14,15],[0,1],[1,2],[3,4],[4,5]]def showVid(cap, pred,title='frame'): idx = 0 fps = cap.get(cv2.CAP_PROP_FPS) while (True): # t1=time.time() if idx &gt;= pred.shape[0]: return ret, frame = cap.read() frame = DrawJoints(frame, pred[idx, ::], CONNECTED_PAIRS) cv2.imshow(title, frame) idx = idx + 1 if cv2.waitKey(int(1000 / fps)) &amp; 0xFF == ord(' '): while True: if (cv2.waitKey(1) &amp; 0xFF == ord('q')): return if (cv2.waitKey(1) &amp; 0xFF == ord(' ')): break if ( cap.get(cv2.CAP_PROP_FRAME_COUNT) &lt;= cap.get(cv2.CAP_PROP_POS_FRAMES) ): return if (cv2.waitKey(2) &amp; 0xFF == ord('q')) : returndef getFileList(data_dir,pred_dir,idx): ''' Assume idx in ['S9','S11'] :param data_dir: :param pred_dir: :param idx: :return: ''' V=[] #Video P=[] #Predict video_files=[i for i in os.listdir(os.path.join(data_dir,idx,'Videos')) if (i.split('.')[-1]=='mp4' and (not i[0]=='_') )] pred_files= [i for i in os.listdir(os.path.join(pred_dir,idx,'StackedHourglassFineTuned240')) if i.split('.')[-1]=='h5'] video_files.sort() pred_files = [p.replace('_',' ') for p in pred_files] pred_files.sort() pred_files = [p.replace(' ', '_') for p in pred_files] ip=0 for i in range(len(video_files)): cur_file=video_files[i] if idx=='S11' and cur_file=='Directions.54138969.mp4': continue else: V.append(os.path.join(data_dir,idx,'Videos',cur_file)) P.append(os.path.join(os.path.join(pred_dir,idx,'StackedHourglassFineTuned240'),pred_files[ip])) ip=ip+1 return V,Pdef main(): vidDir='/data3/Human36M/raw_data' predDir='/data2/guoyu/workspace/3d-pose-baseline/temporal/data/h36m' for S in ['S9','S11']: V,P = getFileList(vidDir,predDir,S) for i in range(len(V)): pred_name=P[i] filename=V[i] pred_data = h5py.File(pred_name) pred = np.array(pred_data['poses'], dtype=np.int) cap = cv2.VideoCapture(filename) # print int(cap.get(cv2.CAP_PROP_FRAME_COUNT)),'\t',int(cap.get(cv2.CAP_PROP_FRAME_COUNT)- pred.shape[0]),'\t' ,S,filename.split('/')[-1].split('.')[0] # cap.release() # fps = cap.get(cv2.CAP_PROP_FPS) showVid(cap, pred,title=filename.split('/')[-1]) cap.release() cv2.destroyAllWindows()if __name__ == '__main__': main() 使用opencv的VideoCapture函数可以方便地读取视频数据，可以通过cap的get函数来获得对应的视频属性，例如帧率、帧数、长宽等信息。cv2.waitKey(2) &amp; 0xFF == ord(&#39;q&#39;)语句可以判断键盘的输入。 drawJoints.py1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import osimport numpy as npimport cv2JoName='0 - r ankle, 1 - r knee, 2 - r hip, 3 - l hip, 4 - l knee, 5 - l ankle, 6 - pelvis, 7 - thorax, 8 - upper neck,' \ ' 9 - head top, 10 - r wrist, 11 - r elbow, 12 - r shoulder, 13 - l shoulder, 14 - l elbow, 15 - l wrist'JoName=JoName.split(',')def DrawJoints(I,joints,CONNECTED_PAIRS=None,Jo=JoName): ''' Assume joints Dim : P x 2 :param I: :param joints: :param CONNECTED_PAIRS: :return: ''' txt='Missing Joints:\n' # Background rectangle for text cv2.rectangle(I, (25, 25), (300, 250), (0, 0, 0), -1) font = cv2.FONT_HERSHEY_SIMPLEX for i in range(joints.shape[0]): if joints[i,0]&lt;5 and joints[i,1]&lt;5 : txt=txt+ str(Jo[i]) +'\n' cv2.circle(I, (joints[i,0], joints[i,1]), 2, (0, 0, 255), -1) if CONNECTED_PAIRS: I=drawLine(I,joints,CONNECTED_PAIRS) # show text y0, dy = 50, 25 for i, txt in enumerate(txt.split('\n')): y = y0 + i * dy cv2.putText(I, txt, (50, y), font, .8, (0, 255, 0), 1, 2) # print(txt) return Idef drawLine(I,joints,CONNECTED_PAIRS): N=len(CONNECTED_PAIRS) for i in range(N): p1=joints[CONNECTED_PAIRS[i][0]] p2=joints[CONNECTED_PAIRS[i][1]] p1=totuple(p1) p2 = totuple(p2) cv2.line(I,p1,p2,(0,255,0),2) return Idef totuple(a): try: return tuple(totuple(i) for i in a) except TypeError: return a putText 函数用于在图像上输出文字，需要注意的是对于字符串中的换行符\n，会显示乱码，需要另外处理。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>Video</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在python中进行socket通信]]></title>
+    <url>%2F2018%2F07%2F15%2Fscoket-python%2F</url>
+    <content type="text"><![CDATA[socket是计算机通信中常常使用到的一种通信技术。本文介绍如何在python中使用这一方法在多个进程之间进行通信。 Client作为客户端，只需要知道服务器的地址与端口，发送请求，接收数据即可，并不需要非常复杂的操作。 示例1以访问新浪微博的主页为例：12345678910111213141516171819# 导入socket库:import socket# 创建一个socket:s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)# 建立连接:s.connect(('www.sina.com.cn', 80))# 发送数据:s.send('GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n')# 接收数据:buffer = []while True: # 每次最多接收1k字节: d = s.recv(1024) if d: buffer.append(d) else: breakdata = ''.join(buffer)s.close() 接收数据时，调用recv(max)方法，一次最多接收指定的字节数，因此，在一个while循环中反复接收，直到recv()返回空数据，表示接收完毕，退出循环。。当我们接收完数据后，调用close()方法关闭Socket，这样，一次完整的网络通信就结束了。 示例2接收并解码json数据123456789101112131415161718192021import socketimport timeimport jsonimport numpy as npimport matplotlib.pyplot as plts = socket.socket(socket.AF_INET, socket.SOCK_STREAM)s.connect(('127.0.0.1', 9999))print s.recv(1024)t=time.time()s.send('a')data_rec=s.recv(400000)print(time.time()-t)s.send('exit')s.close()print(len(data_rec))J=json.loads(data_rec)I=J[0]['img']I=np.asarray(I)plt.imshow(I)plt.show() 这里json数据中有3个列表元素，每个元素是一个字典，字典的键是image，对应的值是图片矩阵。注意这里是在本机上进行通讯，为了方便起见返回值最大设置为400000字节。 Server这里给出服务器端的代码实现：12345678910111213141516171819202122232425262728293031323334353637import socketimport threadingimport jsonimport timeimport numpy as npdef tcplink(sock, addr): print 'Accept new connection from %s:%s...' % addr sock.send('Welcome!') while True: x = [] for i in range(3): d = &#123;&#125; I = np.random.rand(64, 64) d['img'] = I.tolist() x.append(d) # print(x) J = json.dumps(x) data = sock.recv(1024) # time.sleep(1) if data == 'exit' or not data: break sock.send(J) sock.close() print 'Connection from %s:%s closed.' % addrif __name__ == '__main__': s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) s.bind(('0.0.0.0', 9999)) s.listen(5) print 'Waiting for connection...' while True: sock, addr = s.accept() t = threading.Thread(target=tcplink, args=(sock, addr)) t.start() s.bind((&#39;0.0.0.0&#39;, 9999))指定服务器的端口和ip，127.0.0.1表示只在本机内部通信，0.0.0.0表示在所有网卡上设置端口，可以由外部进行访问。s.listen(5) 队列中最多允许5个请求，超过五个请求时会拒绝后面的请求。sock, addr = s.accept()返回请求的socket和地址，注意accept函数默认是阻塞型的，会一直等待直到接收到请求才返回值，因此这里while True循环中不需要费心考虑太多。t = threading.Thread(target=tcplink, args=(sock, addr))另外开启一个线程处理请求。sock.send(J)处理好要发送的数据进行发送。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>socket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matplotlib绘制统计直方图]]></title>
+    <url>%2F2018%2F07%2F11%2Fdraw-with-matplotlib%2F</url>
+    <content type="text"><![CDATA[用matplotlib可以很方便地绘制图像，下面给出一个绘制含有13个子图的统计直方图示例: 示例代码12345678910111213141516171819import matplotlibfrom matplotlib import pylabimport matplotlib.pyplot as pltLimb_List=['Rhip-Rknee','Rknee-RFoot','Lhip-LKnee','Lknee-Lfoot','Neck-Head','Lshoulder-Lelbow','Lelbow-LWrist','Rshoulder-RElbow','Relbow-Rwrist','Lshoulder-Rshoulder','Lhip-Rhip','Neck-Throax','Throax-Spine']# fig = plt.figure()f, axs = plt.subplots(7,2,figsize=(15,36))for i in range(13): pylab.subplot(7,2,i+1) n, bins, patches =plt.hist(Err[:,i], 200, density=True, alpha=0.75,range=(-150,100)) plt.grid(True) title='Err of '+Limb_List[i] plt.title(title)# plt.tight_layout()# plt.suptitle("Error of Limb Length")plt.subplots_adjust(left=0.2, wspace=0.5, top=0.88)plt.show()f.savefig('S11_err.png',bbox_inches="tight") 代码说明：f, axs = plt.subplots(7,2,figsize=(15,36)) 这一行设置子图的大小，否则会使用默认的子图大小，在7x2的布局下会显得相当诡异。pylab.subplot(7,2,i+1) 表明当前子图的序号plt.subplots_adjust(left=0.2, wspace=0.5, top=0.88) 设置子图之间的间距，如果不设置，在每个子图都有title的情况下会导致子图的title与其他子图的坐标轴交叠f.savefig(&#39;S11_err.png&#39;,bbox_inches=&quot;tight&quot;) 这里设置bbox_inches=&quot;tight&quot;可以避免存储的图像中标题栏被截去。 示例图像]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Graphviz画图]]></title>
+    <url>%2F2018%2F06%2F23%2Fgraphviz-start%2F</url>
+    <content type="text"><![CDATA[Graphviz使用代码来绘制图形。 绘图代码123456789101112131415161718192021222324252627282930digraph G&#123; graph[dpi=300]; Add1[label=&quot;Add&quot;,shape=box]; Add2[label=&quot;Add&quot;,shape=box]; input[label=&quot;Input\n16x2&quot;,shape=box]; AT1[label=&quot;ATBlock&quot;]; AT2[label=&quot;ATBlock&quot;]; AT3[label=&quot;ATBlock&quot;]; AT4[label=&quot;ATBlock&quot;]; AT5[label=&quot;ATBlock&quot;]; AT6[label=&quot;ATBlock&quot;]; easyjoints[label=&quot;Easy Joints\n8x3&quot;]; normaljoints[label=&quot;Easy + Normal Joints\n12x3&quot;]; hardjoints[label=&quot;Easy + Normal + Hard Joints\n16x3&quot;]; EasyLabel[label=&quot;Easy Joints Loss&quot;,shape=none]; NormalLabel[label=&quot;Easy + Normal Joints Loss&quot;,shape=none]; HardLabel[label=&quot;All Joints Loss&quot;,shape=none]; input -&gt; AT1; AT1 -&gt; easyjoints ; easyjoints -&gt; AT2 -&gt; Add1; easyjoints -&gt; EasyLabel[dir=back]; input -&gt; AT3 -&gt; Add1; Add1 -&gt; normaljoints -&gt;AT4 -&gt; Add2; normaljoints -&gt; NormalLabel[dir=back]; input -&gt; AT5 -&gt; Add2; Add2 -&gt; AT6 -&gt; hardjoints; hardjoints -&gt; HardLabel[dir=back];&#125; 代码说明graph[dpi=300];设定编译时的分辨率Add1[label=&quot;Add&quot;,shape=box];声明一个变量名为Add1的节点，节点处在图中显示“Add”，节点形状为方框。节点有多种形状可以挑选，可以参考官方文档-&gt;表示此处的连接是有方向的，dir可以是both，back，none 编译编译命令如下：dot CascadeNetStructure.dot -T png -o cascade.png其中-T用于指示图片类型 对应代码生成的图片如下：]]></content>
+      <tags>
+        <tag>graphviz</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[从源编译安装opencv]]></title>
+    <url>%2F2018%2F06%2F21%2Finstall-opencv-from-source%2F</url>
+    <content type="text"><![CDATA[Install opencv from sourceGetting the Opencv from the Git Repository12cd workspacegit clone https://github.com/opencv/opencv.git Building OpenCV using CMake1234cd opencvmkdir releasecd releasecmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. 12makemake install]]></content>
+      <tags>
+        <tag>opencv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python给每一行文本加引号]]></title>
+    <url>%2F2018%2F06%2F21%2Fpython-edit-text-line%2F</url>
+    <content type="text"><![CDATA[代码如下：1234567891011import osif __name__ == '__main__': f=open('/home/maddaff/Documents/TestSpace/generatecode/joints.txt','r') f_w=open('/home/maddaff/Documents/TestSpace/generatecode/joints_write.txt','w') line=f.readline() while line: line=line.strip('\n') f_w.write("\""+line+"\""+', ') line=f.readline() f.close() f_w.close()]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过afp从Mac连接到ubuntu共享文件]]></title>
+    <url>%2F2018%2F06%2F21%2Fconnect-ubuntu-server-via-afp%2F</url>
+    <content type="text"><![CDATA[希望在局域网内的Mac和Ubuntu共享文件，不知道什么原因通过smb不能正常访问，从Ubunutu反过来访问Mac的共享文件夹也失败了。而在Windows上就完全没有问题，相当奇怪。幸好Apple还提供了一个afp协议可以用于共享文件夹。以下操作可以让Mac访问Ubuntu中的文件。 在Ubuntu上安装netatalksudo apt-get install netatalk 进行netatalk的配置sudo vim /etc/default/netatalk找到以下配置语句，去除注释。123456ATALKD_RUN=noPAPD_RUN=noCNID_METAD_RUN=yesAFPD_RUN=yesTIMELORD_RUN=noA2BOOT_RUN=no 配置分享文件夹sudo vim /etc/netatalk/AppleVolumes.default12~/ &quot;Home Directory&quot;~/Drive/ &quot;Drive&quot; allow:arthur 重启nettalk服务sudo /etc/init.d/netatalk restart 在Mac上进行连接atp://192.168.yourip 完成]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>afp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matlab读取视频数据]]></title>
+    <url>%2F2018%2F06%2F20%2Fhandle-video-with-matlab%2F</url>
+    <content type="text"><![CDATA[任务需要处理视频数据，数据的标签是cdf格式。cdf格式数据并不常见，选择使用matlab进行读取。 读取cdf标签数据data=cdfread(&#39;D:\TestSpace\S1\MyPoseFeatures\D2_Positions\Directions 1.54138969.cdf&#39;); 读取视频获得视频信息v=VideoReader(&#39;D:\TestSpace\Directions 1.54138969.mp4&#39;) 可以看到：123456789101112131415161718v = VideoReader (具有属性): 常规属性: Name: 'Directions 1.54138969.mp4' Path: 'D:\TestSpace' Duration: 27.6800 CurrentTime: 0 Tag: '' UserData: [] 视频属性: Width: 1000 Height: 1002 FrameRate: 50 BitsPerPixel: 24 VideoFormat: 'RGB24' 获得帧信息1234567currAxes = axes;while hasFrame(v) vidFrame = readFrame(v); image(vidFrame, 'Parent', currAxes); currAxes.Visible = 'off'; pause(1/v.FrameRate);end hasFrame可以检查当前时间是否存在帧，readFrame可以读取下一帧的图像，hasFrame检查是否存在可用于读取的帧。]]></content>
+      <tags>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用bash进行文件操作]]></title>
+    <url>%2F2018%2F06%2F20%2Fhandle-datch-with-bash%2F</url>
+    <content type="text"><![CDATA[情境：文件夹S中有若干个压缩文件，需要解压文件，并将原压缩文件移动到另一目录。bash代码如下：12345678910#!/bin/bashmkdir -p zipdircd SFILES=./*.tarfor f in $FILESdo echo "Processing $f file ..." tar -xvf $f mv $f ../zipdir/done]]></content>
+      <tags>
+        <tag>bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu14.04上安装Socks5服务端]]></title>
+    <url>%2F2018%2F06%2F03%2Fss-server-on-ubuntu14%2F</url>
+    <content type="text"><![CDATA[安装依赖包与SS123apt-get updateapt-get install python-pip python-m2cryptopip install shadowsocks 创建配置文件在/etc/shadowsocks/config.json文件里写入配置内容：123456789&#123; "server": "YOUR_SERVER_IP", "server_port": 8388, "local_port": 1080, "password": "YOUR_SS_PASSWORD", "timeout": 300, "method": "aes-256-cfb", "fast_open": false&#125; 启动SSsudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json --user nobody -qq -d start 也可以把这个命令加到 /etc/rc.local里面，每次系统启动都会启动SS 参考来源]]></content>
+      <tags>
+        <tag>Socks5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UEFI模式下安装Ubuntu和Windows10双系统]]></title>
+    <url>%2F2018%2F04%2F09%2Finstall-ubuntu-windows10%2F</url>
+    <content type="text"><![CDATA[这是一个老生常谈的问题了。网上搜索到的很多解决方案都是在不使用EFI模式的情况下安装。其实EFI模式下是可以安装的，问题的关键在于Secure Mode。关于Secure Mode相关的纷争可以参考这一篇文章 磁盘分区首先在已经安装好的windows系统中使用磁盘管理工具划分一块磁盘空间。 关闭Secure Mode在BIOS中关闭Secure Mode 安装Ubuntu安装的时候注意正确的挂载各块空间。我的空间分配参考了这篇文章。注意选择正确的启动引导。 打开Secure Mode如果不知道怎么打开Secure Mode，恢复Secure Mode的默认配置后重启即可。 完成这样就安装完成了。步骤相当简单，之前因为没有抓住问题的要害，走了不少弯路～]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Visdom]]></title>
+    <url>%2F2018%2F04%2F03%2Fusing-visdom%2F</url>
+    <content type="text"><![CDATA[visdom是一个可视化的工具。 安装visdompip install visdom 启动visdompython -m visdom.server可以使用-p参数指定端口 #使用visdom12345import visdomimport numpy as npvis = visdom.Visdom() //port=2333 env='example'vis.text('Hello, world!')vis.image(np.ones((3, 10, 10))) 可以在创建visdom对象的时候指定port和env]]></content>
+      <tags>
+        <tag>visdom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用VNC连接docker容器]]></title>
+    <url>%2F2018%2F03%2F02%2Fvncserver%2F</url>
+    <content type="text"><![CDATA[vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。 服务端vncserver部署在服务器中的docker容器内。 Docker容器端口映射通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：-p 2222:2222，建立容器2222端口与服务器2222端口之间的连接。如果已经有配置好的docker容器，可以使用docker commit指令commit当前的docker容器，然后以commit的镜像为image重新创建一个docker容器，创建时指定端口。如果有需求，还可以在创建时使用--shm-size=128m指令指定 /dev/shm 的大小。如果不手动指定，docker默认分配64M。 修改镜像源工欲善其事必先利其器。这是为下一步安装图形桌面做准备。由于图形桌面的软件包较大，需要使用一个靠谱的国内镜像源。以作者的环境为例，Ubuntu 14.04，使用上海交通大学的镜像源：1234$ vim /etc/apt/sources.list$ :%s/archive.ubuntu.com/ftp.sjtu.edu.cn/g$ sudo rm /var/lib/apt/lists/* -vf$ sudo apt-get update 安装x11x11是一个用于远程图形界面的程序，若只安装x11，也可以通过ssh -x连接后显示图形程序。sudo apt-get install xorg openbox 安装桌面环境可以任意选择一下一种： Unity :sudo apt-get install ubuntu-desktop Xfce:123$ sudo apt-get install xfce4$ sudo apt-get install xubuntu-desktop$ xfce4-session 安装vncserversudo apt-get install vnc4server 启动vncserver:vncserver，首次启动需要设置密码。 设置vnc端口vim /usr/bin/vncserver在这个文件中找到vncPort一行，可以看到$vncPort = 5900 + $displayNumber;将5900修改为需要的端口号，之后我想把displayNumber设置为1，因此这里改为：$vncPort = 2332 + $displayNumber;用vncserver :1命令启动vncserver后，查看log文件可以看到启用的是2333端口。 安装其他包sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal 修改xtartup文件文件位置：~/.vnc/xstartup Unity将其修改如下：123456789101112131415161718192021222324252627#!/bin/sh# Uncomment the following two lines for normal desktop:# unset SESSION_MANAGER# exec /etc/X11/xinit/xinitrc#[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup#[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources#xsetroot -solid grey#vncconfig -iconic &amp;#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;#x-window-manager &amp;export XKL_XMODMAP_DISABLE=1unset SESSION_MANAGERunset DBUS_SESSION_BUS_ADDRESS[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresourcesxsetroot -solid greyvncconfig -iconic &amp;gnome-session &amp;gnome-panel &amp;gnome-settings-daemon &amp;metacity &amp;nautilus &amp;gnome-terminal &amp; 参考来源 Xfcesed -i &#39;s$x-window-manager$xfce4-session$&#39; ~/.vnc/xstartup 设置分辨率 关闭vncserver：vncserver -kill :1 设置分辨率并重启：vncserver -geometry 1366x768 :1 客户端客户端我使用VNC Viewer，也可自由选择其他软件。这一步比较简单，只需输入ip，指定端口号，正确填写之前设定的vnc密码，即可连接]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>vnc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用tmux保持远程ssh连接]]></title>
+    <url>%2F2018%2F02%2F01%2Ftmux%2F</url>
+    <content type="text"><![CDATA[实际工作中经常遇到以下场景：使用ssh连接远程服务器，当本地机器一段时间不操作，ssh连接会自动断开，ssh下的进程也会自动终止，执行之前命令时的终端输出也丢失了。tmux可以用来解决这一问题。 安装tmuxapt-get install tmux 常用tmux指令tmux中有两个重要的概念，分别是session和window。其中session是window的容器。在终端下输入tmux ls可以查看当前活动的tmux的session。如果没有session运行，输入tmux会新建一个session，名称为默认的数字。如果需要指定名称，可以用以下命令来创建session：tmux new -s session_name.运行tmux a -t session_name可以进入对应的session。一个session中可以有多个window。初次进入session的时候会默认创建一个window。在tmux中按Ctrl + B组合键进入控制状态。 Command 作用 n 下一个Window p 前一个Window c 创建新的Tab o 指向下一个区域 d Detach , 重命名Window $ 重命名Session 更多指令可以查看这个页面 恢复先前状态tmux attach]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>tmux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用命令行连接ftp服务器]]></title>
+    <url>%2F2018%2F01%2F30%2Flinux-ftp%2F</url>
+    <content type="text"><![CDATA[使用ftp下载与上传文件是常用需求，除了使用可视化界面的软件之外，也可以使用命令行完成这一操作。首先需要确保已经安装有ftp，如果没有，使用sudo apt-get install ftp进行安装。 连接fpt服务器输入如下命令：ftp YourIp其中YourIp是ftp服务器的IP地址 使用被动模式登入ftp服务器之后默认使用的是主动模式，而有时候需要使用被动模式，输入passive命令即可进入被动模式。 ftp命令键入?可以查看所有可用的ftp命令，help command可以查看命令的具体用法。 本地文件夹位置使用lcd命令可以查看与改变本地文件夹位置 上传与下载文件put a.txt可以将本地文件夹中的文件上传至服务器当前文件夹get a.txt可以将服务器上的文件下载至本地mput *可以上传多个文件mget *可以下载多个文件]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>ftp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用ssh远程连接内网中的docker container]]></title>
+    <url>%2F2018%2F01%2F25%2Fssh2dockercontainer%2F</url>
+    <content type="text"><![CDATA[日常工作中时常会遇到远程操作的问题，两台机器都不具有公网ip，这时候通过ssh连接就会产生一些麻烦，下面是我解决这个问题的方法。 服务端由于两台机器都不具有公网ip，因此使用ngrok，ngrok需要用到一个具有公网ip的服务器。ngrok自己也提供服务，但是从境内访问官方提供的服务器具有令人难以忍受的延迟。本文中在自己的服务器上搭建了ngrok服务。先把域名解析到服务器。这里我的域名是wangjiebao.com，做了泛解析，把ngrok.wangjiebao.com和*.ngrok.wangjiebao.com解析到ngrok服务器。 编译ngrok我的vps系统是Ubuntu 14.04。 安装必要的工具。sudo apt-get install build-essential golang mercurial git其次需要安装golang，注意golang的版本必须为1.3以上。123$ sudo add-apt-repository ppa:gophers/archive$ sudo apt-get update$ sudo apt-get install golang-1.9-go 注意默认的安装位置是/usr/lib/go-1.9/bin需要将它添加到系统路径里。cd /usr/bin/unlink goln -s /usr/lib/go-1.9/bin/go go 获取ngrok源码git clone https://github.com/inconshreveable/ngrok.git ngrok 生成证书123456789NGROK_DOMAIN=&quot;wangjiebao.com&quot;openssl genrsa -out base.key 2048openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pemopenssl genrsa -out server.key 2048openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csropenssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crtcp base.pem assets/client/tls/ngrokroot.crt 编译sudo make release-server release-client这里默认的release client编译的是linux amd64对应的客户端。当客户端的环境变换时，需要分别编译,方法如下。1234567891011121314$ GOOS=linux GOARCH=amd64 make release-client$ GOOS=windows GOARCH=amd64 make release-client$ GOOS=linux GOARCH=arm make release-clientLinux 平台 32 位系统：GOOS=linux GOARCH=386Linux 平台 64 位系统：GOOS=linux GOARCH=amd64Windows 平台 32 位系统：GOOS=windows GOARCH=386Windows 平台 64 位系统：GOOS=windows GOARCH=amd64MAC 平台 32 位系统：GOOS=darwin GOARCH=386MAC 平台 64 位系统：GOOS=darwin GOARCH=amd64ARM 平台：GOOS=linux GOARCH=arm 编译后ngrok/bin文件夹下有ngrok、ngrokd 两个可执行文件。其中ngrokd是服务器端的程序，ngrok是linux客户端的程序。其余平台下的客户端程序在对应的文件夹下。 运行服务sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;wangjiebao.com&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot; 到这一步，ngrok 服务已经跑起来了，可以通过屏幕上显示的日志查看更多信息。httpAddr、httpsAddr 分别是 ngrok 用来转发 http、https 服务的端口，可以随意指定。ngrokd 还会开一个 4443 端口用来跟客户端通讯（可通过 -tunnelAddr=”:xxx” 指定），如果你配置了 iptables 规则，需要放行这三个端口上的 TCP 协议。 现在访问http://pub.ngrok.wangjiebao.com:8081 ， 可以看到这样一行提示：Tunnel pub.ngrok.wangjiebao.com:8081 not found 由于设置了泛解析，因此pub可以换成其他任意的单词。 客户端现在服务端已经配置完成，还需要在内网上的机器运行客户端，以便将内网的机器连接上服务器。将之前在服务器上编译好的文件拷贝到客户机上。 编写配置文件编写一个配置文件，起名为ngrok.cfg12server_addr: wangjiebao.com:4443trust_host_root_certs: false 运行客户端指定子域、要转发的协议和端口，以及配置文件，运行客户端：./ngrok -subdomain pub -proto=tcp -config=ngrok.cfg 22 如果需要转发的是HTTP，改为 ./ngrok -subdomain pub -proto=http -config=ngrok.cfg 80 当tunnel status显示online，说明已经连接上服务器 配置Docker正常的机器这个时候应该已经可以通过任意一台机器使用ssh root@ngrok.wangjiebao.com -p 123456来访问内网机器的端口。 其中端口号会在客户端的运行界面给出 但是我在配置docker container的时候发现访问总是被拒绝。 由于不知道docker container的密码，密码使用passwd指令修改过。 最后发现问题的根源在于Docker container上没有安装sshd服务。 安装ssh serverapt-get install openssh-server 启动与重启ssh server启动ssh server：sudo /etc/init.d/ssh start重启ssh server：sudo service ssh restart查看服务是否运行：netstat -aunpt 编辑配置文件配置文件位于/etc/ssh/sshd_config将配置文件中的PermitRootLogin without-password改为PermitRootLogin yes 通过ssh访问客户机现在已经全部配置完成，可以愉快地玩耍了。在任意一台联网的机器上，都可以使用ssh root@ngrok.wangjiebao.com -p 123456来访问内网机器的端口。 其中端口号会在客户端的运行界面给出]]></content>
+      <tags>
+        <tag>ssh</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用anaconda管理多个python版本]]></title>
+    <url>%2F2017%2F12%2F11%2Fcreate-conda-env%2F</url>
+    <content type="text"><![CDATA[使用python的同学都知道，python各种版本以及对应的包管理是很让人头疼的事情。Anaconda很好的解决了这个问题。在Anaconda中，用户可以创建指定python版本的环境，并且方便的在哥哥环境中切换。 创建环境安装完Anaconda后，将anaconda路径添加到PATH变量中。使用如下命令：conda create -n a python=3.3可以创建一个名称为a的python3.3环境。 激活环境source activate a可以默认将环境指定为a，通过conda info指令可以查看当前默认环境。 查看已安装环境conda info --env]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python GUI 之tkinter]]></title>
+    <url>%2F2017%2F11%2F27%2Fpython-gui-tkinter%2F</url>
+    <content type="text"><![CDATA[tkinter是python自带的gui库，支持跨平台。课程作业需要写一个聊天交互界面。代码如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677import tkinter as tkfrom tkinter import messagebox#调用chatbot核心交互模块，获得输出def add_text(mw,st,imsg): message_send_by_bot='' message_send_by_human='' if(imsg.get().strip()==''): pass else: message_send_by_human='Human:\n\t'+imsg.get()+'\n' message_send_by_bot='ChatBot:\n\t'+'stupid\n' mw.config(state='normal') mw.insert('end',message_send_by_human) mw.insert('end',message_send_by_bot) imsg.set("") mw.see('end') mw.config(state='disabled')#显示作者信息def show_author(): messagebox.showinfo("作者信息","xxx")window = tk.Tk()#input_message为消息框中的文字input_message=tk.StringVar(window)input_message.set("")#输入回车键发送消息window.bind('&lt;Return&gt;',lambda x:add_text(message_window,input_entry,input_message))window.title('AI Chatbot')window.geometry('600x600')window['bg'] = 'white'fram1 = tk.Frame(height=60, width=100, bg='white')fram2 = tk.Frame(height=400, width=100, bg='blue')fram3 = tk.Frame(height=80, width=100, bg='red')#聊天机器人名字bot_name = tk.Label(fram1, text='ChatBot', bg='white', font=('Arial', 12), width=15, height=2 )bot_name.pack(side='left')#作者信息buttonabout_button = tk.Button(fram1, text='作者信息', width=10, height=2, relief='groove', bg='white', command=show_author)about_button.pack(side='right')#输入栏input_entry=tk.Entry(fram3,width=10, bg='white',textvariable=input_message)input_entry.pack(side='left',expand='YES',fill='both')#初始化消息框message_window=tk.Text(fram2,bg='white',yscrollcommand='YES')message_window.insert('end','ChatBot:\n\t'+'hello\n')message_window.config(state='disabled')message_window.pack(side='top',expand='YES',fill='both')#发送按钮send_button = tk.Button(fram3,text='发送(Enter)', width=10, height=2, relief='groove', bg='white', state='active', command=lambda :add_text(message_window,input_entry,input_message) )send_button.pack(side='right')fram1.pack(fill='x', side='top')fram2.pack(fill='both', expand='YES')fram3.pack(fill='x', side='bottom')window.mainloop() 效果如下：]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>Tkinter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[将多个域名解析到同一服务器的不同目录]]></title>
+    <url>%2F2017%2F11%2F24%2Fvirtual-hosts%2F</url>
+    <content type="text"><![CDATA[之前折腾的阿里云主机能够正常访问了，就想着在服务器上部署多个网站。比如将 www.sparkydogx.top 解析到我的主站点，将 blog.sparkydogx.top 解析到我的博客站点。我的服务器是ubuntu14.04系统，web服务使用的是apache，具体操作如下： 设置域名解析购买域名后，虽然理论上子域名个数是无限的，但是一般域名商都会给出五个左右的限制，这对个人来说已经足够使用了。这里只需要将需要的子域名解析到服务器的ip即可。 设置apache2的配置文件子域名被解析到了同一个ip地址，判断访问哪个目录到决策只能是由服务器做出的。Appache2提供Virtual Host功能，只需要在/etc/apache2/site-avaliable文件夹下新建一个配置文件，配置文件内容可以参考默认配置，更改端口和目录即可。 建立软连接在运行时，apache并不是在/etc/apache2/site-avaliable文件夹读取配置，而是在/etc/apache2/site-enable读取文件，因此需要在这个文件夹内建立软链接。 重启apache2sudo /etc/init.d/apache2 restart End这时候在浏览器输入子域名，发现可以实现所需功能。]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matlab绘制caffe的loss图像]]></title>
+    <url>%2F2017%2F11%2F05%2Fdraw-caffe-loss%2F</url>
+    <content type="text"><![CDATA[之前见过有人使用shell画loss图像，我是在是学不来，于是自己动手写了一段matlab代码，把数据读到matlab里面。12345678910111213141516171819202122232425262728293031323334353637383940fid=fopen('/data2/xxx/workspace/output.txt');tline = fgetl(fid);while ischar(tline) sub_idx_iteration=strfind(tline,'Iteration'); if(sub_idx_iteration) sub_loss = strfind(tline,'loss'); if(sub_loss) idx_end=strfind(tline,','); iteration = str2num(tline(sub_idx_iteration+10:idx_end-1)); total_loss=str2num(tline(sub_loss+7:end)); idx=iteration/5+1; matrix_for_plot(idx,1)=iteration; matrix_for_plot(idx,14)=total_loss; for i=1:12 tline=fgetl(fid); stage_loss_start=strfind(tline,'* 1 =')+6; stage_loss=str2num(tline(stage_loss_start:end-5)); matrix_for_plot(idx,i+1)=stage_loss; end end end tline = fgetl(fid);endfigure(1)plot(matrix_for_plot(:,1),matrix_for_plot(:,13));ylim([0,200])xlabel('Iteration')ylabel('L2 (Joints)')saveas(1,'L2.jpg');figure(2)plot(matrix_for_plot(:,1),matrix_for_plot(:,12));xlabel('Iteration')ylabel('L1 (PAF)')saveas(2,'L1.jpg');figure(3)plot(matrix_for_plot(:,1),matrix_for_plot(:,14));ylim([0,3000])xlabel('Iteration')ylabel('total loss')saveas(3,'total_loss.jpg');]]></content>
+      <tags>
+        <tag>caffe</tag>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[初次使用阿里云服务器]]></title>
+    <url>%2F2017%2F10%2F31%2Ffirst-use-aliyun%2F</url>
+    <content type="text"><![CDATA[前一阵开会，Github也被墙了，我这个挂在Github Pages上的博客墙内也无法访问。正好看到阿里云有学生优惠，就没忍住入了一年的，没想到是个大坑。 SSH远程登录拿到服务器，第一件事就是ssh，阿里云自己提供的网页版本实在体验太差，我看到的控制台最下显示不全，每次都看不到自己输入的指令是啥。从本地ssh连接到服务器时却总是访问被拒绝。经检查需要在控制台的安全组里设置，入网端口22（ssh），允许的地址段写当前ip地址，即可远程ssh。 服务器备案我使用阿里云的初衷是在上面搭建一个ngrok服务器，使我能够从laptop上远程控制lab的计算机。结果发现我的这个云服务器空有一个公网ip，却无法通过公网ip访问。折腾一阵之后得知境内的服务器必须备案，否则不给从公网访问，也就是说只能访问阿里云内部的服务器。备案也挺麻烦，又是填表又是拍照，好在足不出户都可完成。 域名备案服务器的配置光跑ngrok有些浪费，准备动手建一个动态博客玩一玩，当然得要有个响亮的域名啦。花三块大洋买了一年的.top域名。买完告诉我境内域名不备案不给解析。我的心情真是相当的复杂。走完流程备了案，一个工作日之内就审核通过了，效率还算高。 总结如果只是个人用途，建议使用境外的服务器和域名商————当然以后会不会被墙也不知道，是存在一定风险的。但是境内的服务器和域名都要备案实在是麻烦！！！ 完]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用git进行版本控制]]></title>
+    <url>%2F2017%2F10%2F30%2Fuse-git%2F</url>
+    <content type="text"><![CDATA[有些编程经验的同学都知道，版本控制是一个大问题。有时候一个文件改坏了，想回到当初的起点，却只能呆站在镜子前。而有了git却不一样了。git就像专卖后悔药的。在使用git前，通常要建立一个配置，告诉git用户名。12git config --global user.name &quot;Your Name&quot;git config --global user.email &quot;email@example.com&quot; 通常在Github中clone下来的项目会自带git。也可以选择在空文件夹里建立git仓库，使用git init即可。常用命令：git add . 将文件夹下所有文件加到git commit的目录中。git commit -m &quot;Your comment&quot; 将更改commit到git仓库。git log 查看git仓库中的所有git版本。git reflog 查看对git仓库的历史操作git reset --hard xxxxx 其中xxxx为git log中显示的key]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python创建文件夹]]></title>
+    <url>%2F2017%2F10%2F25%2Fmkdir-use-python%2F</url>
+    <content type="text"><![CDATA[有时候需要仿照一个已存在的文件夹创造和它同样结构的空文件夹（子文件夹名相同）。之前使用python的os.system()来实现，先读取，再一层一层地创建。今天发现python的os中提供了方便的makedir方法，可以用来递归的创建目录，即中间文件夹若不存在也会被创建。Example：12345import ossource_path='xxx'subdir=os.listdir(source_path)for d in subdir: os.makedirs(os.path.join('ddd',d)) Update：使用这种方法的时候，当想要创建的文件夹已经存在时会出现异常，调整代码如下：123import osif not os.path.exists(directory): os.makedirs(directory)]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[查看lmdb中的数据]]></title>
+    <url>%2F2017%2F10%2F22%2Flook-up-lmdb%2F</url>
+    <content type="text"><![CDATA[lmdb是caffe钦定的数据库类型，有时候难免需要查看lmdb数据库中的数据，方法如下：1234567891011import lmdbimport caffelmdbpath=&apos;/data2/guoyu/rmppe/Realtime_Multi-Person_Pose_Estimation/training/COCO_kpt/lmdb&apos;datum = caffe.proto.caffe_pb2.Datum()env=lmdb.open(lmdbpath)txn=env.begin()cursor=txn.cursor()for key,value in cursor: datum.ParseFromString(value) data=caffe.io.datum_to_array(datum) print data[3,:,:]]]></content>
+      <tags>
+        <tag>caffe</tag>
+        <tag>lmdb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[根据文件名从json文件中提取信息]]></title>
+    <url>%2F2017%2F10%2F21%2Fextract-subset%2F</url>
+    <content type="text"><![CDATA[在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：12345678910111213141516171819import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;f=open(labeljsonpath)label=json.load(f)subsetlist=os.listdir(imgpath)jsonTosave=&apos;/data2/guoyu/subset.json&apos;jFile=open(jsonTosave,&apos;w&apos;)ls=[]for x in range(len(subsetlist)): imgid=subsetlist[x][:-4] for lab in label: if lab[&quot;image_id&quot;]==imgid: di=&#123;&#125; di=lab ls.append(di)json.dump(ls,jFile)jFile.close()]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows10安装系统后没有网卡驱动的解决方案]]></title>
+    <url>%2F2017%2F10%2F19%2FLan-driver-win10%2F</url>
+    <content type="text"><![CDATA[学校给配置了新电脑，安装完Windows10系统之后发现无法联网。Windows10是自带网卡驱动的，经检查发现是网卡型号比较冷门，Windows10自带的网卡驱动并不适用，而从网上下载的网卡驱动也无法安装。解决方案:打开‘设备管理器’，‘查看’选项卡中，选择‘显示隐藏的设备’。然后在设备管理器中找到‘网络适配器’，看到适配器的型号名称很奇怪，右击卸载驱动。‘操作’选项卡中，点击‘扫描硬件改动’。然后可以安装正确的网卡驱动。]]></content>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[安装与卸载dpkg]]></title>
+    <url>%2F2017%2F10%2F18%2Funinstall-dpkg%2F</url>
+    <content type="text"><![CDATA[安装dpkgdpkg是一个底层的安装软件，可以用于本地安装。Example：123$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb$ sudo apt-get update$ sudo apt-get install cuda 卸载dpkg有时候执行第三句命令时会遇到安装包出错的问题，这时候需要卸载原来加载的deb包。使用命令dpkg -l | grep urserver可以查看已加载的deb包，在此命令的第一列有ii表示installed ok installed。如果只移除package本身，而不移除配置文件，执行dpkg -r urserver。如果既要移除package，也要移除配置文件，执行dpkg -P urserver。 检验是否卸载完成dpkg -l | grep urserver]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>dpkg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用jedi-vim对python代码进行自动补全]]></title>
+    <url>%2F2017%2F10%2F17%2Fjedi-vim%2F</url>
+    <content type="text"><![CDATA[安装pathogen12mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim 修改vimrc123execute pathogen#infect()syntax onfiletype plugin indent on git clone jedi-vim1git clone https://github.com/davidhalter/jedi-vim.git 更新vim12345sudo apt-get install software-properties-commonsudo apt-get install python-software-propertiessudo add-apt-repository ppa:jonathonf/vimsudo apt updatesudo apt install vim 安装jedi123pip install jedicd ~/.vim/bundle/jedi-vimgit submodule update --init 安装完成。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Mac上使用有线网络并打开Wi-Fi热点]]></title>
+    <url>%2F2017%2F10%2F15%2FLanInMac%2F</url>
+    <content type="text"><![CDATA[USB网线转接工作需要使用到有线网络，但是Mac上没有有线接口，从某宝买的USB网线转接口无法在Mac上直接使用。解决方案如下： 前往TP-Link的网站下载驱动，在Mac上进行安装。 重新启动Mac 连接转换器，打开网络偏好设置，可以看到多了一个有线连接的配置，在配置IPv4一栏的下拉列表里选择创建PPOE服务，填入ISP账号密码，即可连接到因特网。 打开Wi-Fi热点 打开配置-&gt;共享 选择互联网共享 共享以下来源的连接，选择已经连接的有线网络 用以下端口共享给电脑，选择Wi-Fi 在Wi-Fi选项中设置Wi-Fi名称和密码 在互联网共享选项前打勾设置完成。]]></content>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[更改系统中的CUDA版本]]></title>
+    <url>%2F2017%2F10%2F11%2Finstall-CUDA%2F</url>
+    <content type="text"><![CDATA[服务器上的CUDA版本为7.0，而跑程序至少需要7.5。因此重新安装CUDA 卸载旧版本的CUDA12cd /usr/local/cuda-7.0/binsudo ./uninstall_cuda_toolkit_7.0.pl 如果有提示卸载失败的文件或文件夹，可以自己手动删除掉。 卸载原来的NVIDIA驱动sudo apt-get remove nvidia* 安装CUDA安装开发需要的基本包sudo apt-get install build-essential前往Nvidia官网下载CUDA安装包。123$ sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb$ sudo apt-get update$ sudo apt-get install cuda 安装完成，可以重启机器以验证安装。 添加环境变量1234export CUDA_HOME=/usr/local/cuda-7.5export LD_LIBRARY_PATH=$&#123;CUDA_HOME&#125;/lib64PATH=$&#123;CUDA_HOME&#125;/bin:$&#123;PATH&#125;export PATH 验证安装cuda-install-samples-7.5.sh ~123$ cd ~/NVIDIA_CUDA-7.5_Samples$ cd 1_Utilities/deviceQuery$ make 这里使用的是官方提供的sample，如果编译过程不报错，说明安装成功。可通过nvcc --version指令查看CUDA的版本信息。 安装cudnn通常只安装CUDA是不够的，还需要安装对应的cudnn，可以参考这篇教程。]]></content>
+      <tags>
+        <tag>CUDA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在服务器上编译caffe]]></title>
+    <url>%2F2017%2F10%2F10%2Finstall-caffe%2F</url>
+    <content type="text"><![CDATA[更改Sources工欲善其事，必先利其器。Ubuntu默认的Sources被神秘力量阻隔而无法访问，pip最近也很不稳定，所以第一步是将其换成稳定可用的Sources。 更改Ubuntu的Sources参照这篇博客中的教程。 vim /etc/apt/sources.list :%s/archive.ubuntu.com/debian.ustc.edu.cn/g sudo rm /var/lib/apt/lists/* -vf sudo apt-get update 更改pip的Sources mkdir -m 777 ~/.pip sudo vim ~/.pip/pip.conf 将以下内容粘贴到文件中并保存 123[global]trusted-host=pypi.tuna.tsinghua.edu.cnindex-url=https://pypi.tuna.tsinghua.edu.cn/simple 这里使用的是清华大学的镜像源，可以手动更改成其他源。 如果系统没有pip，并且get-pip.py不能使用时，可以先通过sudo apt-get install python-pip安装pip，通常这种方法安装的是低版本的pip，需要获取更新。如果pip版本过低，可以先卸载：sudo pip uninstall pip，然后使用get-pip.py安装。 安装依赖123456789sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compilersudo apt-get install --no-install-recommends libboost-all-devsudo apt-get install libatlas-base-devsudo apt-get install python-devsudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-devsudo apt-get install libopenblas-devsudo apt-get install --no-install-recommends libboost-all-devsudo apt-get install python-protobufsudo apt-get install python-numpy python-pydot 12pip2 install scikit-imagepip2 install opencv-python 如果pip版本较低，可能还需要sudo apt-get install libatlas-base-dev gfortran 修改Makeile.config常修改的有CUDA路径，PYTHON INCLUDE路径等。(Anaconda与默认配置会有区别) 编译make allmake pycaffe 将caffe/python添加到python系统路径vim ~/.bashrc将export PYTHONPATH=path/to/caffe/python:$PYTHONPATH添加到文件中。source ~/.bashrc 使更改生效。此时在python shell中输入import caffe，可以加载caffe]]></content>
+      <tags>
+        <tag>caffe</tag>
+        <tag>dependencies</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决'apt-get update'时404的问题]]></title>
+    <url>%2F2017%2F10%2F09%2Faptget-update%2F</url>
+    <content type="text"><![CDATA[在服务器上的Ubuntu里使用sudo apt-get update时总是报错，经检查是source的网址被墙了，需要修改source文件。 vim /etc/apt/sources.list :%s/archive.ubuntu.com/debian.ustc.edu.cn/g sudo rm /var/lib/apt/lists/* -vf sudo apt-get update 其中debian.ustc.edu.cn是中科大的镜像源，也可以换成其他镜像源，比如：mirrors.163.commirrors.sohu.comftp.sjtu.edu.cn #上海交通大学服务器debian.ustc.edu.cn #中科大mirror9.net9.org #清华mirror.rootguide.org #上海电信 2017/10/28更新最近网络环境极为恶劣，由于apt-get的缘故，耽搁了我一个下午的工作。发现交通大学和香港中文的服务器较为稳定。不建议使用阿里云的镜像源。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Matlab批量处理数据]]></title>
+    <url>%2F2017%2F10%2F07%2Fhandle-dir-with-matlab%2F</url>
+    <content type="text"><![CDATA[最近接到任务，需要批量分割灰度图像，并保存为.mat文件。图像文件保存在若干个子文件夹中。代码如下：12345678910111213141516171819202122232425maindir='sparkydogx/cityscape/val';subdir=dir(maindir);for i =1:length( subdir ) if( isequal( subdir( i ).name, '.' )||isequal( subdir( i ).name, '..')||(~subdir( i ).isdir)) continue; %subdir的前两个元素是../和./ end subdirpath = fullfile( maindir, subdir( i ).name, '*.png' ); %subdirpath为字符串，用于描述文件位置和类型 dat = dir( subdirpath ); %dat为所有满足条件的文件路径 for j = 1 : length( dat ) datpath = fullfile( maindir, subdir( i ).name, dat( j ).name); A=double(imread(['',datpath])); %灰度图像读取后为uint8格式，将其转换为double for k = 1:43 h&#123;k&#125;=A(:,656*(k-1)+1:656*k); if k&lt;=15 cmd=['X.val.',subdir(i).name,'(',num2str(j),').BeliefMap(',num2str(k),')=h(',num2str(k),');']; eval(cmd); else cmd=['X.val.',subdir(i).name,'(',num2str(j),').PAF(',num2str(k-15),')=h(',num2str(k),');']; eval(cmd); end end endendsave('/spardogx/val.mat','X','-v7.3'); 涉及到的点： 文件夹的遍历，在上面的代码中通过dir实现 eval函数的使用，eval可以执行字符串中的指令，使用子文件夹名作为structure的字段，十分方便。 &#39;-v7.3&#39; 最初在执行时遇到错误：Warning: Variable &#39;X&#39; cannot be saved to a MAT-file whose version is older than 7.3. To save this variable, use the -v7.3 switch.原因是Matlab在7.3版本之前不支持大个数据的存储（2GB以上），在7.3版本后添加了这一支持。 2017-10-25 更新：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354maindir='/data2/source/cityscapes'outputDir='/data2/dest/heatmaps'subdir_1=dir(maindir);for i=1:length(subdir_1); if( isequal( subdir_1( i ).name, '.' )||isequal( subdir_1( i ).name, '..')||(~subdir_1( i ).isdir)) continue; end subdir_2=dir(fullfile(maindir,subdir_1(i).name)); for j=1:length(subdir_2) if( isequal( subdir_2( j ).name, '.' )||isequal( subdir_2( j ).name, '..')||(~subdir_2( j ).isdir)) continue; end subdir_3=dir(fullfile(maindir,subdir_1(i).name,subdir_2(j).name)); for x=1:length(subdir_3) if( isequal( subdir_3(x).name, '.' )||isequal( subdir_3( x ).name, '..')||(~subdir_3( x ).isdir)) continue; end finalpath=fullfile(maindir,subdir_1(i).name,subdir_2(j).name,subdir_3(x).name,'*.png') dat=dir(finalpath); for idx =1:length(dat) imgId=dat(idx).name(1:length(dat(idx).name)-13); datpath=fullfile(maindir,subdir_1(i).name,subdir_2(j).name,subdir_3(x).name,dat(idx).name); A=double(imread(['',datpath])); for k = 1:43 h&#123;k&#125;=A(:,656*(k-1)+1:656*k); if k&lt;=15 hmfullfile=fullfile(outputDir,subdir_1(i).name,subdir_2(j).name,[imgId,'_bm.mat']); pafname=fullfile(outputDir,subdir_1(i).name,subdir_2(j).name,[imgId,'_paf.mat']); % cmd=['X.val.',subdir(i).name,'.',dat(j).name,'.BeliefMap(',num2str(k),')=h(',num2str(k),');']; cmd1=['heatmap.imageID=''',imgId,''';']; cmd2=['heatmap.BeliefMap(',num2str(k),')=h(',num2str(k),');']; cmd3=['save(''',hmfullfile,''',''heatmap'');']; eval(cmd1); eval(cmd2); eval(cmd3); else % cmd=['X.val.',subdir(i).name,'.',dat(j).name,'.PAF(',num2str(k-15),')=h(',num2str(k),');']; cmd1=['paf.imageID=''',imgId,''';']; cmd2=['paf.PAF(',num2str(k-15),')=h(',num2str(k),');']; cmd3=['save(''',pafname,''',''paf'');']; % eval(cmd); eval(cmd1); eval(cmd2); eval(cmd3); end end end end endend]]></content>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Terminal中命令行覆盖的问题]]></title>
+    <url>%2F2017%2F10%2F07%2Fterminal-cover%2F</url>
+    <content type="text"><![CDATA[在使用Ternimal时，常常会发现命令行过长时，之前输入的内容在显示时会被覆盖掉。为了解决这一问题，可以在~/.bash_profile中添加如下语句：PS1=&#39;\[\e[01;33m\]\u@\h \W\$\[\e[m\] &#39;]]></content>
+      <tags>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Vim中设置python的缩进]]></title>
+    <url>%2F2017%2F10%2F05%2Fvim-python-inden%2F</url>
+    <content type="text"><![CDATA[在python中，缩进可以使用Tab，也可以使用空格。python3中允许混用，但是在python2中将空格与Tab键混用会报错。pep8规范中建议全部使用空格作为缩进。许多python IDE会自动将用户输入的Tab转变为4个空格，但是纯洁不做作的Vim显然不会自动帮你完成。需要在~/.vimrc文件中加入以下内容来实现这一功能：123456set numberset shiftwidth=4set tabstop=4set expandtabset smartindentset autoindent]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用tensorflow-gpu时libcudnn报错的解决方案]]></title>
+    <url>%2F2017%2F10%2F05%2Ffix-problem-tf-libcudnn%2F</url>
+    <content type="text"><![CDATA[实验室服务器上的tensorflow Docker镜像里只有python2的完整环境，而遇到程序需要在python3里跑，于是通过pip3安装了tensorflow和tensorflow-gpu。安装完成后在GPU上跑tensorflow时会报错ImportError: libcudnn.5: cannot open shared object file: No such file or directory。经检查发现缩安装的tensorflow需要CUDA8.0以及cuDNN6.0，而服务器上的cuDNN为5.0.解决方法如下： 前往NVIDIA网站上的下载页面下载cuDNN v6.0 for CUDA 8.0。注意下载需要注册NVIDIA Developer账号。 解压所下载的压缩文件。tar -zxvf cudnn-8.0-linux-x64-v6.0.tgz 将../cuda/lib64/文件夹下的libcudnn.so.6.0.21和libcudnn_static.a这两个文件复制到/usr/local/cuda/lib64/文件夹下。 建立link 123$ cd /usr/local/cuda/lib64/$ sudo ln -s libcudnn.so.6.0.21 libcudnn.so.6$ sudo ln -s libcudnn.so.6 libcudnn.so 如果遇到报错link已存在，将其unlink，重新执行即可。 复制include文件夹下的cudnn.h到/usr/local/cuda/include$ sudo cp cudnn.h /usr/local/cuda/include/ 在.bashrc文件中添加cuda路径export LD_LIBRARY_PATH=/usr/local/cuda/lib64/ 重新加载.bashrc文件source ~/.bashrc]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何在Matlab中处理json文件]]></title>
+    <url>%2F2017%2F09%2F30%2Fhowto-handle-json-in-matlab%2F</url>
+    <content type="text"><![CDATA[本文使用JSONLab工具读取json文件。 git clonegit clone https://github.com/fangq/jsonlab.git 加入路径打开Matlab，输入addpath(&#39;Path/to/jsonlab&#39;) 测试是否可以使用help loadjson]]></content>
+      <tags>
+        <tag>json</tag>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Linux中如何查看图片尺寸]]></title>
+    <url>%2F2017%2F09%2F29%2Fhowto-viewPictureSize%2F</url>
+    <content type="text"><![CDATA[安装imagemagickapt-get install imagemagick 使用idetify命令查询identify xxx.jpg输出 xxx.jpg JPEG 500x750 500x750+0+0 8-bit DirectClass 57.8KB 0.000u 0:00.000]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Linux下如何删除大量文件]]></title>
+    <url>%2F2017%2F09%2F28%2Fhowto-delete%2F</url>
+    <content type="text"><![CDATA[在Linux下，直接删除一个包含大量文件的文件夹时会报错：bash: /bin/rm: Argument list too long此时可使用命令：ls | xargs -n 10 rm -fr ls来删除。这个命令的意思是：输出所有的文件名(用空格分割)，xargs将ls的输出分组，每10个为一组(以空格为分隔符)作为rm -rf的参数，也就是说将所有文件名10个为一组，由rm -rf删除。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下计算文件数目]]></title>
+    <url>%2F2017%2F09%2F28%2FcountDocumentNUmbers%2F</url>
+    <content type="text"><![CDATA[统计当前文件下的文件个数（不包括子文件夹）$ ls -l | grep &quot;^-&quot; | wc -l 统计当前目录下的文件个数（包括子文件夹）$ ls -lR| grep &quot;^-&quot; | wc -l 查看目录下文件夹的个数（包括子文件夹）$ ls -lR | grep &quot;^d&quot; | wc -l]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在多个屏幕之间快速切换鼠标（Mac）]]></title>
+    <url>%2F2017%2F09%2F21%2Fswitch-mouse%2F</url>
+    <content type="text"><![CDATA[使用多个显示器的时候，常常会为找不到鼠标而发愁，今天找到一款简单好用的工具CatchMouse。程序界面如下使用快捷键即可迅速改变鼠标位置。]]></content>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何刷新Finder]]></title>
+    <url>%2F2017%2F09%2F21%2Frefresh-Finder%2F</url>
+    <content type="text"><![CDATA[在Windows系统中，文件管理器是自带刷新功能的，但是在MacOS中，Finder号称实时刷新，因此没有额外加入刷新功能。在使用时，常常会遇到Finder没有刷新的情况，尤其是在浏览服务器上的文件时，这时候就需要手动刷新。 新建AppleScript，内容为tell application &quot;Finder&quot; to tell front window to update every item 将文件保存为Application 按住‘Command’+‘Option’键，将保存好的.app文件拖到Finder的工具栏 找到保存好的app文件，按’Command’+’i’键查看文件简介，复制一张图片，粘贴到文件简介左上角的文件图标处，即可改变文件图标。 在Finder中点击对应图标即可刷新Finder]]></content>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Finder</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux服务器中后台运行程序]]></title>
+    <url>%2F2017%2F09%2F21%2Flinux-nohup%2F</url>
+    <content type="text"><![CDATA[在使用ssh连接到Linux服务器时，当ssh连接断开，服务器会kill所有相关进程，为了使得断开连接后程序能够继续运行，可以采用以下几种方式： nohup命令在指令前加入nohup，例如nohup du -s --max-depth=1 &gt;&gt;du.txt。]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux中查看文件夹大小]]></title>
+    <url>%2F2017%2F09%2F21%2Flinux-du%2F</url>
+    <content type="text"><![CDATA[在linux中查看文件夹大小时使用du指令。cd到文件夹后，常用指令如下：du -h --max-depth=1 xxx其中max-depth表示列出的子文件夹目录深度。]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[多闻阙疑————目标检测论文]]></title>
+    <url>%2F2017%2F09%2F21%2Fdetection-question%2F</url>
+    <content type="text"><![CDATA[在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM 这个是因为svm训练和cnn训练过程的正负样本定义方式各有不同，导致最后采用CNN softmax输出比采用svm精度还低。事情是这样的，cnn在训练的时候，对训练数据做了比较宽松的标注，比如一个bounding box可能只包含物体的一部分，那么我也把它标注为正样本，用于训练cnn；采用这个方法的主要原因在于因为CNN容易过拟合，所以需要大量的训练数据，所以在CNN训练阶段我们是对Bounding box的位置限制条件限制的比较松(IOU只要大于0.5都被标注为正样本了)；然而svm训练的时候，因为svm适用于少样本训练，所以对于训练样本数据的IOU要求比较严格，我们只有当bounding box把整个物体都包含进去了，我们才把它标注为物体类别，然后训练svm。在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？） 在region proposal的时候只会出现这些大小的框，但是在最后输出结果的时候由于有bounding-box regressor的存在，会框得到修正，产生各种不同尺寸的输出。]]></content>
+      <tags>
+        <tag>RCNN</tag>
+        <tag>Fast RCNN</tag>
+        <tag>Faster RCNN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在服务器上安装Deep Cut]]></title>
+    <url>%2F2017%2F09%2F19%2Fhowtoinstalldeepcut%2F</url>
+    <content type="text"><![CDATA[Deep Cut用于多人姿势辨识。 安装准备首先确保服务器上安装有caffe和matlab，并且已安装有Deep Cut主页上要求的软件环境： HDF5 1.8 CMake C++ 11 CUDA &gt;=7.5 Caffe building instructions Gurobi optimizer 6.0.x 安装指南 git clonegit clone https://github.com/eldar/deepcut --recursive 编译Caffe与Matlab接口这一步需要修改external/caffe文件夹下的Makefile.config文件： 添加语句以使用C++11编译：CXXFLAGS += -std=c++11 更改matlab文件位置：MATLAB_DIR := /usr/local/MATLAB/MATLAB_Production_Server/R2015a 编译liblinear 123$ cd external/liblinear-1.94/matlab$ CC=gcc CXX=g++ MATLABDIR=/usr/lib/matlab-8.6/ make#修改代码中的Matlab路径 编译求解器这一步比较复杂，需要安装求解器gurobi，gurobib不是开源软件，使用前要申请得到一个license。另外需要注意的是gurobi的最新版本中不支持Academic许可证在Docker container中运行，因此选择6.0.5版本。 12$ wget http://packages.gurobi.com/6.0/gurobi6.0.5_linux64.tar.gz$ tar -xvf gurobi6.0.5_linux64.tar.gz 下面参照这个博客中的步骤： 编辑.bashrc文件。vim $HOME/.bashrc 在文件中添加以下内容： 123$ export GUROBI_HOME="/FULL/PATH/gurobi605/linux64" #这里改成gurobi所在的路径，在终端中使用pwd命令可查看当前路径$ export PATH="$&#123;PATH&#125;:$&#123;GUROBI_HOME&#125;/bin"$ export LD_LIBRARY_PATH="$&#123;LD_LIBRARY_PATH&#125;:$&#123;GUROBI_HOME&#125;/lib" 完成修改后在终端中输入source $HOME/.bashrc以更新设置。 在terminal中输入：grbgetkey，然后输入申请到的key，联网完成授权，保存gurobi.lic文件至合适的位置。 编辑.bashrc文件，输入export GRB_LICENSE_FILE=&quot;$HOME/gurobi.lic&quot;,将这里的值修改为保存gurobi.lic文件的位置，完 成修改后在终端中输入source $HOME/.bashrc以更新设置。 在终端中输入gurobi.sh，如果报错，可以尝试将gurobi.lic文件复制一份到’/root’文件夹下 在终端中输入：123$ cd external/solver$ cmake . -DGUROBI_ROOT_DIR=/path/to/gurobi605/linux64 -DGUROBI_VERSION=60 #这里的l路径改为服务器中gurobi文件夹所在路径$ make solver-callback 这一步可能报错找不到glut library，安装glut即可，如果无法安装glut，可无视这一错误。到这里安装已经基本完成了。 下载模型12$ cd data$ ./download_models.sh 运行Demo1234$ cd &lt;root_dir&gt;$ ./start_matlab_console.sh% in MATLAB&gt;&gt; demo_multiperson 这一步运行出错的，可以直接在命令行中输入matlab打开matlab，然后在matlab中运行demo_multiperson]]></content>
+      <tags>
+        <tag>Deep Cut</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用python发送邮件]]></title>
+    <url>%2F2017%2F09%2F13%2Fsnedmeanemail%2F</url>
+    <content type="text"><![CDATA[最近在服务器上跑CNN，要跑好长时间。没耐心盯着terminal，遂使用&gt;&gt;重定向输出到一个文件里。为了在程序运行完成收到提醒，在程序里添加发送邮件的功能，这样一来在家也能debug了XD。代码如下： 123456789101112131415161718192021import smtplibfrom email.mime.text import MIMETextfrom email.header import Headerdef sendMail(msg,subject='Duang'): smtp_server = "smtp-mail.outlook.com" #发件人邮箱账号 from_addr = "xxx@outlook.com" password = "xxx" sender = "csyguo" to_addr = 'xxx@qq.com' message = MIMEText(msg, 'plain', 'utf-8') message['Subject'] = subject message['From'] = 'severReport@outlook.com' message['To'] = 'xxx@qq.com' server = smtplib.SMTP(smtp_server, 587) #outlook的SMTP端口 # server.set_debuglevel(1) # server.ehlo() server.starttls() #在使用163邮箱时去掉这一行 server.login(from_addr, password) server.sendmail(from_addr, [to_addr], message.as_string()) server.quit() print 'successfully send an email to ' + to_addr 在测试的时候使用163邮箱遇到了554错误，解决方法如下： 邮件标题不要写成‘test’ sender、receiver需要与message[‘From’] 、message[‘To’] 一致 163邮箱端口为25]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[修改pycharm中的External-Library]]></title>
+    <url>%2F2017%2F09%2F11%2Fpycharm-changelibrary%2F</url>
+    <content type="text"><![CDATA[Project-&gt;Project interpreter]]></content>
+      <tags>
+        <tag>pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sklearn之分类器的使用]]></title>
+    <url>%2F2017%2F09%2F11%2Fsklearn%2F</url>
+    <content type="text"><![CDATA[sklearn是一个机器学习的开源库，简单好用。在sklearn中，所有的分类器都可以秉持“三步走”方法： 设置分类器 fit训练数据 使用测试集对训练好对模型进行评估 KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neighbors import KNeighborsClassifierneigh=KNeighborsClassifier(n_neighbors=i)neigh.fit(X_train,y_train)print &apos;n=&apos;,i,&apos;\tscore=&apos;,neigh.score(X_test,y_test) 线性SVMsklearn.svm.LinearSVC123clf = LinearSVC(random_state=0)clf.fit(X_train,y_train)print clf.score(X_test,y_test) Softmaxsoftmax和LogisticRegression分别适用于多分类和二分类问题，sklearn将这两者放在一起，只需设置相应的参数即可选择分类器与对应的优化算法，需要注意的是loss function是否收敛。1234from sklearn.linear_model import LogisticRegressionclf=LogisticRegression(multi_class=&apos;ovr&apos;,solver=&apos;sag&apos;)clf.fit(X_train,y_train)r=clf.score(X_test,y_test)]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>sklearn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Ubuntu上安装openAI Gym]]></title>
+    <url>%2F2017%2F09%2F08%2Finstall-gym%2F</url>
+    <content type="text"><![CDATA[服务器上的Docker Container使用的是Ubuntu系统，在安装openAI Gym时遇到了不少的问题，想要安装成功，需要以下步骤： 更新apt-getsudo apt-get update 更新pippip install -U pip 安装Cmakesudo apt-get install cmake 安装gitsudo apt-get install git 安装依赖包sudo apt-get install swig zlib1g-dev libboost1.54-dev 安装Gym123git clone https://github.com/openai/gymcd gympip install -e .[all]]]></content>
+      <tags>
+        <tag>Gym</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python及numpy笔记（一）]]></title>
+    <url>%2F2017%2F08%2F31%2Fpython-01%2F</url>
+    <content type="text"><![CDATA[enumerate()函数 enumerate是python内置的函数，用于循环迭代 返回值为一个元组 示例：123list = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]for index, text in enumerate(list，start=0): print index, text 运行结果为1230 a1 b2 c enumerate函数等价于如下函数：12345def enumerate(sequence, start=0): n = start for elem in sequence: yield n, elem n += 1 yield关键字 yield类似于return，只是yield返回的是一个生成器 第一次迭代中函数会执行到yield 关键字，然后返回 yield 后的值作为第一次迭代的返回值. 此后，每次执行这个函数都会从上一次中断的yield处继续执行，然后进入循环，遇到yield返回此次迭代值 即函数只有在每次被调用迭代器时会执行循环 只言片语很难讲清楚yield的准确作用，更详细的解释可以点击这里 给出示例如下，执行程序： 1234567891011121314ls = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]def enem(ls, start=0): n = start for i in ls: print &quot;this is &quot;,i,&quot;in yield&quot; yield n,i n += 1 print &quot;n=&quot;,nindex=0for n,elem in enem(ls): print &quot;this is &quot;,index,&quot;times in for loop&quot; print n,elem index+=1 输出值为： 123456789101112this is a in yieldthis is 0 times in for loop0 an= 1this is b in yieldthis is 1 times in for loop1 bn= 2this is c in yieldthis is 2 times in for loop2 cn= 3 numpy.flatnonzero()函数 输入一个数组，将其展开成一维向量后输出对应的非0值的下标 numpy.random.choice(a, size=None, replace=True, p=None) 输入参数： a：1维向量或者整数。如果a为整数，随机样本与np.arange(a)相同 size：输出的元素个数 replace：bool值，replace=False时表示样本不可重复被选取 p：对应a中元素被选取的概率，可选，默认为平均分布 numpy的broadcastnumpy中的矩阵运算会具有broadcast性质，决定了在运算时对于不同shape的矩阵会采取不同的操作 The term broadcasting describes how numpy treats arrays with different shapes during arithmetic operations. Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python. It does this without making needless copies of data and usually leads to efficient algorithm implementations. There are, however, cases where broadcasting is a bad idea because it leads to inefficient use of memory that slows computation. 例如：1234&gt;&gt;&gt; a = np.array([1.0, 2.0, 3.0])&gt;&gt;&gt; b = 2.0&gt;&gt;&gt; a * barray([ 2., 4., 6.]) numpy会通过broadcast方式对于不符合shape的矩阵自动将其扩展后再进行运算，这一性质在许多情况下可以使得代码更加简洁，但是也常常容易使人感到困惑。]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用matplotlib对分类数据集样本可视化]]></title>
+    <url>%2F2017%2F08%2F31%2Fpython-02%2F</url>
+    <content type="text"><![CDATA[在训练分类器之前，我们常常希望能够对数据集有一个直观的感受，比如像这样：今天做CS231n作业一的时候，发现作业里有一段代码用matplotlib实现了这一功能，代码如下：1234567891011121314classes = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']num_classes = len(classes)samples_per_class = 7for y, cls in enumerate(classes): idxs = np.flatnonzero(y_train == y) idxs = np.random.choice(idxs, samples_per_class, replace=False) for i, idx in enumerate(idxs): plt_idx = i * num_classes + y + 1 plt.subplot(samples_per_class, num_classes, plt_idx) plt.imshow(X_train[idx].astype('uint8')) plt.axis('off') if i == 0: plt.title(cls)plt.savefig(yourpath) 这段程序中samples_per_class为每个类别图片采样的张数，随后使用了两次枚举，外层的枚举用来从每个类里随机抽取用于展示的7张图片，内层的枚举用来将挑选出来的图片作为subplot放在matplotlib提供的图框中，最后使用plt.savefig(yourpath)保存即可。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>marplotlib</tag>
+        <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Mac终端中使用SS代理]]></title>
+    <url>%2F2017%2F08%2F30%2Ftremina-ss%2F</url>
+    <content type="text"><![CDATA[SS是当前最好用的科学上网工具之一，但是在terminal中无法直接使用ss代理，需要使用额外的工具来实现这一功能。 准备在开始之前，请确保： 拥有一个可以正常使用的SS Mac上已安装有Homebrew 安装privoxy使用以下命令安装：brew install privoxy privoxy配置打开配置文件，文件路径为/usr/local/etc/privoxy/config在配置文件底部加入以下语句：12listen-address 0.0.0.0:8118forward-socks5 / localhost:1080 . 启动privoxy输入以下语句：sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config查看是否启动成功：netstat -na | grep 8118看到如下消息说明启动成功：tcp4 0 0 *.8118 *.* LISTEN 使用privoxy在命令行终端中输入如下命令后，该终端即可走代理。12export http_proxy=&apos;http://localhost:8118&apos;export https_proxy=&apos;http://localhost:8118&apos; 这时输入curl ip.gs会显示代理服务器的信息关闭终端代理：12unset http_proxyunset https_proxy 配置bash文件经过上面几步，已经可以在终端使用SS代理，每次使用都需要输入一大串命令。可以在 ~/.bash_profile 里加入函数，便于使用。 macOS系统中默认没有.bash_profile文件，需要手动创建文件： 12cd ~/touch .bash_profile 编辑.bash_profile文件：open -e .bash_profile 在.bash_profile里写入函数 12345678910function proxy_off()&#123; unset http_proxy unset https_proxy echo -e &quot;已关闭代理&quot;&#125;function proxy_on() &#123; export http_proxy=&apos;http://localhost:8118&apos; export https_proxy=&apos;http://localhost:8118&apos; echo -e &quot;已开启代理&quot;&#125; 使配置立即生效：source ~/.bash_profile 调用bash函数配置已经全部完成，在终端使用proxy_on/proxy_off指令即可打开/关闭代理]]></content>
+      <tags>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何查找python及pip的安装位置]]></title>
+    <url>%2F2017%2F08%2F29%2Fpython-00%2F</url>
+    <content type="text"><![CDATA[在Linux和macOS系统中，python是系统自带的，不需要另外安装。但是出于安全性考虑，系统往往不允许修改自带的python文件，解决这一问题的方法是使用类似于Homebrew（Linuxbrew）的工具，或者干脆使用虚拟环境virtualenv。而这带来另外的问题，即python版本过多，例如使用Homebrew安装python后，在命令行使用python、 python2、 python3执行的是三个不同位置的python，手动查找对应的python文件位置是一件令人头疼的事情。 获取python解释器的文件位置 打开终端，输入python或 python2或python3或者其他 依次输入如下语句：123&gt;&gt;&gt; import sys&gt;&gt;&gt; path = sys.executable&gt;&gt;&gt; print path 此时python解释器的位置会被输出到终端 获取pip下的site-package文件夹位置 打开终端，输入python或 python2或python3或者其他 依次输入以下语句：12&gt;&gt;&gt; import site&gt;&gt;&gt; site.getsitepackages() 对应版本的site-package文件夹位置被输出到终端 其他此外，python可通过import os来调用系统指令 获取当前文件路径123import ospath=os.getcwd()print path 在python shell中清除屏幕 在Mac操作系统中：12&gt;&gt;&gt; import os&gt;&gt;&gt; os.system(&apos;clear&apos;) shell会被清空，第一行留下一个返回值0 在Windows操作系统中：12&gt;&gt;&gt; import os&gt;&gt;&gt; os.system(&apos;clr&apos;)]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TensorFlow常用函数（二）]]></title>
+    <url>%2F2017%2F08%2F29%2Ftf-function-001%2F</url>
+    <content type="text"><![CDATA[tf.nn.dropout1234567dropout( x, keep_prob, noise_shape=None, seed=None, name=None) 函数名称：tf.nn.dropout 输入参数： x:一个tensor量，通常为一个全连接层 keep_prob：一个tensor标量，表示神经元保持活性的概率 noise_shape：一个1维的int32 tensor，作用没搞明白 返回值：与x的shape相同的tensor Dropout 的作用是使部分神经元失去活性，不参与前馈和反向传播，使用dropout后计算梯度时需要根据神经元失活的比例对原梯度公式进行比例变换，在tf.nn.dropout中，比例变换已在内部完成，无需操心。 tf.nn.softmax_cross_entropy_with_logits1234567softmax_cross_entropy_with_logits( _sentinel=None, labels=None, logits=None, dim=-1, name=None) 函数名称：tf.nn.softmax_cross_entropy_with_logits 输入参数： _sentinel：内部参数，不要使用 labels：实际的label logits：神经网络的最后一层 logits和labels的shape和dtype要相同，例如[batch_size, num_classes],dtype=tf.float32 返回值：一维的tensor，长度为batch_size 函数内包含对数计算和corss entropy的计算，通常对返回值使用tf.reduce_mean()函数之后可以得到loss tf.equal12345equal( x, y, name=None) 函数名称：tf.equal 输入参数： x：tensor y：tensor 返回值：bool类型的tensor tf.train.AdamOptimizer.minimize12345678910minimize( loss, global_step=None, var_list=None, gate_gradients=GATE_OP, aggregation_method=None, colocate_gradients_with_ops=False, name=None, grad_loss=None) AdamOptimizer是tf.train下的一个类，继承 Optimizer类，可在创建实例时初始化设置learning rate，例如train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy) Adam是一种最优化方法，结合了Momentum和RMSProp算法，通常被认为鲁棒性较好 tf.argmax123456argmax( input, axis=None, name=None, dimension=None) 函数名称：tf.argmax 输入参数： input：一个tensor量 axis：运算的方向，对于一维向量axis=0 返回值：沿axis方向最大值的下标，类型是int64的tensor tf.cast12345cast( x, dtype, name=None) 函数名称：tf.cast 函数作用：将x转变为dtype所规定的类型 返回值：tensor，与x的shape相同 tf.Tensor.eval1234eval( feed_dict=None, session=None) 设有一个tensor t，则以下两条语句等价：t.eval()tf.get_default_session().run(t) eval()和sess()的区别主要有两点： eval一条语句获取一个tensor值，sess可以同时获取多个tensor值，例如： 12345678 t = tf.constant(42.0) u = tf.constant(37.0) tu = tf.mul(t, u) ut = tf.mul(u, t)with sess.as_default(): tu.eval() # runs one step ut.eval() # runs one step sess.run([tu, ut]) # evaluates both tensors in a single step 执行eval时必须有明确的session，可以通过以下两种方式实现： 在参数中指定session=sess 使用with关键词123with tf.Session() as sess: sess.run(tf.global_variables_initializer()) train_accuracy = accuracy.eval(feed_dict=&#123;x: batch[0], y_: batch[1], keep_prob: 1.0&#125;)]]></content>
+      <tags>
+        <tag>TensorFlow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TensorFlow常用函数（一）]]></title>
+    <url>%2F2017%2F08%2F28%2Ftf-function-00%2F</url>
+    <content type="text"><![CDATA[tf.truncated_normal（截断正态分布函数）12345678truncated_normal( shape, mean=0.0, stddev=1.0, dtype=tf.float32, seed=None, name=None) 函数名称：tf.truncated_normal 返回值：具有指定形态随机数组的tensor 输入参数： shape：生成的随机数组维度 stddev：正态分布的标准差 函数按正态分布取随机数，当所取得的随机数在两倍标准差范围之外时，将其舍弃并重新取值。 tf.nn.conv2d（卷积）123456789conv2d( input, filter, strides, padding, use_cudnn_on_gpu=True, data_format=&apos;NHWC&apos;, name=None) 函数名称：tf.nn.conv2d 返回值：具有4个维度的tensor，[batch, in_height, in_width, in_channels]，即常说的feature map。 输入参数： input：输入层，是具有4个维度的tensor，[batch, in_height, in_width, in_channels]，其中batch表示输入图像的数量，in_height表示图像高度，in_width表示图像宽度，in_channels表示图像通道数 filter：滤波器（又称卷积核）的参数，同样是具有4个维度的tensor，[filter_height, filter_width, in_channels, out_channels]，其中 in_channels与input中的in_channels相同，out_channels为输出通道数，也是滤波器的个数。 strides： 卷积时的步长，一维向量，长度为4，4个元素分别对应input中的4个维度 padding：值只能是‘SAME’或‘VALTD’，决定了卷积时的padding方式 use_cudnn_on_gpu：可选参数，默认值为True，决定了是否使用GPU上的CUDNN，默认值为True data_format：可选参数，默认为’NHWC’，决定了输入输出层中4个维度的排列顺序。可选值为‘NCHW’ name：可选参数，默认值为None 这是tf中一个核心的函数，用于卷积操作。 tf.nn.max_pool（最大池化函数，或称采样函数）12345678max_pool( value, ksize, strides, padding, data_format=&apos;NHWC&apos;, name=None) 函数名称：tf.nn.max_pool 返回值：具有4个维度的tensor，[batch, in_height, in_width, in_channels]，即常说的feature map。 输入参数： value：输入层，是具有4个维度的tensor，[batch, in_height, in_width, in_channels]，其中batch表示输入图像的数量，in_height表示图像高度，in_width表示图像宽度，in_channels表示图像通道数 ksize：池化窗口的大小，为一个长度为4的一维向量，一般是[1, height, width, 1]，因为我们不想在batch和channels上做池化，所以这两个维度设为1 strides：步长，长度为4的一维向量，与卷积类似 padding：与卷积类似，值只能是‘SAME’或‘VALTD’ data_format：可选参数，默认为’NHWC’，决定了输入输出层中4个维度的排列顺序。可选值为‘NCHW’ name：可选参数，默认值为None 这是最大池化函数，用在卷积操作之后，通过最大值采样降低feature map的维度。 tf.nn.relu（ReLU激活函数）1234relu( features, name=None) 函数名称：tf.nn.relu 返回值：max(features, 0)]]></content>
+      <tags>
+        <tag>TensorFlow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在Github上搭建博客]]></title>
+    <url>%2F2017%2F08%2F23%2FhexoGithubTutorial%2F</url>
+    <content type="text"><![CDATA[Github Pages是一个静态站点托管服务，用户可以用它来搭建便捷、稳定的个人站点。 Github Pages的设置申请Github账号 首先需要有一个Github的账号，使用Github Pages建站时域名必须与Github ID一致，所以记得取一个响亮的名字XD。 生成SSH key 下面以macOS为例，其余系统的同学可以参照这里的说明。 查看现有的ssh keys macOS自带ssh工具，打开终端，输入ls -al ~/.ssh可以查看本机当前已有的SSH key。 12$ ls -al ~/.ssh# 列出 .ssh文件夹下所有的文件（如果存在） 创建新的ssh key 打开终端 输入如下指令，将指令中的邮箱地址替换为你的github邮箱，创建一个新的ssh key1$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 保存ssh key当终端显示“Enter a file in which to save the key”，按下Enter键，将ssh key文件保存在默认位置。1Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] 输入密令密令由用户自己设置12Enter passphrase (empty for no passphrase): [Type a passphrase]Enter same passphrase again: [Type passphrase again] 把ssh key添加到ssh-agent在后台启动ssh-agent12$ eval "$(ssh-agent -s)"#Agent pid 59566 修改配置文件在macOS Sierra 10.12.2及之后的系统，需要修改ssh的配置文件。配置文件的位置在/etc/ssh/ssh_config。1234Host * AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa 在配置文件中添加如上三条语句。 添加ssh私钥到ssh-agent1$ ssh-add -K ~/.ssh/id_rsa 如果ssh key的文件名不为id_rsa，则以上命令中对应的位置都要进行相应的替换。 把ssh key添加到Github账户复制ssh key执行以下命令，将ssh key的公钥复制到剪贴板12$ pbcopy &lt; ~/.ssh/id_rsa.pub# Copies the contents of the id_rsa.pub file to your clipboard 添加到Github账户依次点击Settings-&gt;SSH and GPG keys-&gt;New SSH key得到的网页如上图所示，在Title栏输入一个便于标识的名字，在key栏右击粘贴，然后点击‘Add SSH key’。 测试ssh key是否添加成功打开终端，输入ssh -vT git@github.com，如果显示Hi yourID! You&#39;ve successfully authenticated, but GitHub does not provide shell access.，则表明已经成功添加。 创建一个repository点击Github页面上的’New respository’按钮，在Respository Name一栏填入yourID.github.io，把yourID替换成你的githubID。 Hexo的安装与配置Hexo是一个快速、简洁、高效的博客框架，并且有一份详尽的中文文档。 Hexo的安装首先确保本机已经安装Node.js和Git，输入以下命令即可完成Hexo的安装：1$ npm install -g hexo-cli 建站Hexo执行初始化必须使用一个空文件夹，执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。123$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install _config.yml是网站的配置信息，可以在此配置大部分的参数。themes文件夹下保存网站主题。scource文件夹下的_posts文件夹中存放博文，博文写作使用Markdown语法。这个网站提供markdown语法的中文文档。 ##配置打开_config.yml文件，修改其中的配置。参数名与参数值之间用冒号隔开，冒号的右侧需要加空格。通常必须修改的是以下几项：title为网站的标题，subtitle为副标题，author为作者，language改为zh-Cn使网站使用中文。如果想把网站部署到Github上，还必须在配置文件里进行如下改动：12345# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:yourID/yourID.github.io.git 预览Hexo 3.0 把服务器独立成了个别模块，必须先安装 hexo-server 才能使用。1$ npm install hexo-server --save 安装完成后，在hexo所在文件夹下执行hexo s -g，可以看到以下输出：12INFO Start processingINFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 此时在浏览器中访问http://localhost:4000/，即可看到网站预览。 部署配置完成后，输入命令’hexo d -g’ 我在部署时遇到过github访问被拒的情况，后来发现是因为我有两个ssh key同时在不同的github账号上使用。我把其中一个账号的ssh key删除才使问题得以解决。我希望能够寻找到一种更妥善的方法来解决这个问题，如果你有想法，欢迎在评论区留言。 写作1$ hexo new "article" 这一指令可以创建一篇新的博文，在/sources/_posts/文件夹下可以找到新建的文件，后缀名为.md。使用markdown语法即可在此文件上进行写作。 主题Hexo提供许多模板供人使用，这些模板在node_models文件夹下，使用时需要将其复制到themes文件夹中。在建站时我使用的是next主题。 评论next主题原生支持DuoShuo和Disqus。以Disqus举例，得到shortname后在主题下的配置文件中完成相应的修改：123disqus: enable: true shortname: your-duoshuo-shortname 运行hexo s -g即可在本地端口查看。]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+</search>

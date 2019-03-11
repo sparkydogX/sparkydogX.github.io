@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    <title>Find Min/Max Value</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="sparkydog">
+    <!-- Reference Page: https://www.html5rocks.com/en/tutorials/file/dndfiles/#disqus_thread -->
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
+
+    <style type="text/css" media="screen">
+        /* Add style rules here */
+        .dropzxoneborder {
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 25px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 2;
+            word-wrap: break-word;
+            width: 70%;
+        }
+
+        #drop_zone {
+            border: 2px dashed #bbb;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            font: 20pt bold 'Vollkorn';
+            color: #bbb;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/scripts.js"></script>
+    <script>
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            // Great success! All the File APIs are supported.
+        } else {
+            alert('The File APIs are not fully supported in this browser.');
+        }
+    </script>
+
+
+    <h1>
+        <center>Find Max in Tensorboard Json</center>
+    </h1>
+
+
+    <center>
+        <div class="dropzxoneborder">
+            <div id="drop_zone">Drop files here</div>
+            <output id="list" style="text-align:left;font-size: 14px;line-height:1;"></output>
+        </div>
+        <div id="result_zone" style="width:70%;text-align:left;padding: 10px;font-family:Monospace,Helvetica, Arial, sans-serif;">
+            <hr>
+        </div>
+
+    </center>
+
+    <script>
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; // FileList object.
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+                if (!f.type.match('json.*')) {
+                    alert('File type is not supported.');
+                    continue;
+                }
+
+                var reader = new FileReader();
+
+                // Closure to capture the file information.
+                reader.onload = (function (theFile) {
+                    return function (e) {
+                        var jsonText = e.target.result;
+                        var myarray = JSON.parse(jsonText)
+                        var minIdx = 0;
+                        var maxIdx = 0;
+                        var maxVal = myarray[0][2];
+                        var minVal = myarray[0][2];
+                        myarray.forEach(function (v) {
+                            if (maxVal < v[2]) {
+                                maxVal = v[2];
+                                maxIdx = v[1];
+                            };
+                            if (minVal < v[2]) {
+                                minIdx = v[2];
+                                minIdx = v[1];
+                            };
+
+                        });
+
+                        var para = document.createElement("span");                       // Create a <p> element
+
+                        // para.innerHTML = [
+                        //     '<b>Min</b>:' + '\xa0\xa0\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0'
+                        //     + '<b>Step</b>:' + '\xa0\xa0\xa0\xa0'
+                        //     + minIdx.toString() + '<br>'
+                        //     + '<b>Max</b>:' + '\xa0\xa0\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0'
+                        //     + '<b>Step</b>:' + '\xa0\xa0\xa0\xa0'
+                        //     + maxIdx.toString() + '<br>'
+                        //     + '<hr>'
+                        //     ]
+                        para.innerHTML = [
+                            '<table><tr><td>'
+                            + '<b>Min</b>:' + '\xa0\xa0' + minVal.toString() + '\xa0\xa0\xa0\xa0' + '</td><td>'
+                            + '<b>Step</b>:' + '\xa0\xa0'
+                            + minIdx.toString() + '</td></tr><tr><td>'
+                            + '<b>Max</b>:' + '\xa0\xa0' + maxVal.toString() + '\xa0\xa0\xa0\xa0' + '</td><td>'
+                            + '<b>Step</b>:' + '\xa0\xa0'
+                            + maxIdx.toString() + '</td></tr></table>'
+                            + '<hr>'
+                        ]
+                        document.getElementById("result_zone").appendChild(para);                              // Append <p> to <body> 
+                    };
+                })(f);
+                reader.readAsText(f);
+
+
+            }
+
+
+
+            document.getElementById('list').innerHTML = document.getElementById('list').innerHTML + '<ul>' + output.join('') + '</ul>';
+        }
+
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        }
+
+
+
+
+        // Setup the dnd listeners.
+        var dropZone = document.getElementById('drop_zone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    </script>
+    <!-- End ============== -->
+
+</body>
+
+</html>
