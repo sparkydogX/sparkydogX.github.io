@@ -831,8 +831,8 @@
     <url>%2F2017%2F10%2F21%2Fextract-subset%2F</url>
     <content type="text"><![CDATA[在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：12345678910111213141516171819import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;f=open(labeljsonpath)label=json.load(f)subsetlist=os.listdir(imgpath)jsonTosave=&apos;/data2/guoyu/subset.json&apos;jFile=open(jsonTosave,&apos;w&apos;)ls=[]for x in range(len(subsetlist)): imgid=subsetlist[x][:-4] for lab in label: if lab[&quot;image_id&quot;]==imgid: di=&#123;&#125; di=lab ls.append(di)json.dump(ls,jFile)jFile.close()]]></content>
       <tags>
-        <tag>json</tag>
         <tag>python</tag>
+        <tag>json</tag>
       </tags>
   </entry>
   <entry>
