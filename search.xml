@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用脚本为gitalk进行初始化]]></title>
+    <url>%2F2019%2F03%2F12%2Fgitment-initialize%2F</url>
+    <content type="text"><![CDATA[.gist {width:500px !important;} .gist-file .gist-data {max-height: 500px; max-width: 500px;}我的博客最初用的是disqus的评论系统，但是前几天disqus更新了他们的script，导致博客不能正常打开。我禁用disqus后将博客的评论系统换成了gitalk，gitalk是基于Github Issue的一个评论工具，具体的安装与设置网上有很多教程，我不再详述。但是将评论系统迁移到gitalk有比较麻烦的一点是评论的初始化问题，虽然gitalk会在管理员访问页面时自动的完成初始化，即在Github Repo中新建一个Issue，但是我有127篇文章，难道要一个一个点吗？为此我写了一个脚本，用于在firefox中批量打开标签页以完成初始化。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>gitment</tag>
+        <tag>firefox</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在python中调用matlab]]></title>
     <url>%2F2019%2F03%2F04%2Fpython-matlab%2F</url>
     <content type="text"><![CDATA[本文介绍如何在python中调用matlab的函数。 安装matlab首先需要安装matlab，如果已经安装可以跳过这一节。本文使用的matlab版本是R2016b，安装在远程的服务器上。由于是远程安装，所以需要在安装matlab的时候使用静默模式。 首先修改安装目录下的installer_input.txt文件，选择需要安装的组件，修改文件中的相应状态。cd到matlab安装文件所在目录，执行./install -inputFile /xxx/xxx/xxx/installer_input.txt这里建议写全文件所在的绝对路径。 激活matlab。matlab安装后需要激活，cd到matlab安装路径下，这个路径在installer_input.txt文件中进行过设置。执行 12cd bin./activate_matlab.sh -propertiesFile /xxx/xxx/xxx/activate.ini 安装成功后可以执行bin/matlab来启动matlab为了便于使用，可以将matlab的启动路径作为别名添加到bashrc文件中。 python安装matlab engine12cd $matlab_root/extern/pythonpython set.py install 注意不同版本的matlab支持的python版本也不尽相同。这样就安装成功了，可以运行一段代码测试一下：1234import matlab.engineeng = matlab.engine.start_matlab()tf = eng.isprime(37)print(tf) 更多用法可以参考这个页面]]></content>
@@ -48,7 +58,7 @@
   <entry>
     <title><![CDATA[在SimpleHTTPServer中加入上传功能]]></title>
     <url>%2F2019%2F02%2F03%2Fpython-simplehttpserverwithupload%2F</url>
-    <content type="text"><![CDATA[感谢以下两篇博客给出的详细实现思路： http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerWithUpload_with_python3.html 分别实现了python2和python3的版本。在中文环境下建议使用python3的版本，在测试中我使用python2版本上传中文文件时会出现乱码。（亘古不变的编码大坑=_=!）代码如下：]]></content>
+    <content type="text"><![CDATA[.gist {width:500px !important;} .gist-file .gist-data {max-height: 500px; max-width: 500px;}感谢以下两篇博客给出的详细实现思路： http://buptguo.com/2015/11/07/simplehttpserver-with-upload-file/ https://jjayyyyyyy.github.io/2016/10/07/reWrite_SimpleHTTPServerWithUpload_with_python3.html 分别实现了python2和python3的版本。在中文环境下建议使用python3的版本，在测试中我使用python2版本上传中文文件时会出现乱码。（亘古不变的编码大坑=_=!）代码如下：]]></content>
       <tags>
         <tag>python</tag>
         <tag>SimpleHTTPServer</tag>
@@ -831,8 +841,8 @@
     <url>%2F2017%2F10%2F21%2Fextract-subset%2F</url>
     <content type="text"><![CDATA[在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：12345678910111213141516171819import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;f=open(labeljsonpath)label=json.load(f)subsetlist=os.listdir(imgpath)jsonTosave=&apos;/data2/guoyu/subset.json&apos;jFile=open(jsonTosave,&apos;w&apos;)ls=[]for x in range(len(subsetlist)): imgid=subsetlist[x][:-4] for lab in label: if lab[&quot;image_id&quot;]==imgid: di=&#123;&#125; di=lab ls.append(di)json.dump(ls,jFile)jFile.close()]]></content>
       <tags>
-        <tag>python</tag>
         <tag>json</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
