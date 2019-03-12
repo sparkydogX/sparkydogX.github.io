@@ -1895,7 +1895,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6939a7;
+  background: #30fffa;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2274,6 +2274,9 @@ pre .javascript .function {
 }
 ul.popular-posts {
   padding: 0;
+  -webkit-columns: 50px 2; /* Chrome, Safari, Opera */
+  -moz-columns: 150px 2; /* Firefox */
+  columns: 50px 2;
 }
 ul.popular-posts .popular-posts-item {
   margin-left: 2em;
