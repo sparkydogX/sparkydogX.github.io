@@ -431,8 +431,8 @@
       
 
       
-        <h3><span id="在rcnn中为什么不使用cnn的最后一层softmax进行分类而是要额外使用svm">在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM</span></h3><ul>
-<li>这个是因为svm训练和cnn训练过程的正负样本定义方式各有不同，导致最后采用CNN softmax输出比采用svm精度还低。事情是这样的，cnn在训练的时候，对训练数据做了比较宽松的标注，比如一个bounding box可能只包含物体的一部分，那么我也把它标注为正样本，用于训练cnn；采用这个方法的主要原因在于因为CNN容易过拟合，所以需要大量的训练数据，所以在CNN训练阶段我们是对Bounding box的位置限制条件限制的比较松(IOU只要大于0.5都被标注为正样本了)；然而svm训练的时候，因为svm适用于少样本训练，所以对于训练样本数据的IOU要求比较严格，我们只有当bounding box把整个物体都包含进去了，我们才把它标注为物体类别，然后训练svm。<h3><span id="在faster-rcnn中对于某个anchor点是否预定义多少个bbox的尺寸在结果中只会出现这么多bbox的尺寸比如scale3aspect-ratio3k3x3是否意味着在图片中标注bbox时只会有这9种尺寸">在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）</span></h3></li>
+        <h3 id="在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM"><a href="#在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM" class="headerlink" title="在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM"></a>在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM</h3><ul>
+<li>这个是因为svm训练和cnn训练过程的正负样本定义方式各有不同，导致最后采用CNN softmax输出比采用svm精度还低。事情是这样的，cnn在训练的时候，对训练数据做了比较宽松的标注，比如一个bounding box可能只包含物体的一部分，那么我也把它标注为正样本，用于训练cnn；采用这个方法的主要原因在于因为CNN容易过拟合，所以需要大量的训练数据，所以在CNN训练阶段我们是对Bounding box的位置限制条件限制的比较松(IOU只要大于0.5都被标注为正样本了)；然而svm训练的时候，因为svm适用于少样本训练，所以对于训练样本数据的IOU要求比较严格，我们只有当bounding box把整个物体都包含进去了，我们才把它标注为物体类别，然后训练svm。<h3 id="在faster-RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale-3，aspect-ratio-3，k-3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）"><a href="#在faster-RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale-3，aspect-ratio-3，k-3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）" class="headerlink" title="在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）"></a>在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）</h3></li>
 <li>在region proposal的时候只会出现这些大小的框，但是在最后输出结果的时候由于有bounding-box regressor的存在，会框得到修正，产生各种不同尺寸的输出。</li>
 </ul>
 
@@ -906,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM"><span class="nav-number">1.</span> <span class="nav-text">在RCNN中，为什么不使用CNN的最后一层softmax进行分类，而是要额外使用SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在faster-RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale-3，aspect-ratio-3，k-3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）"><span class="nav-number">2.</span> <span class="nav-text">在faster RCNN中，对于某个anchor点，是否预定义多少个bbox的尺寸，在结果中只会出现这么多bbox的尺寸（比如scale=3，aspect ratio=3，k=3x3，是否意味着在图片中标注bbox时只会有这9种尺寸？）</span></a></li></ol></div>
             
 
           </div>

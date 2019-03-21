@@ -432,7 +432,7 @@
 
       
         <p>RocketChat是一个开源的即时通讯项目。</p>
-<h1><span id="准备工作">准备工作</span></h1><ol>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
 <li><p>系统环境<br>linode服务器, CentOS 7.<br>没有在CentOS 6上面进行过测试.</p>
 </li>
 <li><p>配置服务器防火墙端口<br>在linode中,可以使用如下命令配置端口:</p>
@@ -449,7 +449,7 @@
 </li>
 </ol>
 <p>运行成功后在<code>/etc/letsencrypt/live</code>可以看到当前证书<br>注意这个证书有效期为90天,所以最好定期更新证书,使用<code>sudo crontab -e</code>添加<code>0 0 1 * * /opt/letsencrypt/letsencrypt-auto renew</code>,以定期执行.</p>
-<h1><span id="安装nginx">安装nginx</span></h1><ol>
+<h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><ol>
 <li>将nginx放到yum repro库中<br><code>[root@localhost ~]# rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></li>
 <li>查看nginx信息<br><code>[root@localhost ~]# yum info nginx</code></li>
 <li>使用yum安装ngnix<br><code>[root@localhost ~]# yum install nginx</code></li>
@@ -462,8 +462,8 @@
 <blockquote>
 <p>参考页面: <a href="https://www.jianshu.com/p/96691511295f" target="_blank" rel="noopener">https://www.jianshu.com/p/96691511295f</a></p>
 </blockquote>
-<h1><span id="安装rocket-chat">安装Rocket-Chat</span></h1><p>nginx配置参考这个<a href="https://linuxize.com/post/secure-nginx-with-let-s-encrypt-on-centos-7/#disqus_thread" target="_blank" rel="noopener">页面</a><br>参考<a href="https://linuxize.com/post/how-to-deploy-rocket-chat-on-centos-7/" target="_blank" rel="noopener">这个页面</a></p>
-<h1><span id="解决502错误">解决502错误</span></h1><p>查看log文件<code>logs/xxx</code><br>发现是权限问题,<code>setsebool httpd_can_network_connect on -P</code>解决</p>
+<h1 id="安装Rocket-Chat"><a href="#安装Rocket-Chat" class="headerlink" title="安装Rocket-Chat"></a>安装Rocket-Chat</h1><p>nginx配置参考这个<a href="https://linuxize.com/post/secure-nginx-with-let-s-encrypt-on-centos-7/#disqus_thread" target="_blank" rel="noopener">页面</a><br>参考<a href="https://linuxize.com/post/how-to-deploy-rocket-chat-on-centos-7/" target="_blank" rel="noopener">这个页面</a></p>
+<h1 id="解决502错误"><a href="#解决502错误" class="headerlink" title="解决502错误"></a>解决502错误</h1><p>查看log文件<code>logs/xxx</code><br>发现是权限问题,<code>setsebool httpd_can_network_connect on -P</code>解决</p>
 <p>完成以上步骤之后，在Rocket-chat的客户端使用 <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a> 就可以连接到配置好的服务器了。</p>
 
       
@@ -934,7 +934,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装Rocket-Chat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">解决502错误</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nginx"><span class="nav-number">2.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Rocket-Chat"><span class="nav-number">3.</span> <span class="nav-text">安装Rocket-Chat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决502错误"><span class="nav-number">4.</span> <span class="nav-text">解决502错误</span></a></li></ol></div>
             
 
           </div>

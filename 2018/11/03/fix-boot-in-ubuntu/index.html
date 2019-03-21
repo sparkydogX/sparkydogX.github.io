@@ -419,17 +419,17 @@
       
 
       
-        <h1><span id="问题描述">问题描述</span></h1><p>之前是Ubuntu和Windows双系统,Ubuntu系统装在硬盘A,Windows系统装在硬盘B,由Ubuntu的grub进行启动引导.<br>后来硬盘A出了问题,送去维修.在此期间想要使用Windows系统,于是通过lilo修改了引导记录,成功启动了Windows.麻烦的是后来Ubuntu系统所在的硬盘A回来了,硬盘A可以正常进行读写,但是读写的时候会发出非常大的噪音,于是买了一块全新的硬盘C,希望将硬盘A上的内容全部迁移到硬盘C上,因为Ubuntu上重装系统重新配置环境实在是太麻烦了,最终我找到一个解决方案,能够直接不用重新安装系统,就可以使用迁移过后的Ubuntu系统.<br>值得注意的是,此时由于使用lilo修改过引导记录的缘故,硬盘A再次安装到主机,也无法直接从硬盘A启动.</p>
-<h1><span id="准备工作">准备工作</span></h1><ul>
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>之前是Ubuntu和Windows双系统,Ubuntu系统装在硬盘A,Windows系统装在硬盘B,由Ubuntu的grub进行启动引导.<br>后来硬盘A出了问题,送去维修.在此期间想要使用Windows系统,于是通过lilo修改了引导记录,成功启动了Windows.麻烦的是后来Ubuntu系统所在的硬盘A回来了,硬盘A可以正常进行读写,但是读写的时候会发出非常大的噪音,于是买了一块全新的硬盘C,希望将硬盘A上的内容全部迁移到硬盘C上,因为Ubuntu上重装系统重新配置环境实在是太麻烦了,最终我找到一个解决方案,能够直接不用重新安装系统,就可以使用迁移过后的Ubuntu系统.<br>值得注意的是,此时由于使用lilo修改过引导记录的缘故,硬盘A再次安装到主机,也无法直接从硬盘A启动.</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
 <li>Ubuntu的U盘启动盘</li>
 <li>确保已经插好网线,网络环境正常</li>
 <li>硬盘A和硬盘C被连接到主板</li>
 </ul>
-<h1><span id="使用gparted进行分区">使用Gparted进行分区</span></h1><ol>
+<h1 id="使用Gparted进行分区"><a href="#使用Gparted进行分区" class="headerlink" title="使用Gparted进行分区"></a>使用Gparted进行分区</h1><ol>
 <li>进入U盘启动中的live CD</li>
 <li>使用<code>sudo fdisk -l</code>可以查看各个磁盘中的分区情况.记住磁盘A中的每个分区的名称以及在原Ubuntu系统中对应的目录,以及分区类型,例如我的根目录是在<code>/dev/sda9</code>,boot是在<code>/dev/sda8</code>.如果不能确认,可以使用<code>sudo mount /dev/sda9 /mnt</code>这样的命令挂载对应分区,然后查看其中内容来确认.<br>之后在Gparted中对硬盘C进行分区,要确保分区与硬盘A中Ubuntu系统的分区数量一致,并且每个分区的大小都不小于原来分区的大小.</li>
 </ol>
-<h1><span id="拷贝分区">拷贝分区</span></h1><ol>
+<h1 id="拷贝分区"><a href="#拷贝分区" class="headerlink" title="拷贝分区"></a>拷贝分区</h1><ol>
 <li>使用<code>dd</code>命令从硬盘A将对应的分区拷贝到硬盘C,例如<code>sudo dd if=/dev/sda1 of=/dev/sdb1</code>. 这个过程不会有输出,为了查看复制的进程,可以在另外的terminal中执行<code>watch -n 5 killall -USR1 dd</code>,这样在dd的窗口中可以看到输出. 重复这一指令直到所有的分区都拷贝完成.</li>
 </ol>
 <ul>
@@ -440,7 +440,7 @@
 <li>使用gparted新建分区,大小大于1M, file system选择unformatted.标记为<code>boot_grub</code>.</li>
 <li>解除挂载硬盘A</li>
 </ol>
-<h1><span id="修复grub">修复grub</span></h1><ol>
+<h1 id="修复grub"><a href="#修复grub" class="headerlink" title="修复grub"></a>修复grub</h1><ol>
 <li><p>挂载系统.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sdX /mnt</span><br><span class="line">sudo mount /dev/sdY /mnt/boot</span><br><span class="line">sudo mount /dev /mnt/dev</span><br><span class="line">sudo mount /sys /mnt/sys</span><br><span class="line">sudo mount /proc /mnt/proc</span><br></pre></td></tr></table></figure>
 </li>
@@ -449,7 +449,7 @@
 <li><p>修复grub<br><code>sudo grub-install --force</code></p>
 </li>
 </ol>
-<h1><span id="使用boot-repair">使用boot-repair</span></h1><ol>
+<h1 id="使用boot-repair"><a href="#使用boot-repair" class="headerlink" title="使用boot-repair"></a>使用boot-repair</h1><ol>
 <li>安装boot-repair<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair &amp;&amp; boot-repair</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -956,7 +956,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">使用Gparted进行分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">拷贝分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">修复grub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">使用boot-repair</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Gparted进行分区"><span class="nav-number">3.</span> <span class="nav-text">使用Gparted进行分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝分区"><span class="nav-number">4.</span> <span class="nav-text">拷贝分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修复grub"><span class="nav-number">5.</span> <span class="nav-text">修复grub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用boot-repair"><span class="nav-number">6.</span> <span class="nav-text">使用boot-repair</span></a></li></ol></div>
             
 
           </div>

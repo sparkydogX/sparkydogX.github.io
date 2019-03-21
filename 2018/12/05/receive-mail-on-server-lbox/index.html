@@ -432,17 +432,17 @@
 
       
         <p>首先需要说明的是，搭建完整的个人邮箱服务器不是一个好主意，部署复杂是一方面，部署之后它仍然需要你大量的时间和精力去维持垃圾邮件过滤和反病毒文件的工作。<br>但是能够使用个人服务器——意味着用户名和域名都属于你自己的——来接收各种无关紧要的邮件，仍然是一件有趣的事情，你可以随心所欲的变换用户名，并且不需要手机验证。<br>这篇文章我会讲述最简单的部署方法，本文使用的是阿里云服务器，搭载Ubuntu系统。</p>
-<h1><span id="配置域名">配置域名</span></h1><p>首先到你的域名商那里，设置域名解析</p>
+<h1 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h1><p>首先到你的域名商那里，设置域名解析</p>
 <ol>
 <li>MX记录<br>添加一条MX记录，主机记录为<code>@</code>，记录值为’mail.example.org’</li>
 <li>A记录<br>添加一条A记录，主机记录为‘mail’，记录值为邮箱服务器的ip</li>
 </ol>
-<h1><span id="配置ptr记录">配置PTR记录</span></h1><p>PTR记录用于反向地址解析，到主机商处将PTR记录设置成邮箱服务器域名。</p>
-<h1><span id="设置hostname">设置Hostname</span></h1><p>使用<code>hostname -f</code>查看hostname与域名是否一致。<br>如果不一致，需要改成一致。</p>
-<h1><span id="安装postfix">安装postfix</span></h1><p><code>sudo apt-get install postfix</code><br>安装时选择第二个选项，Internet连接。</p>
-<h1><span id="安装mailutils">安装mailutils</span></h1><p><code>sudo apt-get install mailutils</code></p>
-<h1><span id="发送邮件">发送邮件</span></h1><p><code>echo &quot;hello&quot; | mail -s &quot;test&quot; example@example.org</code><br>很大的可能你会发现这一步失败了，这时查看日志文件<code>/var/log/mail.log</code>如果看到连接超时的错误，说明很有可能你的主机商禁用了25端口。<br>可以使用<code>traceroute</code>工具尝试连接目标邮箱服务器:<code>traceroute -T -p 25 xxx.xxx</code>，如果看到一排<code>***</code>，说明无法使用25端口。<br>主机商为了防止垃圾邮件禁用了25端口，阿里云可以申请解禁25端口，但是仍然不允许假设私人邮箱服务器向外发送邮件。可以通过更换邮件协议与端口的方法解决这个问题，但是这已经超出了本文的范围。在我的试验中，阿里云中的邮箱服务器虽然不能向外发送邮件，但是接收邮件是没有问题的。<br>当然，你也可以选择更换主机商，Linode是没有这一限制的。</p>
-<h1><span id="接收邮件">接收邮件</span></h1><p>首先用你的其余的邮箱发送一封邮件，收件人是<a href="mailto:`user@example.org" target="_blank" rel="noopener">`user@example.org</a><code>。其中user是你设置服务器时的用户，域名是你的邮箱域名，如果是作为root用户设置的，user就是root。
+<h1 id="配置PTR记录"><a href="#配置PTR记录" class="headerlink" title="配置PTR记录"></a>配置PTR记录</h1><p>PTR记录用于反向地址解析，到主机商处将PTR记录设置成邮箱服务器域名。</p>
+<h1 id="设置Hostname"><a href="#设置Hostname" class="headerlink" title="设置Hostname"></a>设置Hostname</h1><p>使用<code>hostname -f</code>查看hostname与域名是否一致。<br>如果不一致，需要改成一致。</p>
+<h1 id="安装postfix"><a href="#安装postfix" class="headerlink" title="安装postfix"></a>安装postfix</h1><p><code>sudo apt-get install postfix</code><br>安装时选择第二个选项，Internet连接。</p>
+<h1 id="安装mailutils"><a href="#安装mailutils" class="headerlink" title="安装mailutils"></a>安装mailutils</h1><p><code>sudo apt-get install mailutils</code></p>
+<h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><p><code>echo &quot;hello&quot; | mail -s &quot;test&quot; example@example.org</code><br>很大的可能你会发现这一步失败了，这时查看日志文件<code>/var/log/mail.log</code>如果看到连接超时的错误，说明很有可能你的主机商禁用了25端口。<br>可以使用<code>traceroute</code>工具尝试连接目标邮箱服务器:<code>traceroute -T -p 25 xxx.xxx</code>，如果看到一排<code>***</code>，说明无法使用25端口。<br>主机商为了防止垃圾邮件禁用了25端口，阿里云可以申请解禁25端口，但是仍然不允许假设私人邮箱服务器向外发送邮件。可以通过更换邮件协议与端口的方法解决这个问题，但是这已经超出了本文的范围。在我的试验中，阿里云中的邮箱服务器虽然不能向外发送邮件，但是接收邮件是没有问题的。<br>当然，你也可以选择更换主机商，Linode是没有这一限制的。</p>
+<h1 id="接收邮件"><a href="#接收邮件" class="headerlink" title="接收邮件"></a>接收邮件</h1><p>首先用你的其余的邮箱发送一封邮件，收件人是<a href="mailto:`user@example.org" target="_blank" rel="noopener">`user@example.org</a><code>。其中user是你设置服务器时的用户，域名是你的邮箱域名，如果是作为root用户设置的，user就是root。
 如果没有问题，在服务器中使用</code>mail`命令可以看到有一封新的邮件。<br>如果有附件，使用write命令可以保存。</p>
 <p>参考网页：<a href="https://www.linuxdashen.com/ubuntu%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93postfix%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="noopener">https://www.linuxdashen.com/ubuntu%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93postfix%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8</a></p>
 
@@ -458,14 +458,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/12/09/block-ssh-connection/" rel="bookmark">防止ssh的暴力破解</a></div>
+      <div class="popular-posts-title"><a href="/2017/10/31/first-use-aliyun/" rel="bookmark">初次使用阿里云服务器</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2017/10/31/first-use-aliyun/" rel="bookmark">初次使用阿里云服务器</a></div>
+      <div class="popular-posts-title"><a href="/2018/12/09/block-ssh-connection/" rel="bookmark">防止ssh的暴力破解</a></div>
       
     </li>
   
@@ -947,7 +947,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">配置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">配置PTR记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">设置Hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">安装postfix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">安装mailutils</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">发送邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">接收邮件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置域名"><span class="nav-number">1.</span> <span class="nav-text">配置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置PTR记录"><span class="nav-number">2.</span> <span class="nav-text">配置PTR记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置Hostname"><span class="nav-number">3.</span> <span class="nav-text">设置Hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装postfix"><span class="nav-number">4.</span> <span class="nav-text">安装postfix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装mailutils"><span class="nav-number">5.</span> <span class="nav-text">安装mailutils</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发送邮件"><span class="nav-number">6.</span> <span class="nav-text">发送邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接收邮件"><span class="nav-number">7.</span> <span class="nav-text">接收邮件</span></a></li></ol></div>
             
 
           </div>

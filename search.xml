@@ -1059,7 +1059,7 @@
   <entry>
     <title><![CDATA[sklearn之分类器的使用]]></title>
     <url>%2F2017%2F09%2F11%2Fsklearn%2F</url>
-    <content type="text"><![CDATA[sklearn是一个机器学习的开源库，简单好用。在sklearn中，所有的分类器都可以秉持“三步走”方法： 设置分类器 fit训练数据 使用测试集对训练好对模型进行评估 sklearn.neighbors.KNeighborsClassifier1234from sklearn.neighbors import KNeighborsClassifierneigh=KNeighborsClassifier(n_neighbors=i)neigh.fit(X_train,y_train)print &apos;n=&apos;,i,&apos;\tscore=&apos;,neigh.score(X_test,y_test) sklearn.svm.LinearSVC123clf = LinearSVC(random_state=0)clf.fit(X_train,y_train)print clf.score(X_test,y_test) softmax和LogisticRegression分别适用于多分类和二分类问题，sklearn将这两者放在一起，只需设置相应的参数即可选择分类器与对应的优化算法，需要注意的是loss function是否收敛。1234from sklearn.linear_model import LogisticRegressionclf=LogisticRegression(multi_class=&apos;ovr&apos;,solver=&apos;sag&apos;)clf.fit(X_train,y_train)r=clf.score(X_test,y_test)]]></content>
+    <content type="text"><![CDATA[sklearn是一个机器学习的开源库，简单好用。在sklearn中，所有的分类器都可以秉持“三步走”方法： 设置分类器 fit训练数据 使用测试集对训练好对模型进行评估 KNNsklearn.neighbors.KNeighborsClassifier1234from sklearn.neighbors import KNeighborsClassifierneigh=KNeighborsClassifier(n_neighbors=i)neigh.fit(X_train,y_train)print &apos;n=&apos;,i,&apos;\tscore=&apos;,neigh.score(X_test,y_test) 线性SVMsklearn.svm.LinearSVC123clf = LinearSVC(random_state=0)clf.fit(X_train,y_train)print clf.score(X_test,y_test) Softmaxsoftmax和LogisticRegression分别适用于多分类和二分类问题，sklearn将这两者放在一起，只需设置相应的参数即可选择分类器与对应的优化算法，需要注意的是loss function是否收敛。1234from sklearn.linear_model import LogisticRegressionclf=LogisticRegression(multi_class=&apos;ovr&apos;,solver=&apos;sag&apos;)clf.fit(X_train,y_train)r=clf.score(X_test,y_test)]]></content>
       <tags>
         <tag>python</tag>
         <tag>sklearn</tag>

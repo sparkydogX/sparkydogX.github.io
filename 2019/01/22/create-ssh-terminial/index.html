@@ -420,9 +420,9 @@
 
       
         <p>在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。</p>
-<h1><span id="免密登录服务器">免密登录服务器</span></h1><p><code>ssh-keygen</code>创建一个新的密钥对<br>将公钥复制到服务器<br><code>ssh-copy-id user@my.server.com</code><br>从现在起，服务器应该识别你的密钥，而不再要求输入密码。</p>
-<h1><span id="编写脚本">编写脚本</span></h1><p>我的脚本如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">cmd=<span class="string">'watch -n 1 nvidia-smi'</span></span><br><span class="line"> gnome-terminal \</span><br><span class="line"> --window  -e <span class="string">"ssh  node0 "</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node0 <span class="variable">$cmd</span>"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1 <span class="variable">$cmd</span>"</span> \</span><br></pre></td></tr></table></figure></p>
-<p>这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用<a href="mailto:`user@my.server.com" target="_blank" rel="noopener">`user@my.server.com</a>`替代即可。<br>这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。</p>
+<h1 id="免密登录服务器"><a href="#免密登录服务器" class="headerlink" title="免密登录服务器"></a>免密登录服务器</h1><p><code>ssh-keygen</code>创建一个新的密钥对<br>将公钥复制到服务器<br><code>ssh-copy-id user@my.server.com</code><br>从现在起，服务器应该识别你的密钥，而不再要求输入密码。</p>
+<h1 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h1><p>我的脚本如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">cmd=<span class="string">'watch -n 1 nvidia-smi'</span></span><br><span class="line"> gnome-terminal \</span><br><span class="line"> --window  -e <span class="string">"ssh  node0 "</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node0 <span class="variable">$cmd</span>"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1"</span> \</span><br><span class="line"> --tab  -e <span class="string">"ssh -t node1 <span class="variable">$cmd</span>"</span> \</span><br></pre></td></tr></table></figure></p>
+<p>这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用<a href="mailto:`user@my.server.com" target="_blank" rel="noopener">`user@my.server.com</a>`替代即可。<br>这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。  </p>
 
       
     </div>
@@ -927,7 +927,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">免密登录服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#免密登录服务器"><span class="nav-number">1.</span> <span class="nav-text">免密登录服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写脚本"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li></ol></div>
             
 
           </div>

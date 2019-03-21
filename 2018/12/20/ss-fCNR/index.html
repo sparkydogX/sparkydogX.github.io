@@ -420,9 +420,9 @@
 
       
         <p>之前我们介绍过使用ngrok和n2n这样的工具来进行内网穿透。这样的工具自己用当然是很棒，但是很多时候亲朋好友会遇到一些问题需要你用ssh连上帮忙解决的时候，以上两个工具配置起来还是太麻烦了。用ssh的好处是几乎每个现代的计算机上都会自带ssh工具，省去了配置的麻烦。</p>
-<h1><span id="服务器">服务器</span></h1><p><code>ssh -fCNL *:6789:localhost:9876:localhost</code><br>将6789端口的ssh请求转发到9876端口上面，<code>*</code>表示接受来自所有ip的请求。</p>
-<h1><span id="客户端">客户端</span></h1><p><code>ssh -fCNR 9876:localhost:22 server_user@server.domain -p 22</code><br>建立本地22端口到服务器9876端口的ssh反向代理。在被操作的机器上面执行这句命令，随后会要求输入密码，输入服务器上对应用户的密码即可。</p>
-<h1><span id="登录ssh">登录ssh</span></h1><p>这时候配置已经完成，随便找一台电脑输入<code>ssh client_user@erver.domain -p 6789</code>即可登录到客户机的ssh。</p>
+<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><p><code>ssh -fCNL *:6789:localhost:9876:localhost</code><br>将6789端口的ssh请求转发到9876端口上面，<code>*</code>表示接受来自所有ip的请求。</p>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p><code>ssh -fCNR 9876:localhost:22 server_user@server.domain -p 22</code><br>建立本地22端口到服务器9876端口的ssh反向代理。在被操作的机器上面执行这句命令，随后会要求输入密码，输入服务器上对应用户的密码即可。</p>
+<h1 id="登录ssh"><a href="#登录ssh" class="headerlink" title="登录ssh"></a>登录ssh</h1><p>这时候配置已经完成，随便找一台电脑输入<code>ssh client_user@erver.domain -p 6789</code>即可登录到客户机的ssh。</p>
 <p><strong>这种方法的缺陷在于一段时间不用之后ssh反向代理会自动断开，因此不适合长久的部署。但是胜在操作简单，应个急还是很不错的</strong></p>
 
       
@@ -437,14 +437,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/12/09/block-ssh-connection/" rel="bookmark">防止ssh的暴力破解</a></div>
+      <div class="popular-posts-title"><a href="/2019/01/22/create-ssh-terminial/" rel="bookmark">通过脚本在终端中打开多个ssh session</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2019/01/22/create-ssh-terminial/" rel="bookmark">通过脚本在终端中打开多个ssh session</a></div>
+      <div class="popular-posts-title"><a href="/2018/12/09/block-ssh-connection/" rel="bookmark">防止ssh的暴力破解</a></div>
       
     </li>
   
@@ -917,7 +917,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">登录ssh</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登录ssh"><span class="nav-number">3.</span> <span class="nav-text">登录ssh</span></a></li></ol></div>
             
 
           </div>

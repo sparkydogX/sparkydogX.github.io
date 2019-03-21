@@ -420,10 +420,10 @@
 
       
         <p>这篇文章介绍如何在Ubuntu中使用安卓模拟器。<br>在Ubuntu中运行android程序并非易事，因为大部分移动设备上运行的android程序都是基于Arm架构的芯片开发的，而在家用的台式机上我们通常使用的是x86的芯片。为了解决这一个问题，两种方案，一个是使用Android Studio提供的Android模拟器，选择arm架构，模拟器就能够运行arm架构下的app。但是这种方法运行的模拟器速度非常缓慢，Android Studio会提示x86架构模拟器速度会是arm的10x以上。为了解决应用兼容性的问题，Intel公司开发了houdini技术。Houdini是intel 研发的ARM binary translator，用于解决当前android部分native应用库兼容跑在x86架构上的技术，它的原理在于把ARM的二进制代码转译为X86指令集，使得可以在X86的CPU上执行。</p>
-<h1><span id="安装genymotion">安装Genymotion</span></h1><p>由于Android Studio以及那一套SDK工具用起来十分繁琐，而我没有Android开发的需求，只是想单纯的运行android程序，因此我在这里选择了<a href="https://www.genymotion.com/" target="_blank" rel="noopener">Genymotion</a>。Genymotion是一个x86的安卓模拟器软件，个人版可以注册账号免费试用。<br>安装Genymotion需要机器安装有Virtualbox，安装好之后运行Genymotion，在Genymotion中创建一个虚拟的设备，期间会下载所用到的系统镜像，等候片刻。<br>运行虚拟设备，如之前所说，此时只能安装很少量的x86 app。</p>
-<h1><span id="解决兼容性问题">解决兼容性问题</span></h1><p>下载对应操作系统版本的Arm Translation文件，<a href="https://drive.google.com/open?id=1-8mFalkCScszpH6zAk8ZsDjdyYNYf5jU" target="_blank" rel="noopener">Android 5.1点这里</a> , <a href="https://drive.google.com/open?id=1_FkMRmo8DKaSNEXD0KtYOGpNzCwF_1Yw" target="_blank" rel="noopener">Android 6.0点这里</a>。<br>将文件直接拖进模拟器，在模拟器中会弹出对话框，点击<code>Yes</code>,<code>OK</code>之后重启虚拟机即可。</p>
-<h1><span id="安装app">安装app</span></h1><p>在Genymotion的安装路径下找到tools文件夹，运行<code>tools/adb install &quot;your_apk_file_path&quot;</code>，即可完成程序的安装。</p>
-<h1><span id="模拟触屏操作">模拟触屏操作</span></h1><p>很多软件中会用到多点触屏、滑动、甚至摇杆操作。只使用鼠标单机显然是无法完成这些操作的。<a href="https://drive.google.com/open?id=1Ezytne_Z7s8j32NuIpyiZwM4t62icki9" target="_blank" rel="noopener">Game Controller 2 Touch Pro</a>这款软件可以用于解决这样的问题。<br><a href="https://drive.google.com/file/d/0B84T8fwIQnJjME5qdmdsemk4VEk/edit" target="_blank" rel="noopener">Game Controller 2 Touch Pro操作手册</a></p>
+<h1 id="安装Genymotion"><a href="#安装Genymotion" class="headerlink" title="安装Genymotion"></a>安装Genymotion</h1><p>由于Android Studio以及那一套SDK工具用起来十分繁琐，而我没有Android开发的需求，只是想单纯的运行android程序，因此我在这里选择了<a href="https://www.genymotion.com/" target="_blank" rel="noopener">Genymotion</a>。Genymotion是一个x86的安卓模拟器软件，个人版可以注册账号免费试用。<br>安装Genymotion需要机器安装有Virtualbox，安装好之后运行Genymotion，在Genymotion中创建一个虚拟的设备，期间会下载所用到的系统镜像，等候片刻。<br>运行虚拟设备，如之前所说，此时只能安装很少量的x86 app。</p>
+<h1 id="解决兼容性问题"><a href="#解决兼容性问题" class="headerlink" title="解决兼容性问题"></a>解决兼容性问题</h1><p>下载对应操作系统版本的Arm Translation文件，<a href="https://drive.google.com/open?id=1-8mFalkCScszpH6zAk8ZsDjdyYNYf5jU" target="_blank" rel="noopener">Android 5.1点这里</a> , <a href="https://drive.google.com/open?id=1_FkMRmo8DKaSNEXD0KtYOGpNzCwF_1Yw" target="_blank" rel="noopener">Android 6.0点这里</a>。<br>将文件直接拖进模拟器，在模拟器中会弹出对话框，点击<code>Yes</code>,<code>OK</code>之后重启虚拟机即可。</p>
+<h1 id="安装app"><a href="#安装app" class="headerlink" title="安装app"></a>安装app</h1><p>在Genymotion的安装路径下找到tools文件夹，运行<code>tools/adb install &quot;your_apk_file_path&quot;</code>，即可完成程序的安装。</p>
+<h1 id="模拟触屏操作"><a href="#模拟触屏操作" class="headerlink" title="模拟触屏操作"></a>模拟触屏操作</h1><p>很多软件中会用到多点触屏、滑动、甚至摇杆操作。只使用鼠标单机显然是无法完成这些操作的。<a href="https://drive.google.com/open?id=1Ezytne_Z7s8j32NuIpyiZwM4t62icki9" target="_blank" rel="noopener">Game Controller 2 Touch Pro</a>这款软件可以用于解决这样的问题。<br><a href="https://drive.google.com/file/d/0B84T8fwIQnJjME5qdmdsemk4VEk/edit" target="_blank" rel="noopener">Game Controller 2 Touch Pro操作手册</a></p>
 
       
     </div>
@@ -926,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装Genymotion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解决兼容性问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装app</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">模拟触屏操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Genymotion"><span class="nav-number">1.</span> <span class="nav-text">安装Genymotion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决兼容性问题"><span class="nav-number">2.</span> <span class="nav-text">解决兼容性问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装app"><span class="nav-number">3.</span> <span class="nav-text">安装app</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模拟触屏操作"><span class="nav-number">4.</span> <span class="nav-text">模拟触屏操作</span></a></li></ol></div>
             
 
           </div>

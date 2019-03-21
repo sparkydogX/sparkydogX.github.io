@@ -419,8 +419,8 @@
       
 
       
-        <h1><span id="问题起因">问题起因</span></h1><p>原先的主机有一块固态硬盘和一块机械硬盘，机械硬盘上安装的是Ubuntu系统，固态硬盘上安装的是Windows10系统。平时使用的时候通过Ubuntu来引导启动。最近机械硬盘坏掉了，在BIOS将启动设备设置为固态硬盘想启动Windows系统的时候无法正常启动，报错‘Error：no such device’，然后就进入‘grub rescue’界面。</p>
-<h1><span id="解决方案">解决方案</span></h1><ol>
+        <h1 id="问题起因"><a href="#问题起因" class="headerlink" title="问题起因"></a>问题起因</h1><p>原先的主机有一块固态硬盘和一块机械硬盘，机械硬盘上安装的是Ubuntu系统，固态硬盘上安装的是Windows10系统。平时使用的时候通过Ubuntu来引导启动。最近机械硬盘坏掉了，在BIOS将启动设备设置为固态硬盘想启动Windows系统的时候无法正常启动，报错‘Error：no such device’，然后就进入‘grub rescue’界面。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ol>
 <li>首先准备一个Ubuntu的U盘启动盘，然后修改BIOS启动顺序，通过U盘启动。U盘启动之后进入Live CD模式。</li>
 <li>打开Terminal，运行<code>sudo apt-get install lilo</code></li>
 <li>运行<code>sudo fdisk -l</code>，可以看到windows所在硬盘下有分区对应的Boot栏有<code>*</code>标记</li>
@@ -907,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题起因"><span class="nav-number">1.</span> <span class="nav-text">问题起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>

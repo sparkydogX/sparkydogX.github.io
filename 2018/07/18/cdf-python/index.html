@@ -432,9 +432,9 @@
 
       
         <p>CDF是NASA提出的一种数据格式，NASA提供了用于操作CDF文件的程序。</p>
-<h1><span id="安装cdf工具包">安装CDF工具包</span></h1><p><a href="https://pythonhosted.org/SpacePy/install_linux.html" target="_blank" rel="noopener">安装文档</a><br>先下载<a href="https://cdf.gsfc.nasa.gov/" target="_blank" rel="noopener">CDF Library</a><br>编译<code>make OS=linux ENV=gnu CURSES=yes FORTRAN=no UCOPTIONS=-O2 SHARED=yes all</code><br>安装<code>sudo make INSTALLDIR=/usr/local/cdf install</code></p>
+<h1 id="安装CDF工具包"><a href="#安装CDF工具包" class="headerlink" title="安装CDF工具包"></a>安装CDF工具包</h1><p><a href="https://pythonhosted.org/SpacePy/install_linux.html" target="_blank" rel="noopener">安装文档</a><br>先下载<a href="https://cdf.gsfc.nasa.gov/" target="_blank" rel="noopener">CDF Library</a><br>编译<code>make OS=linux ENV=gnu CURSES=yes FORTRAN=no UCOPTIONS=-O2 SHARED=yes all</code><br>安装<code>sudo make INSTALLDIR=/usr/local/cdf install</code></p>
 <p>安装spacepy <code>pip install spacepy</code></p>
-<h1><span id="示例代码">示例代码</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> spacepy <span class="keyword">import</span> pycdf</span><br><span class="line">os.environ[<span class="string">"CDF_LIB"</span>] = <span class="string">"/usr/local/cdf/lib"</span></span><br><span class="line">anno_Greeting=pycdf.CDF(<span class="string">'/home/maddaff/Documents/TestSpace/Greeting.54138969.cdf'</span>)</span><br><span class="line">data=anno_Greeting.copy()</span><br><span class="line">anno_Greeting.close()</span><br><span class="line"><span class="keyword">print</span> data.keys()</span><br></pre></td></tr></table></figure>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> spacepy <span class="keyword">import</span> pycdf</span><br><span class="line">os.environ[<span class="string">"CDF_LIB"</span>] = <span class="string">"/usr/local/cdf/lib"</span></span><br><span class="line">anno_Greeting=pycdf.CDF(<span class="string">'/home/maddaff/Documents/TestSpace/Greeting.54138969.cdf'</span>)</span><br><span class="line">data=anno_Greeting.copy()</span><br><span class="line">anno_Greeting.close()</span><br><span class="line"><span class="keyword">print</span> data.keys()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -448,7 +448,7 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2017/08/31/python-01/" rel="bookmark">python及numpy笔记（一）</a></div>
+      <div class="popular-posts-title"><a href="/2017/08/29/python-00/" rel="bookmark">如何查找python及pip的安装位置</a></div>
       
     </li>
   
@@ -937,7 +937,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装CDF工具包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CDF工具包"><span class="nav-number">1.</span> <span class="nav-text">安装CDF工具包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
             
 
           </div>

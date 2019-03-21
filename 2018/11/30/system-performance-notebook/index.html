@@ -431,7 +431,7 @@
       
 
       
-        <h1><span id="查看cpu数量">查看CPU数量</span></h1><p><strong>总核数 = 物理CPU个数 X 每颗物理CPU的核数</strong><br><strong>总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</strong></p>
+        <h1 id="查看CPU数量"><a href="#查看CPU数量" class="headerlink" title="查看CPU数量"></a>查看CPU数量</h1><p><strong>总核数 = 物理CPU个数 X 每颗物理CPU的核数</strong><br><strong>总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</strong></p>
 <ol>
 <li><p>查看物理CPU个数<br><code>cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l</code></p>
 </li>
@@ -440,7 +440,7 @@
 <li><p>查看逻辑CPU的个数<br><code>cat /proc/cpuinfo| grep &quot;processor&quot;| wc -l</code></p>
 </li>
 </ol>
-<h1><span id="平均负载">平均负载</span></h1><ol>
+<h1 id="平均负载"><a href="#平均负载" class="headerlink" title="平均负载"></a>平均负载</h1><ol>
 <li><p><code>uptime</code><br>输出<code>17:06:20 up 2 days, 17:39,  1 user,  load average: 1.75, 1.59, 1.31</code><br>分别表示<code>当前时间,系统运行时间,正在登录用户数,过去 1 分钟,5 分钟,15 分钟的平均负载</code><br>运行<code>man uptime</code>可以得到平均负载的定义:</p>
 <blockquote>
 <p>System load averages is the average number of processes that are either in a runnable or uninterruptable state.  A process in a runnable state is either using  the  CPU  or waiting  to  use  the  CPU.   A process in uninterruptable state is waiting for some I/O access, eg waiting for disk.  The averages are taken over the three time intervals.<br>Load averages are not normalized for the number of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on  a  4  CPU  system  it means it was idle 75% of the time.</p>
@@ -453,7 +453,7 @@
 <li><p>使用<code>pidstat</code>查看当前进程占用CPU的情况<br>使用<code>pidstat -u 5 2</code>命令可以每5s统计一次当前CPU使用情况, 共显示两次.<br>使用<code>pidstat -d</code>可以查看当前进程的IO情况</p>
 </li>
 </ol>
-<h1><span id="cpu上下文切换">CPU上下文切换</span></h1><p>系统中的上下文切换可以分为:<strong>系统权限模式切换</strong>,<strong>进程上下文切换</strong>,<strong>线程上下文切换</strong>,<strong>中断上下文切换</strong><br>线程是调度的基本单位，而进程则是资源拥有的基本单位. 同进程内的线程切换，要比多进程间的切换消耗更少的资源.</p>
+<h1 id="CPU上下文切换"><a href="#CPU上下文切换" class="headerlink" title="CPU上下文切换"></a>CPU上下文切换</h1><p>系统中的上下文切换可以分为:<strong>系统权限模式切换</strong>,<strong>进程上下文切换</strong>,<strong>线程上下文切换</strong>,<strong>中断上下文切换</strong><br>线程是调度的基本单位，而进程则是资源拥有的基本单位. 同进程内的线程切换，要比多进程间的切换消耗更少的资源.</p>
 <ol>
 <li><p>使用<code>vmstat</code>查看系统整体CPU切换情况<br>运行<code>vmstat 5</code>可以得到如下的结果:</p>
 <blockquote>
@@ -506,7 +506,7 @@ st: Time stolen from a virtual machine.  Prior to Linux 2.6.11, unknown.
 <li><p>查看proc中的文件<br><code>/proc/stat</code> CPU整体活动信息<br><code>/proc/&lt;pid&gt;/stat</code> 进程活动信息<br><code>/proc/&lt;pid&gt;/task/&lt;tid&gt;/stat</code>  线程活动信息  </p>
 </li>
 </ol>
-<h1><span id="cpu使用率">CPU使用率</span></h1><ol>
+<h1 id="CPU使用率"><a href="#CPU使用率" class="headerlink" title="CPU使用率"></a>CPU使用率</h1><ol>
 <li><p>查看系统节拍率<br>时钟节拍是特定的周期性中断,时钟节拍率越快,系统的额外开销就越大。越慢则系统响应速度越慢.<br><code>cat /boot/config-$(uname -r) | grep CONFIG_HZ=</code> 可以查看节拍率, 数值表示每秒钟CPU时间中断次数.<br><code>cat /proc/timer_list |grep jiffies</code> 可以查看jiffies的值, 表示启动以来触发的时间中断次数.  </p>
 </li>
 <li><p>使用<code>cat /proc/stat |grep ^cpu</code>  查看CPU情况<br>得到如下结果:</p>
@@ -533,7 +533,7 @@ guest_nice (since Linux 2.6.33)
        (10) Time spent running a niced guest (virtual CPU for guest operating systems under the control of the Linux kernel).  
 </code></pre></blockquote>
 <p>CPU使用率的计算去除idle的那一部分即可.<br>但是直接针对这个文件进行计算得到的是开机以来的CPU使用率, 需要查看当前CPU使用率的时候,可以取一段时间, 然后根据这段时间内数据的变化来计算出平均的CPU使用率.<br>在使用<code>top</code>指令进行查看的时候, 计算的是3s内的CPU平均使用率.  </p>
-<h1><span id="查看占用cpu最多的函数">查看占用CPU最多的函数</span></h1><ol>
+<h1 id="查看占用CPU最多的函数"><a href="#查看占用CPU最多的函数" class="headerlink" title="查看占用CPU最多的函数"></a>查看占用CPU最多的函数</h1><ol>
 <li>使用<code>perf</code>指令<br>安装perf的时候需要注意, perf与内核的关联十分紧密, 通常会需要<code>sudo apt-get install linux-tools-$(uname -r)</code><br>如果包管理器中找不到对应内核的perf,可以从linux源码中的linux/tools/perf文件夹编译运行.<br>运行<code>perf top</code>会列出使用资源最高的函数, 最后一列会列出函数名, 函数名未知的列出内存地址.<br>执行<code>perf record ls -g</code>可以记录执行ls语句时候的系统调用情况, 结束后使用<code>perf report</code>可以看到结果<br><code>perf top -g -p 1302</code>可以看到pid为1302的进程函数调用情况  </li>
 <li><a href="https://github.com/brendangregg/perf-tools/blob/master/execsnoop" target="_blank" rel="noopener">exescoop</a>工具<br>exescoop是用于检查进程外部exec调用的工具. 有时候系统CPU占用很高, 但是单个进程查不出来, 这时候就有可能是进程在不断的调用比较小的外部进程, 或者是程序在不断的崩溃重启.</li>
 <li><code>pstree</code>可以用于查看进程树</li>
@@ -1042,7 +1042,7 @@ guest_nice (since Linux 2.6.33)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">查看CPU数量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">平均负载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">CPU上下文切换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">CPU使用率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">查看占用CPU最多的函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看CPU数量"><span class="nav-number">1.</span> <span class="nav-text">查看CPU数量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平均负载"><span class="nav-number">2.</span> <span class="nav-text">平均负载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU上下文切换"><span class="nav-number">3.</span> <span class="nav-text">CPU上下文切换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU使用率"><span class="nav-number">4.</span> <span class="nav-text">CPU使用率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用CPU最多的函数"><span class="nav-number">5.</span> <span class="nav-text">查看占用CPU最多的函数</span></a></li></ol></div>
             
 
           </div>

@@ -420,8 +420,8 @@
 
       
         <p>网络唤醒，实际上就是远程开机了，首先需要主板支持wake on lan（大部分2000年后生产的主板都支持wol），此外机器需要连接到电源。</p>
-<h1><span id="设置bios">设置BIOS</span></h1><p>在BIOS设置中打开wol功能，通常到制造商的网站上可以找到具体操作步骤，我用的是华硕主板，设置步骤在这里:<a href="https://www.asus.com.cn/support/FAQ/1001663/" target="_blank" rel="noopener">BIOS中如何开启&amp;关闭网络唤醒</a></p>
-<h1><span id="在ubuntu系统中进行设置">在Ubuntu系统中进行设置</span></h1><ol>
+<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><p>在BIOS设置中打开wol功能，通常到制造商的网站上可以找到具体操作步骤，我用的是华硕主板，设置步骤在这里:<a href="https://www.asus.com.cn/support/FAQ/1001663/" target="_blank" rel="noopener">BIOS中如何开启&amp;关闭网络唤醒</a></p>
+<h1 id="在Ubuntu系统中进行设置"><a href="#在Ubuntu系统中进行设置" class="headerlink" title="在Ubuntu系统中进行设置"></a>在Ubuntu系统中进行设置</h1><ol>
 <li>安装 ethtool<br><code>sudo apt-get install ethtool</code></li>
 <li>启动ethtool<br><code>sudo ethtool -s eth0 wol g</code><br>这里的eth0应该根据具体的网卡名称修改。可以使用<code>ifconfig</code>查看当前机器的网卡。</li>
 <li><p>设置开机启动ethtool<br><code>vim /etc/rc.local</code></p>
@@ -432,7 +432,7 @@
 <li><p>记录Ubuntu机器的Mac地址</p>
 </li>
 </ol>
-<h1><span id="远程启动">远程启动</span></h1><ul>
+<h1 id="远程启动"><a href="#远程启动" class="headerlink" title="远程启动"></a>远程启动</h1><ul>
 <li>For Ubuntu:<code>sudo apt-get install wakeonlan</code></li>
 <li>For Mac: <code>brew install wakeonlan</code></li>
 <li>For Windows: <a href="https://www.solarwinds.com/free-tools/wake-on-lan" target="_blank" rel="noopener">Wake on Lan</a><br>以Ubuntu和Mac为例，在命令行中执行<code>wakeonlan xx:xx:xx:xx:xx:xx</code> （输入Ubuntu机器对应的mac地址）就可以唤醒机器了。</li>
@@ -939,7 +939,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">设置BIOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">在Ubuntu系统中进行设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">远程启动</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设置BIOS"><span class="nav-number">1.</span> <span class="nav-text">设置BIOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在Ubuntu系统中进行设置"><span class="nav-number">2.</span> <span class="nav-text">在Ubuntu系统中进行设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程启动"><span class="nav-number">3.</span> <span class="nav-text">远程启动</span></a></li></ol></div>
             
 
           </div>

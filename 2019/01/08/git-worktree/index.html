@@ -420,8 +420,8 @@
 
       
         <p>在运行程序的过程中，我喜欢用git来管理代码版本。有时候需要尝试加入新的功能，直接新建一个branch，然后在branch中开发，不会影响到master，十分方便。但是新的问题也随之产生了：我的程序常常运行一遍需要好几天，在此期间我显然不应当对当前目录下的代码进行修改，这时候worktree就派上用场了。<br>worktree是git 2.6之后推出的功能。版本过低可以通过源码进行编译安装来升级。</p>
-<h1><span id="创建">创建</span></h1><p>worktree的使用如下：<br><code>git worktree add &lt;path&gt; &lt;branch&gt;</code>：关联一个branch到指定的路径<br><code>git worktree add -b &lt;new_branch&gt; &lt;path&gt; &lt;branch&gt;</code>：基于指定branch新建一个branch到指定路径<br><strong>注意worktree的路径不能与原来的工作目录重叠</strong><br>在worktree建立完成后，原来branch的代码相当于被clone一份到了指定目录里，可以在主代码仓库像往常一样管理各个branch，但是此时新建branch的工作目录已经是在之前指定的文件夹了。<br>使用<code>git worktree list</code>可以查看当前的worktree情况。</p>
-<h1><span id="删除">删除</span></h1><p>删除branch所在工作目录，然后在主仓库所在文件夹执行<code>git worktree prune</code>。</p>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><p>worktree的使用如下：<br><code>git worktree add &lt;path&gt; &lt;branch&gt;</code>：关联一个branch到指定的路径<br><code>git worktree add -b &lt;new_branch&gt; &lt;path&gt; &lt;branch&gt;</code>：基于指定branch新建一个branch到指定路径<br><strong>注意worktree的路径不能与原来的工作目录重叠</strong><br>在worktree建立完成后，原来branch的代码相当于被clone一份到了指定目录里，可以在主代码仓库像往常一样管理各个branch，但是此时新建branch的工作目录已经是在之前指定的文件夹了。<br>使用<code>git worktree list</code>可以查看当前的worktree情况。</p>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>删除branch所在工作目录，然后在主仓库所在文件夹执行<code>git worktree prune</code>。</p>
 
       
     </div>
@@ -926,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建"><span class="nav-number">1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a></li></ol></div>
             
 
           </div>

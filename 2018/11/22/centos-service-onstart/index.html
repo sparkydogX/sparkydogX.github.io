@@ -431,9 +431,9 @@
       
 
       
-        <h1><span id="使用chkconfig">使用chkconfig</span></h1><p>使用<code>chkconfig --list</code>可以查看当前chkconfig列表中的服务。<br>使用<code>chkconfig yourservice off</code>可以关闭对应服务。<br>使用<code>chkconfig yourservice on</code>可以关闭对应服务。<br>如果想要的服务不在列表中，需要使用<code>chkconfig --add yourservice</code>添加。</p>
-<h1><span id="修改etcrcdrclocal文件">修改/etc/rc.d/rc/local文件</span></h1><p><code>/etc/rc.d/rc.local</code>文件中可以写入需要开启的服务</p>
-<h1><span id="设置定时重启">设置定时重启</span></h1><p>我的个人服务器常常被折腾的不堪重负，需要定期重启。<br>使用crontab完成这一功能。<br>crontab的作用是设置定时任务。<br><code>crontab -e</code>进入配置文件<br>写入<code>0 0 * * * /sbin/shutdown -r now</code>表示每天零点重启。</p>
+        <h1 id="使用chkconfig"><a href="#使用chkconfig" class="headerlink" title="使用chkconfig"></a>使用chkconfig</h1><p>使用<code>chkconfig --list</code>可以查看当前chkconfig列表中的服务。<br>使用<code>chkconfig yourservice off</code>可以关闭对应服务。<br>使用<code>chkconfig yourservice on</code>可以关闭对应服务。<br>如果想要的服务不在列表中，需要使用<code>chkconfig --add yourservice</code>添加。</p>
+<h1 id="修改-etc-rc-d-rc-local文件"><a href="#修改-etc-rc-d-rc-local文件" class="headerlink" title="修改/etc/rc.d/rc/local文件"></a>修改/etc/rc.d/rc/local文件</h1><p><code>/etc/rc.d/rc.local</code>文件中可以写入需要开启的服务</p>
+<h1 id="设置定时重启"><a href="#设置定时重启" class="headerlink" title="设置定时重启"></a>设置定时重启</h1><p>我的个人服务器常常被折腾的不堪重负，需要定期重启。<br>使用crontab完成这一功能。<br>crontab的作用是设置定时任务。<br><code>crontab -e</code>进入配置文件<br>写入<code>0 0 * * * /sbin/shutdown -r now</code>表示每天零点重启。</p>
 
       
     </div>
@@ -903,7 +903,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">使用chkconfig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">修改/etc/rc.d/rc/local文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">设置定时重启</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用chkconfig"><span class="nav-number">1.</span> <span class="nav-text">使用chkconfig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改-etc-rc-d-rc-local文件"><span class="nav-number">2.</span> <span class="nav-text">修改/etc/rc.d/rc/local文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置定时重启"><span class="nav-number">3.</span> <span class="nav-text">设置定时重启</span></a></li></ol></div>
             
 
           </div>

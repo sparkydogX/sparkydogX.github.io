@@ -419,7 +419,7 @@
       
 
       
-        <h2><span id="enumerate函数">enumerate()函数</span></h2><ul>
+        <h2 id="enumerate-函数"><a href="#enumerate-函数" class="headerlink" title="enumerate()函数"></a>enumerate()函数</h2><ul>
 <li>enumerate是python内置的函数，用于循环迭代</li>
 <li>返回值为一个元组</li>
 <li>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br><span class="line">for index, text in enumerate(list，start=0):</span><br><span class="line">    print index, text</span><br></pre></td></tr></table></figure>
@@ -430,7 +430,7 @@
 <li>enumerate函数等价于如下函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def enumerate(sequence, start=0):</span><br><span class="line">    n = start</span><br><span class="line">    for elem in sequence:</span><br><span class="line">        yield n, elem</span><br><span class="line">        n += 1</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2><span id="yield关键字">yield关键字</span></h2><ul>
+<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
 <li>yield类似于return，只是yield返回的是一个生成器</li>
 <li>第一次迭代中函数会执行到yield 关键字，然后返回 yield 后的值作为第一次迭代的返回值. 此后，每次执行这个函数都会从上一次中断的yield处继续执行，然后进入循环，遇到yield返回此次迭代值</li>
 <li>即函数只有在每次被调用迭代器时会执行循环</li>
@@ -442,10 +442,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">this is  a in yield</span><br><span class="line">this is  0 times in for loop</span><br><span class="line">0 a</span><br><span class="line">n= 1</span><br><span class="line">this is  b in yield</span><br><span class="line">this is  1 times in for loop</span><br><span class="line">1 b</span><br><span class="line">n= 2</span><br><span class="line">this is  c in yield</span><br><span class="line">this is  2 times in for loop</span><br><span class="line">2 c</span><br><span class="line">n= 3</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2><span id="numpyflatnonzero函数">numpy.flatnonzero()函数</span></h2><ul>
+<h2 id="numpy-flatnonzero-函数"><a href="#numpy-flatnonzero-函数" class="headerlink" title="numpy.flatnonzero()函数"></a>numpy.flatnonzero()函数</h2><ul>
 <li>输入一个数组，将其展开成一维向量后输出对应的非0值的下标</li>
 </ul>
-<h2><span id="numpyrandomchoicea-sizenone-replacetrue-pnone">numpy.random.choice(a, size=None, replace=True, p=None)</span></h2><ul>
+<h2 id="numpy-random-choice-a-size-None-replace-True-p-None"><a href="#numpy-random-choice-a-size-None-replace-True-p-None" class="headerlink" title="numpy.random.choice(a, size=None, replace=True, p=None)"></a>numpy.random.choice(a, size=None, replace=True, p=None)</h2><ul>
 <li>输入参数：<ul>
 <li>a：1维向量或者整数。如果a为整数，随机样本与<code>np.arange(a)</code>相同</li>
 <li>size：输出的元素个数</li>
@@ -454,7 +454,7 @@
 </ul>
 </li>
 </ul>
-<h2><span id="numpy的broadcast">numpy的broadcast</span></h2><p><em>numpy中的矩阵运算会具有broadcast性质，决定了在运算时对于不同shape的矩阵会采取不同的操作</em></p>
+<h2 id="numpy的broadcast"><a href="#numpy的broadcast" class="headerlink" title="numpy的broadcast"></a>numpy的broadcast</h2><p><em>numpy中的矩阵运算会具有broadcast性质，决定了在运算时对于不同shape的矩阵会采取不同的操作</em></p>
 <blockquote>
 <p>The term broadcasting describes how numpy treats arrays with different shapes during arithmetic operations. Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python. It does this without making needless copies of data and usually leads to efficient algorithm implementations. There are, however, cases where broadcasting is a bad idea because it leads to inefficient use of memory that slows computation.</p>
 </blockquote>
@@ -487,14 +487,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
+      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
+      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
       
     </li>
   
@@ -960,7 +960,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">enumerate()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">yield关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">numpy.flatnonzero()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">numpy.random.choice(a, size=None, replace=True, p=None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">numpy的broadcast</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#enumerate-函数"><span class="nav-number">1.</span> <span class="nav-text">enumerate()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield关键字"><span class="nav-number">2.</span> <span class="nav-text">yield关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-flatnonzero-函数"><span class="nav-number">3.</span> <span class="nav-text">numpy.flatnonzero()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-random-choice-a-size-None-replace-True-p-None"><span class="nav-number">4.</span> <span class="nav-text">numpy.random.choice(a, size=None, replace=True, p=None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy的broadcast"><span class="nav-number">5.</span> <span class="nav-text">numpy的broadcast</span></a></li></ol></div>
             
 
           </div>

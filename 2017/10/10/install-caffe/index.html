@@ -419,8 +419,8 @@
       
 
       
-        <h2><span id="更改sources">更改Sources</span></h2><p>工欲善其事，必先利其器。Ubuntu默认的Sources被神秘力量阻隔而无法访问，pip最近也很不稳定，所以第一步是将其换成稳定可用的Sources。</p>
-<h3><span id="更改ubuntu的sources">更改Ubuntu的Sources</span></h3><p>参照<a href="https://sparkydogx.github.io/2017/10/09/aptget-update/#more">这篇博客</a>中的教程。</p>
+        <h2 id="更改Sources"><a href="#更改Sources" class="headerlink" title="更改Sources"></a>更改Sources</h2><p>工欲善其事，必先利其器。Ubuntu默认的Sources被神秘力量阻隔而无法访问，pip最近也很不稳定，所以第一步是将其换成稳定可用的Sources。</p>
+<h3 id="更改Ubuntu的Sources"><a href="#更改Ubuntu的Sources" class="headerlink" title="更改Ubuntu的Sources"></a>更改Ubuntu的Sources</h3><p>参照<a href="https://sparkydogx.github.io/2017/10/09/aptget-update/#more">这篇博客</a>中的教程。</p>
 <blockquote>
 <ol>
 <li><code>vim /etc/apt/sources.list</code></li>
@@ -429,7 +429,7 @@
 <li><code>sudo apt-get update</code></li>
 </ol>
 </blockquote>
-<h3><span id="更改pip的sources">更改pip的Sources</span></h3><ol>
+<h3 id="更改pip的Sources"><a href="#更改pip的Sources" class="headerlink" title="更改pip的Sources"></a>更改pip的Sources</h3><ol>
 <li><code>mkdir -m 777 ~/.pip</code></li>
 <li><code>sudo vim ~/.pip/pip.conf</code></li>
 <li><p>将以下内容粘贴到文件中并保存</p>
@@ -438,14 +438,14 @@
 <blockquote>
 <p>如果系统没有pip，并且get-pip.py不能使用时，可以先通过<code>sudo apt-get install python-pip</code>安装pip，通常这种方法安装的是低版本的pip，需要获取更新。<br>如果pip版本过低，可以先卸载：<code>sudo pip uninstall pip</code>，然后使用<code>get-pip.py</code>安装。</p>
 </blockquote>
-<h2><span id="安装依赖">安装依赖</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install libatlas-base-dev</span><br><span class="line">sudo apt-get install python-dev</span><br><span class="line">sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install python-protobuf</span><br><span class="line">sudo apt-get install python-numpy python-pydot</span><br></pre></td></tr></table></figure>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install libatlas-base-dev</span><br><span class="line">sudo apt-get install python-dev</span><br><span class="line">sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install python-protobuf</span><br><span class="line">sudo apt-get install python-numpy python-pydot</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip2 install scikit-image</span><br><span class="line">pip2 install opencv-python</span><br></pre></td></tr></table></figure>
 <p>如果pip版本较低，可能还需要<code>sudo apt-get install libatlas-base-dev gfortran</code></p>
-<h2><span id="修改makeileconfig">修改Makeile.config</span></h2><p>常修改的有CUDA路径，PYTHON INCLUDE路径等。(Anaconda与默认配置会有区别)</p>
-<h2><span id="编译">编译</span></h2><p><code>make all</code><br><code>make pycaffe</code></p>
-<h2><span id="将caffepython添加到python系统路径">将caffe/python添加到python系统路径</span></h2><p>vim ~/.bashrc<br>将<code>export PYTHONPATH=path/to/caffe/python:$PYTHONPATH</code>添加到文件中。<br><code>source ~/.bashrc</code> 使更改生效。<br>此时在python shell中输入<code>import caffe</code>，可以加载caffe</p>
+<h2 id="修改Makeile-config"><a href="#修改Makeile-config" class="headerlink" title="修改Makeile.config"></a>修改Makeile.config</h2><p>常修改的有CUDA路径，PYTHON INCLUDE路径等。(Anaconda与默认配置会有区别)</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p><code>make all</code><br><code>make pycaffe</code></p>
+<h2 id="将caffe-python添加到python系统路径"><a href="#将caffe-python添加到python系统路径" class="headerlink" title="将caffe/python添加到python系统路径"></a>将caffe/python添加到python系统路径</h2><p>vim ~/.bashrc<br>将<code>export PYTHONPATH=path/to/caffe/python:$PYTHONPATH</code>添加到文件中。<br><code>source ~/.bashrc</code> 使更改生效。<br>此时在python shell中输入<code>import caffe</code>，可以加载caffe</p>
 
       
     </div>
@@ -934,7 +934,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">更改Sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">更改Ubuntu的Sources</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">更改pip的Sources</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">修改Makeile.config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">将caffe/python添加到python系统路径</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改Sources"><span class="nav-number">1.</span> <span class="nav-text">更改Sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改Ubuntu的Sources"><span class="nav-number">1.1.</span> <span class="nav-text">更改Ubuntu的Sources</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改pip的Sources"><span class="nav-number">1.2.</span> <span class="nav-text">更改pip的Sources</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖"><span class="nav-number">2.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Makeile-config"><span class="nav-number">3.</span> <span class="nav-text">修改Makeile.config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将caffe-python添加到python系统路径"><span class="nav-number">5.</span> <span class="nav-text">将caffe/python添加到python系统路径</span></a></li></ol></div>
             
 
           </div>

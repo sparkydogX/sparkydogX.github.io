@@ -422,9 +422,9 @@
 
       
         <p>用matplotlib可以很方便地绘制图像，下面给出一个绘制含有13个子图的统计直方图示例:</p>
-<h1><span id="示例代码">示例代码</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pylab</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">Limb_List=[<span class="string">'Rhip-Rknee'</span>,<span class="string">'Rknee-RFoot'</span>,<span class="string">'Lhip-LKnee'</span>,<span class="string">'Lknee-Lfoot'</span>,<span class="string">'Neck-Head'</span>,<span class="string">'Lshoulder-Lelbow'</span>,<span class="string">'Lelbow-LWrist'</span>,<span class="string">'Rshoulder-RElbow'</span>,<span class="string">'Relbow-Rwrist'</span>,<span class="string">'Lshoulder-Rshoulder'</span>,<span class="string">'Lhip-Rhip'</span>,<span class="string">'Neck-Throax'</span>,<span class="string">'Throax-Spine'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># fig = plt.figure()</span></span><br><span class="line">f, axs = plt.subplots(<span class="number">7</span>,<span class="number">2</span>,figsize=(<span class="number">15</span>,<span class="number">36</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">13</span>):</span><br><span class="line">    pylab.subplot(<span class="number">7</span>,<span class="number">2</span>,i+<span class="number">1</span>)</span><br><span class="line">    n, bins, patches =plt.hist(Err[:,i], <span class="number">200</span>, density=<span class="keyword">True</span>, alpha=<span class="number">0.75</span>,range=(<span class="number">-150</span>,<span class="number">100</span>))</span><br><span class="line">    plt.grid(<span class="keyword">True</span>)</span><br><span class="line">    title=<span class="string">'Err of '</span>+Limb_List[i]</span><br><span class="line">    plt.title(title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.tight_layout()</span></span><br><span class="line"><span class="comment"># plt.suptitle("Error of Limb Length")</span></span><br><span class="line">plt.subplots_adjust(left=<span class="number">0.2</span>, wspace=<span class="number">0.5</span>, top=<span class="number">0.88</span>)</span><br><span class="line">plt.show()</span><br><span class="line">f.savefig(<span class="string">'S11_err.png'</span>,bbox_inches=<span class="string">"tight"</span>)</span><br></pre></td></tr></table></figure>
-<h1><span id="代码说明">代码说明：</span></h1><p><code>f, axs = plt.subplots(7,2,figsize=(15,36))</code> 这一行设置子图的大小，否则会使用默认的子图大小，在7x2的布局下会显得相当诡异。<br><code>pylab.subplot(7,2,i+1)</code> 表明当前子图的序号<br><code>plt.subplots_adjust(left=0.2, wspace=0.5, top=0.88)</code> 设置子图之间的间距，如果不设置，在每个子图都有title的情况下会导致子图的title与其他子图的坐标轴交叠<br><code>f.savefig(&#39;S11_err.png&#39;,bbox_inches=&quot;tight&quot;)</code> 这里设置<code>bbox_inches=&quot;tight&quot;</code>可以避免存储的图像中标题栏被截去。</p>
-<h1><span id="示例图像">示例图像</span></h1><p><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/S9_err.png" alt="img"></p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pylab</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">Limb_List=[<span class="string">'Rhip-Rknee'</span>,<span class="string">'Rknee-RFoot'</span>,<span class="string">'Lhip-LKnee'</span>,<span class="string">'Lknee-Lfoot'</span>,<span class="string">'Neck-Head'</span>,<span class="string">'Lshoulder-Lelbow'</span>,<span class="string">'Lelbow-LWrist'</span>,<span class="string">'Rshoulder-RElbow'</span>,<span class="string">'Relbow-Rwrist'</span>,<span class="string">'Lshoulder-Rshoulder'</span>,<span class="string">'Lhip-Rhip'</span>,<span class="string">'Neck-Throax'</span>,<span class="string">'Throax-Spine'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># fig = plt.figure()</span></span><br><span class="line">f, axs = plt.subplots(<span class="number">7</span>,<span class="number">2</span>,figsize=(<span class="number">15</span>,<span class="number">36</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">13</span>):</span><br><span class="line">    pylab.subplot(<span class="number">7</span>,<span class="number">2</span>,i+<span class="number">1</span>)</span><br><span class="line">    n, bins, patches =plt.hist(Err[:,i], <span class="number">200</span>, density=<span class="keyword">True</span>, alpha=<span class="number">0.75</span>,range=(<span class="number">-150</span>,<span class="number">100</span>))</span><br><span class="line">    plt.grid(<span class="keyword">True</span>)</span><br><span class="line">    title=<span class="string">'Err of '</span>+Limb_List[i]</span><br><span class="line">    plt.title(title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.tight_layout()</span></span><br><span class="line"><span class="comment"># plt.suptitle("Error of Limb Length")</span></span><br><span class="line">plt.subplots_adjust(left=<span class="number">0.2</span>, wspace=<span class="number">0.5</span>, top=<span class="number">0.88</span>)</span><br><span class="line">plt.show()</span><br><span class="line">f.savefig(<span class="string">'S11_err.png'</span>,bbox_inches=<span class="string">"tight"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="代码说明："><a href="#代码说明：" class="headerlink" title="代码说明："></a>代码说明：</h1><p><code>f, axs = plt.subplots(7,2,figsize=(15,36))</code> 这一行设置子图的大小，否则会使用默认的子图大小，在7x2的布局下会显得相当诡异。<br><code>pylab.subplot(7,2,i+1)</code> 表明当前子图的序号<br><code>plt.subplots_adjust(left=0.2, wspace=0.5, top=0.88)</code> 设置子图之间的间距，如果不设置，在每个子图都有title的情况下会导致子图的title与其他子图的坐标轴交叠<br><code>f.savefig(&#39;S11_err.png&#39;,bbox_inches=&quot;tight&quot;)</code> 这里设置<code>bbox_inches=&quot;tight&quot;</code>可以避免存储的图像中标题栏被截去。</p>
+<h1 id="示例图像"><a href="#示例图像" class="headerlink" title="示例图像"></a>示例图像</h1><p><img src="https://raw.githubusercontent.com/sparkydogX/pictures/master/2018/S9_err.png" alt="img"></p>
 
       
     </div>
@@ -445,14 +445,7 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2017/08/31/python-01/" rel="bookmark">python及numpy笔记（一）</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
+      <div class="popular-posts-title"><a href="/2017/08/29/python-00/" rel="bookmark">如何查找python及pip的安装位置</a></div>
       
     </li>
   
@@ -460,6 +453,13 @@
       
       
       <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
       
     </li>
   
@@ -927,7 +927,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">代码说明：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">示例图像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码说明："><span class="nav-number">2.</span> <span class="nav-text">代码说明：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例图像"><span class="nav-number">3.</span> <span class="nav-text">示例图像</span></a></li></ol></div>
             
 
           </div>

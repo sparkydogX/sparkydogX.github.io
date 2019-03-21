@@ -420,11 +420,11 @@
 
       
         <p>之前折腾的阿里云主机能够正常访问了，就想着在服务器上部署多个网站。比如将 <a href="http://www.sparkydogx.top" target="_blank" rel="noopener">www.sparkydogx.top</a> 解析到我的主站点，将 blog.sparkydogx.top 解析到我的博客站点。我的服务器是ubuntu14.04系统，web服务使用的是apache，具体操作如下：</p>
-<h2><span id="设置域名解析">设置域名解析</span></h2><p>购买域名后，虽然理论上子域名个数是无限的，但是一般域名商都会给出五个左右的限制，这对个人来说已经足够使用了。这里只需要将需要的子域名解析到服务器的ip即可。</p>
-<h2><span id="设置apache2的配置文件">设置apache2的配置文件</span></h2><p>子域名被解析到了同一个ip地址，判断访问哪个目录到决策只能是由服务器做出的。Appache2提供Virtual Host功能，只需要在<code>/etc/apache2/site-avaliable</code>文件夹下新建一个配置文件，配置文件内容可以参考默认配置，更改<strong>端口</strong>和<strong>目录</strong>即可。</p>
-<h2><span id="建立软连接">建立软连接</span></h2><p>在运行时，apache并不是在<code>/etc/apache2/site-avaliable</code>文件夹读取配置，而是在<code>/etc/apache2/site-enable</code>读取文件，因此需要在这个文件夹内建立软链接。</p>
-<h2><span id="重启apache2">重启apache2</span></h2><p><code>sudo /etc/init.d/apache2  restart</code></p>
-<h2><span id="end">End</span></h2><p>这时候在浏览器输入子域名，发现可以实现所需功能。</p>
+<h2 id="设置域名解析"><a href="#设置域名解析" class="headerlink" title="设置域名解析"></a>设置域名解析</h2><p>购买域名后，虽然理论上子域名个数是无限的，但是一般域名商都会给出五个左右的限制，这对个人来说已经足够使用了。这里只需要将需要的子域名解析到服务器的ip即可。</p>
+<h2 id="设置apache2的配置文件"><a href="#设置apache2的配置文件" class="headerlink" title="设置apache2的配置文件"></a>设置apache2的配置文件</h2><p>子域名被解析到了同一个ip地址，判断访问哪个目录到决策只能是由服务器做出的。Appache2提供Virtual Host功能，只需要在<code>/etc/apache2/site-avaliable</code>文件夹下新建一个配置文件，配置文件内容可以参考默认配置，更改<strong>端口</strong>和<strong>目录</strong>即可。</p>
+<h2 id="建立软连接"><a href="#建立软连接" class="headerlink" title="建立软连接"></a>建立软连接</h2><p>在运行时，apache并不是在<code>/etc/apache2/site-avaliable</code>文件夹读取配置，而是在<code>/etc/apache2/site-enable</code>读取文件，因此需要在这个文件夹内建立软链接。</p>
+<h2 id="重启apache2"><a href="#重启apache2" class="headerlink" title="重启apache2"></a>重启apache2</h2><p><code>sudo /etc/init.d/apache2  restart</code></p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>这时候在浏览器输入子域名，发现可以实现所需功能。</p>
 
       
     </div>
@@ -892,7 +892,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">设置域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">设置apache2的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">建立软连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">重启apache2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">End</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置域名解析"><span class="nav-number">1.</span> <span class="nav-text">设置域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置apache2的配置文件"><span class="nav-number">2.</span> <span class="nav-text">设置apache2的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立软连接"><span class="nav-number">3.</span> <span class="nav-text">建立软连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启apache2"><span class="nav-number">4.</span> <span class="nav-text">重启apache2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End"><span class="nav-number">5.</span> <span class="nav-text">End</span></a></li></ol></div>
             
 
           </div>

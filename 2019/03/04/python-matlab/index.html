@@ -420,7 +420,7 @@
 
       
         <p>本文介绍如何在python中调用matlab的函数。</p>
-<h1><span id="安装matlab">安装matlab</span></h1><p>首先需要安装matlab，如果已经安装可以跳过这一节。<br>本文使用的matlab版本是R2016b，安装在远程的服务器上。<br>由于是远程安装，所以需要在安装matlab的时候使用静默模式。</p>
+<h1 id="安装matlab"><a href="#安装matlab" class="headerlink" title="安装matlab"></a>安装matlab</h1><p>首先需要安装matlab，如果已经安装可以跳过这一节。<br>本文使用的matlab版本是R2016b，安装在远程的服务器上。<br>由于是远程安装，所以需要在安装matlab的时候使用静默模式。</p>
 <ul>
 <li><p>首先修改安装目录下的installer_input.txt文件，选择需要安装的组件，修改文件中的相应状态。<br>cd到matlab安装文件所在目录，执行<br><code>./install -inputFile /xxx/xxx/xxx/installer_input.txt</code><br>这里建议写全文件所在的绝对路径。</p>
 </li>
@@ -429,7 +429,7 @@
 </li>
 </ul>
 <p>安装成功后可以执行<code>bin/matlab</code>来启动matlab<br>为了便于使用，可以将matlab的启动路径作为别名添加到bashrc文件中。</p>
-<h1><span id="python安装matlab-engine">python安装matlab engine</span></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $matlab_root/extern/python</span><br><span class="line">python set.py install</span><br></pre></td></tr></table></figure>
+<h1 id="python安装matlab-engine"><a href="#python安装matlab-engine" class="headerlink" title="python安装matlab engine"></a>python安装matlab engine</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $matlab_root/extern/python</span><br><span class="line">python set.py install</span><br></pre></td></tr></table></figure>
 <p>注意不同版本的matlab支持的python版本也不尽相同。<br>这样就安装成功了，可以运行一段代码测试一下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matlab.engine</span><br><span class="line">eng = matlab.engine.start_matlab()</span><br><span class="line">tf = eng.isprime(<span class="number">37</span>)</span><br><span class="line">print(tf)</span><br></pre></td></tr></table></figure></p>
 <p>更多用法可以参考<a href="https://www.mathworks.com/help/matlab/matlab_external/call-matlab-functions-from-python.html" target="_blank" rel="noopener">这个页面</a></p>
 
@@ -459,14 +459,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
+      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/07/18/cdf-python/" rel="bookmark">使用python读取cdf数据</a></div>
+      <div class="popular-posts-title"><a href="/2018/10/18/args-from-command-line-to-dict/" rel="bookmark">python读取命令行参数并使用字典表示</a></div>
       
     </li>
   
@@ -934,7 +934,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装matlab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">python安装matlab engine</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装matlab"><span class="nav-number">1.</span> <span class="nav-text">安装matlab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python安装matlab-engine"><span class="nav-number">2.</span> <span class="nav-text">python安装matlab engine</span></a></li></ol></div>
             
 
           </div>

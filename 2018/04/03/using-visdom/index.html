@@ -420,8 +420,8 @@
 
       
         <p>visdom是一个可视化的工具。</p>
-<h1><span id="安装visdom">安装visdom</span></h1><p><code>pip install visdom</code></p>
-<h1><span id="启动visdom">启动visdom</span></h1><p><code>python -m visdom.server</code><br>可以使用<code>-p</code>参数指定端口</p>
+<h1 id="安装visdom"><a href="#安装visdom" class="headerlink" title="安装visdom"></a>安装visdom</h1><p><code>pip install visdom</code></p>
+<h1 id="启动visdom"><a href="#启动visdom" class="headerlink" title="启动visdom"></a>启动visdom</h1><p><code>python -m visdom.server</code><br>可以使用<code>-p</code>参数指定端口</p>
 <p>#使用visdom<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> visdom</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">vis = visdom.Visdom()  //port=<span class="number">2333</span> env=<span class="string">'example'</span></span><br><span class="line">vis.text(<span class="string">'Hello, world!'</span>)</span><br><span class="line">vis.image(np.ones((<span class="number">3</span>, <span class="number">10</span>, <span class="number">10</span>)))</span><br></pre></td></tr></table></figure></p>
 <p>可以在创建visdom对象的时候指定port和env</p>
 
@@ -891,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装visdom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">启动visdom</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装visdom"><span class="nav-number">1.</span> <span class="nav-text">安装visdom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动visdom"><span class="nav-number">2.</span> <span class="nav-text">启动visdom</span></a></li></ol></div>
             
 
           </div>

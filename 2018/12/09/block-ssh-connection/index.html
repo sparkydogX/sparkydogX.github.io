@@ -420,12 +420,12 @@
 
       
         <p>最近登陆服务器的时候，发现有很多未知的ssh登录尝试。CentOS系统中ssh登录的日志文件在<code>/var/log/secure</code>。使用<code>cat /var/log/secure | grep Failed | tail -50</code>可以查看最近的50条记录。我查看这个文件的时候发现有一个ip尝试了7000次登录，并且在我登录期间仍然在不停进行尝试，真是丧心病狂，令人发指。必须要采取措施限制这些奇怪的行为。</p>
-<h1><span id="修改ssh默认端口">修改SSH默认端口</span></h1><p>ssh的默认端口是22，修改端口会增加被破解的障碍。</p>
+<h1 id="修改SSH默认端口"><a href="#修改SSH默认端口" class="headerlink" title="修改SSH默认端口"></a>修改SSH默认端口</h1><p>ssh的默认端口是22，修改端口会增加被破解的障碍。</p>
 <ol>
 <li>首先选一个你喜欢的端口，只要没被占用就可以。然后在防火墙中打开这一端口。</li>
 <li>sshd的配置文件位于<code>/etc/ssh/sshd_config</code>，修改端口设置之后重启sshd服务。<br>大多数情况下到这一步端口已经修改好了。但是有些主机商（比如linode）会要求使用semanger声明修改。</li>
 <li>(Option) 安装 policycoreutils-python：<code>yum install policycoreutils-python</code>,执行<code>semanage port -a -t ssh_port_t -p tcp $PORT</code>。</li>
-<li>运行<code>ss -tnlp | grep ssh</code>查看端口是否正确。<h1><span id="自动封禁多次登录失败的ip">自动封禁多次登录失败的IP</span></h1>将多次登录失败的IP添加到<code>/etc/hosts.deny</code>文件。<br>创建一个脚本：<code>/usr/local/bin/autodeny.sh</code>  <script src="https://gist.github.com/sparkydogX/1837a6e1a2286df9b2d03e9aa798f360.js"></script>
+<li>运行<code>ss -tnlp | grep ssh</code>查看端口是否正确。<h1 id="自动封禁多次登录失败的IP"><a href="#自动封禁多次登录失败的IP" class="headerlink" title="自动封禁多次登录失败的IP"></a>自动封禁多次登录失败的IP</h1>将多次登录失败的IP添加到<code>/etc/hosts.deny</code>文件。<br>创建一个脚本：<code>/usr/local/bin/autodeny.sh</code>  <script src="https://gist.github.com/sparkydogX/1837a6e1a2286df9b2d03e9aa798f360.js"></script>
 
 </li>
 </ol>
@@ -932,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">修改SSH默认端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">自动封禁多次登录失败的IP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#修改SSH默认端口"><span class="nav-number">1.</span> <span class="nav-text">修改SSH默认端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动封禁多次登录失败的IP"><span class="nav-number">2.</span> <span class="nav-text">自动封禁多次登录失败的IP</span></a></li></ol></div>
             
 
           </div>

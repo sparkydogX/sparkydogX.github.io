@@ -419,7 +419,7 @@
       
 
       
-        <h2><span id="tftruncated_normal截断正态分布函数">tf.truncated_normal（截断正态分布函数）</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">truncated_normal(</span><br><span class="line">    shape,</span><br><span class="line">    mean=0.0,</span><br><span class="line">    stddev=1.0,</span><br><span class="line">    dtype=tf.float32,</span><br><span class="line">    seed=None,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+        <h2 id="tf-truncated-normal（截断正态分布函数）"><a href="#tf-truncated-normal（截断正态分布函数）" class="headerlink" title="tf.truncated_normal（截断正态分布函数）"></a>tf.truncated_normal（截断正态分布函数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">truncated_normal(</span><br><span class="line">    shape,</span><br><span class="line">    mean=0.0,</span><br><span class="line">    stddev=1.0,</span><br><span class="line">    dtype=tf.float32,</span><br><span class="line">    seed=None,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>函数名称：tf.truncated_normal</li>
 <li>返回值：具有指定形态随机数组的tensor</li>
@@ -430,7 +430,7 @@
 </li>
 <li>函数按正态分布取随机数，当所取得的随机数在两倍标准差范围之外时，将其舍弃并重新取值。</li>
 </ul>
-<h2><span id="tfnnconv2d卷积">tf.nn.conv2d（卷积）</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conv2d(</span><br><span class="line">    input,</span><br><span class="line">    filter,</span><br><span class="line">    strides,</span><br><span class="line">    padding,</span><br><span class="line">    use_cudnn_on_gpu=True,</span><br><span class="line">    data_format=&apos;NHWC&apos;,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="tf-nn-conv2d（卷积）"><a href="#tf-nn-conv2d（卷积）" class="headerlink" title="tf.nn.conv2d（卷积）"></a>tf.nn.conv2d（卷积）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conv2d(</span><br><span class="line">    input,</span><br><span class="line">    filter,</span><br><span class="line">    strides,</span><br><span class="line">    padding,</span><br><span class="line">    use_cudnn_on_gpu=True,</span><br><span class="line">    data_format=&apos;NHWC&apos;,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>函数名称：tf.nn.conv2d</li>
 <li>返回值：具有4个维度的tensor，<code>[batch, in_height, in_width, in_channels]</code>，即常说的feature map。</li>
@@ -446,7 +446,7 @@
 </li>
 <li>这是tf中一个核心的函数，用于卷积操作。</li>
 </ul>
-<h2><span id="tfnnmax_pool最大池化函数或称采样函数">tf.nn.max_pool（最大池化函数，或称采样函数）</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">max_pool(</span><br><span class="line">    value,</span><br><span class="line">    ksize,</span><br><span class="line">    strides,</span><br><span class="line">    padding,</span><br><span class="line">    data_format=&apos;NHWC&apos;,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="tf-nn-max-pool（最大池化函数，或称采样函数）"><a href="#tf-nn-max-pool（最大池化函数，或称采样函数）" class="headerlink" title="tf.nn.max_pool（最大池化函数，或称采样函数）"></a>tf.nn.max_pool（最大池化函数，或称采样函数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">max_pool(</span><br><span class="line">    value,</span><br><span class="line">    ksize,</span><br><span class="line">    strides,</span><br><span class="line">    padding,</span><br><span class="line">    data_format=&apos;NHWC&apos;,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>函数名称：tf.nn.max_pool</li>
 <li>返回值：具有4个维度的tensor，<code>[batch, in_height, in_width, in_channels]</code>，即常说的feature map。</li>
@@ -464,7 +464,7 @@
 </li>
 <li>这是最大池化函数，用在卷积操作之后，通过最大值采样降低feature map的维度。</li>
 </ul>
-<h2><span id="tfnnrelurelu激活函数">tf.nn.relu（ReLU激活函数）</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">relu(</span><br><span class="line">    features,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="tf-nn-relu（ReLU激活函数）"><a href="#tf-nn-relu（ReLU激活函数）" class="headerlink" title="tf.nn.relu（ReLU激活函数）"></a>tf.nn.relu（ReLU激活函数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">relu(</span><br><span class="line">    features,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>函数名称：tf.nn.relu</li>
 <li>返回值：<code>max(features, 0)</code></li>
@@ -948,7 +948,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">tf.truncated_normal（截断正态分布函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">tf.nn.conv2d（卷积）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">tf.nn.max_pool（最大池化函数，或称采样函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">tf.nn.relu（ReLU激活函数）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-truncated-normal（截断正态分布函数）"><span class="nav-number">1.</span> <span class="nav-text">tf.truncated_normal（截断正态分布函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-nn-conv2d（卷积）"><span class="nav-number">2.</span> <span class="nav-text">tf.nn.conv2d（卷积）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-nn-max-pool（最大池化函数，或称采样函数）"><span class="nav-number">3.</span> <span class="nav-text">tf.nn.max_pool（最大池化函数，或称采样函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-nn-relu（ReLU激活函数）"><span class="nav-number">4.</span> <span class="nav-text">tf.nn.relu（ReLU激活函数）</span></a></li></ol></div>
             
 
           </div>
