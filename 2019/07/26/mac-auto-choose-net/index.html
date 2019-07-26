@@ -98,25 +98,25 @@
 
 
 
-  <meta name="description" content="vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。 服务端vncserver部署在服务器中的docker容器内。 Docker容器端口映射通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：-p 2222:2222，建立容器22">
-<meta name="keywords" content="docker,vnc">
+  <meta name="description" content="在使用Mac时，如果同时连接了有线网和无线网，那么系统会根据设置好的优先级，使用优先级更高的网络。优先级可以在网络设置中更改。有时内网无法访问外网，而我们又需要使用内网资源。这时可以同时用两块网卡分别连接内网和外网，并将外网所用的网卡设置成更高的优先级。 而后只需要修改路由规则。在命令行运行netstat -rt查看当前的规则。添加路由表语句：sudo route add -net 192.0.0">
+<meta name="keywords" content="Mac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用VNC连接docker容器">
-<meta property="og:url" content="http://sparkydogX.github.io/2018/03/02/vncserver/index.html">
+<meta property="og:title" content="在Mac中使用两个网卡分别访问内&#x2F;外网">
+<meta property="og:url" content="http://sparkydogX.github.io/2019/07/26/mac-auto-choose-net/index.html">
 <meta property="og:site_name" content="SparkydogX Blog">
-<meta property="og:description" content="vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。 服务端vncserver部署在服务器中的docker容器内。 Docker容器端口映射通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：-p 2222:2222，建立容器22">
+<meta property="og:description" content="在使用Mac时，如果同时连接了有线网和无线网，那么系统会根据设置好的优先级，使用优先级更高的网络。优先级可以在网络设置中更改。有时内网无法访问外网，而我们又需要使用内网资源。这时可以同时用两块网卡分别连接内网和外网，并将外网所用的网卡设置成更高的优先级。 而后只需要修改路由规则。在命令行运行netstat -rt查看当前的规则。添加路由表语句：sudo route add -net 192.0.0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-02T09:47:12.391Z">
+<meta property="og:updated_time" content="2019-07-26T05:37:26.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用VNC连接docker容器">
-<meta name="twitter:description" content="vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。 服务端vncserver部署在服务器中的docker容器内。 Docker容器端口映射通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：-p 2222:2222，建立容器22">
+<meta name="twitter:title" content="在Mac中使用两个网卡分别访问内&#x2F;外网">
+<meta name="twitter:description" content="在使用Mac时，如果同时连接了有线网和无线网，那么系统会根据设置好的优先级，使用优先级更高的网络。优先级可以在网络设置中更改。有时内网无法访问外网，而我们又需要使用内网资源。这时可以同时用两块网卡分别连接内网和外网，并将外网所用的网卡设置成更高的优先级。 而后只需要修改路由规则。在命令行运行netstat -rt查看当前的规则。添加路由表语句：sudo route add -net 192.0.0">
 
 
 
 
 
 
-  <link rel="canonical" href="http://sparkydogX.github.io/2018/03/02/vncserver/">
+  <link rel="canonical" href="http://sparkydogX.github.io/2019/07/26/mac-auto-choose-net/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>使用VNC连接docker容器 | SparkydogX Blog</title>
+  <title>在Mac中使用两个网卡分别访问内/外网 | SparkydogX Blog</title>
   
 
 
@@ -337,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/03/02/vncserver/">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2019/07/26/mac-auto-choose-net/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sparkydogX">
@@ -354,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用VNC连接docker容器
+          <h1 class="post-title" itemprop="name headline">在Mac中使用两个网卡分别访问内/外网
 
               
             
@@ -380,7 +380,7 @@
                 
               
 
-              <time title="创建时间：2018-03-02 16:57:24 / 修改时间：17:47:12" itemprop="dateCreated datePublished" datetime="2018-03-02T16:57:24+08:00">2018-03-02</time>
+              <time title="创建时间：2019-07-26 13:26:29 / 修改时间：13:37:26" itemprop="dateCreated datePublished" datetime="2019-07-26T13:26:29+08:00">2019-07-26</time>
             
 
             
@@ -419,27 +419,8 @@
       
 
       
-        <p>vnc是一个远程桌面的工具，可以用来对远程服务器进行图形界面操作。下面介绍如何使用vnc连接到docker容器中。</p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>vncserver部署在服务器中的docker容器内。</p>
-<h2 id="Docker容器端口映射"><a href="#Docker容器端口映射" class="headerlink" title="Docker容器端口映射"></a>Docker容器端口映射</h2><p>通常情况下，除非在建立docker容器时指定，否则无法访问到容器内的端口。因此第一步是在建立docker容器是指定服务器与docker容器之间的端口映射。例如：<code>-p 2222:2222</code>，建立容器2222端口与服务器2222端口之间的连接。<br>如果已经有配置好的docker容器，可以使用<code>docker commit</code>指令commit当前的docker容器，然后以commit的镜像为image重新创建一个docker容器，创建时指定端口。<br>如果有需求，还可以在创建时使用<code>--shm-size=128m</code>指令指定 /dev/shm 的大小。如果不手动指定，docker默认分配64M。</p>
-<h2 id="修改镜像源"><a href="#修改镜像源" class="headerlink" title="修改镜像源"></a>修改镜像源</h2><p>工欲善其事必先利其器。这是为下一步安装图形桌面做准备。由于图形桌面的软件包较大，需要使用一个靠谱的国内镜像源。以作者的环境为例，Ubuntu 14.04，使用上海交通大学的镜像源：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/apt/sources.list</span><br><span class="line">$ :%s/archive.ubuntu.com/ftp.sjtu.edu.cn/g</span><br><span class="line">$ sudo rm /var/lib/apt/lists/* -vf</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装x11"><a href="#安装x11" class="headerlink" title="安装x11"></a>安装x11</h2><p>x11是一个用于远程图形界面的程序，若只安装x11，也可以通过ssh -x连接后显示图形程序。<br><code>sudo apt-get install xorg openbox</code></p>
-<h2 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h2><p>可以任意选择一下一种：</p>
-<h3 id="Unity"><a href="#Unity" class="headerlink" title="Unity :"></a>Unity :</h3><p><code>sudo apt-get install ubuntu-desktop</code></p>
-<h3 id="Xfce"><a href="#Xfce" class="headerlink" title="Xfce:"></a>Xfce:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install xfce4</span><br><span class="line">$ sudo apt-get install xubuntu-desktop</span><br><span class="line">$ xfce4-session</span><br></pre></td></tr></table></figure>
-<h2 id="安装vncserver"><a href="#安装vncserver" class="headerlink" title="安装vncserver"></a>安装vncserver</h2><p><code>sudo apt-get install vnc4server</code></p>
-<p>启动vncserver:<code>vncserver</code>，首次启动需要设置密码。</p>
-<h2 id="设置vnc端口"><a href="#设置vnc端口" class="headerlink" title="设置vnc端口"></a>设置vnc端口</h2><p><code>vim /usr/bin/vncserver</code><br>在这个文件中找到vncPort一行，可以看到<code>$vncPort = 5900 + $displayNumber;</code><br>将5900修改为需要的端口号，之后我想把displayNumber设置为1，因此这里改为：<br><code>$vncPort = 2332 + $displayNumber;</code><br>用<code>vncserver :1</code>命令启动vncserver后，查看log文件可以看到启用的是2333端口。</p>
-<h2 id="安装其他包"><a href="#安装其他包" class="headerlink" title="安装其他包"></a>安装其他包</h2><p><code>sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</code></p>
-<h2 id="修改xtartup文件"><a href="#修改xtartup文件" class="headerlink" title="修改xtartup文件"></a>修改xtartup文件</h2><p>文件位置：<code>~/.vnc/xstartup</code></p>
-<h3 id="Unity-1"><a href="#Unity-1" class="headerlink" title="Unity"></a>Unity</h3><p>将其修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span></span><br><span class="line"><span class="comment">#[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="comment">#xsetroot -solid grey</span></span><br><span class="line"><span class="comment">#vncconfig -iconic &amp;</span></span><br><span class="line"><span class="comment">#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;</span></span><br><span class="line"><span class="comment">#x-window-manager &amp;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">gnome-session &amp;</span><br><span class="line">gnome-panel &amp;</span><br><span class="line">gnome-settings-daemon &amp;</span><br><span class="line">metacity &amp;</span><br><span class="line">nautilus &amp;</span><br><span class="line">gnome-terminal &amp;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://gist.github.com/Musinux/8e6c4752ed3c143d49764311a504c1e9" target="_blank" rel="noopener">参考来源</a></p>
-<h3 id="Xfce-1"><a href="#Xfce-1" class="headerlink" title="Xfce"></a>Xfce</h3><p><code>sed -i &#39;s$x-window-manager$xfce4-session$&#39; ~/.vnc/xstartup</code></p>
-<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><ol>
-<li>关闭vncserver：<code>vncserver -kill :1</code></li>
-<li>设置分辨率并重启：<code>vncserver -geometry 1366x768 :1</code></li>
-</ol>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>客户端我使用<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，也可自由选择其他软件。<br>这一步比较简单，只需输入ip，指定端口号，正确填写之前设定的vnc密码，即可连接</p>
+        <p>在使用Mac时，如果同时连接了有线网和无线网，那么系统会根据设置好的优先级，使用优先级更高的网络。<br>优先级可以在网络设置中更改。<br>有时内网无法访问外网，而我们又需要使用内网资源。这时可以同时用两块网卡分别连接内网和外网，并将外网所用的网卡设置成更高的优先级。</p>
+<p>而后只需要修改路由规则。<br>在命令行运行<code>netstat -rt</code>查看当前的规则。<br>添加路由表语句：<code>sudo route add -net 192.0.0.0 -netmask 255.0.0.0 192.168.31.1</code>。<br>以上语句的作用时设置192开头的访问都从192.168.31.1网关走。其余访问从默认的网卡走。</p>
 
       
     </div>
@@ -453,14 +434,21 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/08/20/docker-save-and-load/" rel="bookmark">Docker容器的保存与加载</a></div>
+      <div class="popular-posts-title"><a href="/2017/10/15/LanInMac/" rel="bookmark">在Mac上使用有线网络并打开Wi-Fi热点</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/2018/12/11/elabfw/" rel="bookmark">在PC和服务器上部署elabfw</a></div>
+      <div class="popular-posts-title"><a href="/2017/09/21/refresh-Finder/" rel="bookmark">如何刷新Finder</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/2017/09/21/switch-mouse/" rel="bookmark">在多个屏幕之间快速切换鼠标（Mac）</a></div>
       
     </li>
   
@@ -486,9 +474,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
-          
-            <a href="/tags/vnc/" rel="tag"># vnc</a>
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
           
         </div>
       
@@ -501,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/01/tmux/" rel="next" title="使用tmux保持远程ssh连接">
-                <i class="fa fa-chevron-left"></i> 使用tmux保持远程ssh连接
+              <a href="/2019/07/17/vba-notes/" rel="next" title="VBA操作Excel笔记">
+                <i class="fa fa-chevron-left"></i> VBA操作Excel笔记
               </a>
             
           </div>
@@ -510,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/03/using-visdom/" rel="prev" title="使用Visdom">
-                使用Visdom <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,17 +543,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -925,23 +898,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker容器端口映射"><span class="nav-number">1.1.</span> <span class="nav-text">Docker容器端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改镜像源"><span class="nav-number">1.2.</span> <span class="nav-text">修改镜像源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装x11"><span class="nav-number">1.3.</span> <span class="nav-text">安装x11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装桌面环境"><span class="nav-number">1.4.</span> <span class="nav-text">安装桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity"><span class="nav-number">1.4.1.</span> <span class="nav-text">Unity :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xfce"><span class="nav-number">1.4.2.</span> <span class="nav-text">Xfce:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vncserver"><span class="nav-number">1.5.</span> <span class="nav-text">安装vncserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置vnc端口"><span class="nav-number">1.6.</span> <span class="nav-text">设置vnc端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装其他包"><span class="nav-number">1.7.</span> <span class="nav-text">安装其他包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改xtartup文件"><span class="nav-number">1.8.</span> <span class="nav-text">修改xtartup文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unity-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">Unity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xfce-1"><span class="nav-number">1.8.2.</span> <span class="nav-text">Xfce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置分辨率"><span class="nav-number">1.9.</span> <span class="nav-text">设置分辨率</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
