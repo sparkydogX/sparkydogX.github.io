@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python中将标准输出重定向到NULL]]></title>
+    <url>%2F2019%2F08%2F15%2Fpython-supress-std-output%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627import osprint("will run")# open 2 fdsnull_fds = [os.open(os.devnull, os.O_RDWR) for x in range(2)]# save the current file descriptors to a tuplesave = os.dup(1), os.dup(2)# put /dev/null fds on 1 and 2os.dup2(null_fds[0], 1)os.dup2(null_fds[1], 2)# *** run the function ***print("print inside")# restore file descriptors so I can print the resultsos.dup2(save[0], 1)os.dup2(save[1], 2)# close the temporary fdsos.close(null_fds[0])os.close(null_fds[1])print("done!")``` 运行后输出的结果为: will rundone!` 而&quot;print inside&quot;未输出。]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>stdout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sqlite学习笔记]]></title>
+    <url>%2F2019%2F08%2F15%2Fsqlite-notes%2F</url>
+    <content type="text"><![CDATA[本文以Ubuntu中的sqlite为例 安装sqlitesudo apt-get install sqlite 创建数据库sqlite3 testDB.db 创建表1234567sqlite&gt; CREATE TABLE COMPANY( ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, AGE INT NOT NULL, ADDRESS CHAR(50), SALARY REAL); 查看数据库中已有的表sqlite&gt;.tables 查看表的结构SELECT * FROM COMPANY; 删除表DROP TABLE COMPANY; 创建记录1234567891011121314151617INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (1, 'Paul', 32, 'California', 20000.00 );INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (2, 'Allen', 25, 'Texas', 15000.00 );INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (5, 'David', 27, 'Texas', 85000.00 );INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)VALUES (6, 'Kim', 22, 'South-Hall', 45000.00 ); 或者INSERT INTO COMPANY VALUES (7, &#39;James&#39;, 24, &#39;Houston&#39;, 10000.00 ); 显示表sqlite&gt; SELECT * FROM COMPANY; 优化显示格式12sqlite&gt;.header yessqlite&gt;.mode column 选择不展示重复结果SELECT DISTINCT ADDRESS FROM COMPANY; 选择前几行数据SELECT * FROM COMPANY LIMIT 10SELECT * FROM COMPANY LIMIT 1, 5 – 输出2-6行 排序输出SELECT * FROM COMPANY ORDER BY AGE; 多列的排序SELECT * FROM COMPANY ORDER BY AGE,SALARY; 降序排序SELECT * FROM COMPANY ORDER BY AGE DESC, SALARY; 使用WHERE指定搜索条件SELECT * FROM COMPANY WHERE AGE=25;SELECT * FROM COMPANY WHERE AGE&gt;25;SELECT * FROM COMPANY WHERE AGE BETWEEN 20 AND 30;SELECT * FROM COMPANY WHERE AGE &gt;25 AND SALARY&gt;30000;SELECT * FROM COMPANY WHERE AGE IN (25,32); 使用通配符进行过滤SELECT * FROM COMPANY WHERE NAME LIKE (&#39;Paul%&#39;); – 以Paul开头的SELECT * FROM COMPANY WHERE NAME LIKE (&#39;%a%&#39;); – 包含a的SELECT * FROM COMPANY WHERE NAME LIKE (&#39;Pa_l&#39;); – _匹配单个字符 拼接字段SELECT NAME || &#39;(&#39; || ADDRESS || &#39;)&#39; AS ALAS FROM COMPANY ORDER BY NAME; – 别名alas 分组数据SELECT ADDRESS, COUNT(*) AS num_address FROM COMPANY GROUP BY ADDRESS;SELECT AGE, COUNT(*) AS NUM_AGE FROM COMPANY GROUP BY AGE HAVING NUM_AGE&gt;=2; – HAVING 用于过滤分组 子查询SELECT ID,NAME,ADDRESS FROM COMPANY WHERE ID IN (SELECT ID FROM DEPARTMENT WHERE DEPT=&#39;IT&#39;); – 子查询语句总是由内向外执行，并只能查单列 SELECT ID,NAME,(SELECT COUNT(*) FROM DEPARTMENT WHERE(COMPANY.ID=DEPARTMENT.ID)) AS NUMS FROM COMPANY; 联结表SELECT NAME,ADDRESS FROM COMPANY,DEPARTMENT WHERE(COMPANY.ID=DEPARTMENT.ID); – WHERE 用于联结 更新数据 UPDATE DEPARTMENT SET DEPT=&#39;XX&#39; WHERE ID=2;]]></content>
+      <tags>
+        <tag>sql</tag>
+        <tag>sqlite</tag>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在Mac中使用两个网卡分别访问内/外网]]></title>
     <url>%2F2019%2F07%2F26%2Fmac-auto-choose-net%2F</url>
     <content type="text"><![CDATA[在使用Mac时，如果同时连接了有线网和无线网，那么系统会根据设置好的优先级，使用优先级更高的网络。优先级可以在网络设置中更改。有时内网无法访问外网，而我们又需要使用内网资源。这时可以同时用两块网卡分别连接内网和外网，并将外网所用的网卡设置成更高的优先级。 而后只需要修改路由规则。在命令行运行netstat -rt查看当前的规则。添加路由表语句：sudo route add -net 192.0.0.0 -netmask 255.0.0.0 192.168.31.1。以上语句的作用时设置192开头的访问都从192.168.31.1网关走。其余访问从默认的网卡走。]]></content>
@@ -13,8 +32,8 @@
     <url>%2F2019%2F07%2F17%2Fvba-notes%2F</url>
     <content type="text"><![CDATA[修改单元格Application.Workbooks(1).Worksheets(1).Cells(1,1) = 100 每次修改数据后不要更新显示，可提高运行速度12Application.ScreenUpdating = FalseApplication.ScreenUpdating = True 打开一个新的workbookWorkbooks.Add expression.Evaluate()类似于python的eval 使用Worksheet Function找范围内最小值 VBA中给对象赋值时用Set，且不能省略 12Set myRange = Worksheets(1).Range(“A1:C10&quot;)answer = Application.WorksheetFunction.Min(myRange) 遍历worksheet1234567891011Private Sub ListSheets() Dim sh As Worksheet Dim rng As Range Dim i As Integer For Each sh In ThisWorkbook.Sheets Set rng = sh.Range(&quot;A5&quot;) rng.Offset(i, 0).Value = sh.Name i = i + 1 Next shEnd Sub 在已有工作表最右侧插入新的工作表Set sh = ThisWorkbook.Sheets.Add(After:=Worksheets(Worksheets.Count)) Protect 和 Unprotect 方法设置保护工作表，效果等同于选择“工具 - 保护 -保护工作表” 删除工作表Worksheets(&quot;sheet1&quot;).Delete Range对象Range对象是具体操作的单元格对象 Cells方法Cells用来选择单元格123456789101112Sub SetUpTable() Dim i As Long Dim j As Long Worksheets(1).Activate For i = 1 To 5 Cells(1, i + 1).Value = 1990 + i Next i For j = 1 To 4 Cells(j + 1, 1).Value = &quot;Q&quot; &amp; j Next j Cells(32, 32) = 2End Sub Range对象也可以调用Cells方法，选择区域中相对位置的单元格。 删除指定列Worksheets(1).Columns(3).Delete 插入一列Worksheets(1).Columns(3).Insert 工作表的保护/解除保护ActiveSheet.Protect &quot;passwd&quot;ActiveSheet.Unprotect &quot;passwd&quot; 选中range中的相对位置单元格A.Cells(9, 1) 改变range内单元格背景色Range(&quot;F30&quot;).Interior.Color = RGB(255, 255, 255) 改变range内单元格内字体颜色Range(&quot;F30&quot;).Font.Color 设置range内单元格的数据验证1234567891011121314With A.Validation .Delete .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _ xlBetween, Formula1:=&quot;option1,option2,option3&quot; .IgnoreBlank = False .InCellDropdown = True .InputTitle = &quot;&quot; .ErrorTitle = &quot;&quot; .InputMessage = &quot;&quot; .ErrorMessage = &quot;&quot; .IMEMode = xlIMEModeNoControl .ShowInput = True .ShowError = TrueEnd With]]></content>
       <tags>
-        <tag>VBA</tag>
         <tag>notes</tag>
+        <tag>VBA</tag>
       </tags>
   </entry>
   <entry>
@@ -173,8 +192,8 @@
     <url>%2F2019%2F01%2F02%2Fpandas-dict%2F</url>
     <content type="text"><![CDATA[Pandas是一个相当流行的数据处理模块，常用的数据结构被称为DataFrame。DataFrame与Python内置的字典类型可以方便地相互转化。代码如下： 输出如下：12345678910111213Name Value0 string1 2.01 string2 1.02 string1 3.03 string2 3.04 string3 3.55 string1 4.06 string2 4.5&#123;'string1': 9.0, 'string2': 8.5, 'string3': 3.5&#125;Name Sum0 string1 9.01 string2 8.52 string3 3.5]]></content>
       <tags>
-        <tag>pandas</tag>
         <tag>dict</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -888,8 +907,8 @@
     <url>%2F2017%2F10%2F21%2Fextract-subset%2F</url>
     <content type="text"><![CDATA[在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：12345678910111213141516171819import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;f=open(labeljsonpath)label=json.load(f)subsetlist=os.listdir(imgpath)jsonTosave=&apos;/data2/guoyu/subset.json&apos;jFile=open(jsonTosave,&apos;w&apos;)ls=[]for x in range(len(subsetlist)): imgid=subsetlist[x][:-4] for lab in label: if lab[&quot;image_id&quot;]==imgid: di=&#123;&#125; di=lab ls.append(di)json.dump(ls,jFile)jFile.close()]]></content>
       <tags>
-        <tag>python</tag>
         <tag>json</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
