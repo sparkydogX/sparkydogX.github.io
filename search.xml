@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[通过github与git同步代码]]></title>
+    <url>%2F2019%2F11%2F17%2Fgit-sync-with-github%2F</url>
+    <content type="text"><![CDATA[首先在Github里创建一个repo，创建时按照默认设置即可。创建完成后会获得一个连接：https://github.com/xxx/xxxx.git 初次上传在本地的git项目中执行git remote add origin https://github.com/xxx/xxxx.gitgit push -u origin master pull到本地git pull push到服务器git push]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python中将标准输出重定向到NULL]]></title>
     <url>%2F2019%2F08%2F15%2Fpython-supress-std-output%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627import osprint("will run")# open 2 fdsnull_fds = [os.open(os.devnull, os.O_RDWR) for x in range(2)]# save the current file descriptors to a tuplesave = os.dup(1), os.dup(2)# put /dev/null fds on 1 and 2os.dup2(null_fds[0], 1)os.dup2(null_fds[1], 2)# *** run the function ***print("print inside")# restore file descriptors so I can print the resultsos.dup2(save[0], 1)os.dup2(save[1], 2)# close the temporary fdsos.close(null_fds[0])os.close(null_fds[1])print("done!")``` 运行后输出的结果为: will rundone!` 而&quot;print inside&quot;未输出。]]></content>
@@ -135,8 +144,8 @@
     <url>%2F2019%2F01%2F22%2Fcreate-ssh-terminial%2F</url>
     <content type="text"><![CDATA[在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。 免密登录服务器ssh-keygen创建一个新的密钥对将公钥复制到服务器ssh-copy-id user@my.server.com从现在起，服务器应该识别你的密钥，而不再要求输入密码。 编写脚本我的脚本如下：1234567#!/bin/bashcmd='watch -n 1 nvidia-smi' gnome-terminal \ --window -e "ssh node0 " \ --tab -e "ssh -t node0 $cmd" \ --tab -e "ssh -t node1" \ --tab -e "ssh -t node1 $cmd" \ 这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用`user@my.server.com`替代即可。这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。]]></content>
       <tags>
-        <tag>ubuntu</tag>
         <tag>ssh</tag>
+        <tag>ubuntu</tag>
         <tag>gnome-terminal</tag>
       </tags>
   </entry>
@@ -907,8 +916,8 @@
     <url>%2F2017%2F10%2F21%2Fextract-subset%2F</url>
     <content type="text"><![CDATA[在遇到大型数据库时，从中选取一个子集先行训练往往是一个比较好的选择。代码如下：12345678910111213141516171819import jsonimport osimgpath=&apos;/data2/guoyu/subset/&apos;labeljsonpath=&apos;/data2/guoyu/keypoint_validation_annotations_20170911.json&apos;f=open(labeljsonpath)label=json.load(f)subsetlist=os.listdir(imgpath)jsonTosave=&apos;/data2/guoyu/subset.json&apos;jFile=open(jsonTosave,&apos;w&apos;)ls=[]for x in range(len(subsetlist)): imgid=subsetlist[x][:-4] for lab in label: if lab[&quot;image_id&quot;]==imgid: di=&#123;&#125; di=lab ls.append(di)json.dump(ls,jFile)jFile.close()]]></content>
       <tags>
-        <tag>json</tag>
         <tag>python</tag>
+        <tag>json</tag>
       </tags>
   </entry>
   <entry>

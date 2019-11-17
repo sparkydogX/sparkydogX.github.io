@@ -333,6 +333,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/09/03/affine-with-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sparkydogX">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SparkydogX Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/03/affine-with-python/" class="post-title-link" itemprop="url">使用python对2D坐标点进行仿射变换</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-03 20:37:23 / 修改时间：20:47:24" itemprop="dateCreated datePublished" datetime="2018-09-03T20:37:23+08:00">2018-09-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              仿射变换是一种常用的变换。使用矩阵操作可以很方便的对2D点进行仿射变换，逆变换的时候只需要求解逆矩阵即可。如下图所示：
+Python代码示例：仅实现了常用的平移、旋转、翻折变换：
+
+
+              
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/03/affine-with-python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/08/31/pycharm-github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1717,161 +1873,6 @@ Main.pyimport numpy as npimport cv2import h5pyimport timeimport osfrom
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sparkydogX.github.io/2018/07/15/scoket-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sparkydogX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SparkydogX Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/15/scoket-python/" class="post-title-link" itemprop="url">在python中进行socket通信</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-15 19:46:56 / 修改时间：20:34:45" itemprop="dateCreated datePublished" datetime="2018-07-15T19:46:56+08:00">2018-07-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              socket是计算机通信中常常使用到的一种通信技术。本文介绍如何在python中使用这一方法在多个进程之间进行通信。
-Client作为客户端，只需要知道服务器的地址与端口，发送请求，接收数据即可，并不需要非常复杂的操作。
-示例1以访问新浪微博的主页为例：# 导入socket库:import sock
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/15/scoket-python/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1920,7 +1921,7 @@ Client作为客户端，只需要知道服务器的地址与端口，发送请�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">135</span>
+                    <span class="site-state-item-count">136</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
