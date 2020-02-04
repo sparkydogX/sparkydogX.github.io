@@ -144,8 +144,8 @@
     <url>%2F2019%2F01%2F22%2Fcreate-ssh-terminial%2F</url>
     <content type="text"><![CDATA[在日常工作中，我尝尝需要使用ssh连接很多个服务器。而最经常连接的也就那么几个，一个一个手动输入指令实在麻烦，因此写了一个脚本来自动化地执行这些指令。 免密登录服务器ssh-keygen创建一个新的密钥对将公钥复制到服务器ssh-copy-id user@my.server.com从现在起，服务器应该识别你的密钥，而不再要求输入密码。 编写脚本我的脚本如下：1234567#!/bin/bashcmd='watch -n 1 nvidia-smi' gnome-terminal \ --window -e "ssh node0 " \ --tab -e "ssh -t node0 $cmd" \ --tab -e "ssh -t node1" \ --tab -e "ssh -t node1 $cmd" \ 这里的node0是我在ssh的设置里面设置的别名，如果没有别名，使用`user@my.server.com`替代即可。这样就可以新建一个terminal window，并且在其中打开4个tab，分别连接到node0和node1，每个node有2个tab，一个用于操作，一个用于实时查看服务器GPU使用情况。]]></content>
       <tags>
-        <tag>ssh</tag>
         <tag>ubuntu</tag>
+        <tag>ssh</tag>
         <tag>gnome-terminal</tag>
       </tags>
   </entry>
@@ -1017,8 +1017,8 @@
     <url>%2F2017%2F09%2F30%2Fhowto-handle-json-in-matlab%2F</url>
     <content type="text"><![CDATA[本文使用JSONLab工具读取json文件。 git clonegit clone https://github.com/fangq/jsonlab.git 加入路径打开Matlab，输入addpath(&#39;Path/to/jsonlab&#39;) 测试是否可以使用help loadjson]]></content>
       <tags>
-        <tag>json</tag>
         <tag>Matlab</tag>
+        <tag>json</tag>
       </tags>
   </entry>
   <entry>
